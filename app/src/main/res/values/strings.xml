@@ -10,7 +10,7 @@
     <string name="letsgo">Let\'s go!</string>
     <string name="tutorial_welcome_to_osm">Welcome to OpenStreetMap</string>
     <string name="tutorial_welcome_to_osm_subtitle">the free wiki world map</string>
-    <string name="tutorial_intro">StreetComplete makes it easy to contribute to OpenStreetMap.\nIt automatically looks for missing details in your vicinity: bicycle lanes, house numbers, opening hours and much more…</string>
+    <string name="tutorial_intro">CompleteStreet makes it easy to contribute to OpenStreetMap.\nIt automatically looks for missing details in your vicinity: bicycle lanes, house numbers, opening hours and much more…</string>
     <string name="tutorial_solving_quests">Once found, the missing details will appear on your map as quests.\n\nYou can start solving them right away and later login to publish your answers.</string>
     <string name="tutorial_stay_safe">Whenever you are uncertain, you can always reply \"Can\'t Say\" and leave a note.\n\nFinally, remember to stay safe: Be aware of your surroundings and don\'t enter private property.</string>
     <string name="tutorial_happy_mapping">Happy Mapping!</string>
@@ -107,7 +107,7 @@
     <string name="offline">"You are offline"</string>
     <string name="confirmation_authorize_now">"You need to authorize with your OSM user account to publish your answers. Authorize now?"</string>
     <string name="not_authorized">"Not authorized"</string>
-    <string name="version_banned_message">"This version of StreetComplete is too old. Please update!"</string>
+    <string name="version_banned_message">"This version of CompleteStreet is too old. Please update!"</string>
     <string name="no_gps_no_quests">"To scan for quests around you automatically, turn on location"</string>
     <string name="later">"Later"</string>
     <string name="quest_streetName_answer_noName_question">"Why does it have no name?"</string>
@@ -262,7 +262,7 @@ If any lanes are reserved for buses, please leave a note instead."</string>
     <string name="quest_oneway2_no_oneway">"Not a oneway"</string>
     <string name="quest_address_title">"What is the house number of this building?"</string>
     <string name="store_listing_short_description">"OpenStreetMap surveyor app"</string>
-    <string name="store_listing_full_description">"Help to improve the OpenStreetMap with StreetComplete!
+    <string name="store_listing_full_description">"Help to improve the OpenStreetMap with CompleteStreet!
 
 This app finds incomplete and extendable data in your vicinity and displays it on a map as markers. Each of those is solvable by answering a simple question to complete the info on site.
 
@@ -272,7 +272,7 @@ The info you enter is then directly added to the OpenStreetMap in your name, wit
     <string name="quest_name_noName_confirmation_positive">"Yes, no name"</string>
     <string name="quest_openingHours_add_times">"Add opening hours"</string>
     <string name="crash_message">"Would you please send the error report to the developer?"</string>
-    <string name="crash_title">"Oh no, StreetComplete crashed last time!"</string>
+    <string name="crash_title">"Oh no, CompleteStreet crashed last time!"</string>
     <string name="crash_compose_email">"Compose email"</string>
     <string name="no_email_client">"You have no email client installed."</string>
     <string name="pref_title_keep_screen_on">"Keep screen on"</string>

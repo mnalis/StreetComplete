@@ -11,7 +11,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
     override val elementFilter = """
         ways with (
           highway ~ ${ROADS_WITH_SURFACES.joinToString("|")}
-          or highway = service and service !~ driveway|slipway
+          or highway = service
         )
         and (
           !surface
@@ -23,7 +23,6 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
             and !note:surface
           )
         )
-        and (access !~ private|no or (foot and foot !~ private|no))
     """
     override val commitMessage = "Add road surface info"
     override val wikiLink = "Key:surface"
@@ -61,9 +60,8 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
         // well, all roads have surfaces, what I mean is that not all ways with highway key are
         // "something with a surface"
         private val ROADS_WITH_SURFACES = arrayOf(
-            // "trunk","trunk_link","motorway","motorway_link", // too much, motorways are almost by definition asphalt (or concrete)
-            "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
+            "trunk","trunk_link","motorway","motorway_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
             "unclassified", "residential", "living_street", "pedestrian", "track", "road"
-        )/*"service", */// this is too much, and the information value is very low
+        )
     }
 }

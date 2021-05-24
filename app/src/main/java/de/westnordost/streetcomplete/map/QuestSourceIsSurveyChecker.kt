@@ -86,7 +86,7 @@ class QuestSourceIsSurveyChecker @Inject constructor() {
         private const val MAX_DISTANCE_TO_ELEMENT_FOR_SURVEY = 80f //m
 
         // "static" values persisted per application start
-        private var dontShowAgain = false
+        private var dontShowAgain = true
         private var timesShown = 0
     }
 }

@@ -21,11 +21,7 @@ class AddWayLit : OsmFilterQuestType<WayLit>() {
           (
             (
               highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
-              or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")} and
-              (
-                sidewalk ~ both|left|right|yes|separate
-                or ~${(MAXSPEED_TYPE_KEYS + "maxspeed").joinToString("|")} ~ .*urban|.*zone.*
-              )
+              or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")}
               or highway ~ ${LIT_WAYS.joinToString("|")}
               or highway = path and (foot = designated or bicycle = designated)
             )
@@ -34,7 +30,6 @@ class AddWayLit : OsmFilterQuestType<WayLit>() {
           or highway and lit = no and lit older today -8 years
           or highway and lit older today -16 years
         )
-        and (access !~ private|no or (foot and foot !~ private|no))
         and indoor != yes
     """
 

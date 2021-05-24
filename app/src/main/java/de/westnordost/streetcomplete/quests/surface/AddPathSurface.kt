@@ -11,7 +11,6 @@ class AddPathSurface : OsmFilterQuestType<SurfaceAnswer>() {
     override val elementFilter = """
         ways with highway ~ path|footway|cycleway|bridleway|steps
         and segregated != yes
-        and access !~ private|no
         and (!conveying or conveying = no)
         and (!indoor or indoor = no)
         and (

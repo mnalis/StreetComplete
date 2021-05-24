@@ -5,34 +5,34 @@ import:
     - layers/roads.yaml
 
 global:
-    text_stroke_color: '#2e2e48'
-    text_fill_color: '#ccf'
-    text_water_color: '#ccf'
+    text_stroke_color: '#2e2e2e'
+    text_fill_color: '#ccc'
+    text_water_color: '#ccc'
 
-    railway_color: '#903'
-    road_color: '#559'
-    road_outline_color: '#99f'
-    highway_color: '#033'
+    railway_color: '#900'
+    road_color: '#444'
+    road_outline_color: '#777'
+    highway_color: '#330'
     highway_outline_color: '#000'
     path_color: global.road_color
-    path_outline_color: '#547'
+    path_outline_color: '#555'
     square_color: global.road_color
 
-    earth_color: '#2e2e48'
-    water_color: '#002'
-    green_color: '#363054'
-    forest_color: '#403962'
-    town_color: '#3d364e'
+    earth_color: '#1e1e1e'
+    water_color: '#000'
+    green_color: '#465d2a'
+    forest_color: '#284814'
+    town_color: '#2d2d2d'
 
-    building_color: [0.16, 0.36, 0.36, 0.75]
-    building_outline_color: [0.12, 0.32, 0.32, 0.75]
+    building_color: [0.56, 0.18, 0.18, 0.75]
+    building_outline_color: [0.64, 0.24, 0.24, 0.75]
 
     boundary_color: '#e72'
 
     oneway_arrow_color: '#ccf'
     barrier_color: '#99f'
 
-    tunnel_color: [0.3, 0.2, 1.0, 0.2]
+    tunnel_color: [1.0, 0.2, 0.2, 0.2]
 
 styles:
     lines-highway-style:

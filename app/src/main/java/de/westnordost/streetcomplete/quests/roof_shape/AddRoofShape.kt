@@ -11,9 +11,9 @@ import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
 class AddRoofShape(private val countryInfos: CountryInfos) : OsmElementQuestType<RoofShape> {
 
     private val filter by lazy { """
-        ways, relations with (building:levels or roof:levels)
+        ways, relations with building
           and !roof:shape and !3dr:type and !3dr:roof
-          and building and building!=no and building!=construction
+          and building!=no and building!=construction
     """.toElementFilterExpression() }
 
     override val commitMessage = "Add roof shapes"
