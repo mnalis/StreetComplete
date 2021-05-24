@@ -10,6 +10,7 @@ CompleteStreet is a fork of StreetComplete aiming to unrestrict some quests (suc
 - Ask for roof shape of all buildings
 - Ask for whether way is lit for more elements 
 - Ask for tactile paving on all PT platforms
+- Allow setting lane count without setting the lane_markings tag (makeshift solution, will probably be superseeded by Mateusz Konieczny's implementation
 
 # Original README
 

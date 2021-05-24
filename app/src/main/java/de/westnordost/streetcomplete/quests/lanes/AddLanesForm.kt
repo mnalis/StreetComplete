@@ -120,19 +120,19 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
     private fun setSelectLanesTypeLayout() {
         val view = setContentView(R.layout.quest_lanes_select_type)
 
-        val unmarkedLanesButton = view.unmarkedLanesButton
+        //val unmarkedLanesButton = view.unmarkedLanesButton
 
-        unmarkedLanesButton.isSelected = selectedLanesType == UNMARKED
+        //unmarkedLanesButton.isSelected = selectedLanesType == UNMARKED
 
-        unmarkedLanesButton.setOnClickListener {
-            val wasSelected = unmarkedLanesButton.isSelected
-            unmarkedLanesButton.isSelected = !wasSelected
-            selectedLanesType = if (wasSelected) null else UNMARKED
-            checkIsFormComplete()
-        }
+        //unmarkedLanesButton.setOnClickListener {
+        //    val wasSelected = unmarkedLanesButton.isSelected
+        //    unmarkedLanesButton.isSelected = !wasSelected
+        //    selectedLanesType = if (wasSelected) null else UNMARKED
+        //    checkIsFormComplete()
+        //}
         view.markedLanesButton.setOnClickListener {
             selectedLanesType = MARKED
-            unmarkedLanesButton.isSelected = false
+            //unmarkedLanesButton.isSelected = false
             checkIsFormComplete()
             askLanesAndSwitchToStreetSideLayout()
         }
@@ -140,9 +140,10 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
 
         view.markedLanesOddButton.setOnClickListener {
             selectedLanesType = MARKED_SIDES
-            unmarkedLanesButton.isSelected = false
+            //unmarkedLanesButton.isSelected = false
             setStreetSideLayout()
         }
+
     }
 
     private fun askLanesAndSwitchToStreetSideLayout() {

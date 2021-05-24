@@ -11,10 +11,6 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
         ways with
           (
             highway ~ ${ROADS_WITH_LANES.joinToString("|")}
-            or highway = residential and (
-              maxspeed > 30
-              or (maxspeed ~ ".*mph" and maxspeed !~ "([1-9]|1[0-9]|20) mph")
-            )
           )
           and surface ~ ${ANYTHING_PAVED.joinToString("|")}
           and (!lanes or lanes = 0)
@@ -38,11 +34,11 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
         val isMarked = answer !is UnmarkedLanes
         // if there is just one lane, the information whether it is marked or not is irrelevant
         // (if there are no more than one lane, there are no markings to separate them)
-        when {
-            laneCount == 1 -> changes.deleteIfExists("lane_markings")
-            isMarked ->       changes.modifyIfExists("lane_markings", "yes")
-            else ->           changes.addOrModify("lane_markings", "no")
-        }
+        //when {
+        //    laneCount == 1 -> changes.deleteIfExists("lane_markings")
+        //    isMarked ->       changes.modifyIfExists("lane_markings", "yes")
+        //    else ->           changes.addOrModify("lane_markings", "no")
+        //}
 
         val hasCenterLeftTurnLane = answer is MarkedLanesSides && answer.centerLeftTurnLane
         if (hasCenterLeftTurnLane) {
@@ -78,7 +74,7 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
         private val ROADS_WITH_LANES = listOf(
             "motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link",
             "secondary", "secondary_link", "tertiary", "tertiary_link",
-            "unclassified"
+            "unclassified", "service", "residential", "track", "busway"
         )
     }
 }
