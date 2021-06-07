@@ -1,8 +1,9 @@
 name: Android build APK
 on:
-  pull_request:
+  push:
     branches:
-      - mnalis
+      - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
