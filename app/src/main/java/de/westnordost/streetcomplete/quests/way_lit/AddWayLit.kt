@@ -8,9 +8,10 @@ import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChanges
 
 class AddWayLit : OsmFilterQuestType<WayLit>() {
 
-    /* Using sidewalk as a tell-tale tag for (urban) streets which reached a certain level of
-       development. I.e. non-urban streets will usually not even be lit in industrialized
-       countries.
+    /* Using sidewalk, source:maxspeed=*urban etc and a urban-like maxspeed as tell-tale tags for
+       (urban) streets which reached a certain level of development. I.e. non-urban streets will
+       usually not even be lit in industrialized countries.
+
        Also, only include paths only for those which are equal to footway/cycleway to exclude
        most hike paths and trails.
 
@@ -18,6 +19,9 @@ class AddWayLit : OsmFilterQuestType<WayLit>() {
     override val elementFilter = """
         ways with
         (
+        highway
+          /*highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
+          or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")} and
           (
             (
               highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
@@ -27,8 +31,15 @@ class AddWayLit : OsmFilterQuestType<WayLit>() {
             )
             and !lit
           )
-          or highway and lit = no and lit older today -8 years
-          or highway and lit older today -16 years
+          or highway ~ ${LIT_WAYS.joinToString("|")}
+          or highway = path and (foot = designated or bicycle = designated)
+        */
+        )
+        and
+        (
+          !lit
+          or lit = no and lit older today -8 years
+          or lit older today -16 years
         )
         and indoor != yes
     """
