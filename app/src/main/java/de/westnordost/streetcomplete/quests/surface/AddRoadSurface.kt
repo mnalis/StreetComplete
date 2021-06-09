@@ -61,7 +61,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
         // "something with a surface"
         private val ROADS_WITH_SURFACES = arrayOf(
             "trunk","trunk_link","motorway","motorway_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
-            "unclassified", "residential", "living_street", "pedestrian", "track", "road"
+            "unclassified", "residential", "living_street", "pedestrian", "track", "road", "busway"
         )
     }
 }

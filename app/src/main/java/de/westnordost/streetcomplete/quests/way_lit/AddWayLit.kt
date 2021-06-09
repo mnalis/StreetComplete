@@ -20,20 +20,6 @@ class AddWayLit : OsmFilterQuestType<WayLit>() {
         ways with
         (
         highway
-          /*highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
-          or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")} and
-          (
-            (
-              highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
-              or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")}
-              or highway ~ ${LIT_WAYS.joinToString("|")}
-              or highway = path and (foot = designated or bicycle = designated)
-            )
-            and !lit
-          )
-          or highway ~ ${LIT_WAYS.joinToString("|")}
-          or highway = path and (foot = designated or bicycle = designated)
-        */
         )
         and
         (
