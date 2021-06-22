@@ -93,7 +93,7 @@ configurations {
 
 dependencies {
     val kotlinVersion = "1.4.10"
-    val mockitoVersion = "3.7.7"
+    val mockitoVersion = "3.11.2"
     val kotlinxVersion = "1.4.2"
     val daggerVersion = "2.31.2"
 
@@ -169,7 +169,7 @@ dependencies {
     implementation("com.esotericsoftware.yamlbeans:yamlbeans:1.15")
 
     // opening hours parser
-    implementation("ch.poole:OpeningHoursParser:0.23.0")
+    implementation("ch.poole:OpeningHoursParser:0.23.4")
 }
 
 /** Localizations that should be pulled from POEditor etc. */
