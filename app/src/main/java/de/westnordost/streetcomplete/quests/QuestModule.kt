@@ -27,6 +27,7 @@ import de.westnordost.streetcomplete.quests.bus_stop_shelter.AddBusStopShelter
 import de.westnordost.streetcomplete.quests.car_wash_type.AddCarWashType
 import de.westnordost.streetcomplete.quests.construction.MarkCompletedBuildingConstruction
 import de.westnordost.streetcomplete.quests.construction.MarkCompletedHighwayConstruction
+import de.westnordost.streetcomplete.quests.contact.*
 import de.westnordost.streetcomplete.quests.crossing_type.AddCrossingType
 import de.westnordost.streetcomplete.quests.crossing_island.AddCrossingIsland
 import de.westnordost.streetcomplete.quests.defibrillator.AddIsDefibrillatorIndoor
@@ -252,6 +253,18 @@ import javax.inject.Singleton
         AddBusStopLit(),
         AddBenchBackrest(),
         AddTrafficSignalsButton(),
-        AddPostboxRoyalCypher()
+        AddPostboxRoyalCypher(),
+        AddContactPhone(),
+        AddContactWebsite(),
+        ShowBikeParking(),
+        ShowBench(),
+        ShowBusiness(),
+        ShowOther(),
+        ShowTrafficStuff(),
+        ShowRecycling(),
+        ShowMachine(),
+        ShowVacant(),
+        ShowCamera(),
+        ShowFixme()
     ))
 }

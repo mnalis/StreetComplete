@@ -549,6 +549,8 @@ Otherwise, you can download another keyboard in the app store. Popular keyboards
     <string name="quest_religion_for_place_of_worship_title">What religion is practiced at this place?</string>
     <string name="quest_religion_christian">Christianity</string>
     <string name="quest_religion_muslim">Islam</string>
+    <string name="quest_contact_phone">"What is the phone number of %s?"</string>
+    <string name="quest_contact_website">"What is the website of %s?"</string>
     <string name="quest_religion_hindu">Hinduism</string>
     <string name="quest_religion_buddhist">Buddhism</string>
     <string name="quest_religion_shinto">Shinto</string>
