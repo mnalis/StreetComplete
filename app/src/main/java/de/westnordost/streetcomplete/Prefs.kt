@@ -29,6 +29,7 @@ object Prefs {
 
     // not shown anywhere directly
     const val QUEST_ORDER = "quests.order"
+    const val QUEST_PROFILE = "quests.profile"
     const val LAST_EDIT_TIME = "changesets.lastChangeTime"
     const val MAP_LATITUDE = "map.latitude"
     const val MAP_LONGITUDE = "map.longitude"

@@ -22,6 +22,25 @@ import javax.inject.Singleton
         return cache[questTypeName] ?: (questType.defaultDisabledMessage <= 0)
     }
 
+    fun copyFromProfile(profile: Int) {
+        synchronized(this) {
+            val visibleForProfile = db.getAll(profile)
+            visibleForProfile.forEach {
+                db.put(it.key, it.value)
+                cache[it.key] = it.value
+            }
+        }
+        reload()
+    }
+
+    fun reload() {
+        synchronized(this) {
+            cache.clear()
+            cache.putAll(db.getAll())
+        }
+        onQuestTypeVisibilitiesChanged()
+    }
+
     fun setVisible(questType: QuestType<*>, visible: Boolean) {
         synchronized(this) {
             val questTypeName = questType::class.simpleName!!

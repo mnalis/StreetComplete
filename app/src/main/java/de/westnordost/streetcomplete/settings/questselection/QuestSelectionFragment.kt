@@ -85,6 +85,21 @@ class QuestSelectionFragment : Fragment(R.layout.fragment_quest_selection),
                 onDeselectAll()
                 return true
             }
+            R.id.action_copy_from -> {
+                context?.let {
+                    val profiles = arrayOf("profile 1","profile 2","profile 3","profile 4","profile 5",)
+                    AlertDialog.Builder(it)
+                        .setTitle("Copy from which profile?")
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setSingleChoiceItems(profiles,-1) {
+                            dialogInterface, i ->
+                            copyFromProfile(i)
+                            dialogInterface.dismiss()
+                        }
+                        .show()
+                }
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -129,6 +144,14 @@ class QuestSelectionFragment : Fragment(R.layout.fragment_quest_selection),
 
     private fun initQuestSelectionAdapter() {
         questSelectionAdapter.list = createQuestTypeVisibilityList()
+    }
+
+    private fun copyFromProfile(sourceProfile: Int) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            visibleQuestTypeController.copyFromProfile(sourceProfile)
+            questTypeOrderList.copyFrom(sourceProfile)
+            withContext(Dispatchers.Main) { initQuestSelectionAdapter() }
+        }
     }
 
     private fun createQuestTypeVisibilityList(): MutableList<QuestVisibility> {

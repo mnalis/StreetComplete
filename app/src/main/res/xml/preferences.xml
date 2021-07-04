@@ -28,6 +28,16 @@
             android:widgetLayout="@layout/widget_image_next" />
 
         <ListPreference
+            android:key="quests.profile"
+            android:title="select profile"
+            android:summary="%s"
+            android:defaultValue="0"
+            android:entries="@array/pref_entries_profile_select"
+            android:entryValues="@array/pref_entryvalues_profile_select"
+            android:persistent="true"
+            />
+
+        <ListPreference
             android:key="quests.resurveyIntervals"
             android:title="@string/pref_title_resurvey_intervals"
             android:summary="%s"
