@@ -9,3 +9,7 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+
+## TODO
+* check https://github.com/Helium314/StreetComplete/tree/mods changes
+  See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
