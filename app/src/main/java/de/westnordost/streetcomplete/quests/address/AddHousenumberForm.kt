@@ -75,6 +75,7 @@ class AddHousenumberForm : AbstractQuestFormAnswerFragment<HousenumberAnswer>() 
     private fun switchToHouseName() {
         isHousename = true
         setLayout(R.layout.quest_housename)
+        houseNameInput?.requestFocus()
     }
 
     private fun showMultipleNumbersHint() {
@@ -105,7 +106,7 @@ class AddHousenumberForm : AbstractQuestFormAnswerFragment<HousenumberAnswer>() 
         AlertDialog.Builder(requireContext())
             .setView(inner)
             .setPositiveButton(R.string.quest_generic_hasFeature_yes) { _, _ -> applyAnswer(NoHouseNumber) }
-            .setNegativeButton(R.string.quest_generic_hasFeature_no_leave_note) { _, _ -> composeNote() }
+            .setNegativeButton(R.string.quest_generic_hasFeature_no) { _, _ -> applyAnswer(WrongBuildingType) }
             .show()
     }
 
