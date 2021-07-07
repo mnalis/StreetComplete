@@ -69,3 +69,6 @@ The <a href="https://osmfoundation.org/">OpenStreetMap foundation</a> was fundin
 
 <a href="https://github.com/sponsors/westnordost"><img src=".github/images/logo_github.png" width="60"/></a> <a href="https://liberapay.com/westnordost"><img src=".github/images/logo_liberapay.svg" width="60"/></a> <a href="https://www.patreon.com/westnordost"><img src=".github/images/logo_patreon.png" width="60"/></a><br/>
 Many people are currently supporting this app through <a href="https://github.com/sponsors/westnordost">GitHub sponsors</a>, <a href="https://liberapay.com/westnordost">Liberapay</a> and <a href="https://www.patreon.com/westnordost">Patreon</a>. If you like the app, you can join them ☺️
+
+## mnalis changes
+* See [CHANGES-mnalis.md](https://github.com/mnalis/StreetComplete/blob/mnalis/CHANGES-mnalis.md).
