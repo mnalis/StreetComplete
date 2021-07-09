@@ -103,7 +103,7 @@ class AboutFragment : PreferenceFragmentCompat() {
     }
 
     private fun sendFeedbackEmail(): Boolean {
-        sendEmail(requireActivity(),"osm@westnordost.de", "Feedback")
+        sendEmail(requireActivity(),"mnalis-streetcomplete@voyager.hr", "Feedback")
         return true
     }
 

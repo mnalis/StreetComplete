@@ -34,7 +34,7 @@ import javax.inject.Singleton
     @Provides @Singleton fun exceptionHandler(ctx: Context): CrashReportExceptionHandler =
         CrashReportExceptionHandler(
             ctx,
-            "osm@westnordost.de",
+            "mnalis-streetcomplete@voyager.hr",
             "crashreport.txt"
         )
 }
