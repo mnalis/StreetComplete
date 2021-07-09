@@ -54,7 +54,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>("repository")?.setOnPreferenceClickListener {
-            openUrl("https://github.com/streetcomplete/StreetComplete/")
+            openUrl("https://github.com/mnalis/StreetComplete/")
         }
 
         findPreference<Preference>("translate")?.summary = resources.getString(
@@ -67,7 +67,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>("report_error")?.setOnPreferenceClickListener {
-            openUrl("https://github.com/streetcomplete/StreetComplete/issues/")
+            openUrl("https://github.com/mnalis/StreetComplete/issues/")
         }
 
         findPreference<Preference>("email_feedback")?.setOnPreferenceClickListener {
@@ -103,7 +103,7 @@ class AboutFragment : PreferenceFragmentCompat() {
     }
 
     private fun sendFeedbackEmail(): Boolean {
-        sendEmail(requireActivity(),"osm@westnordost.de", "Feedback")
+        sendEmail(requireActivity(),"mnalis-streetcomplete@voyager.hr", "Feedback")
         return true
     }
 
