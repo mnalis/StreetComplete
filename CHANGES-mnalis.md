@@ -1,6 +1,6 @@
 ## Changes in mnalis branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis 
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
 * automatic gihub build Actions
