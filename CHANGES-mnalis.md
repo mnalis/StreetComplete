@@ -24,7 +24,9 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 
 ## TODO
 * check https://github.com/Helium314/StreetComplete/tree/mods changes
+
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
+
   Not included yet:
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
     * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
