@@ -34,3 +34,9 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
     * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
+
+* allow house address quest even if no building type ?
+  See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
+* add language selector (or force language to HR in this fork if it is much simpler)
+  See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
+* check https://github.com/matkoniecz/Zazolc ?
