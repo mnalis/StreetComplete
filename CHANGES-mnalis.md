@@ -1,4 +1,4 @@
-## Changes in mnalis-helium314 branch
+## Changes in mnalis-helium314-questorder branch
 
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis
 as modified from upstream https://github.com/streetcomplete/StreetComplete
@@ -12,6 +12,9 @@ From `mnalis` branch:
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+* includes https://github.com/streetcomplete/StreetComplete/tree/quest-order
+  modified default quest list and order from upstream `quest-order` branch.
+  Also included there is "find" functionality for quest from https://github.com/streetcomplete/StreetComplete/issues/3008
 
 Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods):
 * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde)
