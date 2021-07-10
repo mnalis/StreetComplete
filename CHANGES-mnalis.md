@@ -15,3 +15,8 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 ## TODO
 * check https://github.com/Helium314/StreetComplete/tree/mods changes
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
+* allow house address quest even if no building type ?
+  See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
+* add language selector (or force language to HR in this fork if it is much simpler)
+  See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
+* check https://github.com/matkoniecz/Zazolc ?
