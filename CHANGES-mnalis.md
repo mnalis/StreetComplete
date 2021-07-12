@@ -35,6 +35,10 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
 
+* get icon for phone quest from atrate branch?
+  to update `helium314` quest.
+  Maybe even check `atrate` code for such quest and merge/replace?
+
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
 * add language selector (or force language to HR in this fork if it is much simpler)
@@ -42,6 +46,17 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 * fix helium314 presets crashing on initial setup?
 * replace helium314 reverse quest order button with quick preset change button?
 * check https://github.com/matkoniecz/Zazolc ?
-* https://github.com/Atrate/CompleteStreet
-    * show more lit quests
-    * show more surface quests
+* make GitHub build signed version, so upgrade does not mean uninstalling and losing all preferences
+  https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
+  https://danielllewellyn.medium.com/flutter-github-actions-for-a-signed-apk-fcdf9878f660
+  https://github.com/actions/upload-release-asset
+  https://github.com/actions/create-release
+  https://github.com/ShaunLWM/action-release-debugapk
+  https://github.com/ad-m/github-push-action
+  https://github.com/r0adkll/sign-android-release
+  https://github.com/marketplace/actions/sign-android-release
+  https://github.com/marketplace/actions/android-sign
+  https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions
+  https://coletiv.com/blog/android-github-actions-setup/
+  https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
+  https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
