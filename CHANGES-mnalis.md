@@ -35,7 +35,5 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-* link to FAQ (make PR)
-  https://github.com/streetcomplete/StreetComplete/issues/2976
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
