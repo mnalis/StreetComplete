@@ -32,6 +32,10 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
 
+* get icon for phone quest from atrate branch?
+  to update `helium314` quest.
+  Maybe even check `atrate` code for such quest and merge/replace?
+
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
 * add language selector (or force language to HR in this fork if it is much simpler)
