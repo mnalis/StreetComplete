@@ -20,6 +20,8 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde)
 * add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
 * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
+* adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
+* move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
 
 
 ## TODO
@@ -31,12 +33,12 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
     * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
-    * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
-    * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
 
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
 * add language selector (or force language to HR in this fork if it is much simpler)
   See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
+* fix helium314 presets crashing on initial setup?
+* replace helium314 reverse quest order button with quick preset change button?
 * check https://github.com/matkoniecz/Zazolc ?
