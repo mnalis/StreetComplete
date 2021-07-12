@@ -33,3 +33,7 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://github.com/r0adkll/sign-android-release
   https://github.com/marketplace/actions/sign-android-release
   https://github.com/marketplace/actions/android-sign
+  https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions
+  https://coletiv.com/blog/android-github-actions-setup/
+  https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
+  https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
