@@ -39,3 +39,6 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 * fix helium314 presets crashing on initial setup?
 * replace helium314 reverse quest order button with quick preset change button?
 * check https://github.com/matkoniecz/Zazolc ?
+* https://github.com/Atrate/CompleteStreet
+    * show more lit quests
+    * show more surface quests
