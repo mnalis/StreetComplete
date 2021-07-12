@@ -42,3 +42,17 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 * https://github.com/Atrate/CompleteStreet
     * show more lit quests
     * show more surface quests
+* make GitHub build signed version, so upgrade does not mean uninstalling and losing all preferences
+  https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
+  https://danielllewellyn.medium.com/flutter-github-actions-for-a-signed-apk-fcdf9878f660
+  https://github.com/actions/upload-release-asset
+  https://github.com/actions/create-release
+  https://github.com/ShaunLWM/action-release-debugapk
+  https://github.com/ad-m/github-push-action
+  https://github.com/r0adkll/sign-android-release
+  https://github.com/marketplace/actions/sign-android-release
+  https://github.com/marketplace/actions/android-sign
+  https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions
+  https://coletiv.com/blog/android-github-actions-setup/
+  https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
+  https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
