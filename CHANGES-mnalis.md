@@ -20,9 +20,6 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 * add language selector (or force language to HR in this fork if it is much simpler)
   See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
 * check https://github.com/matkoniecz/Zazolc ?
-* https://github.com/Atrate/CompleteStreet
-    * show more lit quests
-    * show more surface quests
 * make GitHub build signed version, so upgrade does not mean uninstalling and losing all preferences
   https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
   https://danielllewellyn.medium.com/flutter-github-actions-for-a-signed-apk-fcdf9878f660
