@@ -39,3 +39,4 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * fix images in Notes
   can't save them in helim314 branch, probably due to path changes?
+* house type quest, allow caching Residental/Commercial too
