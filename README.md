@@ -11,6 +11,7 @@ CompleteStreet is a fork of StreetComplete aiming to unrestrict some quests (suc
 - Ask for whether way is lit for more elements 
 - Ask for tactile paving on all PT platforms
 - Allow setting lane count without setting the lane_markings tag (makeshift solution, will probably be superseeded by Mateusz Konieczny's implementation
+- Ask for bollard type of all bollards, not only ones on ways
 
 # Original README
 
