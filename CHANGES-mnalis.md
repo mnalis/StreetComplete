@@ -37,3 +37,4 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
+* house type quest, allow caching Residental/Commercial too
