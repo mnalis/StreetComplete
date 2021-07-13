@@ -11,14 +11,8 @@ class AddBollardType : OsmElementQuestType<BollardType> {
 
     private val bollardNodeFilter by lazy { """
         nodes with
-          barrier = bollard
-          and !bollard
-    """.toElementFilterExpression() }
-
-    private val waysFilter by lazy { """
-        ways with
-          highway and highway != construction
-          and area != yes
+            barrier = bollard
+            and !bollard
     """.toElementFilterExpression() }
 
     override val commitMessage = "Add bollard type"
@@ -32,7 +26,7 @@ class AddBollardType : OsmElementQuestType<BollardType> {
     override fun getApplicableElements(mapData: MapDataWithGeometry): Iterable<Element> {
         val wayNodeIds = mutableSetOf<Long>()
         mapData.ways
-            .filter { waysFilter.matches(it) }
+            .filter { it.tags["area"] != "yes" }
             .flatMapTo(wayNodeIds) { it.nodeIds }
 
         return mapData.nodes
