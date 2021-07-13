@@ -43,6 +43,7 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
 * fix helium314 presets crashing on initial setup?
 * replace helium314 reverse quest order button with quick preset change button?
 * check https://github.com/matkoniecz/Zazolc ?
+* check https://github.com/streetcomplete/StreetComplete/compare/master...pietervdvn:master ?
 * make GitHub build signed version, so upgrade does not mean uninstalling and losing all preferences
   https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
   https://danielllewellyn.medium.com/flutter-github-actions-for-a-signed-apk-fcdf9878f660
@@ -57,9 +58,8 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-* link to FAQ (make PR)
-  https://github.com/streetcomplete/StreetComplete/issues/2976
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * fix images in Notes
   can't save them in helim314 branch, probably due to path changes?
+* house type quest, allow caching Residental/Commercial too
