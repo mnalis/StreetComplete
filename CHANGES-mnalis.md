@@ -61,3 +61,5 @@ Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetC
   https://github.com/streetcomplete/StreetComplete/issues/2976
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
+* fix images in Notes
+  can't save them in helim314 branch, probably due to path changes?
