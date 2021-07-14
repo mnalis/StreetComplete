@@ -42,3 +42,5 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 * house type quest, allow caching Residental/Commercial too
 * Surface smoothness quest
   https://github.com/westnordost/StreetComplete/issues/1630
+* re-enable or manually hardcode quest ordering if it will be removed
+  https://github.com/streetcomplete/StreetComplete/issues/3034#issuecomment-879866839
