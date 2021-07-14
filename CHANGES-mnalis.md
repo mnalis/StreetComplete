@@ -38,3 +38,5 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * house type quest, allow caching Residental/Commercial too
+* Surface smoothness quest
+  https://github.com/westnordost/StreetComplete/issues/1630
