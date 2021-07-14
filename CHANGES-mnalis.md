@@ -1,4 +1,4 @@
-## Changes in mnalis-helium314-noprofiles branch
+## Changes in mnalis-westnordost-profiles-helium314 branch
 
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis
 as modified from upstream https://github.com/streetcomplete/StreetComplete
@@ -14,10 +14,13 @@ From `mnalis` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 
 Cherry-picked from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods):
-* add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
+* add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf), and fixes
 * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
 * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
 
+Also:
+* uses https://github.com/streetcomplete/StreetComplete/tree/quest-profiles branch
+  instead of westnordost `master` branch (hopefully soon it will become master) 
 
 ## TODO
 * check https://github.com/Helium314/StreetComplete/tree/mods changes
