@@ -24,22 +24,6 @@
         <item>MORE_OFTEN</item>
     </string-array>
 
-    <string-array name="pref_entries_profile_select" translatable="false">
-        <item>"profile 1"</item>
-        <item>"profile 2"</item>
-        <item>"profile 3"</item>
-        <item>"profile 4"</item>
-        <item>"profile 5"</item>
-    </string-array>
-
-    <string-array name="pref_entryvalues_profile_select" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <string-array name="pref_entries_theme_select" translatable="false">
         <item>@string/theme_automatic</item>
         <item>@string/theme_light</item>

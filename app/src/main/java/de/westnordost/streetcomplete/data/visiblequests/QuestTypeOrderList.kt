@@ -66,39 +66,13 @@ import javax.inject.Singleton
     }
 
     private fun load(): MutableList<MutableList<String>> {
-        val fullorder = prefs.getString(Prefs.QUEST_ORDER, null)?.split("+")
-        val order = fullorder?.getOrNull(prefs.getString(Prefs.QUEST_PROFILE,null)?.toIntOrNull() ?: 0)
+        val order = prefs.getString(Prefs.QUEST_ORDER, null)
         return order?.split(DELIM1)?.map { it.split(DELIM2).toMutableList() }?.toMutableList() ?: mutableListOf()
     }
 
     private fun save(lists: List<List<String>>) {
         val joined = lists.joinToString(DELIM1) { it.joinToString(DELIM2) }
-        val fullorder = prefs.getString(Prefs.QUEST_ORDER, null).orEmpty().split("+").toMutableList()
-        val index = prefs.getString(Prefs.QUEST_PROFILE,null)?.toIntOrNull() ?: 0
-        while (fullorder.size <= index) {
-            fullorder.add("")
-        }
-        fullorder[index] = joined
-        prefs.edit { putString(Prefs.QUEST_ORDER, fullorder.joinToString("+")) }
-    }
-
-    fun copyFrom(sourceProfile: Int) {
-        val fullorder = prefs.getString(Prefs.QUEST_ORDER, null).orEmpty().split("+").toMutableList()
-        val order = fullorder[sourceProfile]
-        val destProfile = prefs.getString(Prefs.QUEST_PROFILE,null)?.toIntOrNull() ?: 0
-        while (fullorder.size <= destProfile) {
-            fullorder.add("")
-        }
-        fullorder[destProfile] = order
-        prefs.edit { putString(Prefs.QUEST_ORDER, fullorder.joinToString("+")) }
-    }
-
-    @Synchronized fun reload() {
-        orderLists.clear()
-        val fullorder = prefs.getString(Prefs.QUEST_ORDER, null)?.split("+")
-        val order = fullorder?.getOrNull(prefs.getString(Prefs.QUEST_PROFILE,null)?.toIntOrNull() ?: 0)
-        val newOrder = order?.split(DELIM1)?.map { it.split(DELIM2).toMutableList() }?.toMutableList() ?: mutableListOf()
-        orderLists.addAll(newOrder)
+        prefs.edit { putString(Prefs.QUEST_ORDER, if (joined.isNotEmpty()) joined else null) }
     }
 
     private fun applyOrderItem(before: QuestType<*>, after: QuestType<*>) {
