@@ -23,7 +23,7 @@ class QuestPresetsAdapter @Inject constructor(
     private val questPresetsController: QuestPresetsController
 ) : RecyclerView.Adapter<QuestPresetsAdapter.QuestPresetViewHolder>(), LifecycleObserver {
 
-    private val presets: MutableList<QuestPreset> = mutableListOf()
+    private var presets: MutableList<QuestPreset> = mutableListOf()
 
     private val lifecycleScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -46,6 +46,7 @@ class QuestPresetsAdapter @Inject constructor(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
+        presets = mutableListOf()
         presets.add(QuestPreset(0, context.getString(R.string.quest_presets_default_name)))
         presets.addAll(questPresetsController.getAllQuestPresets())
 
@@ -83,7 +84,7 @@ class QuestPresetsAdapter @Inject constructor(
             }
             itemView.deleteButton.isEnabled = true
             itemView.deleteButton.isInvisible = with.id == 0L
-            itemView.deleteButton.setOnClickListener { onClickDeleteQuestPreset(with.id) }
+            itemView.deleteButton.setOnClickListener { onClickDeleteQuestPreset(with) }
         }
 
         fun onSelectQuestPreset(presetId: Long) {
@@ -92,10 +93,10 @@ class QuestPresetsAdapter @Inject constructor(
             }
         }
 
-        fun onClickDeleteQuestPreset(presetId: Long) {
-            AlertDialog.Builder(itemView.context)
-                .setMessage(R.string.quest_presets_delete_message)
-                .setPositiveButton(R.string.delete_confirmation) { _,_ -> deleteQuestPreset(presetId) }
+        fun onClickDeleteQuestPreset(preset: QuestPreset) {
+            AlertDialog.Builder(itemView.context, R.style.Theme_Bubble_Dialog_Alert)
+                .setMessage(itemView.context.getString(R.string.quest_presets_delete_message, preset.name))
+                .setPositiveButton(R.string.delete_confirmation) { _,_ -> deleteQuestPreset(preset.id) }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
         }
