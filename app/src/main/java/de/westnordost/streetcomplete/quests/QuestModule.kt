@@ -253,18 +253,8 @@ import javax.inject.Singleton
         AddBusStopLit(),
         AddBenchBackrest(),
         AddTrafficSignalsButton(),
-        AddPostboxRoyalCypher(),
         AddContactPhone(),
         AddContactWebsite(),
-        ShowBikeParking(),
-        ShowBench(),
-        ShowBusiness(),
-        ShowOther(),
-        ShowTrafficStuff(),
-        ShowRecycling(),
-        ShowMachine(),
-        ShowVacant(),
-        ShowCamera(),
-        ShowFixme()
+        AddPostboxRoyalCypher()
     ))
 }
