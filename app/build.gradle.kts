@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "de.westnordost.streetcomplete.mod"
+        applicationId = "de.westnordost.streetcomplete"
         minSdkVersion(17)
         targetSdkVersion(30)
         versionCode = 3302
