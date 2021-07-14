@@ -40,3 +40,5 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 * fix images in Notes
   can't save them in helim314 branch, probably due to path changes?
 * house type quest, allow caching Residental/Commercial too
+* Surface smoothness quest
+  https://github.com/westnordost/StreetComplete/issues/1630
