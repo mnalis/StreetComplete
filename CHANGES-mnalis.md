@@ -72,3 +72,5 @@ Also:
   https://github.com/westnordost/StreetComplete/issues/1630
 * re-enable or manually hardcode quest ordering if it will be removed
   https://github.com/streetcomplete/StreetComplete/issues/3034#issuecomment-879866839
+* enable pedastrian crossing checks on more ways?
+  https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
