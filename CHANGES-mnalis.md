@@ -34,6 +34,8 @@ Also:
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
     * UNDONE! (but taking pictures) - rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde)
     * UNDONE! (preparing for westnordost presets) - add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
+    * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
+    * add per-quest settings for some quests (for element selection) (commit a60a389024f7db64091b25c950e511180c3a5ff9)
 
 * get icon for phone quest from atrate branch?
   to update `helium314` quest.
@@ -70,3 +72,5 @@ Also:
   https://github.com/westnordost/StreetComplete/issues/1630
 * re-enable or manually hardcode quest ordering if it will be removed
   https://github.com/streetcomplete/StreetComplete/issues/3034#issuecomment-879866839
+* enable pedastrian crossing checks on more ways?
+  https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
