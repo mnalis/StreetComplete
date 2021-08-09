@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import androidx.fragment.app.commit
+import android.content.Context;
 import de.westnordost.streetcomplete.util.LocaleContextWrapper
 
 /** An activity that contains one full-screen ("main") fragment */
