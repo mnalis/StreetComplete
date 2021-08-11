@@ -27,6 +27,7 @@ import de.westnordost.streetcomplete.quests.bus_stop_shelter.AddBusStopShelter
 import de.westnordost.streetcomplete.quests.car_wash_type.AddCarWashType
 import de.westnordost.streetcomplete.quests.construction.MarkCompletedBuildingConstruction
 import de.westnordost.streetcomplete.quests.construction.MarkCompletedHighwayConstruction
+import de.westnordost.streetcomplete.quests.contact.*
 import de.westnordost.streetcomplete.quests.crossing_type.AddCrossingType
 import de.westnordost.streetcomplete.quests.crossing_island.AddCrossingIsland
 import de.westnordost.streetcomplete.quests.defibrillator.AddIsDefibrillatorIndoor
@@ -366,5 +367,8 @@ import javax.inject.Singleton
         AddRoofShape(countryInfos),
 
         AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
+
+        AddContactPhone(),
+        AddContactWebsite(),
     ))
 }
