@@ -16,6 +16,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
 * also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
 * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
+* adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
@@ -35,7 +36,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
-    * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
     * add per-quest settings for some quests (for element selection) (commit a60a389024f7db64091b25c950e511180c3a5ff9)
     * add maxspeed tag selection to per-quest-settings (commit e256a94617d6465db3a6cef92b89ef83e6665d35)
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
@@ -65,7 +65,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
     * show pois and adjust quest dot and pin offsets (commit 8cf33fab948a3c3e1615a61b3b1638659e6cae71)
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
-    * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
 
 * allow house address quest even if no building type ?
