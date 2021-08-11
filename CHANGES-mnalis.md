@@ -22,6 +22,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
 * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
 * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
+* add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -50,7 +51,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * replace helium314 reverse quest order button with quick preset change button?
 
     * disable 3D (commit f379fc78376212362d47f9efa3b6b7692031bfcf, 08a791676728d683849938f8a7c03a2bbee92131, 825afd551347cb1add9446d72c5df896e98893e8)
-    * update icons  (commit bce1e5569137bfdef5468d8f861c6363c70aec5b)
     * update level filter  (commit c19129b8b86f810bfdfca3c77c6edbdbc4c98bd1)
     * add raised crossing answer to show poi quest, remove unused imports  (commit cdf7fa5aaf05ac289cb356e314bbf5ffc5f6517f, 5c9a07257d30184475d92df2908180ff0e159d9c)
     * fix build  (commit 1bdad058165b769020b611b5449ccc96ad027f21, a2cb3c68e2927fcaf90f4ab1515428ef58547c15)
@@ -70,7 +70,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add "private" other answer to track, lit and surface quests (commit bf7a8771c2480f10813daef25f06f92a4c5bc649)
     * add "demolished" other answer for building type (commit 844e027754c5d48a1c9d214318813dc7f88f1015)
     * add quests asking for level inside mall or retail buildings (commit 1dd8d52e87a25f8608d6479eedba6675fc23beb3)
-    * add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
     * show pois and adjust quest dot and pin offsets (commit 8cf33fab948a3c3e1615a61b3b1638659e6cae71)
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
