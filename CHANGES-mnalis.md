@@ -13,6 +13,7 @@ From `mnalis-v37-helium314` branch:
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
+* add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
@@ -31,7 +32,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
     * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e) -- BUGGY on -dev version no pictures, no easy sharing of notes
-    * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
@@ -66,7 +66,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
     * show pois and adjust quest dot and pin offsets (commit 8cf33fab948a3c3e1615a61b3b1638659e6cae71)
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
-    * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)

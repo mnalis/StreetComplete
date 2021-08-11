@@ -172,6 +172,19 @@
         android:visibility="gone"
         />
 
+    <TextView
+        android:id="@+id/hideButton"
+        android:text="hide"
+        style="@style/RoundAccentButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:alpha="0"/>
+
 </de.westnordost.streetcomplete.view.SlidingRelativeLayout>
 
 
