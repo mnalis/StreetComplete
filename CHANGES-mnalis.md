@@ -18,6 +18,7 @@ From `mnalis-v38-helium314` branch:
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
+* add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -73,7 +74,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
     * show pois and adjust quest dot and pin offsets (commit 8cf33fab948a3c3e1615a61b3b1638659e6cae71)
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
-    * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
