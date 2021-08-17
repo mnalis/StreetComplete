@@ -23,6 +23,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
 * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
 * add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
+* add "zebra" answer for crossing type quest (commit 68f49d281aed27d3b526fd35d5552a9095f43036)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -61,7 +62,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * make day/night filter optional, add setting (commit 965a9427c4e0cf344cfd0e809fb9f43639da1bee)
     * fix level quest (131831b34f8f8d34477b61ce4031e910c9d5e8ab)
     * update level quest (requires at least one poi with tagged level) (commit 7458bfe43e46d6dd89a28b09bb7bf2e361256f85)
-    * add "zebra" answer for crossing type quest (commit 68f49d281aed27d3b526fd35d5552a9095f43036)
     * extend map tile cache from 12 hours to 8 days  (commit 365b097d3349423d2777cec7238faa115155c14a)
     * add level filter (commit 4dbc75e59863e3d3e96015bf8eed736459483387)
     * small update to place level quest (commit 21d85b8395494f8c4751c9bdd9eb036b0f3a3881)
