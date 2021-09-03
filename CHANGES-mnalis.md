@@ -13,6 +13,7 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   and which can be unhidden via `Restore hidden quests` preference)
 
 ## TODO
+* make `lit` quest available 24/7 again
 * check https://github.com/Helium314/StreetComplete/tree/mods changes
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
 * allow house address quest even if no building type ?
