@@ -13,6 +13,8 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   and which can be unhidden via `Restore hidden quests` preference)
 
 ## TODO
+* update APK build code, and put date/version/last commit in filename.
+  Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
 * make `lit` quest available 24/7 again
 * check https://github.com/Helium314/StreetComplete/tree/mods changes
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
