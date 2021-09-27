@@ -12,7 +12,9 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
           (
             highway ~ ${ROADS_WITH_LANES.joinToString("|")}
           )
+          and area != yes
           and (!lanes or lanes = 0)
+          and (!lanes:backward or !lanes:forward)
           and lane_markings != no
     """
     override val commitMessage = "Add road lanes"
