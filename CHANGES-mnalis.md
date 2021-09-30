@@ -14,6 +14,7 @@ From `mnalis-v37-helium314` branch:
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
 * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
+* also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
@@ -31,7 +32,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
       newer commit b00ed7484fd77f968bb69d6e182333a454e729d1 and reverse 5462928489a6c5afebf3495f5b8ef1b64e645976, is there even newer?
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
-    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e) -- BUGGY on -dev version no pictures, no easy sharing of notes
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
@@ -40,7 +40,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
     * replace helium314 reverse quest order button with quick preset change button?
 
-    * also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
     * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
     * disable 3D (commit f379fc78376212362d47f9efa3b6b7692031bfcf, 08a791676728d683849938f8a7c03a2bbee92131, 825afd551347cb1add9446d72c5df896e98893e8)
     * update icons  (commit bce1e5569137bfdef5468d8f861c6363c70aec5b)
@@ -68,13 +67,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
-    * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
-
-  Not wanted yet:
-    * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
-    * (preparing for westnordost presets) - add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
-    * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
-    * add optional zoom with volume buttons (commit 56466f34760db956fd385eef700553f2a3013003)
 
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
