@@ -19,6 +19,7 @@ From `mnalis-v38-helium314` branch:
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
 * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
+* also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -39,7 +40,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
   Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
-    * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
@@ -48,7 +48,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
     * replace helium314 reverse quest order button with quick preset change button?
 
-    * also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
     * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
     * disable 3D (commit f379fc78376212362d47f9efa3b6b7692031bfcf, 08a791676728d683849938f8a7c03a2bbee92131, 825afd551347cb1add9446d72c5df896e98893e8)
     * update icons  (commit bce1e5569137bfdef5468d8f861c6363c70aec5b)
