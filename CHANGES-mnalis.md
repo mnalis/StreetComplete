@@ -27,12 +27,18 @@ From `mnalis-v35` branch:
     * add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
-    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
+    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e) -- BUGGY on -dev version no pictures, no easy sharing of notes
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
+    * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
+    * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
+    * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * replace helium314 reverse quest order button with quick preset change button?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
     * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
+    * add optional zoom with volume buttons (commit 56466f34760db956fd385eef700553f2a3013003)
+    * add per-quest settings for some quests (for element selection) (commit a60a389024f7db64091b25c950e511180c3a5ff9)
+    * add maxspeed tag selection to per-quest-settings (commit e256a94617d6465db3a6cef92b89ef83e6665d35)
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
