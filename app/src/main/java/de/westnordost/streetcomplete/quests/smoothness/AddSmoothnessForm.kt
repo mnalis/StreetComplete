@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.quests.AImageListQuestAnswerFragment
-import de.westnordost.streetcomplete.quests.OtherAnswer
 import de.westnordost.streetcomplete.quests.surface.Surface
 import de.westnordost.streetcomplete.quests.surface.asItem
 import de.westnordost.streetcomplete.view.image_select.Item
@@ -14,8 +13,8 @@ import de.westnordost.streetcomplete.view.image_select.ItemViewHolder
 class AddSmoothnessForm : AImageListQuestAnswerFragment<Smoothness, SmoothnessAnswer>() {
 
     override val otherAnswers = listOf(
-        OtherAnswer(R.string.quest_smoothness_wrong_surface) { surfaceWrong() },
-        OtherAnswer(R.string.quest_smoothness_obstacle) { showObstacleHint() }
+        AnswerItem(R.string.quest_smoothness_wrong_surface) { surfaceWrong() },
+        AnswerItem(R.string.quest_smoothness_obstacle) { showObstacleHint() }
     )
 
     private val surfaceTag get() = osmElement!!.tags["surface"]
