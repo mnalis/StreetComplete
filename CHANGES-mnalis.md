@@ -1,10 +1,8 @@
-## Changes in mnalis branch
+## Changes in mnalis-v35 branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis 
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v35
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-* automatic gihub build Actions
-  to get artifact .apk, so we don't need local android build environment
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
@@ -17,8 +15,24 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
 * make `lit` quest available 24/7 again
   https://github.com/streetcomplete/StreetComplete/issues/3248#issuecomment-922493756
-* check https://github.com/Helium314/StreetComplete/tree/mods changes
+* Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
+  Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
+  Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
+    * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde) - IIRC there is newer rename with `.h3` ?
+      (so other debugs don't conflict with my version)
+      (but it breaks taking notes in debug version, so beware/test!)
+      newer commit b00ed7484fd77f968bb69d6e182333a454e729d1 and reverse 5462928489a6c5afebf3495f5b8ef1b64e645976, is there even newer?
+    * add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
+    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
+    * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
+    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
+    * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
+    * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
+    * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
+    * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
+    * replace helium314 reverse quest order button with quick preset change button?
+    * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
 * add language selector (or force language to HR in this fork if it is much simpler)
@@ -42,25 +56,9 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-* Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
-  See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
-  Not included yet (FIXME: needs checking newest branch and documenting):
-    * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde) - IIRC there is newer rename with `.h3` ?
-      (so other debugs don't conflict with my version)
-      (but it breaks taking notes in debug version, so beware/test!)
-    * add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
-    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
-    * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
-    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
-    * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
-    * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
-    * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
-    * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
-    * replace helium314 reverse quest order button with quick preset change button?
-    * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
-
-
-
+* get icon for phone quest from atrate branch?
+  to update `helium314` quest.
+  Maybe even check `atrate` code for such quest and merge/replace?
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * fix images in Notes
@@ -68,8 +66,20 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
 * house type quest, allow caching Residental/Commercial too
 * Surface smoothness quest
   https://github.com/westnordost/StreetComplete/issues/1630
+  https://github.com/streetcomplete/StreetComplete/pull/3257
 * re-enable or manually hardcode quest ordering if it will be removed
   https://github.com/streetcomplete/StreetComplete/issues/3034#issuecomment-879866839
 * enable pedastrian crossing checks on more ways?
   https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
 * import upstream/debug-issue-3312 fix za notes location
+  and test it some more https://github.com/streetcomplete/StreetComplete/issues/3312#issuecomment-932605603
+* remove single-level undo, pa da icon vodi direktno na multi-level undo
+  maybe @smichel17 will do -- see https://github.com/streetcomplete/StreetComplete/discussions/3330#discussioncomment-1399451
+
+* FIXME old branches to new branches
+    * izvuci CHANGES-mnalis.md iz mnalis-v34.2 i diffaj sa mojim novi iz mnalis-v35) kada je sve gotovo
+    * procesljaj cijeli diff upstream-westnordost-v34.2..mnalis-v34.2 da li sam sto propustio
+    * make a copy of mnalis-v35 branch, and squash all small things I want in one commit for easier handling
+      (how exactly? "git cherry-pick -n" ?)
+    * check other unread mails / open tabs
+    * in final mnalis-with-everything branch (set as default branch): mnalis-v35 + many helium314 + mestrona-languageswitch + smoothness
