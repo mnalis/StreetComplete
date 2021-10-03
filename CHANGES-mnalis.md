@@ -3,6 +3,7 @@
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v35
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
+From `mnalis-v35` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
@@ -28,10 +29,10 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc)
     * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e)
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
+    * replace helium314 reverse quest order button with quick preset change button?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
     * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
-    * replace helium314 reverse quest order button with quick preset change button?
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
@@ -73,6 +74,7 @@ as modified from upstream https://github.com/streetcomplete/StreetComplete
   https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
 * import upstream/debug-issue-3312 fix za notes location
   and test it some more https://github.com/streetcomplete/StreetComplete/issues/3312#issuecomment-932605603
+  was only: 4836592bce63845ddee06da7990b318f055dfc5e to add location debug info to notes
 * remove single-level undo, pa da icon vodi direktno na multi-level undo
   maybe @smichel17 will do -- see https://github.com/streetcomplete/StreetComplete/discussions/3330#discussioncomment-1399451
 
