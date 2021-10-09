@@ -21,6 +21,12 @@ From `remotes/smichel17/undo-button`
 * remove extra undo menu, to test
   https://github.com/streetcomplete/StreetComplete/pull/3349
 
+From `helium314/smoothness`:
+* Surface smoothness quest, W.I.P.
+  https://github.com/westnordost/StreetComplete/issues/1630
+  https://github.com/streetcomplete/StreetComplete/pull/3257
+* manually try to fix OtherAnswer() refactoring
+
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
