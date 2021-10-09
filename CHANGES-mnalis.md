@@ -27,6 +27,7 @@ From `helium314/smoothness`:
   https://github.com/streetcomplete/StreetComplete/pull/3257
 * manually try to fix OtherAnswer() refactoring
 * try to fix duplicate "quest_presets_delete_message" ?
+* try to fix style renames
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
