@@ -1,9 +1,9 @@
-## Changes in mnalis-v36b2 branch
+## Changes in mnalis-v36b2-languageswitch-sm17undo-smoothness branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v36b2
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v36b2-languageswitch-sm17undo-smoothness
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v36b2` branch:
+From `mnalis-v36b2-languageswitch-sm17undo-smoothness` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
