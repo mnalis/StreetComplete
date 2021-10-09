@@ -11,6 +11,10 @@ From `mnalis-v35` branch:
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
 
+From `remotes/smichel17/undo-button`
+* remove extra undo menu, to test
+  https://github.com/streetcomplete/StreetComplete/pull/3349
+
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
