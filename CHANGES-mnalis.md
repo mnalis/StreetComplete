@@ -28,6 +28,7 @@ From `helium314/smoothness`:
 * manually try to fix OtherAnswer() refactoring
 * try to fix duplicate "quest_presets_delete_message" ?
 * try to fix style renames
+* QuestTypeAchievement compile error
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
