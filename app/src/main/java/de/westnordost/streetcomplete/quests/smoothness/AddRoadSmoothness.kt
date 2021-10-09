@@ -7,6 +7,9 @@ import de.westnordost.streetcomplete.data.meta.updateWithCheckDate
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
 import de.westnordost.streetcomplete.quests.surface.Surface
+import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.BICYCLIST
+import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.BLIND
+import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.WHEELCHAIR
 
 class AddRoadSmoothness : OsmFilterQuestType<SmoothnessAnswer>() {
 
@@ -26,6 +29,8 @@ class AddRoadSmoothness : OsmFilterQuestType<SmoothnessAnswer>() {
     override val wikiLink = "Key:smoothness"
     override val icon = R.drawable.ic_quest_street_surface_detail
     override val isSplitWayEnabled = true
+
+    override val questTypeAchievements = listOf(BLIND, WHEELCHAIR, BICYCLIST)
 
     override fun getTitle(tags: Map<String, String>): Int {
         val hasName = tags.containsKey("name")
