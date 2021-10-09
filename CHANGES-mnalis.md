@@ -1,15 +1,21 @@
-## Changes in mnalis-v35 branch
+## Changes in mnalis-v36b2 branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v35
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v36b2
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v35` branch:
+From `mnalis-v36b2` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+
+From `upstream-mestrona-languageswitch-fixed-v34.2`:
+* language chooser, W.I.P.
+  see https://github.com/streetcomplete/StreetComplete/pull/3199
+* add missing include, so it compiles OK
+  see 53697f7bb02605cd6c36a051ee08b7edfb49ed0c
 
 From `remotes/smichel17/undo-button`
 * remove extra undo menu, to test
