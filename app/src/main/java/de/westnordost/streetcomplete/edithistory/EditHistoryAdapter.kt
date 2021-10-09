@@ -13,7 +13,7 @@ import de.westnordost.streetcomplete.data.edithistory.icon
 import de.westnordost.streetcomplete.data.edithistory.overlayIcon
 import de.westnordost.streetcomplete.databinding.RowEditItemBinding
 import de.westnordost.streetcomplete.databinding.RowEditSyncedBinding
-import de.westnordost.streetcomplete.ktx.findPrevious
+import de.westnordost.streetcomplete.ktx.findNext
 import de.westnordost.streetcomplete.ktx.toast
 import java.lang.System.currentTimeMillis
 import java.text.DateFormat
@@ -114,7 +114,7 @@ class EditHistoryAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val row = rows[position]
-        val rowAbove = rows.findPrevious(position) { it is EditItem } as EditItem?
+        val rowAbove = rows.findNext(position+1) { it is EditItem } as EditItem?
         when(holder) {
             is EditViewHolder -> holder.onBind((row as EditItem).edit, rowAbove?.edit)
         }
@@ -163,6 +163,10 @@ class EditHistoryAdapter(
             binding.timeTextContainer.isGone = aboveTimeStr == timeStr
             binding.timeText.text = timeStr
 
+            val atBoundaryOfToday = editAbove?.let { edit.isToday && !it.isToday } ?: false
+            binding.todayTextContainer.isGone = !atBoundaryOfToday
+            binding.todayText.text = formatSameDayDate(edit.createdTimestamp)
+
             val res = itemView.context.resources
             val bgColor = res.getColor(if (edit.isSynced == true) R.color.slightly_greyed_out else R.color.background)
             itemView.setBackgroundColor(bgColor)
@@ -187,6 +191,12 @@ class EditHistoryAdapter(
 private fun formatSameDayTime(timestamp: Long) =
     DateUtils.formatSameDayTime(timestamp, currentTimeMillis(), DateFormat.SHORT, DateFormat.SHORT
 )
+
+private fun formatSameDayDate(timestamp: Long) =
+    DateUtils.formatSameDayTime(timestamp, timestamp-DateUtils.DAY_IN_MILLIS, DateFormat.SHORT, DateFormat.SHORT
+)
+
+private val Edit.isToday: Boolean get() = DateUtils.isToday(this.createdTimestamp)
 
 private sealed class EditHistoryItem
 
