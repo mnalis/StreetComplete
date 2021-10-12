@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.AnyThread
 import androidx.core.view.isGone
-import androidx.lifecycle.lifecycleScope
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.geometry.ElementPolylinesGeometry
 import de.westnordost.streetcomplete.databinding.QuestLanesSelectTypeBinding
 import de.westnordost.streetcomplete.databinding.QuestStreetLanesPuzzleBinding
+import de.westnordost.streetcomplete.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.quests.AbstractQuestFormAnswerFragment
 import de.westnordost.streetcomplete.quests.AnswerItem
 import de.westnordost.streetcomplete.quests.StreetSideRotater
@@ -151,7 +151,7 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
     }
 
     private fun askLanesAndSwitchToStreetSideLayout() {
-        lifecycleScope.launch {
+        viewLifecycleScope.launch {
             val lanes = askForTotalNumberOfLanes()
             setTotalLanesCount(lanes)
             setStreetSideLayout()
@@ -202,7 +202,7 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
 
         streetSideRotater = StreetSideRotater(
             streetLanesPuzzleBinding.puzzleViewRotateContainer,
-            streetLanesPuzzleBinding.littleCompass.compassNeedleView,
+            streetLanesPuzzleBinding.littleCompass.root,
             elementGeometry as ElementPolylinesGeometry
         )
         streetSideRotater?.onMapOrientation(lastRotation, lastTilt)
@@ -220,7 +220,7 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
     //region Lane selection dialog
 
     private fun selectNumberOfLanesOnOneSide(isRight: Boolean) {
-        lifecycleScope.launch {
+        viewLifecycleScope.launch {
             setLanesCount(askForNumberOfLanesOnOneSide(isRight), isRight)
         }
     }
@@ -237,7 +237,7 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
     }
 
     private fun selectTotalNumberOfLanes() {
-        lifecycleScope.launch {
+        viewLifecycleScope.launch {
             setTotalLanesCount(askForTotalNumberOfLanes())
         }
     }
