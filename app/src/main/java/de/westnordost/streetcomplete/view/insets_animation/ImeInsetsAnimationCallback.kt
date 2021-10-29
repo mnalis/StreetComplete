@@ -57,7 +57,7 @@ fun View.respectSystemInsets(onNewInsets: View.(insets: XInsets) -> Unit = {
         setWindowInsetsAnimationCallback(imeAnimationCallback)
     } else {
         setOnApplyWindowInsetsListener { v, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsets.Type.systemBars())
+            val insets = windowInsets.getInsets(WindowInsets.Type.ime() or WindowInsets.Type.systemBars())
             onNewInsets(v, XInsets.toCompatInsets(insets))
             windowInsets
         }
