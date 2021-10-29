@@ -1,66 +1,64 @@
 package de.westnordost.streetcomplete.view.insets_animation
 
+import android.graphics.Insets
+import android.os.Build
 import android.view.View
-import androidx.core.graphics.Insets
-import androidx.core.view.OnApplyWindowInsetsListener
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsAnimationCompat
-import androidx.core.view.WindowInsetsCompat
+import android.view.WindowInsets
+import android.view.WindowInsetsAnimation
+import androidx.core.graphics.Insets as XInsets
 
 /** Make the keyboard appear and disappear smoothly. Must be set on both
  *  setOnApplyWindowInsetsListener and setWindowInsetsAnimationCallback */
 class ImeInsetsAnimationCallback(
     private val view: View,
     private val onNewInsets: View.(insets: Insets) -> Unit
-) : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE), OnApplyWindowInsetsListener {
+) : WindowInsetsAnimation.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE), View.OnApplyWindowInsetsListener {
     private var isAnimating = false
-    private var prevInsets: WindowInsetsCompat? = null
+    private var prevInsets: WindowInsets? = null
 
-    override fun onApplyWindowInsets(v: View, windowInsets: WindowInsetsCompat): WindowInsetsCompat {
+    override fun onApplyWindowInsets(v: View, windowInsets: WindowInsets): WindowInsets {
         prevInsets = windowInsets
         if (!isAnimating) applyNewInsets(windowInsets)
         return windowInsets
     }
 
-    override fun onPrepare(animation: WindowInsetsAnimationCompat) {
-        if (animation.typeMask and WindowInsetsCompat.Type.ime() != 0) {
+    override fun onPrepare(animation: WindowInsetsAnimation) {
+        if (animation.typeMask and WindowInsets.Type.ime() != 0) {
             isAnimating = true
         }
     }
 
-    override fun onProgress(insets: WindowInsetsCompat, runningAnims: List<WindowInsetsAnimationCompat>): WindowInsetsCompat {
+    override fun onProgress(insets: WindowInsets, runningAnims: List<WindowInsetsAnimation>): WindowInsets {
         applyNewInsets(insets)
         return insets
     }
 
-    override fun onEnd(animation: WindowInsetsAnimationCompat) {
-        if (isAnimating && (animation.typeMask and WindowInsetsCompat.Type.ime()) != 0) {
+    override fun onEnd(animation: WindowInsetsAnimation) {
+        if (isAnimating && (animation.typeMask and WindowInsets.Type.ime()) != 0) {
             isAnimating = false
-            prevInsets?.let { view.dispatchApplyWindowInsets(it.toWindowInsets()) }
+            prevInsets?.let { view.dispatchApplyWindowInsets(it) }
         }
     }
 
-    private fun applyNewInsets(insets: WindowInsetsCompat) {
-        val typeInsets = insets.getInsets(WindowInsetsCompat.Type.ime() or WindowInsetsCompat.Type.systemBars())
+    private fun applyNewInsets(insets: WindowInsets) {
+        val typeInsets = insets.getInsets(WindowInsets.Type.ime() or WindowInsets.Type.systemBars())
         view.onNewInsets(typeInsets)
     }
 }
 
-fun View.respectSystemInsets(onNewInsets: View.(insets: Insets) -> Unit = {
+fun View.respectSystemInsets(onNewInsets: View.(insets: XInsets) -> Unit = {
     setPadding(it.left, it.top, it.right, it.bottom)
 }) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        val imeAnimationCallback = ImeInsetsAnimationCallback(this, onNewInsets)
+        val imeAnimationCallback = ImeInsetsAnimationCallback(this) {
+            onNewInsets(XInsets.toCompatInsets(it))
+        }
         setOnApplyWindowInsetsListener(imeAnimationCallback)
         setWindowInsetsAnimationCallback(imeAnimationCallback)
     } else {
         setOnApplyWindowInsetsListener { v, windowInsets ->
-            onNewInsets(v,
-                windowInsets.systemWindowInsetLeft,
-                windowInsets.systemWindowInsetTop,
-                windowInsets.systemWindowInsetRight,
-                windowInsets.systemWindowInsetBottom
-            )
+            val insets = windowInsets.getInsets(WindowInsets.Type.systemBars())
+            onNewInsets(v, XInsets.toCompatInsets(insets))
             windowInsets
         }
     }
