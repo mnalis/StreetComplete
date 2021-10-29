@@ -49,7 +49,19 @@ class ImeInsetsAnimationCallback(
 fun View.respectSystemInsets(onNewInsets: View.(insets: Insets) -> Unit = {
     setPadding(it.left, it.top, it.right, it.bottom)
 }) {
-    val imeAnimationCallback = ImeInsetsAnimationCallback(this, onNewInsets)
-    ViewCompat.setOnApplyWindowInsetsListener(this, imeAnimationCallback)
-    ViewCompat.setWindowInsetsAnimationCallback(this, imeAnimationCallback)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val imeAnimationCallback = ImeInsetsAnimationCallback(this, onNewInsets)
+        setOnApplyWindowInsetsListener(imeAnimationCallback)
+        setWindowInsetsAnimationCallback(imeAnimationCallback)
+    } else {
+        setOnApplyWindowInsetsListener { v, windowInsets ->
+            onNewInsets(v,
+                windowInsets.systemWindowInsetLeft,
+                windowInsets.systemWindowInsetTop,
+                windowInsets.systemWindowInsetRight,
+                windowInsets.systemWindowInsetBottom
+            )
+            windowInsets
+        }
+    }
 }
