@@ -11,6 +11,12 @@ From `mnalis-v36b2` branch:
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
 
+From `upstream-mestrona-languageswitch-fixed-v34.2`:
+* language chooser, W.I.P.
+  see https://github.com/streetcomplete/StreetComplete/pull/3199
+* add missing include, so it compiles OK
+  see 53697f7bb02605cd6c36a051ee08b7edfb49ed0c
+
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
