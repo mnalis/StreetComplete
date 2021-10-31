@@ -1097,8 +1097,6 @@ If you are overwhelmed by the number of quests, you can always fine-tune which q
     <string name="quest_fireHydrant_diameter_unusualInput_confirmation_description">This diameter looks implausible.</string>
     <string name="quest_fireHydrant_confirmation_title">"Are you sure? Sometimes the diameter can be found on the hydrant itself."</string>
     <string name="short_no_answer_on_button">No</string>
-    <string name="pref_title_language_select">Select language</string>
-    <string name="language_system_default">System default</string>
     <string name="quest_smoothness_name_title">What is the surface quality of %1$s here (%2$s)?</string>
     <string name="quest_smoothness_square_title">What is the surface quality of this square (%s)?</string>
     <string name="quest_smoothness_path_title">What is the surface quality of this path here (%s)?</string>
