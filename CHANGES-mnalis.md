@@ -1,9 +1,9 @@
-## Changes in mnalis-v36b2 branch
+## Changes in mnalis-v36b2-languageswitch-sm17undo-smoothness branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v36b2
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v36b2-languageswitch-sm17undo-smoothness
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v36b2` branch:
+From `mnalis-v36b2-languageswitch-sm17undo-smoothness` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
@@ -16,6 +16,19 @@ From `upstream-mestrona-languageswitch-fixed-v34.2`:
   see https://github.com/streetcomplete/StreetComplete/pull/3199
 * add missing include, so it compiles OK
   see 53697f7bb02605cd6c36a051ee08b7edfb49ed0c
+
+From `remotes/smichel17/undo-button`
+* remove extra undo menu, to test
+  https://github.com/streetcomplete/StreetComplete/pull/3349
+
+From `helium314/smoothness`:
+* Surface smoothness quest, W.I.P.
+  https://github.com/westnordost/StreetComplete/issues/1630
+  https://github.com/streetcomplete/StreetComplete/pull/3257
+* manually try to fix OtherAnswer() refactoring
+* try to fix duplicate "quest_presets_delete_message" ?
+* try to fix style renames
+* QuestTypeAchievement compile error
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
