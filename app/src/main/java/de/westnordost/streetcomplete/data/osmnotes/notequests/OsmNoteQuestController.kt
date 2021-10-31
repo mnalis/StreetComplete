@@ -202,6 +202,9 @@ private fun Note.shouldShowAsQuest(
     // don't show notes hidden by user
     if (id in blockedNoteIds) return false
 
+    // /mn/ REALLY show ALL notes, if user prefers so
+    if (!showOnlyNotesPhrasedAsQuestions) return true
+
     /* don't show notes where user replied last unless he wrote a survey required marker */
     if (comments.last().isReplyFromUser(userId) &&
         !comments.last().containsSurveyRequiredMarker()
