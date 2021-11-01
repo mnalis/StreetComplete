@@ -1,9 +1,9 @@
-## Changes in mnalis-v38 branch
+## Changes in mnalis-v38-helium314 branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38-helium314
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v38` branch:
+From `mnalis-v38-helium314` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
@@ -15,6 +15,9 @@ From `mnalis-v38` branch:
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
 * rename app to '.mn'
+
+From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
+* FIXME
 
 ## TODO
 * allow disabling/moving Notes quest too
