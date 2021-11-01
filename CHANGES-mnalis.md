@@ -12,7 +12,7 @@ From `mnalis-v37-helium314` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
-* FIXME
+* move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
@@ -35,7 +35,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
-    * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * add per-quest settings for some quests (for element selection) (commit a60a389024f7db64091b25c950e511180c3a5ff9)
     * add maxspeed tag selection to per-quest-settings (commit e256a94617d6465db3a6cef92b89ef83e6665d35)
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
@@ -69,7 +68,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
     * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
-    * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
     * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
 
