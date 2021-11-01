@@ -1,15 +1,18 @@
-## Changes in mnalis-v37 branch
+## Changes in mnalis-v37-helium314 branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v37
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v37-helium314
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v37` branch:
+From `mnalis-v37-helium314` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+
+From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
+* FIXME
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
