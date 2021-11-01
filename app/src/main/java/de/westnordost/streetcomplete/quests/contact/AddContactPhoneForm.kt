@@ -5,16 +5,15 @@ import android.text.InputType
 import android.view.View
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.databinding.QuestContactPhoneBinding
 import de.westnordost.streetcomplete.quests.AbstractQuestFormAnswerFragment
 import de.westnordost.streetcomplete.util.TextChangedWatcher
-import kotlinx.android.synthetic.main.quest_contact.*
+import de.westnordost.streetcomplete.databinding.QuestContactBinding
 
 
 class AddContactPhoneForm : AbstractQuestFormAnswerFragment<String>() {
 
     override val contentLayoutResId = R.layout.quest_contact
-    private val binding by contentViewBinding(QuestContactPhoneBinding::bind)
+    private val binding by contentViewBinding(QuestContactBinding::bind)
 
     private val contact get() = binding.nameInput?.text?.toString().orEmpty().trim()
 
