@@ -62,7 +62,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
     * adjust dark theme (commit 3251e335c7839520a2eb95b120d6ad88d333f19c)
-    * move "none" answer for cycleway to more convenient position (commit 4812c692041d3c3b5ccd4dbbe249132c107317e1)
     * add per-quest settings for some quests (for element selection) (commit a60a389024f7db64091b25c950e511180c3a5ff9)
     * add maxspeed tag selection to per-quest-settings (commit e256a94617d6465db3a6cef92b89ef83e6665d35)
     * x 148a60f1b remove ShowFixme() and other Show() which are in other Helium314 patches we didn't import
