@@ -3,7 +3,7 @@
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v37-languageswitch
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v37-languageswitch` branch:
+From `mnalis-v37` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
