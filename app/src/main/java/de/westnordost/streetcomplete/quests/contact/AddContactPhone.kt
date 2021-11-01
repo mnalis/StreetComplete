@@ -3,6 +3,7 @@ package de.westnordost.streetcomplete.quests.contact
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
+import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CITIZEN
 
 class AddContactPhone : OsmFilterQuestType<String>() {
 
@@ -58,6 +59,8 @@ class AddContactPhone : OsmFilterQuestType<String>() {
     override val commitMessage = "Add phone number"
     override val wikiLink = "Key:phone"
     override val icon = R.drawable.ic_quest_blind_traffic_lights_sound
+
+    override val questTypeAchievements = listOf(CITIZEN)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_contact_phone
 
