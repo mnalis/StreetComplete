@@ -10,6 +10,8 @@ From `mnalis-v37` branch:
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+* ask for backrest on leisure=picnic_table too
+  from `picnic-backrest` branch
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
