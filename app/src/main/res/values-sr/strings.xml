@@ -6,7 +6,7 @@
     <string name="oauth_failed_permissions">"Није успела потврда идентитета: Потребно је одобрити сва побројана права"</string>
     <string name="pref_category_communication">"Комуникација"</string>
     <string name="pref_category_display">"Приказ"</string>
-    <string name="pref_tilecache_size_summary">"%d МБ"</string>
+    <string name="pref_tilecache_size_summary">"%d MB"</string>
     <string name="pref_tilecache_size_message">"Простор (у МБ) који је резервисан на спољном складишту како би се кеширале сличице карте"</string>
     <string name="pref_title_show_notes_not_phrased_as_questions">"Прикажи све напомене"</string>
     <string name="pref_summaryOn_show_notes_not_phrased_as_questions">"Приказују се и напомене које нису срочене као питања"</string>
@@ -19,7 +19,7 @@
     <string name="quest_generic_confirmation_title">"Сигурни сте?"</string>
     <string name="quest_generic_confirmation_yes">"Да, сигуран сам"</string>
     <string name="quest_generic_confirmation_no">"Проверићу"</string>
-    <string name="quest_leave_new_note_title">"А да се ипак стави напомена?"</string>
+    <string name="quest_leave_new_note_title">"Ипак оставити напомену?"</string>
     <string name="quest_leave_new_note_description">"Можете оставити јавну напомену на овој локацији како би други картографи могли да коментаришу и реше, или пак сакријте овај задатак од себе."</string>
     <string name="quest_leave_new_note_yes">"У реду"</string>
     <string name="quest_leave_new_note_no">"Не, само сакриј"</string>
@@ -352,8 +352,8 @@
     <string name="quest_cycleway_value_bus_lane">"по аутобуској траци"</string>
     <string name="quest_cycleway_value_sidewalk">"тротоар који се дели са пешацима"</string>
     <string name="quest_leave_new_note_create_image_error">"Није могуће направити датотеку фотографије"</string>
-    <string name="quest_cycleway_value_lane_dual">"бициклистичка трака, у оба смера"</string>
-    <string name="quest_cycleway_value_track_dual">"бициклистичка стаза, у оба смера"</string>
+    <string name="quest_cycleway_value_lane_dual">"бициклистичка трака у оба смера"</string>
+    <string name="quest_cycleway_value_track_dual">"бициклистичка стаза у оба смера"</string>
     <string name="pref_category_advanced">"Напредно"</string>
     <string name="quest_enabled">"Омогућено"</string>
     <string name="quest_type">"Врста задатака"</string>
@@ -419,10 +419,6 @@
     <string name="quest_parking_fee_title">"Да ли се плаћа овај паркинг?"</string>
     <string name="quest_cycleway_value_lane_soft">"бициклистичка трака (испрекидане ознаке)"</string>
     <string name="quest_surface_value_unhewn_cobblestone">"Нетесана калдрма"</string>
-    <string name="quest_parking_access_title">"Да ли је ограничено ко овде може паркирати?"</string>
-    <string name="quest_parking_access_private">"Приватно"</string>
-    <string name="quest_parking_access_yes">"Јавно (са или без наплате)"</string>
-    <string name="quest_parking_access_customers">"Само за купце"</string>
     <string name="quest_streetName_pedestrian_title">"Како се зове ова пешачка улица?"</string>
     <string name="quest_streetSurface_square_title">"Каква је површина овог трга?"</string>
     <string name="quest_streetSurface_square_name_title">"Каква је површина трга %s овде?"</string>
@@ -516,7 +512,7 @@
     <string name="quest_buildingType_farmhouse">"Сеоска кућа"</string>
     <string name="quest_buildingType_farmhouse_description">"стамбени објекат на фарми"</string>
     <string name="quest_buildingType_farm_auxiliary">"Пољопривредни објекат"</string>
-    <string name="quest_buildingType_farm_auxiliary_description">"било који објекат на фарми која није за становање"</string>
+    <string name="quest_buildingType_farm_auxiliary_description">"било који објекат на фарми који није за становање"</string>
     <string name="quest_buildingType_greenhouse">"Стакленик"</string>
     <string name="quest_buildingType_other">"Остало"</string>
     <string name="quest_buildingType_shed">"Шупа"</string>
@@ -776,7 +772,7 @@
     <string name="achievement_postman_title">"Поштар"</string>
     <string name="achievement_postman_solved_X">"Помогли сте да се пронађе %d адреса!
 Ови подаци су значајни не само поштарима већ сваком навигационом систему."</string>
-    <string name="achievement_building_title">"Грађевинац"</string>
+    <string name="achievement_building_title">"Вишеспратница"</string>
     <string name="achievement_building_solved_X">"Решили сте %d задатака везаних за грађевине.
 Имајте на уму да овај програм пита за кућни број тек након што се одреди тип грађевине."</string>
     <string name="achievement_blind_title">"Шесто чуло"</string>
@@ -811,6 +807,8 @@
 дани"</string>
     <string name="user_profile_achievement_levels">"Нивои
 у достигнућима"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_address_street_title">"Којој улици припада кућни број %s?"</string>
     <string name="quest_address_street_no_named_streets">"Не припада улици са именом"</string>
     <string name="quest_address_street_place_name_label">"Назив места:"</string>
@@ -972,9 +970,6 @@
     <string name="quest_shop_gone_vacant_answer">"Напуштено је"</string>
     <string name="quest_shop_gone_replaced_answer">"То је…"</string>
     <string name="quest_shop_gone_replaced_answer_hint">"Упишите врсту радње и сл."</string>
-
-    <!-- Fuzzy -->
-    <string name="quest_shop_gone_replaced_answer_error">"Не знам шта је ово. Оставите напомену."</string>
 
     <!-- Fuzzy -->
     <string name="quest_shop_vacant_type_title">"Ова продавница је напуштена. Шта је сада овде?"</string>
@@ -1144,7 +1139,7 @@
 
     <!-- Fuzzy -->
     <string name="quest_traffic_calming_type_hump">"Лежећи полицајац (дугачак)"</string>
-    <string name="quest_traffic_calming_type_table">"Pešačko ostrvo"</string>
+    <string name="quest_traffic_calming_type_table">"Лежећи полицајац (Пун плато)"</string>
     <string name="quest_traffic_calming_type_cushion">"Лежећи полицајац унутар траке"</string>
     <string name="quest_traffic_calming_type_choker">"Сужење на путу"</string>
     <string name="quest_traffic_calming_type_island">"Острво"</string>
@@ -1157,4 +1152,6 @@
     <string name="quest_fireHydrant_diameter_title">"Који је пречник на знаку хидранта?"</string>
     <string name="quest_fireHydrant_diameter_unusualInput_confirmation_description">"Чини се да је пречник невероватан."</string>
     <string name="quest_fireHydrant_confirmation_title">"Да ли сте сигурни? Понекад се пречник може наћи на самом хидранту."</string>
+    <string name="quest_diet_answer_no_food">"Нема хране"</string>
+    <string name="short_no_answer_on_button">"Не"</string>
 </resources>
