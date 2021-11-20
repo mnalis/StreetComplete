@@ -10,6 +10,7 @@ class AddCrossingTypeForm : AImageListQuestAnswerFragment<CrossingType, Crossing
     override val items = listOf(
         Item(TRAFFIC_SIGNALS, R.drawable.crossing_type_signals, R.string.quest_crossing_type_signals_controlled),
         Item(MARKED, R.drawable.crossing_type_zebra, R.string.quest_crossing_type_marked),
+        Item(ZEBRA, R.drawable.crossing_type_zebra, R.string.quest_crossing_type_zebra),
         Item(UNMARKED, R.drawable.crossing_type_unmarked, R.string.quest_crossing_type_unmarked)
     )
 
