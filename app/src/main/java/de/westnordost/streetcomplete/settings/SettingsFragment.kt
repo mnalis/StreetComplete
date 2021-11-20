@@ -3,6 +3,7 @@ package de.westnordost.streetcomplete.settings
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
+import android.icu.util.ULocale.getDisplayLanguage
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -14,13 +15,9 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import de.westnordost.streetcomplete.*
 import de.westnordost.streetcomplete.ApplicationConstants.DELETE_OLD_DATA_AFTER
 import de.westnordost.streetcomplete.ApplicationConstants.REFRESH_DATA_AFTER
-import de.westnordost.streetcomplete.BuildConfig
-import de.westnordost.streetcomplete.HasTitle
-import de.westnordost.streetcomplete.Injector
-import de.westnordost.streetcomplete.Prefs
-import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.download.tiles.DownloadedTilesDao
 import de.westnordost.streetcomplete.data.osm.mapdata.MapDataController
 import de.westnordost.streetcomplete.data.osmnotes.NoteController
@@ -95,6 +92,8 @@ class SettingsFragment : PreferenceFragmentCompat(), HasTitle,
             true
         }
 
+        buildLanguageSelector()
+
         findPreference<Preference>("debug")?.isVisible = BuildConfig.DEBUG
 
         findPreference<Preference>("debug.quests")?.setOnPreferenceClickListener {
@@ -122,6 +121,74 @@ class SettingsFragment : PreferenceFragmentCompat(), HasTitle,
             it.entries = entries.toTypedArray()
             it.entryValues = entryValues.toTypedArray()
         }
+    }
+
+    private fun buildLanguageSelector() {
+        // FIXME: externalize to YML?
+        val entryValues = arrayOf<CharSequence>(
+            "",
+            "am",
+            "ar",
+            "ast",
+            "bg",
+            "bs",
+            "ca",
+            "cs",
+            "da",
+            "de",
+            "el",
+            "en-AU",
+            "en-GB",
+            "en",
+            "es",
+            "eu",
+            "fa",
+            "fi",
+            "fr",
+            "gl",
+            "hr",
+            "hu",
+            "in",
+            "it",
+            "ja",
+            "ko",
+            "lt",
+            "ml",
+            "nl",
+            "nn",
+            "no",
+            "pl",
+            "pt-BR",
+            "pt",
+            "ro",
+            "ru",
+            "sk",
+            "sv",
+            "th",
+            "tr",
+            "uk",
+            "zh-CN",
+            "zh-HK",
+            "zh",
+            "zh-TW"
+        );
+
+        val entries = entryValues.map {
+            if (it == "") {
+                getString(R.string.language_system_default)
+            } else {
+                val locale = Locale(it.toString())
+                val inTarget =  locale.getDisplayLanguage(locale)
+                if (inTarget != locale.displayLanguage) {
+                    inTarget + " / " + locale.displayLanguage
+                } else {
+                    inTarget
+                }
+            }
+        }
+
+        findPreference<ListPreference>("language.select")?.entries = entries.toTypedArray()
+        findPreference<ListPreference>("language.select")?.entryValues = entryValues
     }
 
     override fun onStart() {
@@ -156,7 +223,8 @@ class SettingsFragment : PreferenceFragmentCompat(), HasTitle,
                 activity?.let { ActivityCompat.recreate(it) }
             }
             Prefs.LANGUAGE_SELECT -> {
-                activity?.let { ActivityCompat.recreate(it) }
+                val intent = Intent(context?.applicationContext, MainActivity::class.java)
+                this.startActivity(intent)
             }
             Prefs.RESURVEY_INTERVALS -> {
                 resurveyIntervalsUpdater.update()

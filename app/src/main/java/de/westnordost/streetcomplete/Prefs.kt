@@ -15,6 +15,7 @@ object Prefs {
     const val THEME_SELECT = "theme.select"
     const val LANGUAGE_SELECT = "language.select"
     const val THEME_BACKGROUND = "theme.background_type"
+    const val LANGUAGE_SELECT = "language.select"
 
     const val RESURVEY_INTERVALS = "quests.resurveyIntervals"
 
