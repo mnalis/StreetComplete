@@ -1,6 +1,6 @@
-## Changes in mnalis-v38-languageswitch branch
+## Changes in mnalis-v38b1 branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38-languageswitch
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38b1
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
 From `mnalis-v38b1` branch:
@@ -12,12 +12,6 @@ From `mnalis-v38b1` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch
-
-From `upstream-mestrona-languageswitch-fixed-v34.2`:
-* language chooser, W.I.P.
-  see https://github.com/streetcomplete/StreetComplete/pull/3199
-* add missing include, so it compiles OK
-  see 53697f7bb02605cd6c36a051ee08b7edfb49ed0c
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.

@@ -1,6 +1,5 @@
 package de.westnordost.streetcomplete.about
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.CellLabeledIconSelectRightBinding
 import de.westnordost.streetcomplete.databinding.DialogDonateBinding
 import de.westnordost.streetcomplete.ktx.tryStartActivity
-import de.westnordost.streetcomplete.util.LocaleContextWrapper
 import de.westnordost.streetcomplete.view.ListAdapter
 import java.util.*
 
@@ -31,8 +29,6 @@ class AboutFragment : PreferenceFragmentCompat() {
     private val listener: Listener? get() = parentFragment as? Listener ?: activity as? Listener
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        val context = LocaleContextWrapper.wrap(context);
-
         addPreferencesFromResource(R.xml.about)
 
         findPreference<Preference>("version")?.summary =
@@ -66,7 +62,7 @@ class AboutFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>("translate")?.summary = resources.getString(
             R.string.about_description_translate,
-            context.resources.configuration.locale.getDisplayLanguage(context.resources.configuration.locale),
+            Locale.getDefault().displayLanguage,
             resources.getInteger(R.integer.translation_completeness)
         )
         findPreference<Preference>("translate")?.setOnPreferenceClickListener {
