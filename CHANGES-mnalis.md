@@ -1,9 +1,9 @@
-## Changes in mnalis-v38b1-smoothness branch
+## Changes in mnalis-v38-smoothness branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38b1-smoothness
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38-smoothness
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
-From `mnalis-v38b1` branch:
+From `mnalis-v38` branch:
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
