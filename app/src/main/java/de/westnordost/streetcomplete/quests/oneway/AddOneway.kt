@@ -12,7 +12,7 @@ import de.westnordost.streetcomplete.quests.cycleway.estimatedWidth
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CAR
 import de.westnordost.streetcomplete.quests.oneway.OnewayAnswer.*
-import de.westnordost.streetcomplete.quests.parking_lanes.*
+import de.westnordost.streetcomplete.osm.parking_lanes.*
 
 class AddOneway : OsmElementQuestType<OnewayAnswer> {
 
@@ -24,9 +24,9 @@ class AddOneway : OsmElementQuestType<OnewayAnswer> {
     /** find only those roads eligible for asking for oneway */
     private val elementFilter by lazy { """
         ways with highway ~ living_street|residential|service|tertiary|unclassified
+         and lanes <= 1 and width
          and !oneway and area != yes and junction != roundabout
          and (access !~ private|no or (foot and foot !~ private|no))
-         and lanes <= 1 and width
     """.toElementFilterExpression() }
 
     override val commitMessage = "Add whether this road is a one-way road because it is quite slim"

@@ -14,7 +14,7 @@ class AddRoofShape(private val countryInfos: CountryInfos) : OsmElementQuestType
     private val filter by lazy { """
         ways, relations with building
           and !roof:shape and !3dr:type and !3dr:roof
-          and building!=no and building!=construction
+          and building !~ no|construction
     """.toElementFilterExpression() }
 
     override val commitMessage = "Add roof shapes"

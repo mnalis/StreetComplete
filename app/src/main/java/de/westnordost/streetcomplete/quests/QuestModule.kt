@@ -56,9 +56,10 @@ import de.westnordost.streetcomplete.quests.oneway_suspects.data.TrafficFlowSegm
 import de.westnordost.streetcomplete.quests.oneway_suspects.data.WayTrafficFlowDao
 import de.westnordost.streetcomplete.quests.opening_hours.AddOpeningHours
 import de.westnordost.streetcomplete.quests.atm_operator.AddAtmOperator
+import de.westnordost.streetcomplete.quests.barrier_bicycle_barrier_type.AddBicycleBarrierType
 import de.westnordost.streetcomplete.quests.barrier_type.AddBarrierType
 import de.westnordost.streetcomplete.quests.barrier_type.AddStileType
-import de.westnordost.streetcomplete.quests.barrier_type.AddTrafficCalmingType
+import de.westnordost.streetcomplete.quests.traffic_calming_type.AddTrafficCalmingType
 import de.westnordost.streetcomplete.quests.bollard_type.AddBollardType
 import de.westnordost.streetcomplete.quests.bus_stop_bin.AddBinStatusOnBusStop
 import de.westnordost.streetcomplete.quests.camera_type.AddCameraType
@@ -72,6 +73,7 @@ import de.westnordost.streetcomplete.quests.drinking_water.AddDrinkingWater
 import de.westnordost.streetcomplete.quests.existence.CheckExistence
 import de.westnordost.streetcomplete.quests.lanes.AddLanes
 import de.westnordost.streetcomplete.quests.kerb_height.AddKerbHeight
+import de.westnordost.streetcomplete.quests.level.AddLevel
 import de.westnordost.streetcomplete.quests.orchard_produce.AddOrchardProduce
 import de.westnordost.streetcomplete.quests.parking_access.AddBikeParkingAccess
 import de.westnordost.streetcomplete.quests.parking_access.AddParkingAccess
@@ -162,13 +164,13 @@ import javax.inject.Singleton
         /* ↓ 1. solvable from a distance or while passing by -----------------------------------  */
 
         // bus stop quests
-        AddBusStopLit(),
         AddBusStopShelter(),  // used by at least OsmAnd
         AddBenchStatusOnBusStop(), // can be seen from across the street
         AddBinStatusOnBusStop(), // can be seen from across the street
         AddTactilePavingBusStop(), // requires you to be very close to it
         AddBusStopName(), // requires text input
         AddBusStopRef(), // requires text input
+        AddBusStopLit(), // at least during day requires to stand in it to see if there is a light in the shelter
 
         AddRailwayCrossingBarrier(), // useful for routing
 
@@ -184,7 +186,7 @@ import javax.inject.Singleton
         // sport pitches
         AddSport(),
         AddPitchSurface(),
-        AddPitchLit(), // Not affected by new DayNight cycle because the lights are usually only on during games
+        AddPitchLit(),
 
         // parking
         AddParkingType(),
@@ -247,8 +249,8 @@ import javax.inject.Singleton
         AddBoardType(),
 
         AddBarrierType(), // basically any more detailed rendering and routing: OSM Carto, mapy.cz, OSMand for start
-
         AddStileType(),
+        AddBicycleBarrierType(),
 
         AddBollardType(), // useful for first responders
 
@@ -318,6 +320,8 @@ import javax.inject.Singleton
 
         AddOrchardProduce(), // difficult to find out if the orchard does not carry fruits right now
 
+        AddLevel(), // requires to search for the place on several levels (or at least find a mall map)
+
         /* ↓ 4.quests that may need to go inside ------------------------------------------------ */
 
         AddWheelchairAccessPublicTransport(), // need to look out for lifts etc, maybe even enter the station
@@ -343,7 +347,6 @@ import javax.inject.Singleton
         /* ↓ 5.quests that are very numerous ---------------------------------------------------- */
 
         // roads
-        AddWayLit(), //  used by OsmAnd if "Street lighting" is enabled. (Configure map, Map rendering, Details)
         AddSidewalk(), // for any pedestrian routers, needs minimal thinking
         AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
         AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
@@ -366,5 +369,8 @@ import javax.inject.Singleton
         AddRoofShape(countryInfos),
 
         AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
+
+        /* at the very last because it can be difficult to ascertain during day. used by OsmAnd if "Street lighting" is enabled. (Configure map, Map rendering, Details) */
+        AddWayLit(),
     ))
 }
