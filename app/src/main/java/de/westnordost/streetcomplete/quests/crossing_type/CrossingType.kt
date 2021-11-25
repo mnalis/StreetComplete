@@ -4,4 +4,5 @@ enum class CrossingType(val osmValue: String) {
     TRAFFIC_SIGNALS("traffic_signals"),
     MARKED("marked"),
     UNMARKED("unmarked"),
+    ZEBRA("zebra"),
 }
