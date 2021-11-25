@@ -1080,18 +1080,6 @@
     <string name="quest_surface_value_unhewn_cobblestone">"سنگفرش نامرتب"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_parking_access_title">"آیا برای پارک در اینجا محدودیت وجود دارد؟"</string>
-
-    <!-- Fuzzy -->
-    <string name="quest_parking_access_private">"خصوصی است"</string>
-
-    <!-- Fuzzy -->
-    <string name="quest_parking_access_yes">"عمومی است (با هزینه یا بدون هزینه)"</string>
-
-    <!-- Fuzzy -->
-    <string name="quest_parking_access_customers">"فقط برای مشتریان است"</string>
-
-    <!-- Fuzzy -->
     <string name="quest_streetName_pedestrian_title">"نام این خیابان عابر پیاده چیست؟"</string>
 
     <!-- Fuzzy -->
@@ -2108,6 +2096,8 @@
     <string name="user_profile_local_rank">"رتبه بندی در %s"</string>
     <string name="user_profile_days_active">"روزهای فعالیت"</string>
     <string name="user_profile_achievement_levels">"سطح پیشرفت"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_address_street_title">"شماره (خانه) %s به کدام خیابان تعلق دارد؟"</string>
     <string name="quest_address_street_no_named_streets">"وابسته به خیابانی که نامگذاری نشده است"</string>
     <string name="quest_address_street_place_name_label">"نام مکان:"</string>
@@ -2283,9 +2273,6 @@
     <string name="quest_shop_gone_replaced_answer_hint">"نوع مکان اینجا را وارد کنید"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_shop_gone_replaced_answer_error">"اگر نمی‌دانید چه عارضه‌ای اینجاست، یادداشتی بگذارید."</string>
-
-    <!-- Fuzzy -->
     <string name="quest_shop_vacant_type_title">"این مغازه متروکه است. اکنون چه عارضه‌ای اینجاست؟"</string>
     <string name="quest_lanes_answer_lanes_odd2">"تعداد خطوط برای هر سمت متفاوت است"</string>
     <string name="quest_pitchSurface_title">"سطح این زمین ورزشی چه پوششی دارد؟"</string>
@@ -2457,4 +2444,22 @@
 
     <!-- Fuzzy -->
     <string name="quest_generic_answer_is_actually_steps">"این‌ها مراحل هستند"</string>
+    <string name="quest_barrier_type_passage_conversion">"تبدیل به گذرگاه بر روی دیوار/حصار/غیره."</string>
+    <string name="quest_barrier_type_gate_conversion">"تبدیل به دروازه"</string>
+    <string name="quest_traffic_calming_type_title">"این چه نوع سرعتگیری است؟"</string>
+    <string name="quest_traffic_calming_type_bump">"برآمدگی (کوتاه)"</string>
+    <string name="quest_traffic_calming_type_hump">"قوز (بلند)"</string>
+    <string name="quest_traffic_calming_type_table">"تخت (برآمدگی صفحه ای)"</string>
+    <string name="quest_traffic_calming_type_cushion">"بالشتک (برای وسایل نقلیه عریض ناهموار نیست)"</string>
+    <string name="quest_traffic_calming_type_choker">"جاده باریک"</string>
+    <string name="quest_traffic_calming_type_island">"جزیره"</string>
+    <string name="quest_traffic_calming_type_chicane">"پیچ(های) مصنوعی"</string>
+    <string name="quest_traffic_calming_type_rumble_strip">"نوار (های) صوتی"</string>
+    <string name="quest_surface_value_concrete_plates">"صفحات بتنی"</string>
+    <string name="quest_surface_value_concrete_lanes">"خطوط بتنی"</string>
+    <string name="quest_fireHydrant_diameter_title">"چه قطری روی تابلوی این شیر آتش نشانی مشخص شده است؟"</string>
+    <string name="quest_fireHydrant_diameter_unusualInput_confirmation_description">"این قطر غیر قابل قبول به نظر می رسد."</string>
+    <string name="quest_fireHydrant_confirmation_title">"مطمئنید؟ گاهی اوقات می توان قطر را روی خود شیر یافت."</string>
+    <string name="quest_diet_answer_no_food">"خوراک ندارد"</string>
+    <string name="short_no_answer_on_button">"خیر"</string>
 </resources>

@@ -429,10 +429,6 @@ Delvis betyder att rullstolsanvändare kan komma in och använda toaletten men a
     <string name="quest_parking_fee_title">"Kostar det att parkera här?"</string>
     <string name="quest_cycleway_value_lane_soft">"cykelkörfält (streckad markering)"</string>
     <string name="quest_surface_value_unhewn_cobblestone">"Kullersten"</string>
-    <string name="quest_parking_access_title">"Är det reglerat vem som får parkera här?"</string>
-    <string name="quest_parking_access_private">"Parkeringen är privat"</string>
-    <string name="quest_parking_access_yes">"Parkeringen är offentlig (med eller utan avgift)"</string>
-    <string name="quest_parking_access_customers">"Parkeringen är enbart för kunder"</string>
     <string name="quest_streetName_pedestrian_title">"Vad heter den här gågatan?"</string>
     <string name="quest_streetSurface_square_title">"Vilket underlag har det här torget?"</string>
     <string name="quest_streetSurface_square_name_title">"Vilket underlag har torget %s här?"</string>
@@ -566,7 +562,7 @@ Delvis betyder att rullstolsanvändare kan komma in och använda toaletten men a
     <string name="quest_maxheight_height_restrictor_title">"Vilken är höjdbegränsningen?"</string>
     <string name="quest_maxheight_tunnel_title">"Vad är maxhöjden för denna tunnel?"</string>
     <string name="quest_maxheight_answer_noSign">"Det finns ingen skylt…"</string>
-    <string name="quest_maxheight_answer_noSign_question">"Är det tillräckligt med utrymme för att även de högsta lastbilarna (minst 4.5 meter) enkelt ska ta sig under?"</string>
+    <string name="quest_maxheight_answer_noSign_question">"Är det tillräckligt med utrymme för att även de högsta lastbilarna (minst 4,5 meter) enkelt ska ta sig under?"</string>
     <string name="quest_maxheight_unusualInput_confirmation_description">"Angiven höjd verkar osannolik. Är du säker på att den är korrekt?"</string>
     <string name="quest_noteDiscussion_comment2">"— %1$s, %2$s"</string>
     <string name="quest_noteDiscussion_closed2">"Stängd av %1$s, %2$s"</string>
@@ -782,7 +778,7 @@ Slutligen, kom ihåg att vara säker: var medveten om din omgivning och gå inte
 
     <!-- Fuzzy -->
     <string name="link_osrm_description">"Den snabbaste ruttmotorn som finns"</string>
-    <string name="link_openrouteservice_description">"Ruttberäkning för en mängd olika fordon och till fots, var och en med inställningar. Kan också visa isokroner (områden som går att nå på X minuter från en utgångspunkt)."</string>
+    <string name="link_openrouteservice_description">"Ruttberäkning för en mängd olika fordon och till fots, var och en med alternativ. Kan också visa isokroner (områden som går att nå på X minuter från en utgångspunkt)."</string>
     <string name="link_osm_haiku_description">"Använder OSM-data för att skapa en haiku (en form av japansk poesi)"</string>
     <string name="link_openinframap_description">"En karta som visar el-, tele-, gas- och oljeinfrastruktur"</string>
     <string name="link_openorienteeringmap_description">"Skapa utskrivbara orienteringskartor"</string>
@@ -841,6 +837,8 @@ rang"</string>
 aktiv"</string>
     <string name="user_profile_achievement_levels">"Prestations-
 nivåer"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_address_street_title">"Vilken gata hör (hus)numret %s till?"</string>
     <string name="quest_address_street_no_named_streets">"Det hör inte till en namngiven gata"</string>
     <string name="quest_address_street_place_name_label">"Platsnamn:"</string>
@@ -1004,9 +1002,6 @@ Om några körfält är reserverade för bussar, vänligen lämna en anteckning 
     <string name="quest_shop_gone_replaced_answer_hint">"Skriv typ av plats här"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_shop_gone_replaced_answer_error">"Vet inte vad detta är. Överväg att lämna en anteckning."</string>
-
-    <!-- Fuzzy -->
     <string name="quest_shop_vacant_type_title">"Denna butik har varit ledig. Vad ligger här nu?"</string>
     <string name="quest_lanes_answer_lanes_odd2">"Fältantalet skiljer sig åt för varje sida"</string>
     <string name="quest_pitchSurface_title">"Vilket underlag har idrottsplanen?"</string>
@@ -1025,7 +1020,7 @@ Om några körfält är reserverade för bussar, vänligen lämna en anteckning 
     <string name="quest_surface_value_tartan">"Tartan"</string>
     <string name="quest_pitchSurface_title_track">"Vilket underlag har denna sportbana?"</string>
     <string name="quest_bicycle_parking_access_title">"Är det begränsat vem som får parkera en cykel här?"</string>
-    <string name="quest_bicycle_parking_fee_title">"Måste man betala för att parkera en cykel här?"</string>
+    <string name="quest_bicycle_parking_fee_title">"Kostar det att parkera en cykel här?"</string>
     <string name="quest_buildingType_house_description2">"enfamiljsradhus"</string>
     <string name="quest_drinking_water_title">"Är vattnet drickbart här? (%s)"</string>
     <string name="quest_drinking_water_potable_signed">"Drickbart (skyltat)"</string>
@@ -1190,4 +1185,46 @@ Kartdata uppdateras efter %1$s dagar och oanvänd data raderas automatiskt efter
 
     <!-- Fuzzy -->
     <string name="quest_generic_answer_is_actually_steps">"Det är en trappa"</string>
+
+    <!-- Fuzzy -->
+    <string name="quest_barrier_type_passage_conversion">"Omvandlad till öppning i stängsel/mur/osv."</string>
+
+    <!-- Fuzzy -->
+    <string name="quest_barrier_type_gate_conversion">"Omvandlad till grind"</string>
+    <string name="quest_traffic_calming_type_title">"Vad är detta för slags farthinder?"</string>
+    <string name="quest_traffic_calming_type_bump">"Kort gupp"</string>
+    <string name="quest_traffic_calming_type_hump">"Långt gupp"</string>
+    <string name="quest_traffic_calming_type_table">"Förhöjd passage"</string>
+    <string name="quest_traffic_calming_type_cushion">"Vägkudde"</string>
+    <string name="quest_traffic_calming_type_choker">"Avsmalning"</string>
+    <string name="quest_traffic_calming_type_island">"Refug"</string>
+    <string name="quest_traffic_calming_type_chicane">"Sidoförskjutning (chikan)"</string>
+    <string name="quest_traffic_calming_type_rumble_strip">"Räfflor"</string>
+    <string name="quest_surface_value_concrete_plates">"Betongplattor"</string>
+    <string name="quest_surface_value_concrete_lanes">"Betongkörspår"</string>
+    <string name="quest_fireHydrant_diameter_title">"Vilken diameter står angiven för denna brandpost?"</string>
+    <string name="quest_fireHydrant_diameter_unusualInput_confirmation_description">"Den diametern verkar osannolik."</string>
+    <string name="quest_fireHydrant_confirmation_title">"Är du säker? Ibland kan diametern stå angiven på själva brandposten."</string>
+
+    <!-- Fuzzy -->
+    <string name="quest_diet_answer_no_food">"Ingen mat"</string>
+    <string name="short_no_answer_on_button">"Nej"</string>
+    <string name="restore_confirmation">"Återställ"</string>
+
+    <!-- Fuzzy -->
+    <string name="restore_dialog_message">"Återställ alla dolda uppdrag?"</string>
+    <string name="quest_parking_access_title2">"Vem får parkera här? Oavsett om det kostar eller ej."</string>
+    <string name="quest_access_yes">"Vem som helst"</string>
+    <string name="quest_access_customers">"Alla som har ett ärende här (t.ex. kunder)"</string>
+    <string name="quest_access_private">"Enbart den som har tillstånd"</string>
+    <string name="quest_postboxCollectionTimes_resurvey_title">"Stämmer tömningstiderna för denna brevlåda fortfarande?"</string>
+    <string name="quest_postboxCollectionTimes_resurvey_name_title">"Stämmer tömningstiderna för denna %s brevlåda fortfarande?"</string>
+    <string name="quest_shop_gone_replaced_answer_error2">"Känns ej igen. Prova att ange vad för slags ställe detta är, t.ex. \"bageri\". Överväg annars att lämna en anteckning."</string>
+    <string name="quest_bicycle_barrier_type_title">"Vad för slags cykelgrind är detta?"</string>
+    <string name="quest_barrier_bicycle_type_diagonal">"Diagonala grindar"</string>
+    <string name="quest_barrier_bicycle_type_tilted">"Inåtlutande grindar"</string>
+    <string name="quest_barrier_bicycle_type_single">"Passage mellan två grindar"</string>
+    <string name="quest_barrier_bicycle_type_double">"Labyrintfålla - en grind på varje sida"</string>
+    <string name="quest_barrier_bicycle_type_multiple">"Labyrintfålla - tre eller fler grindar"</string>
+    <string name="language_default">"Systemstandard"</string>
 </resources>

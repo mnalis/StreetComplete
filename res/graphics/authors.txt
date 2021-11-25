@@ -240,6 +240,7 @@ quest icons/
     lantern.svg
     laundry.svg
     leaf.svg
+    level.svg
     mail.svg
     mail_ref.svg
     max_width.svg
@@ -252,6 +253,7 @@ quest icons/
     motorcycle_parking_capacity.svg
     motorcycle_parking_cover.svg
     museum.svg
+    no_bicycle.svg
     no_pedestrians.svg
     note_create.svg
     notes.svg
