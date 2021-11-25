@@ -1,6 +1,6 @@
-## Changes in mnalis-v38b1 branch
+## Changes in mnalis-v38b1-smoothness branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38b1
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38b1-smoothness
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
 From `mnalis-v38b1` branch:
@@ -12,6 +12,15 @@ From `mnalis-v38b1` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch
+
+From `helium314/smoothness`:
+* Surface smoothness quest, W.I.P.
+  https://github.com/westnordost/StreetComplete/issues/1630
+  https://github.com/streetcomplete/StreetComplete/pull/3257
+* manually try to fix OtherAnswer() refactoring
+* try to fix duplicate "quest_presets_delete_message" ?
+* try to fix style renames
+* QuestTypeAchievement compile error
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
