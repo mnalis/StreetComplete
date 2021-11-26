@@ -16,6 +16,13 @@ From `mnalis-v38` branch:
   from https://github.com/Atrate/CompleteStreet
 
 ## TODO
+* allow disabling/moving Notes quest too
+  https://github.com/streetcomplete/StreetComplete/issues/3532
+* ask cycleway on residential streets without maxspeed too
+  https://github.com/streetcomplete/StreetComplete/issues/3519
+* create separate mnalis-v38-helium314 branch
+  (without smootness which should eventually merge in master, as opposed to
+  this) and eventually merge it in final mnalis-v38-smoothness-helium314 branch
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
 * Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
