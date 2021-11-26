@@ -113,7 +113,7 @@ class UserActivity : FragmentContainerActivity(R.layout.activity_user),
     }
 
     companion object {
-        const val EXTRA_LAUNCH_AUTH = "de.westnordost.streetcomplete.user.launch_auth"
+        const val EXTRA_LAUNCH_AUTH = "de.westnordost.streetcomplete.mn.user.launch_auth"
     }
 }
 

@@ -14,6 +14,8 @@ From `mnalis-v38` branch:
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
+* rename app to '.mn'
+  FIXME/test: (but it breaks taking Pictures in Notes in debug version, so beware/test!)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -30,10 +32,6 @@ From `mnalis-v38` branch:
   Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
 
   Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
-    * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde) - IIRC there is newer rename with `.h3` ?
-      (so other debugs don't conflict with my version)
-      (but it breaks taking Pictures in Notes in debug version, so beware/test!)
-      newer commit b00ed7484fd77f968bb69d6e182333a454e729d1 and reverse 5462928489a6c5afebf3495f5b8ef1b64e645976, is there even newer?
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
     * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
@@ -75,7 +73,6 @@ From `mnalis-v38` branch:
     * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
-    * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
 
     * update 2d buildings to work from start (08a791676728d683849938f8a7c03a2bbee92131)
