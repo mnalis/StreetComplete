@@ -15,7 +15,6 @@ From `mnalis-v38` branch:
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
 * rename app to '.mn'
-  FIXME/test: (but it breaks taking Pictures in Notes in debug version, so beware/test!)
 
 ## TODO
 * allow disabling/moving Notes quest too
@@ -107,7 +106,6 @@ From `mnalis-v38` branch:
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-  If I need new app name, see Helium314 "rename app" patch (but it breaks taking notes in debug version, so beware/test!)
 * get icon for phone quest from atrate branch?
   to update `helium314` quest.
   Maybe even check `atrate` code for such quest and merge/replace?
@@ -115,8 +113,6 @@ From `mnalis-v38` branch:
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * implement smoking quest
   https://github.com/streetcomplete/StreetComplete/issues/539#issuecomment-946343763
-* fix images in Notes
-  can't save them in helium314 branch, probably due to path changes? FIXME is it fixed now with reverted "rename app" Helium314 patch?
 * house type quest, allow caching Residental/Commercial too
 * Surface smoothness quest (upstream-smoothness branch)
   https://github.com/westnordost/StreetComplete/issues/1630
