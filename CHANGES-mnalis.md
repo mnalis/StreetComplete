@@ -12,7 +12,8 @@ From `mnalis-v38` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
-* show more lit quests, and more surface quests - from https://github.com/Atrate/CompleteStreet
+* show more lit quests, and more surface quests
+  from https://github.com/Atrate/CompleteStreet
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
@@ -111,7 +112,7 @@ From `mnalis-v38` branch:
 * implement smoking quest
   https://github.com/streetcomplete/StreetComplete/issues/539#issuecomment-946343763
 * fix images in Notes
-  can't save them in helim314 branch, probably due to path changes? FIXME is it fixed now with reverted "rename app" Helium314 patch?
+  can't save them in helium314 branch, probably due to path changes? FIXME is it fixed now with reverted "rename app" Helium314 patch?
 * house type quest, allow caching Residental/Commercial too
 * Surface smoothness quest (upstream-smoothness branch)
   https://github.com/westnordost/StreetComplete/issues/1630
