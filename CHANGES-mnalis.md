@@ -24,11 +24,10 @@ From `mnalis-v38` branch:
   Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
     * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde) - IIRC there is newer rename with `.h3` ?
       (so other debugs don't conflict with my version)
-      (but it breaks taking notes in debug version, so beware/test!)
+      (but it breaks taking Pictures in Notes in debug version, so beware/test!)
       newer commit b00ed7484fd77f968bb69d6e182333a454e729d1 and reverse 5462928489a6c5afebf3495f5b8ef1b64e645976, is there even newer?
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
-    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e) -- BUGGY on -dev version no pictures, no easy sharing of notes
     * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
@@ -71,11 +70,17 @@ From `mnalis-v38` branch:
     * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
 
+    * update 2d buildings to work from start (08a791676728d683849938f8a7c03a2bbee92131)
+    * allow switching 3D buildings (825afd551347cb1add9446d72c5df896e98893e8)
+    * add raised crossing answers to crossing type (5c9a07257d30184475d92df2908180ff0e159d9c)
+    * add raised crossing answer to show poi quest, remove unused imports (cdf7fa5aaf05ac289cb356e314bbf5ffc5f6517f)
+
   Not wanted yet:
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
     * (preparing for westnordost presets) - add quest profiles (commit 3d97a952d355e2ef4b4ee3c6db0670cda60f5876)
     * auto-download only if auto-upload is allowed (commit 52cf846a7544c5c1fbf39f1ef0cae8eb93b945ab)
     * add optional zoom with volume buttons (commit 56466f34760db956fd385eef700553f2a3013003)
+    * add gpx notes (commit a01bc6a2ba54fca1c791237571d6b08a4f1ceb2e) -- BUGGY on -dev version no pictures, no easy sharing of notes
 
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
@@ -117,7 +122,6 @@ From `mnalis-v38` branch:
   https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
 
 * FIXME old branches to new branches
-    * izvuci CHANGES-mnalis.md iz mnalis-v34.2 i diffaj sa mojim novi iz mnalis-v38) kada je sve gotovo
     * make a copy of mnalis-v38 branch, and squash all small things I want in one commit for easier handling
       (how exactly? "git cherry-pick -n" ?)
     * check other unread mails / open tabs
