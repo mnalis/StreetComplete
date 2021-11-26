@@ -42,7 +42,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
   Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
 
   Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
-    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
     * add level quests for shopping malls  (commit b2ae6032809b25f206daaf1deb79fe98693e8198)
     * update contact quests  (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5) -- FIXME: it also removes key_cutter, hostel etc, why?
@@ -111,6 +110,17 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * get icon for phone quest from atrate branch?
   to update `helium314` quest.
   Maybe even check `atrate` code for such quest and merge/replace?
+  see also
+    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
+    * update icons (commit bce1e5569137bfdef5468d8f861c6363c70aec5b)
+    * update contact quests (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5)
+    * add phone number and website quests (commit 735ca6764330698cbb69e9c5ab3fa20a1742cb12)
+    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
+    Icons?:
+    ./app/src/main/res/drawable/ic_quest_phone.xml
+    ./app/src/main/res/drawable/ic_pin_phone.xml
+    ./res/graphics/quest icons/phone.svg
+    ./res/graphics/pins/phone.svg
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * implement smoking quest
