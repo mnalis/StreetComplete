@@ -26,6 +26,8 @@ From `mnalis-v38` branch:
   this) and eventually merge it in final mnalis-v38-smoothness-helium314 branch
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
+* showing git ref Version in code
+  see https://stackoverflow.com/questions/17097263/automatic-versioning-of-android-build-using-git-describe-with-gradle#18021756
 * Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
   Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
