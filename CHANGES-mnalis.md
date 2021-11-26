@@ -11,13 +11,12 @@ From `mnalis-v38` branch:
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
 * ask for backrest on leisure=picnic_table too
-  from `picnic-backrest` branch
+  from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
+* show more lit quests, and more surface quests - from https://github.com/Atrate/CompleteStreet
 
 ## TODO
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
-* make `lit` quest available 24/7 again
-  https://github.com/streetcomplete/StreetComplete/issues/3248#issuecomment-922493756
 * Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
   Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
@@ -83,9 +82,6 @@ From `mnalis-v38` branch:
 * add language selector (or force language to HR in this fork if it is much simpler)
   See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
 * check https://github.com/matkoniecz/Zazolc ?
-* https://github.com/Atrate/CompleteStreet
-    * show more lit quests
-    * show more surface quests
 * check https://github.com/streetcomplete/StreetComplete/compare/master...pietervdvn:master ?
 * make GitHub build signed version, so upgrade does not mean uninstalling and losing all preferences
   https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
@@ -121,9 +117,8 @@ From `mnalis-v38` branch:
   https://github.com/streetcomplete/StreetComplete/issues/398#issuecomment-869151327
 
 * FIXME old branches to new branches
-    * izvuci CHANGES-mnalis.md iz mnalis-v34.2 i diffaj sa mojim novi iz mnalis-v37) kada je sve gotovo
-    * procesljaj cijeli diff upstream-westnordost-v34.2..mnalis-v34.2 da li sam sto propustio
-    * make a copy of mnalis-v37 branch, and squash all small things I want in one commit for easier handling
+    * izvuci CHANGES-mnalis.md iz mnalis-v34.2 i diffaj sa mojim novi iz mnalis-v38) kada je sve gotovo
+    * make a copy of mnalis-v38 branch, and squash all small things I want in one commit for easier handling
       (how exactly? "git cherry-pick -n" ?)
     * check other unread mails / open tabs
-    * in final mnalis-with-everything branch (set as default branch): mnalis-v37 + many helium314 + mestrona-languageswitch + smoothness
+    * in final mnalis-with-everything branch (set as default branch): mnalis-v38 + many helium314 + smoothness
