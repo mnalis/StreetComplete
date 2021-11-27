@@ -1,6 +1,6 @@
-## Changes in mnalis-v38-smoothness-helium314 branch
+## Changes in mnalis-everything branch
 
-This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38-smoothness-helium314
+This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-everything
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
 From `mnalis-v38` branch:
@@ -39,9 +39,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
   https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
-* create separate mnalis-v38-helium314 branch
-  (without smootness which should eventually merge in master, as opposed to
-  this) and eventually merge it in final mnalis-v38-smoothness-helium314 branch
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
 * showing git ref Version in code
