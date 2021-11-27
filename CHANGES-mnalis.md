@@ -12,7 +12,9 @@ From `mnalis-v38` branch:
   and which can be unhidden via `Restore hidden quests` preference)
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
-* show more lit quests, and more surface quests - from https://github.com/Atrate/CompleteStreet
+* show more lit quests, and more surface quests
+  from https://github.com/Atrate/CompleteStreet
+* rename app to '.mn'
 
 From `helium314/smoothness`:
 * Surface smoothness quest, W.I.P.
@@ -24,17 +26,22 @@ From `helium314/smoothness`:
 * QuestTypeAchievement compile error
 
 ## TODO
+* allow disabling/moving Notes quest too
+  https://github.com/streetcomplete/StreetComplete/issues/3532
+* ask cycleway on residential streets without maxspeed too
+  https://github.com/streetcomplete/StreetComplete/issues/3519
+* create separate mnalis-v38-helium314 branch
+  (without smootness which should eventually merge in master, as opposed to
+  this) and eventually merge it in final mnalis-v38-smoothness-helium314 branch
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
+* showing git ref Version in code
+  see https://stackoverflow.com/questions/17097263/automatic-versioning-of-android-build-using-git-describe-with-gradle#18021756
 * Cherry-pick stuff from `helium314` branch (from https://github.com/Helium314/StreetComplete/tree/mods) (NOTE: there are probably newer version of this patches)
   See https://github.com/streetcomplete/StreetComplete/discussions/3003#discussioncomment-963592
   Newer: https://github.com/Helium314/StreetComplete/blob/my_modifications/README.md ?
 
   Not included yet (FIXME: needs checking newest branch and documenting; also sometimes older commits are sometimes better as it asks in more situations for website etc):
-    * rename app (commit 70a2b3be92533f05beadb83e0a66b07ec6bebfde) - IIRC there is newer rename with `.h3` ?
-      (so other debugs don't conflict with my version)
-      (but it breaks taking Pictures in Notes in debug version, so beware/test!)
-      newer commit b00ed7484fd77f968bb69d6e182333a454e729d1 and reverse 5462928489a6c5afebf3495f5b8ef1b64e645976, is there even newer?
     * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
     * add poi "quests" and adjust quest dot offset (commit 2ea50a4433d9db5b5101a739efd4c9e4282959fc) -- add 'FIXME' quest only, but not offsets etc
     * add 'hide' button  (commit 87fce03ec2d2efaa578920eb79da179c24c86587)
@@ -76,7 +83,6 @@ From `helium314/smoothness`:
     * add hide button (commit 6ca8a6d38ee0e408dc38cd52cdd213c333c251c6)
     * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
     * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
-    * rename package and app (in changesets) (commit 8694cf185b7dff21308ec712f04928d786934075)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
 
     * update 2d buildings to work from start (08a791676728d683849938f8a7c03a2bbee92131)
@@ -111,7 +117,6 @@ From `helium314/smoothness`:
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-  If I need new app name, see Helium314 "rename app" patch (but it breaks taking notes in debug version, so beware/test!)
 * get icon for phone quest from atrate branch?
   to update `helium314` quest.
   Maybe even check `atrate` code for such quest and merge/replace?
@@ -119,8 +124,6 @@ From `helium314/smoothness`:
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * implement smoking quest
   https://github.com/streetcomplete/StreetComplete/issues/539#issuecomment-946343763
-* fix images in Notes
-  can't save them in helim314 branch, probably due to path changes? FIXME is it fixed now with reverted "rename app" Helium314 patch?
 * house type quest, allow caching Residental/Commercial too
 * Surface smoothness quest (upstream-smoothness branch)
   https://github.com/westnordost/StreetComplete/issues/1630
