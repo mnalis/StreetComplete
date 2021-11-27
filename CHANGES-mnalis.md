@@ -14,7 +14,7 @@ From `mnalis-v38-helium314` branch:
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
-* rename app to '.mn'
+* rename app to `de.westnordost.streetcomplete.mn`
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
@@ -71,14 +71,10 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
     * add quests asking for level inside mall or retail buildings (commit 1dd8d52e87a25f8608d6479eedba6675fc23beb3)
     * show pois and adjust quest dot and pin offsets (commit 8cf33fab948a3c3e1615a61b3b1638659e6cae71)
     * re-ask surface for badly tagged tracks (by matkoniecz) (commit 94d444069bb4918b6b9a9248470ecd9825b3d14e)
-    * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
-    * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
     * small fixes (commit b6daf8211e8f440a043ce179ec78cb9eef409939)
 
     * update 2d buildings to work from start (08a791676728d683849938f8a7c03a2bbee92131)
     * allow switching 3D buildings (825afd551347cb1add9446d72c5df896e98893e8)
-    * add raised crossing answers to crossing type (5c9a07257d30184475d92df2908180ff0e159d9c)
-    * add raised crossing answer to show poi quest, remove unused imports (cdf7fa5aaf05ac289cb356e314bbf5ffc5f6517f)
 
   Not wanted yet:
     * add button to reverse quest order (commit 1982e79ef618444bc41cb609f9d5270805a24ab2)
