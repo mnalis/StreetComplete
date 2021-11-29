@@ -22,7 +22,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * also make buildings on light theme more transparent  (commit edd770106132915823829b5da4aacf1a434ef651)
 * make buildings more transparent (dark mode only) (commit 367b904990f1824eb2c114ec48ef44f1393afd1b)
 * adjust dark theme (commit 9dbf3908180edcb30f1b0464a62f5c134a47c0b0)
-* add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f)
+* add phone and website quests (commit 8e65bacde415860fd3e29a402d3cd9056a4e187f, bce1e5569137bfdef5468d8f861c6363c70aec5b)
 * add "zebra" answer for crossing type quest (commit 68f49d281aed27d3b526fd35d5552a9095f43036)
 
 ## TODO
@@ -103,20 +103,6 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
-* get icon for phone quest from atrate branch?
-  to update `helium314` quest.
-  Maybe even check `atrate` code for such quest and merge/replace?
-  see also
-    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
-    * update icons (commit bce1e5569137bfdef5468d8f861c6363c70aec5b)
-    * update contact quests (commit 2dddd0b2d49ffa6c5dc2d67bd629cfcbce8537c5)
-    * add phone number and website quests (commit 735ca6764330698cbb69e9c5ab3fa20a1742cb12)
-    * add phone number and website quests (commit a01c492bdc1f7385a7b83acd59fed5100fc55cdf)
-    Icons?:
-    ./app/src/main/res/drawable/ic_quest_phone.xml
-    ./app/src/main/res/drawable/ic_pin_phone.xml
-    ./res/graphics/quest icons/phone.svg
-    ./res/graphics/pins/phone.svg
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * implement smoking quest
