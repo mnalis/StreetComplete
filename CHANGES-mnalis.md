@@ -118,6 +118,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
   https://coletiv.com/blog/android-github-actions-setup/
   https://riggaroo.dev/using-github-actions-to-automate-our-release-process/
   https://medium.com/google-developer-experts/github-actions-for-android-developers-6b54c8a32f55
+  https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce
 * implement quest for air compressor
   https://github.com/streetcomplete/StreetComplete/issues/3053
 * implement smoking quest
