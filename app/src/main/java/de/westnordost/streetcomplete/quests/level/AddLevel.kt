@@ -23,6 +23,7 @@ class AddLevel : OsmElementQuestType<String> {
          or railway = station
          or amenity = bus_station
          or public_transport = station
+         or building
     """.toElementFilterExpression() }
 
     private val thingsWithLevelFilter by lazy { """
@@ -32,7 +33,7 @@ class AddLevel : OsmElementQuestType<String> {
     /* only nodes because ways/relations are not likely to be floating around freely in a mall
     *  outline */
     private val filter by lazy { """
-        nodes with
+        nodes, ways with
          (${isKindOfShopExpression()})
          and !level and (name or brand)
     """.toElementFilterExpression()}
