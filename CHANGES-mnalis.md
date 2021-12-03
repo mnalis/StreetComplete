@@ -90,6 +90,10 @@ From `mnalis-v38` branch:
 
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
+  See also https://github.com/streetcomplete/StreetComplete/discussions/3558
+  Or myself: allow house number even if building is not solved, with
+  subanswers: "no, it's a garage" and "no, it's a shed" and "no, it's something else - leave a note")
+
 * add language selector (or force language to HR in this fork if it is much simpler)
   See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
 * check https://github.com/matkoniecz/Zazolc ?
