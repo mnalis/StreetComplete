@@ -87,7 +87,6 @@
     <!-- Fuzzy -->
     <string name="confirmation_discard_title">"Zahodit výběr?"</string>
     <string name="confirmation_discard_positive">"Zahodit"</string>
-    <string name="confirmation_discard_negative">"Zrušit"</string>
     <string name="action_download">"Vyhledat zde úkoly"</string>
     <string name="action_upload">"Nahrát odpovědi"</string>
 
@@ -105,7 +104,9 @@
     <!-- Fuzzy -->
     <string name="no_location_permission_warning">"Pro zobrazení vaší pozice v mapě a hledání úkolů ve vašem okolí je potřeba oprávnění ke zjišťování polohy."</string>
     <string name="about_title_authors">"Autoři"</string>
-    <string name="about_summary_authors">"© 2016–2021 Tobias Zwick a přispěvatelé"</string>
+
+    <!-- Fuzzy -->
+    <string name="about_summary_authors">"© %s Tobias Zwick a přispěvatelé"</string>
 
     <!-- Fuzzy -->
     <string name="about_title_repository">"Zdrojový kód"</string>
@@ -1532,7 +1533,7 @@ Mezi populární klávesnice, které podporují spoustu jazyků patří Google G
     <string name="map_application_missing">"Nemáte nainstalovanou žádnou jinou mapovou aplikaci"</string>
 
     <!-- Fuzzy -->
-    <string name="label_housenumber">"číslo popisné"</string>
+    <string name="label_housenumber">"číslo domu"</string>
 
     <!-- Fuzzy -->
     <string name="label_blocknumber">"číslo bloku"</string>
@@ -2003,7 +2004,7 @@ Tato data jsou důležitá nejen pro pošťáky, ale i pro navigační systémy.
 
     <!-- Fuzzy -->
     <string name="achievement_building_solved_X">"Vyřešili jste %d úkolů, které se týkají budov.
-Pamatujte, že tato aplikace se zeptá na popisné číslo budovy až po určení jejího druhu."</string>
+Pamatujte, že tato aplikace se zeptá na číslo budovy až po určení jejího druhu."</string>
 
     <!-- Fuzzy -->
     <string name="achievement_blind_title">"Šestý smysl"</string>
@@ -2131,7 +2132,7 @@ It is not big issue, but it would be nice to have it correctly. -->
 
     <!-- Fuzzy -->
     <string name="at_conscription_number">"Číslo popisné %s:"</string>
-    <string name="at_housenumber">"číslo popisné %s:"</string>
+    <string name="at_housenumber">"číslo domu %s:"</string>
     <string name="quest_openingHours_name_type_title">"Jaká je otevírací doba %1$s (%2$s)?"</string>
     <string name="quest_openingHours_resurvey_name_title">"Je tato otevírací doba pro %s stále platná?"</string>
     <string name="quest_openingHours_resurvey_name_type_title">"Je tato otevírací doba pro %1$s (%2$s) stále platná?"</string>
@@ -2252,6 +2253,8 @@ Pokud jsou tu pruhy pro autobusy, napište to prosím do poznámky."</string>
 
     <!-- Fuzzy -->
     <string name="quest_crossing_type_marked">"Označený přechod"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_parkingType_street_side">"Parkuje se přímo vedle cesty"</string>
     <string name="quest_parkingType_lane">"Parkuje se na cestě"</string>
     <string name="quest_existence_title">"Je to tu pořád? (%s)"</string>
@@ -2402,7 +2405,6 @@ Data jsou obnovena po %1$s dnech a nepoužitá data jsou smazána automaticky po
     <string name="default_disabled_msg_roofShape">"Tento typ úkolů je ve výchozím nastavení zakázán, protože tvar střechy často není snadno viditelný z ulice. Tento typ úkolů je také poněkud časově náročný; ve většině případů je snazší a efektivnější toto mapovat doma podle leteckých snímků."</string>
     <string name="quest_religion_animist">"Animismus"</string>
     <string name="quest_construction_steps_title">"Jsou tyto schody hotové?"</string>
-    <string name="questList_disabled_at_day">"Zobrazeno pouze v noci"</string>
     <string name="pref_quests_deselect_all">"Zrušit výběr všech úkolů?"</string>
     <string name="quest_buildingType_boathouse">"Loděnice"</string>
     <string name="quest_buildingType_allotment_house">"Zahradní chatka"</string>
@@ -2478,6 +2480,39 @@ Data jsou obnovena po %1$s dnech a nepoužitá data jsou smazána automaticky po
     <string name="quest_barrier_bicycle_type_single">"Průjezd mezi dvěma přkážkami"</string>
     <string name="quest_barrier_bicycle_type_double">"Šikana - překážka na každé straně"</string>
     <string name="quest_barrier_bicycle_type_multiple">"Šikana - více než dvě překážky"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_level_title">"Ve kterém patře se nachází %s?"</string>
     <string name="pref_title_language_select">"Vyberte jazyk"</string>
+    <string name="language_default">"Jazyk systému
+"</string>
+    <string name="on_floor">"ve %s patře:"</string>
+    <string name="confirmation_discard_negative2">"Ne"</string>
+    <string name="quest_street_parking_title">"Jak zde mohou parkovat auta, pokud je to možné?"</string>
+    <string name="select_street_parking_orientation">"Vyberte orientaci směrem k cestě:"</string>
+    <string name="select_street_parking_position">"Vyberte polohu:"</string>
+    <string name="select_street_parking_no">"Jsou tu nějaké dopravní značky nebo značení?"</string>
+    <string name="street_parking_parallel">"Paralelně"</string>
+    <string name="street_parking_diagonal">"Šikmo"</string>
+    <string name="street_parking_perpendicular">"Kolmo"</string>
+    <string name="street_parking_on_street">"Na cestě"</string>
+    <string name="street_parking_half_on_kerb">"Zpola na chodníku"</string>
+    <string name="street_parking_on_kerb">"Vedle vozovky (na chodníku)"</string>
+    <string name="street_parking_street_side">"Vedle vozovky pouze na vyhrazených místech"</string>
+    <string name="street_parking_painted_area_only">"Na cestě na vyhrazených místech"</string>
+    <string name="street_parking_separate">"Parkování je zobrazeno na mapě samostatně"</string>
+    <string name="street_parking_no">"Parkování zde není povoleno / je zakázáno"</string>
+    <string name="street_parking_prohibited">"Parkování zakázáno"</string>
+    <string name="street_stopping_prohibited">"Zákaz zastavení"</string>
+    <string name="street_standing_prohibited">"Zákaz stání"</string>
+    <string name="street_parking_conditional_restrictions">"Parkování / Zastavení je podmíněně omezeno"</string>
+    <string name="street_parking_no_other_reasons">"Není tu značka / Parkování není možné"</string>
+
+    <!-- Fuzzy -->
+    <string name="street_parking_conditional_restrictions_hint">"Pokud je tu možné parkovat nebo zastavit, odpovězte nejprve, jak tu ti, kteří zde mohou parkovat, parkují. Jaká přesně omezení tu platí, může být upřesněno později.
+
+Také můžete napsat poznámku (s fotografií)"</string>
+    <string name="quest_address_answer_house_name_and_housenumber">"Má obojí, číslo domu i jméno..."</string>
+    <string name="quest_address_house_number_label">"Číslo domu:"</string>
+    <string name="quest_shoulder_title">"Má tato cesta odstavný pruh?"</string>
 </resources>
