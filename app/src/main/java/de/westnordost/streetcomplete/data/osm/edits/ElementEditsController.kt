@@ -141,6 +141,7 @@ import javax.inject.Singleton
                 createdElementsCount.ways,
                 createdElementsCount.relations
             )
+	    Log.d("ElementEditsController", "Added edit for ${edit.questType.javaClass.simpleName}") /* debug #3290 /mn/ */
         }
         onAddedEdit(edit)
     }

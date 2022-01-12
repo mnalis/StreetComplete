@@ -200,6 +200,7 @@ import kotlin.collections.ArrayList
          *  downloading/updating data. See issue #2876 */
         val e = getOsmElement(q)
         if (e == null || q.osmElementQuestType.isApplicableTo(e) == false) {
+	    if (e == null) Log.d(TAG, "Element ${q.elementType.name}#${q.elementId} is null!") else Log.d(TAG, "Element ${e.type.name}#${e.id} v ${e.version} is not applicable to ${q.questTypeName}!") /* #3290 debug /mn/ */
             /* the quest should then just be removed immediately, otherwise it looks like a bug
                (can't solve quest, it won't go away), see #3588 */
             osmQuestController.delete(OsmQuestKey(q.elementType, q.elementId, q.questTypeName))
