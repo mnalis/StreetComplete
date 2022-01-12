@@ -1,5 +1,6 @@
 package de.westnordost.streetcomplete.data.osm.edits
 
+import android.util.Log
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.UpdateElementTagsAction
 import de.westnordost.streetcomplete.data.osm.edits.upload.LastEditTimeStore
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
