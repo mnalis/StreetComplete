@@ -17,6 +17,7 @@ From `mnalis-v38` branch:
 * rename app to '.mn'
 
 ## TODO
+* ask for sidewalks more often
 * allow disabling/moving Notes quest too
   https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask cycleway on residential streets without maxspeed too
