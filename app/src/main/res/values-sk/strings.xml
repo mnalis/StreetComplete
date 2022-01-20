@@ -122,9 +122,6 @@
     <string name="confirmation_discard_positive">"Zahodiť"</string>
 
     <!-- Fuzzy -->
-    <string name="confirmation_discard_negative">"Zrušiť"</string>
-
-    <!-- Fuzzy -->
     <string name="action_download">"Hľadať úlohy tu"</string>
 
     <!-- Fuzzy -->
@@ -158,7 +155,7 @@
     <string name="about_title_authors">"Autori"</string>
 
     <!-- Fuzzy -->
-    <string name="about_summary_authors">"© 2016–2021 Tobias Zwick a prispievatelia"</string>
+    <string name="about_summary_authors">"© %s Tobias Zwick a prispievatelia"</string>
 
     <!-- Fuzzy -->
     <string name="about_title_repository">"Zdrojový repozitár"</string>
@@ -2298,6 +2295,8 @@ Pamätajte, že táto aplikácia sa pýta na súpisné číslo budovy až po ur�
 
     <!-- Fuzzy -->
     <string name="quest_crossing_type_marked">"Označený prechod"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_parkingType_street_side">"Parkuje sa priamo vedľa cesty"</string>
     <string name="quest_parkingType_lane">"Parkuje sa na ceste"</string>
     <string name="quest_existence_title">"Je to tu stále? (%s)"</string>
@@ -2437,7 +2436,6 @@ Pamätajte, že táto aplikácia sa pýta na súpisné číslo budovy až po ur�
     <string name="default_disabled_msg_roofShape">"Tento typ úlohy je v predvolenom nastavení zakázaný, pretože tvary striech nie sú z ulice často dobre viditeľné. Tento typ úlohy je tiež dosť časovo náročný; vo väčšine prípadov je jednoduchšie a efektívnejšie to zmapovať z leteckých snímok doma."</string>
     <string name="quest_religion_animist">"Animista"</string>
     <string name="quest_construction_steps_title">"Sú tieto schody dokončené?"</string>
-    <string name="questList_disabled_at_day">"Zobrazuje sa iba v noci"</string>
     <string name="pref_quests_deselect_all">"Zrušiť výber všetkých úloh?"</string>
     <string name="quest_buildingType_boathouse">"Lodenica"</string>
     <string name="quest_buildingType_allotment_house">"Prístavba záhradného pozemku"</string>

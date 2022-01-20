@@ -44,7 +44,6 @@
     <string name="quest_noteDiscussion_anonymous">"Anonimo"</string>
     <string name="confirmation_discard_title">"Scartare l'input?"</string>
     <string name="confirmation_discard_positive">"Scarta"</string>
-    <string name="confirmation_discard_negative">"Annulla"</string>
     <string name="action_download">"Trova le missioni in zona"</string>
     <string name="action_upload">"Carica risposte"</string>
     <string name="no_changes">"Non hai dato alcuna risposta"</string>
@@ -56,7 +55,9 @@
     <string name="turn_on_location_request">"La localizzazione è spenta. Apro le Impostazioni per abilitarla?"</string>
     <string name="no_location_permission_warning">"L'accesso alla tua posizione è necessario per cercare le missioni vicine a te."</string>
     <string name="about_title_authors">"Ringraziamenti"</string>
-    <string name="about_summary_authors">"© 2016–2021 Tobias Zwick e contributori"</string>
+
+    <!-- Fuzzy -->
+    <string name="about_summary_authors">"© %s Tobias Zwick e contributori"</string>
     <string name="about_title_repository">"Repository codice sorgente"</string>
     <string name="about_summary_repository">"su GitHub"</string>
     <string name="about_title_report_error">"Segnala errore"</string>
@@ -235,7 +236,11 @@ Se non ci sono cartelli lungo tutta la strada nel tratto evidenziato allora si a
     <string name="quest_wheelchairAccess_subway_entrance_name_title">"L'entrata della metro %s è accessibile con la sedia a rotelle?"</string>
     <string name="quest_wheelchairAccess_railway_station_name_title">"La stazione dei treni %s è accessibile con la sedia a rotelle?"</string>
     <string name="quest_wheelchairAccess_location_name_title">"%s è accessibile con la sedia a rotelle?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_wheelchairAccess_limited_description_business">"Parzialmente significa che c'è al massimo  un gradino per entrare nel locale e che si può accedere con la sedia a rotelle alla maggior parte delle stanze."</string>
+
+    <!-- Fuzzy -->
     <string name="quest_wheelchairAccess_limited_description_public_transport">"\"Parzialmente\" significa che c'è al massimo un solo gradino di accesso."</string>
     <string name="quest_streetName_nameWithAbbreviations_confirmation_title_name">"Il nome %s contiene un'abbreviazione?"</string>
     <string name="quest_baby_changing_table_toilets_title">"Questo bagno ha un fasciatoio?"</string>
@@ -586,6 +591,8 @@ Altrimenti, è possibile scaricare un'altra tastiera. Le tastiere popolari che s
     <string name="quest_tracktype_grade5">"Soffice"</string>
     <string name="quest_building_underground_name_title">"%s è completamente sotterraneo?"</string>
     <string name="quest_building_underground_title">"Questo edificio è completamente sotterraneo?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_wheelchairAccess_limited_description_outside">"Parziale significa che per accedere non c'è più di un gradino."</string>
     <string name="quest_wheelchairAccess_outside_title">"Questo luogo è accessibile con una sedia a rotelle?"</string>
     <string name="quest_traffic_signals_button_title">"Il semaforo ha un pulsante per richiedere il verde?"</string>
@@ -980,6 +987,8 @@ riconoscimento"</string>
 
     <!-- Fuzzy -->
     <string name="quest_crossing_type_marked">"Attraversamento indicato"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_parkingType_street_side">"Parcheggio poco fuori dalla carreggiata"</string>
     <string name="quest_parkingType_lane">"Parcheggio sulla carreggiata"</string>
     <string name="quest_existence_title">"È ancora qui? (%s)"</string>
@@ -1122,7 +1131,6 @@ I dati vengono aggiornati dopo %1$s giorni e i dati inutilizzati vengono cancell
     <string name="default_disabled_msg_roofShape">"Questo tipo di missione è disabilitata perché la forma del tetto non è sempre facilmente visibile dalla strada. Questo tipo di missione è anche gravosa; nella maggior parte dei casi è più facile ed efficiente mappare queste informazioni usando le immagini satellitari da casa."</string>
     <string name="quest_religion_animist">"Animista"</string>
     <string name="quest_construction_steps_title">"Queste scale sono complete?"</string>
-    <string name="questList_disabled_at_day">"Mostra solo di notte"</string>
     <string name="pref_quests_deselect_all">"Cancellare tutte le missioni?"</string>
     <string name="quest_buildingType_boathouse">"Rimessa"</string>
     <string name="quest_buildingType_allotment_house">"Lotto giardino annesso"</string>
@@ -1200,7 +1208,30 @@ I dati vengono aggiornati dopo %1$s giorni e i dati inutilizzati vengono cancell
     <string name="quest_barrier_bicycle_type_single">"Passaggio tra due barriere"</string>
     <string name="quest_barrier_bicycle_type_double">"Chicane - barriere su ogni lato"</string>
     <string name="quest_barrier_bicycle_type_multiple">"Chicane - più di due barriere"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_level_title">"Su quale piano si trova %s?"</string>
     <string name="pref_title_language_select">"Seleziona lingua"</string>
     <string name="language_default">"Predefinito di sistema"</string>
+    <string name="on_floor">"al piano %s:"</string>
+    <string name="confirmation_discard_negative2">"No"</string>
+    <string name="quest_street_parking_title">"Come possono parcheggiare la auto qua?"</string>
+    <string name="select_street_parking_orientation">"Seleziona l'orientamento verso la strada:"</string>
+    <string name="select_street_parking_position">"Seleziona la posizione:"</string>
+    <string name="select_street_parking_no">"Sono presenti cartelli o strisce qua?"</string>
+    <string name="street_parking_parallel">"Parallelo"</string>
+    <string name="street_parking_diagonal">"Diagonale"</string>
+    <string name="street_parking_perpendicular">"Perpendicolare"</string>
+    <string name="street_parking_on_street">"Sulla strada"</string>
+    <string name="street_parking_half_on_kerb">"Parzialmente su strada"</string>
+    <string name="street_parking_on_kerb">"Accanto alla strada"</string>
+    <string name="street_parking_street_side">"Accanto alla strada solo su spazi dedicati"</string>
+    <string name="street_parking_painted_area_only">"Sulla strada solo su spazi dedicati"</string>
+    <string name="street_parking_separate">"Parcheggio visualizzato separatamente sulla mappa"</string>
+    <string name="street_parking_prohibited">"No sosta"</string>
+    <string name="street_stopping_prohibited">"No fermata"</string>
+    <string name="street_parking_conditional_restrictions">"Limiti condizionali alla sosta o fermata"</string>
+    <string name="street_parking_no_other_reasons">"Indiccazione non presente / parcheggio non possibile"</string>
+    <string name="quest_address_house_number_label">"Numero civico"</string>
+    <string name="quest_shoulder_title">"Questa strada ha un bordo?"</string>
 </resources>
