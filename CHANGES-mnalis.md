@@ -26,6 +26,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * add "zebra" answer for crossing type quest (commit 68f49d281aed27d3b526fd35d5552a9095f43036)
 
 ## TODO
+* ask for sidewalks more often
 * allow disabling/moving Notes quest too
   https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask cycleway on residential streets without maxspeed too
