@@ -56,7 +56,7 @@ class AddContactPhone : OsmFilterQuestType<String>() {
         ).map { it.key + " ~ " + it.value.joinToString("|") }.joinToString("\n or ") +
         "\n) and !phone and !contact:phone and !contact:mobile and !brand and name"
 
-    override val commitMessage = "Add phone number"
+    override val changesetComment = "Add phone number"
     override val wikiLink = "Key:phone"
     override val icon = R.drawable.ic_quest_phone
 
