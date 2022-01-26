@@ -59,7 +59,7 @@ class AddContactWebsite : OsmFilterQuestType<String>() {
         ).map { it.key + " ~ " + it.value.joinToString("|") }.joinToString("\n or ") +
         "\n) and !website and !contact:website and !contact:facebook and !contact:instagram and !brand and name"
 
-    override val commitMessage = "Add website"
+    override val changesetComment = "Add website"
     override val wikiLink = "Key:website"
     override val icon = R.drawable.ic_quest_wifi
 
