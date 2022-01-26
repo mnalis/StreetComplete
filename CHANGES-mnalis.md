@@ -1,4 +1,4 @@
-## Changes in mnalis-v38-helium314 branch
+## Changes in mnalis-everything branch
 
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-everything
 as modified from upstream https://github.com/streetcomplete/StreetComplete
