@@ -36,8 +36,8 @@ android {
         applicationId = "de.westnordost.streetcomplete.mn"
         minSdk = 21
         targetSdk = 31
-        versionCode = 3901
-        versionName = "39.0"
+        versionCode = 3902
+        versionName = "39.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -68,6 +68,8 @@ android {
     }
 
     lint {
+        // there is currently always an internal error "Unexpected lint invalid arguments" when executing lintAnalyze*, so whatever, disable this then!
+        isCheckReleaseBuilds = false
         disable("MissingTranslation")
         ignore("UseCompatLoadingForDrawables") // doesn't make sense for minSdk >= 21
         isAbortOnError = false
@@ -173,16 +175,16 @@ dependencies {
     implementation("org.jbox2d:jbox2d-library:2.2.1.1")
 
     // serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
     // map and location
-    implementation("com.mapzen.tangram:tangram:0.17.0")
+    implementation("com.mapzen.tangram:tangram:0.17.1")
 
     // config files
     implementation("com.esotericsoftware.yamlbeans:yamlbeans:1.15")
 
     // opening hours parser
-    implementation("ch.poole:OpeningHoursParser:0.25.0")
+    implementation("ch.poole:OpeningHoursParser:0.26.0")
 }
 
 /** Localizations that should be pulled from POEditor etc. */
