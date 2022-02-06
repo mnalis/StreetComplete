@@ -1,8 +1,11 @@
 package de.westnordost.streetcomplete.quests.contact
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
+import de.westnordost.streetcomplete.data.osm.mapdata.Element
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
+import de.westnordost.streetcomplete.data.osm.mapdata.filter
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CITIZEN
 
 class AddContactWebsite : OsmFilterQuestType<String>() {
@@ -74,8 +77,7 @@ class AddContactWebsite : OsmFilterQuestType<String>() {
 
     override fun createForm() = AddContactWebsiteForm()
 
-    override fun applyAnswerTo(answer: String, changes: StringMapChangesBuilder) {
-        changes.add("website", answer)
+    override fun applyAnswerTo(answer: String, tags: Tags, timestampEdited: Long) {
+        tags["website"] = answer;
     }
-
 }
