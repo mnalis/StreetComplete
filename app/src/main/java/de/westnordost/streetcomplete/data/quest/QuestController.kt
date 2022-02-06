@@ -52,7 +52,7 @@ import kotlin.collections.ArrayList
             val elementId = q.elementId
             fullText += " for https://osm.org/$lowercaseTypeName/$elementId"
         }
-        fullText += " via ${ApplicationConstants.USER_AGENT}:\n\n$text"
+        fullText += " via ${ApplicationConstants.USER_AGENT}-mn:\n\n$text"
 
         noteEditsController.add(0, NoteEditAction.CREATE, q.position, fullText, imagePaths)
 
