@@ -2,15 +2,16 @@ package de.westnordost.streetcomplete.data.osm.mapdata
 
 import android.util.Log
 import de.westnordost.streetcomplete.data.osm.created_elements.CreatedElementsController
-import de.westnordost.streetcomplete.data.osm.geometry.*
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometryCreator
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometryDao
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometryEntry
 import de.westnordost.streetcomplete.ktx.format
 import java.lang.System.currentTimeMillis
 import java.util.concurrent.CopyOnWriteArrayList
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /** Controller to access element data and its geometry and handle updates to it (from OSM API) */
-@Singleton class MapDataController @Inject internal constructor(
+class MapDataController internal constructor(
     private val nodeDB: NodeDao,
     private val wayDB: WayDao,
     private val relationDB: RelationDao,
@@ -137,10 +138,10 @@ import javax.inject.Singleton
         mapData.addAll(ways)
     }
 
-    fun get(type: ElementType, id: Long) : Element? =
+    fun get(type: ElementType, id: Long): Element? =
         elementDB.get(type, id)
 
-    fun getGeometry(type: ElementType, id: Long) : ElementGeometry? =
+    fun getGeometry(type: ElementType, id: Long): ElementGeometry? =
         geometryDB.get(type, id)
 
     fun getGeometries(keys: Collection<ElementKey>): List<ElementGeometryEntry> =
@@ -194,7 +195,7 @@ import javax.inject.Singleton
             geometryCount = geometryDB.deleteAll(elements)
             createdElementsController.deleteAll(elements)
         }
-        Log.i(TAG,"Deleted $elementCount old elements and $geometryCount geometries")
+        Log.i(TAG, "Deleted $elementCount old elements and $geometryCount geometries")
 
         onUpdated(deleted = elements)
 

@@ -4,8 +4,11 @@ import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.mapdata.Way
 import de.westnordost.streetcomplete.ktx.isArea
 import de.westnordost.streetcomplete.quests.AbstractQuestAnswerFragment
-import de.westnordost.streetcomplete.quests.way_lit.WayLit.*
 import de.westnordost.streetcomplete.quests.AnswerItem
+import de.westnordost.streetcomplete.quests.way_lit.WayLit.AUTOMATIC
+import de.westnordost.streetcomplete.quests.way_lit.WayLit.NIGHT_AND_DAY
+import de.westnordost.streetcomplete.quests.way_lit.WayLit.NO
+import de.westnordost.streetcomplete.quests.way_lit.WayLit.YES
 
 class WayLitForm : AbstractQuestAnswerFragment<WayLitOrIsStepsAnswer>() {
 
@@ -22,7 +25,7 @@ class WayLitForm : AbstractQuestAnswerFragment<WayLitOrIsStepsAnswer>() {
 
     private fun createConvertToStepsAnswer(): AnswerItem? {
         val way = osmElement as? Way ?: return null
-        if (way.isArea() || way.tags["highway"] == "steps") return null
+        if (way.isArea() || way.tags["highway"] != "footway") return null
 
         return AnswerItem(R.string.quest_generic_answer_is_actually_steps) {
             applyAnswer(IsActuallyStepsAnswer)

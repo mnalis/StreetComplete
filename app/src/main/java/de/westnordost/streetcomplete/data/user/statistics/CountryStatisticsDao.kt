@@ -7,10 +7,8 @@ import de.westnordost.streetcomplete.data.user.statistics.CountryStatisticsTable
 import de.westnordost.streetcomplete.data.user.statistics.CountryStatisticsTable.Columns.SUCCEEDED
 import de.westnordost.streetcomplete.data.user.statistics.CountryStatisticsTable.NAME
 
-import javax.inject.Inject
-
 /** Stores how many quests the user solved in which country */
-class CountryStatisticsDao @Inject constructor(private val db: Database) {
+class CountryStatisticsDao(private val db: Database) {
 
     fun getCountryWithBiggestSolvedCount(): CountryStatistics? =
         db.queryOne(NAME, orderBy = "$SUCCEEDED DESC") { it.toCountryStatistics() }

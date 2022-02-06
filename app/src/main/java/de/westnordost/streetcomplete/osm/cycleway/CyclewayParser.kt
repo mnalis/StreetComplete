@@ -1,7 +1,24 @@
 package de.westnordost.streetcomplete.osm.cycleway
 
 import de.westnordost.streetcomplete.ktx.containsAny
-import de.westnordost.streetcomplete.osm.cycleway.Cycleway.*
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.ADVISORY_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.BUSWAY
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.DUAL_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.DUAL_TRACK
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.EXCLUSIVE_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.INVALID
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.NONE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.NONE_NO_ONEWAY
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.PICTOGRAMS
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.SEPARATE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.SIDEWALK_EXPLICIT
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.SUGGESTION_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.TRACK
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.UNKNOWN
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.UNKNOWN_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.UNKNOWN_SHARED_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.UNSPECIFIED_LANE
+import de.westnordost.streetcomplete.osm.cycleway.Cycleway.UNSPECIFIED_SHARED_LANE
 import de.westnordost.streetcomplete.osm.isForwardOneway
 import de.westnordost.streetcomplete.osm.isReversedOneway
 
@@ -30,8 +47,8 @@ fun createCyclewaySides(tags: Map<String, String>, isLeftHandTraffic: Boolean): 
     var right: Cycleway?
 
     /* For oneways, the naked "cycleway"-keys should be interpreted differently:
-    *  F.e. a cycleway=lane in a oneway=yes probably means that only in the flow direction, there
-    *  is a lane. F.e. cycleway=opposite_lane means that there is a lane in opposite traffic flow
+    *  E.g. a cycleway=lane in a oneway=yes probably means that only in the flow direction, there
+    *  is a lane. E.g. cycleway=opposite_lane means that there is a lane in opposite traffic flow
     *  direction.
     *  Whether there is anything each in the other direction, is not defined, so we have to treat
     *  it that way. */
@@ -41,8 +58,7 @@ fun createCyclewaySides(tags: Map<String, String>, isLeftHandTraffic: Boolean): 
             if (isReverseSideRight) {
                 left = null
                 right = cycleway
-            }
-            else {
+            } else {
                 left = cycleway
                 right = null
             }
@@ -50,8 +66,7 @@ fun createCyclewaySides(tags: Map<String, String>, isLeftHandTraffic: Boolean): 
             if (isReverseSideRight) {
                 left = cycleway
                 right = null
-            }
-            else {
+            } else {
                 left = null
                 right = cycleway
             }
@@ -88,7 +103,7 @@ private fun createCyclewayForSide(tags: Map<String, String>, side: String?): Cyc
     val isDual = tags["$cyclewayKey:oneway"] == "no"
     val isSegregated = tags["$cyclewayKey:segregated"] != "no"
 
-    val result = when(cycleway) {
+    val result = when (cycleway) {
         "lane", "opposite_lane" -> {
             when (cyclewayLane) {
                 "exclusive", "exclusive_lane", "mandatory" -> {

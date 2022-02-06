@@ -3,18 +3,17 @@ package de.westnordost.streetcomplete.quests.building_levels
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.appcompat.app.AlertDialog
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
-
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.QuestBuildingLevelsBinding
 import de.westnordost.streetcomplete.databinding.QuestBuildingLevelsLastPickedButtonBinding
 import de.westnordost.streetcomplete.quests.AbstractQuestFormAnswerFragment
-import de.westnordost.streetcomplete.quests.LastPickedValuesStore
 import de.westnordost.streetcomplete.quests.AnswerItem
+import de.westnordost.streetcomplete.quests.LastPickedValuesStore
 import de.westnordost.streetcomplete.quests.mostCommonWithin
 import de.westnordost.streetcomplete.util.TextChangedWatcher
 
@@ -32,7 +31,7 @@ class AddBuildingLevelsForm : AbstractQuestFormAnswerFragment<BuildingLevelsAnsw
 
     private val lastPickedAnswers by lazy {
         favs.get()
-            .mostCommonWithin(target = 5, historyCount = 30, first = 1)
+            .mostCommonWithin(target = 5, historyCount = 15, first = 1)
             .sortedWith(compareBy<BuildingLevelsAnswer> { it.levels }.thenBy { it.roofLevels })
             .toList()
     }

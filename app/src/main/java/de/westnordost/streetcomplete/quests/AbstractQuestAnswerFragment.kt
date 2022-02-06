@@ -17,25 +17,35 @@ import androidx.core.view.isGone
 import androidx.core.widget.NestedScrollView
 import androidx.viewbinding.ViewBinding
 import de.westnordost.osmfeatures.FeatureDictionary
-import de.westnordost.streetcomplete.Injector
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.meta.CountryInfo
 import de.westnordost.streetcomplete.data.meta.CountryInfos
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
-import de.westnordost.streetcomplete.data.osm.mapdata.*
+import de.westnordost.streetcomplete.data.osm.mapdata.Element
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
+import de.westnordost.streetcomplete.data.osm.mapdata.Way
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
-import de.westnordost.streetcomplete.data.quest.*
+import de.westnordost.streetcomplete.data.quest.OsmQuestKey
+import de.westnordost.streetcomplete.data.quest.Quest
+import de.westnordost.streetcomplete.data.quest.QuestKey
+import de.westnordost.streetcomplete.data.quest.QuestType
+import de.westnordost.streetcomplete.data.quest.QuestTypeRegistry
 import de.westnordost.streetcomplete.databinding.ButtonPanelButtonBinding
 import de.westnordost.streetcomplete.databinding.FragmentQuestAnswerBinding
-import de.westnordost.streetcomplete.ktx.*
+import de.westnordost.streetcomplete.ktx.FragmentViewBindingPropertyDelegate
+import de.westnordost.streetcomplete.ktx.geometryType
+import de.westnordost.streetcomplete.ktx.isArea
+import de.westnordost.streetcomplete.ktx.isSomeKindOfShop
+import de.westnordost.streetcomplete.ktx.updateConfiguration
 import de.westnordost.streetcomplete.quests.shop_type.ShopGoneDialog
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.koin.android.ext.android.inject
+import org.koin.core.qualifier.named
 import java.lang.ref.WeakReference
 import java.util.Locale
 import java.util.concurrent.FutureTask
-import javax.inject.Inject
 
 /** Abstract base class for any bottom sheet with which the user answers a specific quest(ion)  */
 abstract class AbstractQuestAnswerFragment<T> :
@@ -45,7 +55,7 @@ abstract class AbstractQuestAnswerFragment<T> :
     private val binding get() = _binding!!
 
     protected var otherAnswersButton: TextView? = null
-    private set
+        private set
 
     override val bottomSheetContainer get() = binding.bottomSheetContainer
     override val bottomSheet get() = binding.bottomSheet
@@ -58,13 +68,13 @@ abstract class AbstractQuestAnswerFragment<T> :
     protected val scrollView: NestedScrollView get() = binding.scrollView
 
     // dependencies
-    private val countryInfos: CountryInfos
-    private val questTypeRegistry: QuestTypeRegistry
-    private val featureDictionaryFuture: FutureTask<FeatureDictionary>
+    private val countryInfos: CountryInfos by inject()
+    private val questTypeRegistry: QuestTypeRegistry by inject()
+    private val featureDictionaryFuture: FutureTask<FeatureDictionary> by inject(named("FeatureDictionaryFuture"))
 
     private var _countryInfo: CountryInfo? = null // lazy but resettable because based on lateinit var
         get() {
-            if(field == null) {
+            if (field == null) {
                 val latLon = elementGeometry.center
                 field = countryInfos.get(latLon.longitude, latLon.latitude)
             }
@@ -129,14 +139,6 @@ abstract class AbstractQuestAnswerFragment<T> :
     }
     private val listener: Listener? get() = parentFragment as? Listener ?: activity as? Listener
 
-    init {
-        val fields = InjectedFields()
-        Injector.applicationComponent.inject(fields)
-        countryInfos = fields.countryInfos
-        featureDictionaryFuture = fields.featureDictionaryFuture
-        questTypeRegistry = fields.questTypeRegistry
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -200,7 +202,7 @@ abstract class AbstractQuestAnswerFragment<T> :
         otherAnswersButton = null
     }
 
-    private fun assembleOtherAnswers() : List<AnswerItem> {
+    private fun assembleOtherAnswers(): List<AnswerItem> {
         val answers = mutableListOf<AnswerItem>()
 
         val cantSay = AnswerItem(R.string.quest_generic_answer_notApplicable) { onClickCantSay() }
@@ -223,8 +225,8 @@ abstract class AbstractQuestAnswerFragment<T> :
            relation, so it is not supported
            https://wiki.openstreetmap.org/wiki/Relation:route#Bus_routes_and_roundabouts
         */
-        val isClosedRoundabout = way.nodeIds.firstOrNull() == way.nodeIds.lastOrNull() &&
-            way.tags["junction"] == "roundabout"
+        val isClosedRoundabout = way.nodeIds.firstOrNull() == way.nodeIds.lastOrNull()
+            && way.tags["junction"] == "roundabout"
         if (isClosedRoundabout) return null
 
         if (way.isArea()) return null
@@ -269,7 +271,7 @@ abstract class AbstractQuestAnswerFragment<T> :
 
     override fun onStart() {
         super.onStart()
-        if(!startedOnce) {
+        if (!startedOnce) {
             onMapOrientation(initialMapRotation, initialMapTilt)
             startedOnce = true
         }
@@ -364,8 +366,8 @@ abstract class AbstractQuestAnswerFragment<T> :
     }
 
     private fun updateContentPadding() {
-        if(!contentPadding) {
-            binding.content.setPadding(0,0,0,0)
+        if (!contentPadding) {
+            binding.content.setPadding(0, 0, 0, 0)
         } else {
             val horizontal = resources.getDimensionPixelSize(R.dimen.quest_form_horizontal_padding)
             val vertical = resources.getDimensionPixelSize(R.dimen.quest_form_vertical_padding)
@@ -388,12 +390,6 @@ abstract class AbstractQuestAnswerFragment<T> :
 
     @AnyThread open fun onMapOrientation(rotation: Float, tilt: Float) {
         // default empty implementation
-    }
-
-    class InjectedFields {
-        @Inject internal lateinit var countryInfos: CountryInfos
-        @Inject internal lateinit var questTypeRegistry: QuestTypeRegistry
-        @Inject internal lateinit var featureDictionaryFuture: FutureTask<FeatureDictionary>
     }
 
     protected inline fun <reified T : ViewBinding> contentViewBinding(

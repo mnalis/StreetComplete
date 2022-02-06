@@ -1,7 +1,5 @@
 package de.westnordost.streetcomplete.data.osm.mapdata
 
-import javax.inject.Inject
-
 import de.westnordost.streetcomplete.data.Database
 import de.westnordost.streetcomplete.data.osm.mapdata.WayTables.Columns.ID
 import de.westnordost.streetcomplete.data.osm.mapdata.WayTables.Columns.INDEX
@@ -18,7 +16,7 @@ import kotlinx.serialization.json.Json
 import java.lang.System.currentTimeMillis
 
 /** Stores OSM ways */
-class WayDao @Inject constructor(private val db: Database) {
+class WayDao(private val db: Database) {
     fun put(way: Way) {
         putAll(listOf(way))
     }

@@ -2,14 +2,16 @@ package de.westnordost.streetcomplete.quests.level
 
 import android.os.Bundle
 import android.view.View
-import de.westnordost.streetcomplete.Injector
-
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.edits.MapDataWithEditsSource
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
 import de.westnordost.streetcomplete.databinding.QuestLevelBinding
-import de.westnordost.streetcomplete.ktx.*
+import de.westnordost.streetcomplete.ktx.getLevelsOrNull
+import de.westnordost.streetcomplete.ktx.getSelectableLevels
+import de.westnordost.streetcomplete.ktx.isSomeKindOfShop
+import de.westnordost.streetcomplete.ktx.toShortString
+import de.westnordost.streetcomplete.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.map.getPinIcon
 import de.westnordost.streetcomplete.osm.SingleLevel
 import de.westnordost.streetcomplete.osm.levelsIntersect
@@ -20,13 +22,13 @@ import de.westnordost.streetcomplete.util.enclosingBoundingBox
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 import kotlin.math.ceil
 import kotlin.math.floor
 
 class AddLevelForm : AbstractQuestFormAnswerFragment<String>() {
 
-    @Inject internal lateinit var mapDataSource: MapDataWithEditsSource
+    private val mapDataSource: MapDataWithEditsSource by inject()
 
     override val contentLayoutResId = R.layout.quest_level
     private val binding by contentViewBinding(QuestLevelBinding::bind)
@@ -39,10 +41,6 @@ class AddLevelForm : AbstractQuestFormAnswerFragment<String>() {
     private var selectedLevel: Double?
         get() = binding.levelInput.text.toString().trim().toDoubleOrNull()
         set(value) { binding.levelInput.setText(value?.toShortString() ?: "") }
-
-    init {
-        Injector.applicationComponent.inject(this)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

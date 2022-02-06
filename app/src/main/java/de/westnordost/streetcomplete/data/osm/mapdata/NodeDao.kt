@@ -1,7 +1,5 @@
 package de.westnordost.streetcomplete.data.osm.mapdata
 
-import javax.inject.Inject
-
 import de.westnordost.streetcomplete.data.Database
 import de.westnordost.streetcomplete.data.osm.mapdata.NodeTable.Columns.ID
 import de.westnordost.streetcomplete.data.osm.mapdata.NodeTable.Columns.LAST_SYNC
@@ -17,7 +15,7 @@ import kotlinx.serialization.json.Json
 import java.lang.System.currentTimeMillis
 
 /** Stores OSM nodes */
-class NodeDao @Inject constructor(private val db: Database) {
+class NodeDao(private val db: Database) {
     fun put(node: Node) {
         putAll(listOf(node))
     }

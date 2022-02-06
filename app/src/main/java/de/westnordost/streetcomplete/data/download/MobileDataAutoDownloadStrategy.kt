@@ -1,11 +1,10 @@
 package de.westnordost.streetcomplete.data.download
 
-import javax.inject.Inject
 import de.westnordost.streetcomplete.data.download.tiles.DownloadedTilesDao
 import de.westnordost.streetcomplete.data.osm.mapdata.MapDataController
 
 /** Download strategy if user is on mobile data */
-class MobileDataAutoDownloadStrategy @Inject constructor(
+class MobileDataAutoDownloadStrategy(
     mapDataController: MapDataController,
     downloadedTilesDao: DownloadedTilesDao
 ) : AVariableRadiusStrategy(mapDataController, downloadedTilesDao) {

@@ -9,7 +9,6 @@ import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import de.westnordost.streetcomplete.Injector
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.user.achievements.Achievement
 import de.westnordost.streetcomplete.data.user.achievements.AchievementsSource
@@ -22,23 +21,21 @@ import de.westnordost.streetcomplete.ktx.viewBinding
 import de.westnordost.streetcomplete.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.view.GridLayoutSpacingItemDecoration
 import de.westnordost.streetcomplete.view.ListAdapter
-import kotlinx.coroutines.*
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.koin.android.ext.android.inject
 
 /** Shows the icons for all achieved achievements and opens a AchievementInfoFragment to show the
  *  details on click. */
 class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
 
-    @Inject internal lateinit var achievementsSource: AchievementsSource
-    @Inject internal lateinit var statisticsSource: StatisticsSource
+    private val achievementsSource: AchievementsSource by inject()
+    private val statisticsSource: StatisticsSource by inject()
 
     private val binding by viewBinding(FragmentAchievementsBinding::bind)
 
     private var actualCellWidth: Int = 0
-
-    init {
-        Injector.applicationComponent.inject(this)
-    }
 
     interface Listener {
         fun onClickedAchievement(achievement: Achievement, level: Int, achievementBubbleView: View)
@@ -87,11 +84,12 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
 
     /* -------------------------------------- Interaction --------------------------------------- */
 
-    private inner class AchievementsAdapter(achievements: List<Pair<Achievement, Int>>
+    private inner class AchievementsAdapter(
+        achievements: List<Pair<Achievement, Int>>
     ) : ListAdapter<Pair<Achievement, Int>>(achievements) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val binding = CellAchievementBinding.inflate(LayoutInflater.from(parent.context),parent, false)
+            val binding = CellAchievementBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             binding.root.updateLayoutParams {
                 width = actualCellWidth
                 height = actualCellWidth
@@ -99,7 +97,7 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
             return ViewHolder(binding)
         }
 
-        inner class ViewHolder(val binding : CellAchievementBinding) : ListAdapter.ViewHolder<Pair<Achievement, Int>>(binding) {
+        inner class ViewHolder(val binding: CellAchievementBinding) : ListAdapter.ViewHolder<Pair<Achievement, Int>>(binding) {
             override fun onBind(with: Pair<Achievement, Int>) {
                 val achievement = with.first
                 val level = with.second

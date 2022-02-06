@@ -1,24 +1,35 @@
 package de.westnordost.streetcomplete.data.osm.edits
 
-import de.westnordost.streetcomplete.data.osm.mapdata.MapData
-import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
-import de.westnordost.streetcomplete.data.osm.mapdata.MutableMapData
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometryCreator
 import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometryEntry
-import de.westnordost.streetcomplete.data.osm.mapdata.*
-import de.westnordost.streetcomplete.data.osm.mapdata.ElementType.*
+import de.westnordost.streetcomplete.data.osm.mapdata.BoundingBox
+import de.westnordost.streetcomplete.data.osm.mapdata.Element
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementKey
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType.NODE
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType.RELATION
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType.WAY
+import de.westnordost.streetcomplete.data.osm.mapdata.MapData
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataChanges
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataController
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataRepository
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataUpdates
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
+import de.westnordost.streetcomplete.data.osm.mapdata.MutableMapData
+import de.westnordost.streetcomplete.data.osm.mapdata.MutableMapDataWithGeometry
+import de.westnordost.streetcomplete.data.osm.mapdata.Node
+import de.westnordost.streetcomplete.data.osm.mapdata.Relation
+import de.westnordost.streetcomplete.data.osm.mapdata.Way
 import de.westnordost.streetcomplete.data.upload.ConflictException
 import de.westnordost.streetcomplete.util.intersect
 import java.util.concurrent.CopyOnWriteArrayList
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /** Source for map data. It combines the original data downloaded with the edits made.
  *
  *  This class is threadsafe.
  * */
-@Singleton class MapDataWithEditsSource @Inject internal constructor(
+class MapDataWithEditsSource internal constructor(
     private val mapDataController: MapDataController,
     private val elementEditsController: ElementEditsController,
     private val elementGeometryCreator: ElementGeometryCreator
@@ -300,7 +311,7 @@ import javax.inject.Singleton
 
     fun getRelationsForElement(type: ElementType, id: Long): Collection<Relation> = synchronized(this) {
         val relationsById = HashMap<Long, Relation>()
-        val relations = when(type) {
+        val relations = when (type) {
             NODE -> mapDataController.getRelationsForNode(id)
             WAY -> mapDataController.getRelationsForWay(id)
             RELATION -> mapDataController.getRelationsForRelation(id)
@@ -393,7 +404,7 @@ import javax.inject.Singleton
     }
 
     private fun createGeometry(element: Element): ElementGeometry? {
-        return when(element) {
+        return when (element) {
             is Node -> {
                 elementGeometryCreator.create(element)
             }
