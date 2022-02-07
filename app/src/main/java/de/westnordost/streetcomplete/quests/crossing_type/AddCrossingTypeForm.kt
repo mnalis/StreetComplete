@@ -5,6 +5,7 @@ import de.westnordost.streetcomplete.quests.AImageListQuestAnswerFragment
 import de.westnordost.streetcomplete.quests.crossing_type.CrossingType.MARKED
 import de.westnordost.streetcomplete.quests.crossing_type.CrossingType.TRAFFIC_SIGNALS
 import de.westnordost.streetcomplete.quests.crossing_type.CrossingType.UNMARKED
+import de.westnordost.streetcomplete.quests.crossing_type.CrossingType.ZEBRA
 import de.westnordost.streetcomplete.view.image_select.Item
 
 class AddCrossingTypeForm : AImageListQuestAnswerFragment<CrossingType, CrossingType>() {

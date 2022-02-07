@@ -37,6 +37,7 @@ import de.westnordost.streetcomplete.ktx.geometryType
 import de.westnordost.streetcomplete.ktx.isArea
 import de.westnordost.streetcomplete.ktx.isSomeKindOfShop
 import de.westnordost.streetcomplete.ktx.updateConfiguration
+import de.westnordost.streetcomplete.ktx.popIn
 import de.westnordost.streetcomplete.quests.shop_type.ShopGoneDialog
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
