@@ -34,7 +34,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.about)
 
         findPreference<Preference>("version")?.summary =
-            getString(R.string.about_summary_current_version, "v" + BuildConfig.VERSION_NAME)
+            getString(R.string.about_summary_current_version, "v" + BuildConfig.VERSION_NAME + "mn")
         findPreference<Preference>("version")?.setOnPreferenceClickListener {
             listener?.onClickedChangelog()
             true
