@@ -32,6 +32,7 @@ import de.westnordost.streetcomplete.ktx.format
 import de.westnordost.streetcomplete.ktx.getYamlObject
 import de.westnordost.streetcomplete.ktx.purge
 import de.westnordost.streetcomplete.ktx.toast
+import de.westnordost.streetcomplete.measure.MeasureActivity
 import de.westnordost.streetcomplete.util.getSelectedLocales
 import de.westnordost.streetcomplete.util.setDefaultLocales
 import kotlinx.coroutines.Dispatchers
@@ -103,6 +104,16 @@ class SettingsFragment :
 
         findPreference<Preference>("debug.quests")?.setOnPreferenceClickListener {
             startActivity(Intent(context, ShowQuestFormsActivity::class.java))
+            true
+        }
+
+        findPreference<Preference>("debug.ar_measure_horizontal")?.setOnPreferenceClickListener {
+            startActivity(MeasureActivity.createIntent(requireContext(), false))
+            true
+        }
+
+        findPreference<Preference>("debug.ar_measure_vertical")?.setOnPreferenceClickListener {
+            startActivity(MeasureActivity.createIntent(requireContext(), true))
             true
         }
 
