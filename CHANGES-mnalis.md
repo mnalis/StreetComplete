@@ -10,6 +10,8 @@ From `mnalis-v38` branch:
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+* allow disabling/moving Notes quest too
+  https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
 * show more lit quests, and more surface quests
@@ -18,8 +20,6 @@ From `mnalis-v38` branch:
 
 ## TODO
 * ask for sidewalks more often
-* allow disabling/moving Notes quest too
-  https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
 * create separate mnalis-v38-helium314 branch
