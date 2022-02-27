@@ -102,7 +102,7 @@
     <string name="about_summary_current_version">"Current version: %s"</string>
     <string name="about_title_authors">"Credits"</string>
     <string name="about_summary_authors">"© %s Tobias Zwick and contributors"</string>
-    <string name="about_title_repository">"Source Repository"</string>
+    <string name="about_title_repository">"Project Home"</string>
     <string name="about_summary_repository">"on GitHub"</string>
     <string name="about_title_faq">"FAQ"</string>
     <string name="about_title_report_error">"Report error"</string>
@@ -628,7 +628,7 @@ Otherwise, you can download another keyboard in the app store. Popular keyboards
     <string name="quest_buildingType_residential">Residential</string>
     <string name="quest_buildingType_residential_description">building where people live</string>
     <string name="quest_buildingType_house">House</string>
-    <string name="quest_buildingType_house_description2">non-detached single-family home</string>
+    <string name="quest_buildingType_house_description2">non-detached single-family home, e.g. a single row house</string>
     <string name="quest_buildingType_apartments_description">house for multiple families, may have retail outlets on the ground floor</string>
     <string name="quest_buildingType_apartments">Apartment building</string>
     <string name="quest_buildingType_detached">Detached house</string>
@@ -790,7 +790,7 @@ Otherwise, you can download another keyboard in the app store. Popular keyboards
     <string name="quest_leaf_type_needles">Needles</string>
     <string name="quest_leaf_type_broadleaved">Broadleaved</string>
     <string name="quest_leaf_type_mixed">Both are present</string>
-    <string name="create_new_note_hint">Best write the note in the locally spoken language or otherwise in English.</string>
+    <string name="create_new_note_hint">Ideally, write the note in the local language, or otherwise in English.</string>
     <string name="quest_cyclewayPartSurface_title">What’s the surface of the cycleway here?</string>
     <string name="quest_footwayPartSurface_title">What’s the surface of the footway here?</string>
     <string name="quest_board_type_history">History</string>
@@ -871,8 +871,8 @@ Otherwise, you can download another keyboard in the app store. Popular keyboards
     <string name="about_title_sponsors">Sponsors</string>
     <string name="about_summary_donate">Show your appreciation! ❤️</string>
     <string name="about_description_donate">Thank you for considering to support this app! To see current donations and to donate yourself, tap on the respective platform:</string>
-    <string name="about_description_donate_google_play">"Thank you for considering to support this app!
-Due to a Google Play Store policy, the donation links must not be displayed in-app, but you will find any information regarding this project, including how to sponsor this app’s development, at its home:"</string>
+    <string name="about_description_donate_google_play2">"Thank you for considering to support this app!
+Unfortunately, due to a Google Play Store policy, no links leading to donations may be displayed in-app. In this context, even linking to our project home is not allowed."</string>
 
     <string name="quest_recycling_materials_answer_waste">It’s for general waste</string>
     <string name="quest_recycling_materials_answer_waste_description">So, this is a container for any waste, such as bagged up household or commercial waste?</string>
@@ -952,8 +952,10 @@ Due to a Google Play Store policy, the donation links must not be displayed in-a
     <string name="link_openstreetbrowser_description">A map to browse OpenStreetMap map features by category</string>
     <string name="link_qwant_maps_description">A map with searchable places and directions</string>
     <string name="link_organic_maps_description">Maps app for travelers, hikers and cyclists that works offline</string>
+    <string name="link_osmand_description">Mobile app for online and offline map viewing and navigation</string>
     <string name="link_weeklyosm_description">The weekly news blog about what’s happening in the OpenStreetMap world</string>
     <string name="link_figuregrounder_description">Create figure-ground diagram posters of a city or neighbourhood</string>
+    <string name="link_sunders_description">A map of cameras and surveillance equipment</string>
 
     <string name="achievement_first_edit_title">First Quest Solved</string>
     <string name="achievement_first_edit_description">Welcome to the OpenStreetMap community! In your profile screen, you can see more info for each quest type you solved.</string>
@@ -1230,6 +1232,7 @@ Alternatively, you can leave a note (with a photo)."</string>
     <string name="ar_core_tracking_error_insufficient_features">Insufficient visual features here</string>
     <string name="ar_core_tracking_error_camera_unavailable">Camera is used by another app</string>
     <string name="ar_core_tracking_error_too_steep_angle">Too steep angle, step away a bit</string>
+    <string name="ar_core_tracking_error_no_plane_hit">Keep closer to the arrow but watch out for traffic!</string>
     <string name="default_disabled_msg_no_ar">You need a tape measure to solve this quest because measuring with the camera is not supported on this device.</string>
 
     <string name="quest_cycleway_width_title">"What’s the width of this cycleway here?"</string>
