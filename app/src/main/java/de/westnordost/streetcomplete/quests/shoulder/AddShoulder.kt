@@ -28,15 +28,15 @@ class AddShoulder : OsmFilterQuestType<Boolean>() {
             highway = trunk
             or (
               highway ~ primary|secondary|tertiary|unclassified
-              and (
-                motorroad = yes
-                or tunnel ~ yes|building_passage|avalanche_protector
-                or bridge = yes
-                or sidewalk ~ no|none
-                or maxspeed > 50
-                or maxspeed ~ "([4-9][0-9]|1[0-9][0-9]) mph"
-                or ~${(MAXSPEED_TYPE_KEYS + "maxspeed").joinToString("|")} ~ ".*(rural|trunk|motorway|nsl_single|nsl_dual)"
-              )
+              /*and (*/
+                /*motorroad = yes*/
+                /*or tunnel ~ yes|building_passage|avalanche_protector*/
+                /*or bridge = yes*/
+                /*or sidewalk ~ no|none*/
+                /*or maxspeed > 50*/
+                /*or maxspeed ~ "([4-9][0-9]|1[0-9][0-9]) mph"*/
+                /*or ~${(MAXSPEED_TYPE_KEYS + "maxspeed").joinToString("|")} ~ ".*(rural|trunk|motorway|nsl_single|nsl_dual)"*/
+              /*)*/
             )
           )
           and lane_markings != no
@@ -51,7 +51,7 @@ class AddShoulder : OsmFilterQuestType<Boolean>() {
           and cycleway:both !~ lane|opposite_lane
           and !shoulder
           and !shoulder:left and !shoulder:right and !shoulder:both
-          and (access !~ private|no or (foot and foot !~ private|no))
+          /*and (access !~ private|no or (foot and foot !~ private|no))*/
     """
 
     override fun getApplicableElements(mapData: MapDataWithGeometry): Iterable<Element> =
