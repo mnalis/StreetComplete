@@ -165,7 +165,7 @@ class AddLanesForm : AbstractQuestFormAnswerFragment<LanesAnswer>() {
 
     private fun setStreetSideLayout() {
         puzzleView?.let {
-            it.pause()
+            //it.pause()	// quick kludge to compile; broken by f7e9db7b4aee4fa7a7acca0e67f88ad703a8266f ?
             lifecycle.removeObserver(it)
         }
 
