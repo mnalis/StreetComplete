@@ -14,10 +14,10 @@ class AddRoadSmoothness : OsmFilterQuestType<SmoothnessAnswer>() {
     override val elementFilter = """
         ways with (
             highway ~ ${ROADS_TO_ASK_SMOOTHNESS_FOR.joinToString("|")}
-            or highway = service and service !~ driveway|slipway
+            or highway = service
           )
           and surface ~ ${SURFACES_FOR_SMOOTHNESS.joinToString("|")}
-          and (access !~ private|no or (foot and foot !~ private|no))
+          /*and (access !~ private|no or (foot and foot !~ private|no))*/
           and (
             !smoothness
             or smoothness older today -6 years
@@ -71,7 +71,7 @@ val SURFACES_FOR_SMOOTHNESS = listOf(
 )
 
 private val ROADS_TO_ASK_SMOOTHNESS_FOR = arrayOf(
-    // "trunk","trunk_link","motorway","motorway_link", // too much, motorways are almost by definition smooth asphalt (or concrete)
+    "trunk","trunk_link","motorway","motorway_link",
     "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
     "unclassified", "residential", "living_street", "pedestrian", "track",
     // "service", // this is too much, and the information value is very low

@@ -15,10 +15,10 @@ class AddPathSmoothness : OsmFilterQuestType<SmoothnessAnswer>() {
         ways with
           highway ~ ${ALL_PATHS_EXCEPT_STEPS.joinToString("|")}
           and surface ~ ${SURFACES_FOR_SMOOTHNESS.joinToString("|")}
-          and access !~ private|no
+          /*and access !~ private|no*/
           and segregated != yes
           and (!conveying or conveying = no)
-          and (!indoor or indoor = no)
+          /*and (!indoor or indoor = no)*/
           and !cycleway:surface and !footway:surface
           and (
             !smoothness
