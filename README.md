@@ -13,6 +13,9 @@ CompleteStreet is a fork of StreetComplete aiming to unrestrict some quests (suc
 - Allow setting lane count without setting the lane_markings tag (makeshift solution, will probably be superseeded by Mateusz Konieczny's implementation
 - Ask for bollard type of all bollards, not only ones on ways
 - Ask for which level a shop is on in more cases
+- Ask for existnece of a shoulder in more cases
+- Ask for path/road smoothness in more cases
+- Don't ask for confirmation when doing many splits
 
 # Original README
 
