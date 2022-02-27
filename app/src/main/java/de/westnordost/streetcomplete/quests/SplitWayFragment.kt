@@ -122,11 +122,11 @@ class SplitWayFragment : Fragment(R.layout.fragment_split_way),
     }
 
     private fun onClickOk() {
-        if (splits.size > 2) {
-            confirmManySplits { onSplittedWayConfirmed() }
-        } else {
+    //    if (splits.size > 2) {
+    //        confirmManySplits { onSplittedWayConfirmed() }
+    //    } else {
             onSplittedWayConfirmed()
-        }
+    //    }
     }
 
     private fun onSplittedWayConfirmed() {
