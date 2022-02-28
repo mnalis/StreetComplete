@@ -17,7 +17,7 @@ class AddSmoking : OsmFilterQuestType<SmokingAllowed>() {
     private val elementFilterBasic = """
         (
             amenity ~ bar|cafe|pub|biergarten|restaurant|food_court|nightclub|stripclub
-            or leisure ~ outdoor_seating
+            or leisure = outdoor_seating
             or (
                 (amenity ~ fast_food|ice_cream or shop ~ ice_cream|deli|bakery|coffee|tea|wine)
                 and (
@@ -29,10 +29,10 @@ class AddSmoking : OsmFilterQuestType<SmokingAllowed>() {
     """
 
     override val elementFilter = """
-             nodes, ways, relations with
-             ${elementFilterBasic}
-             and takeaway != only
-             and (!smoking or smoking older today -8 years)
+         nodes, ways, relations with
+         ${elementFilterBasic}
+         and takeaway != only
+         and (!smoking or smoking older today -8 years)
     """
 
     override val changesetComment = "Add smoking status"
@@ -50,7 +50,7 @@ class AddSmoking : OsmFilterQuestType<SmokingAllowed>() {
             R.string.quest_smoking_no_name_title
 
     override fun getTitleArgs(tags: Map<String, String>, featureName: Lazy<String?>): Array<String> {
-        val name = tags["name"] ?: tags["brand"] ?: tags["operator"]
+        val name = tags["name"] ?: tags["brand"]
         return arrayOfNotNull(name, featureName.value)
     }
 
@@ -72,6 +72,6 @@ class AddSmoking : OsmFilterQuestType<SmokingAllowed>() {
     }
 
     private fun hasProperName(tags: Map<String, String>): Boolean =
-        tags.keys.containsAny(listOf("name", "brand", "operator"))
+        tags.keys.containsAny(listOf("name", "brand"))
 
 }
