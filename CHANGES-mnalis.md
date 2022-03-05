@@ -17,6 +17,7 @@ From `mnalis-v38` branch:
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
 * rename app to '.mn'
+* keep .apk files in build artifacts for 3 months instead of 1 day
 
 ## TODO
 * ask for sidewalks more often
