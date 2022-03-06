@@ -16,8 +16,9 @@ From `mnalis-v38` branch:
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
-* rename app to '.mn'
+* rename app to `de.westnordost.streetcomplete.mn`
 * keep .apk files in build artifacts for 3 months instead of 1 day
+* put Notes photo button to the right, for right-handed one-hand operation
 
 ## TODO
 * ask for sidewalks more often
