@@ -18,6 +18,7 @@ From `mnalis-v38` branch:
   from https://github.com/Atrate/CompleteStreet
 * rename app to `de.westnordost.streetcomplete.mn`
 * keep .apk files in build artifacts for 3 months instead of 1 day
+* put Notes photo button to the right, for right-handed one-hand operation
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
