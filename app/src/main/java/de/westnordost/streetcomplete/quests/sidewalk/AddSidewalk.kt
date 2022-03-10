@@ -2,25 +2,25 @@ package de.westnordost.streetcomplete.quests.sidewalk
 
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.elementfilter.toElementFilterExpression
-import de.westnordost.streetcomplete.data.meta.ANYTHING_UNPAVED
-import de.westnordost.streetcomplete.data.meta.MAXSPEED_TYPE_KEYS
 import de.westnordost.streetcomplete.data.osm.geometry.ElementPolylinesGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
 import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
 import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.PEDESTRIAN
+import de.westnordost.streetcomplete.osm.ANYTHING_UNPAVED
+import de.westnordost.streetcomplete.osm.MAXSPEED_TYPE_KEYS
 import de.westnordost.streetcomplete.osm.estimateCycleTrackWidth
 import de.westnordost.streetcomplete.osm.estimateParkingOffRoadWidth
 import de.westnordost.streetcomplete.osm.estimateRoadwayWidth
 import de.westnordost.streetcomplete.osm.guessRoadwayWidth
 import de.westnordost.streetcomplete.osm.sidewalk.LeftAndRightSidewalk
 import de.westnordost.streetcomplete.osm.sidewalk.Sidewalk
+import de.westnordost.streetcomplete.osm.sidewalk.Sidewalk.INVALID
 import de.westnordost.streetcomplete.osm.sidewalk.SidewalkSides
 import de.westnordost.streetcomplete.osm.sidewalk.applyTo
 import de.westnordost.streetcomplete.osm.sidewalk.createSidewalkSides
 import de.westnordost.streetcomplete.util.isNearAndAligned
-import de.westnordost.streetcomplete.osm.sidewalk.Sidewalk.INVALID
 
 class AddSidewalk : OsmElementQuestType<SidewalkSides> {
     private val maybeSeparatelyMappedSidewalksFilter by lazy { """
@@ -73,7 +73,7 @@ class AddSidewalk : OsmElementQuestType<SidewalkSides> {
             way.hasInvalidOrIncompleteSidewalkTags()
         }
 
-        return roadsWithMissingSidewalks + roadsWithInvalidSidewalkTags 
+        return roadsWithMissingSidewalks + roadsWithInvalidSidewalkTags
     }
 
     private fun getMinDistanceToWays(tags: Map<String, String>): Float =

@@ -1,17 +1,20 @@
 package de.westnordost.streetcomplete.quests.surface
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.meta.ANYTHING_UNPAVED
-import de.westnordost.streetcomplete.data.meta.ROADS_TO_ASK_SURFACE_FOR
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CAR
+import de.westnordost.streetcomplete.osm.ANYTHING_UNPAVED
 
 class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
 
     override val elementFilter = """
         ways with (
-          highway ~ ${ROADS_TO_ASK_SURFACE_FOR.joinToString("|")}
+          highway ~ ${listOf(
+            "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
+            "unclassified", "residential", "living_street", "pedestrian", "track",
+            ).joinToString("|")
+          }
           or highway = service and service !~ driveway|slipway
         )
         and (
@@ -30,7 +33,6 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
     override val wikiLink = "Key:surface"
     override val icon = R.drawable.ic_quest_street_surface
     override val isSplitWayEnabled = true
-
     override val questTypeAchievements = listOf(CAR)
 
     override fun getTitle(tags: Map<String, String>): Int {
