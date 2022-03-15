@@ -4,7 +4,7 @@ import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CITIZEN
-import de.westnordost.streetcomplete.ktx.toYesNo
+import de.westnordost.streetcomplete.util.ktx.toYesNo
 import de.westnordost.streetcomplete.quests.YesNoQuestAnswerFragment
 
 class AddGeneralFee : OsmFilterQuestType<Boolean>() {
@@ -21,7 +21,7 @@ class AddGeneralFee : OsmFilterQuestType<Boolean>() {
     override val icon = R.drawable.ic_quest_fee
     override val questTypeAchievements = listOf(CITIZEN)
 
-    override fun getTitle(tags: Map<String, String>) = R.string.quest_generalFee_title
+    override fun getTitle(tags: Map<String, String>) = R.string.quest_generalFee_title2
 
     override fun createForm() = YesNoQuestAnswerFragment()
 

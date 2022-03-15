@@ -6,7 +6,7 @@ import de.westnordost.streetcomplete.data.meta.CountryInfos
 import de.westnordost.streetcomplete.data.osmnotes.notequests.OsmNoteQuestType
 import de.westnordost.streetcomplete.data.quest.QuestType
 import de.westnordost.streetcomplete.data.quest.QuestTypeRegistry
-import de.westnordost.streetcomplete.measure.ArSupportChecker
+import de.westnordost.streetcomplete.screens.measure.ArSupportChecker
 import de.westnordost.streetcomplete.quests.accepts_cash.AddAcceptsCash
 import de.westnordost.streetcomplete.quests.address.AddAddressStreet
 import de.westnordost.streetcomplete.quests.address.AddHousenumber
@@ -382,12 +382,12 @@ whether the postbox is still there in countries in which it is enabled */
     AddWheelchairAccessToilets(), // used by wheelmap, OsmAnd, Organic Maps
 
     // shop
-    AddAcceptsCash(featureDictionaryFuture),
+    AddAcceptsCash(),
     AddVegetarian(),
     AddVegan(),
     AddHalal(), // there are ~ 100 times more Muslims than Jews
     AddKosher(),
-    AddWheelchairAccessBusiness(featureDictionaryFuture), // used by wheelmap, OsmAnd, Organic Maps
+    AddWheelchairAccessBusiness(), // used by wheelmap, OsmAnd, Organic Maps
     AddInternetAccess(), // used by OsmAnd
     AddSeating(),
 
