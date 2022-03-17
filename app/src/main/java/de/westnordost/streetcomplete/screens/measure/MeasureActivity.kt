@@ -35,8 +35,8 @@ import com.google.ar.sceneform.rendering.ShapeFactory
 import com.google.ar.sceneform.rendering.ViewRenderable
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.ActivityMeasureBinding
-import de.westnordost.streetcomplete.util.ktx.toast
 import de.westnordost.streetcomplete.screens.measure.MeasureActivity.Companion.createIntent
+import de.westnordost.streetcomplete.util.ktx.toast
 import de.westnordost.streetcomplete.util.math.normalizeRadians
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -163,8 +163,10 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
         setTrackingError(frame.camera.trackingFailureReason.messageResId)
 
         if (frame.camera.trackingState == TRACKING) {
-            if (measureState == MeasureState.MEASURING && measureVertical) {
-                updateVerticalMeasuring(frame.camera.displayOrientedPose)
+            if (measureVertical) {
+                if (measureState == MeasureState.MEASURING){
+                    updateVerticalMeasuring(frame.camera.displayOrientedPose)
+                }
             } else {
                 val centerX = binding.arSceneViewContainer.width / 2f
                 val centerY = binding.arSceneViewContainer.height / 2f

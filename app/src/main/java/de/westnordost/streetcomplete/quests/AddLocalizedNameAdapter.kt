@@ -15,8 +15,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.meta.AbbreviationsByLocale
-import de.westnordost.streetcomplete.view.TextChangedWatcher
 import de.westnordost.streetcomplete.view.AutoCorrectAbbreviationsEditText
+import de.westnordost.streetcomplete.view.TextChangedWatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -283,17 +283,12 @@ class AddLocalizedNameAdapter(
                     buttonLanguage.text = if (languageTag == "international") "🌍" else languageTag
                     updateAddLanguageButtonVisibility()
                     updateNameSuggestions()
+                    updateAbbreviations()
                 }
             }
 
             updateNameSuggestions()
-
-            // load abbreviations from file in background
-            viewLifecycleScope.launch {
-                autoCorrectInput.abbreviations = withContext(Dispatchers.IO) {
-                    abbreviationsByLocale?.get(Locale(localizedName.languageTag))
-                }
-            }
+            updateAbbreviations()
         }
 
         private fun updateNameSuggestions() {
@@ -308,6 +303,15 @@ class AddLocalizedNameAdapter(
                     localizedNames = selection.toLocalizedNameList()
                     notifyDataSetChanged()
                     updateAddLanguageButtonVisibility()
+                }
+            }
+        }
+
+        private fun updateAbbreviations() {
+            // load abbreviations from file in background
+            viewLifecycleScope.launch {
+                autoCorrectInput.abbreviations = withContext(Dispatchers.IO) {
+                    abbreviationsByLocale?.get(Locale(localizedName.languageTag))
                 }
             }
         }
