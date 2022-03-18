@@ -64,10 +64,9 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAnswer>() {
         // well, all roads have surfaces, what I mean is that not all ways with highway key are
         // "something with a surface"
         private val ROADS_WITH_SURFACES = arrayOf(
-            "trunk","trunk_link","motorway","motorway_link", // too much, motorways are almost by definition asphalt (or concrete)
+            // "trunk","trunk_link","motorway","motorway_link", // too much, motorways are almost by definition asphalt (or concrete)
             "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link",
-            "service", // this is too much, and the information value is very low
-            "unclassified", "residential", "living_street", "pedestrian", "track", "road",
-        )
+            "unclassified", "residential", "living_street", "pedestrian", "track", "road"
+        )/*"service", */// this is too much, and the information value is very low
     }
 }

@@ -10,11 +10,15 @@ From `mnalis-v38` branch:
   when `Show all notes` in preferences is enabled, really **show ALL notes**,
   including your own (only hide notes that user explicitely asked to hide,
   and which can be unhidden via `Restore hidden quests` preference)
+* allow disabling/moving Notes quest too
+  https://github.com/streetcomplete/StreetComplete/issues/3532
 * ask for backrest on leisure=picnic_table too
   from `picnic-backrest` branch (see https://github.com/streetcomplete/StreetComplete/pull/3521)
 * show more lit quests, and more surface quests
   from https://github.com/Atrate/CompleteStreet
 * rename app to `de.westnordost.streetcomplete.mn`
+* keep .apk files in build artifacts for 3 months instead of 1 day
+* put Notes photo button to the right, for right-handed one-hand operation
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
@@ -26,8 +30,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * add "zebra" answer for crossing type quest (commit 68f49d281aed27d3b526fd35d5552a9095f43036)
 
 ## TODO
-* allow disabling/moving Notes quest too
-  https://github.com/streetcomplete/StreetComplete/issues/3532
+* ask for sidewalks more often
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
 * create separate mnalis-v38-helium314 branch
@@ -85,6 +88,10 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 
 * allow house address quest even if no building type ?
   See [issue #2464](https://github.com/streetcomplete/StreetComplete/issues/2464)
+  See also https://github.com/streetcomplete/StreetComplete/discussions/3558
+  Or myself: allow house number even if building is not solved, with
+  subanswers: "no, it's a garage" and "no, it's a shed" and "no, it's something else - leave a note")
+
 * add language selector (or force language to HR in this fork if it is much simpler)
   See https://github.com/streetcomplete/StreetComplete/issues/2964#issuecomment-862609036 and related issues.
 * check https://github.com/matkoniecz/Zazolc ?

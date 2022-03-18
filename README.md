@@ -1,7 +1,7 @@
 ![StreetComplete](http://www.westnordost.de/streetcomplete/featureGraphic.png)
 
 ## mnalis changes
-* See [CHANGES-mnalis.md](https://github.com/mnalis/StreetComplete/blob/mnalis/CHANGES-mnalis.md).
+* See [CHANGES-mnalis.md](https://github.com/mnalis/StreetComplete/blob/mnalis-v38/CHANGES-mnalis.md).
 
 StreetComplete is an easy to use editor of OpenStreetMap data available for Android. It can be used without any OpenStreetMap-specific knowledge. It asks simple questions, with answers directly used to edit and improve OpenStreetMap data. The app is aimed at users who do not know anything about OSM tagging schemes but still want to contribute to OpenStreetMap.
 

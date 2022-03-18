@@ -1,4 +1,4 @@
-name: Build debug apk
+name: Build release apk
 
 on:
   [workflow_dispatch]
@@ -18,13 +18,15 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Prepare for build
+      run: ./gradlew GenerateMetadataByCountry
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleRelease
     - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/StreetComplete-debug-$(git log -n 1 --format='%h').apk
+      run: mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/StreetComplete-release-$(git log -n 1 --format='%h').apk
     - name: Archive APK
       uses: actions/upload-artifact@v2
       with: 
-        name: debug-apk
-        path: app/build/outputs/apk/debug/*.apk
-        retention-days: 90
+        name: release-apk
+        path: app/build/outputs/apk/release/*.apk
+        retention-days: 1
