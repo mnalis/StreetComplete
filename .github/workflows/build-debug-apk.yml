@@ -28,3 +28,5 @@ jobs:
         name: debug-apk
         path: app/build/outputs/apk/debug/*.apk
         retention-days: 90
+    - name: Run tests
+      run: ./gradlew :app:cleanTestDebugUnitTest :app:testDebugUnitTest --tests "de.westnordost.streetcomplete.*"
