@@ -497,8 +497,8 @@ However, before uploading your changes, the app checks with a &lt;a href=\"https
     <string name="theme_system_default">System default</string>
 
     <string name="pref_title_show_notes_not_phrased_as_questions">"Show all notes"</string>
-    <string name="pref_summaryOn_show_notes_not_phrased_as_questions">"Also showing notes not phrased as questions"</string>
-    <string name="pref_summaryOff_show_notes_not_phrased_as_questions">"Ignoring notes not phrased as questions"</string>
+    <string name="pref_summaryOn_show_notes_not_phrased_as_questions">"Showing ALL unhidden notes"</string>
+    <string name="pref_summaryOff_show_notes_not_phrased_as_questions">"Ignoring own notes and notes not phrased as questions"</string>
 
     <string name="pref_title_quests_restore_hidden">Restore hidden quests</string>
     <string name="restore_confirmation">Restore</string>
