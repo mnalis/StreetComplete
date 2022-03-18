@@ -115,6 +115,6 @@ class UserActivity :
     }
 
     companion object {
-        const val EXTRA_LAUNCH_AUTH = "de.westnordost.streetcomplete.screens.user.launch_auth"
+        const val EXTRA_LAUNCH_AUTH = "de.westnordost.streetcomplete.screens.mn.user.launch_auth"
     }
 }

@@ -33,7 +33,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.about)
 
         findPreference<Preference>("version")?.summary =
-            getString(R.string.about_summary_current_version, "v" + BuildConfig.VERSION_NAME)
+            getString(R.string.about_summary_current_version, "v" + BuildConfig.VERSION_NAME + "mn")
         findPreference<Preference>("version")?.setOnPreferenceClickListener {
             listener?.onClickedChangelog()
             true
@@ -56,7 +56,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>("repository")?.setOnPreferenceClickListener {
-            openUrl("https://github.com/streetcomplete/StreetComplete/")
+            openUrl("https://github.com/mnalis/StreetComplete/")
         }
 
         findPreference<Preference>("faq")?.setOnPreferenceClickListener {
@@ -73,7 +73,7 @@ class AboutFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>("report_error")?.setOnPreferenceClickListener {
-            openUrl("https://github.com/streetcomplete/StreetComplete/issues/")
+            openUrl("https://github.com/mnalis/StreetComplete/issues/")
         }
 
         findPreference<Preference>("give_feedback")?.setOnPreferenceClickListener {
