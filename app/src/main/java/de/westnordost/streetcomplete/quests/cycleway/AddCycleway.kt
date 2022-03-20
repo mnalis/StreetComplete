@@ -65,6 +65,7 @@ class AddCycleway(
         "GB", "IE", "NL", "BE", "FR", "LU",
         "DE", "PL", "CZ", "HU", "AT", "CH", "LI",
         "ES", "IT", "HR",
+        "BA", "SI", "ME", "RS", "MK",
         // East Asia
         "JP", "KR", "TW",
         // some of China (East Coast)
@@ -338,6 +339,7 @@ class AddCycleway(
                   maxspeed > 30
                   or (maxspeed ~ ".*mph" and maxspeed !~ "([1-9]|1[0-9]|20) mph")
                   or $notIn30ZoneOrLess
+                  or true
                 )
               )
               and !cycleway
@@ -353,6 +355,7 @@ class AddCycleway(
                 or maxspeed > 20
                 or (maxspeed ~ ".*mph" and maxspeed !~ "([1-9]|1[0-2]) mph")
                 or $notIn30ZoneOrLess
+                or true
               )
               and surface !~ ${ANYTHING_UNPAVED.joinToString("|")}
         """.toElementFilterExpression() }

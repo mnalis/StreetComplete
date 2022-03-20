@@ -54,7 +54,7 @@ class AddSidewalk : OsmElementQuestType<SidewalkSides> {
 
             val minAngleToWays = 25.0
 
-            if (maybeSeparatelyMappedSidewalkGeometries.isNotEmpty()) {
+            if (false && maybeSeparatelyMappedSidewalkGeometries.isNotEmpty()) {	// /mn/ somethis only one side is mapped, so ask more often.
                 // filter out roads with missing sidewalks that are near footways
                 roadsWithMissingSidewalks.removeAll { road ->
                     val minDistToWays = getMinDistanceToWays(road.tags).toDouble()
