@@ -20,10 +20,10 @@ From `mnalis-v38` branch:
 * keep .apk files in build artifacts for 3 months instead of 1 day
 * put Notes photo button to the right, for right-handed one-hand operation
 * ask for sidewalks more often (even if one separately mapped footway is nearby)
-
-## TODO
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
+
+## TODO
 * create separate mnalis-v38-helium314 branch
   (without smootness which should eventually merge in master, as opposed to
   this) and eventually merge it in final mnalis-v38-smoothness-helium314 branch
