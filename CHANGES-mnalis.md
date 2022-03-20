@@ -1,4 +1,4 @@
-## Changes in mnalis-v38 branch
+## Changes in mnalis-v42b1 branch
 
 This file details changes made in https://github.com/mnalis/StreetComplete/tree/mnalis-v38
 as modified from upstream https://github.com/streetcomplete/StreetComplete
@@ -19,9 +19,9 @@ From `mnalis-v38` branch:
 * rename app to `de.westnordost.streetcomplete.mn`
 * keep .apk files in build artifacts for 3 months instead of 1 day
 * put Notes photo button to the right, for right-handed one-hand operation
+* ask for sidewalks more often (even if one separately mapped footway is nearby)
 
 ## TODO
-* ask for sidewalks more often
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
 * create separate mnalis-v38-helium314 branch
