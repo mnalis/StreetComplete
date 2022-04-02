@@ -18,13 +18,11 @@ class AddAirCompressor : OsmFilterQuestType<Boolean>() {
        nodes, ways with
        amenity = fuel
        and (
-           !compressed_air and !service:bicycle:pump
+           !compressed_air
            or compressed_air older today -6 years
        )
        and access !~ private|no
     """
-    /* if service:bicycle:pump is undefined, nothing has been said about its existence;
-     * see https://wiki.openstreetmap.org/wiki/Tag:shop=bicycle#Additional_keys */
 
     override val changesetComment = "Add whether air compressor is available"
     override val wikiLink = "Key:compressed_air"
@@ -36,9 +34,8 @@ class AddAirCompressor : OsmFilterQuestType<Boolean>() {
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
         getMapData().filter("""
             nodes, ways with
-            compressed_air
-            or service:bicycle:pump
-            or amenity ~ compressed_air|fuel|bicycle_repair_station
+            compressed_air = yes
+            or amenity ~ compressed_air|fuel
         """)
 
     override fun createForm() = YesNoQuestAnswerFragment()

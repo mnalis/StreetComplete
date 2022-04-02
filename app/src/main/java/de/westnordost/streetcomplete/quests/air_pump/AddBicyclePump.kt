@@ -13,6 +13,12 @@ import de.westnordost.streetcomplete.osm.updateWithCheckDate
 
 class AddBicyclePump : OsmFilterQuestType<Boolean>() {
 
+    /* if service:bicycle:pump is undefined, nothing has been said about its existence;
+     * see https://wiki.openstreetmap.org/wiki/Tag:shop=bicycle#Additional_keys
+     *
+     * Also, "access=customers" + "service:bicycle:pump=yes" is an invalid combination, as the wiki states that
+     * "yes" means "a feture has a bicycle pump which can be used by anybody, not only customers"
+     */
     override val elementFilter = """
         nodes, ways with
         amenity = bicycle_repair_station or shop = bicycle
@@ -20,7 +26,7 @@ class AddBicyclePump : OsmFilterQuestType<Boolean>() {
             !compressed_air and !service:bicycle:pump
             or service:bicycle:pump older today -6 years
         )
-        and access !~ private|no
+        and access !~ private|no|customers
     """
     override val changesetComment = "Add whether bicycle pump is available"
     override val wikiLink = "Key:service:bicycle:pump"
@@ -32,9 +38,10 @@ class AddBicyclePump : OsmFilterQuestType<Boolean>() {
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
         getMapData().filter("""
             nodes, ways with
-            compressed_air
-            or service:bicycle:pump
-            or amenity ~ compressed_air|fuel|bicycle_repair_station
+            compressed_air = yes
+            or service:bicycle:pump = yes
+            or amenity ~ compressed_air|bicycle_repair_station
+            or shop = bicycle
         """)
 
     override fun createForm() = YesNoQuestAnswerFragment()
