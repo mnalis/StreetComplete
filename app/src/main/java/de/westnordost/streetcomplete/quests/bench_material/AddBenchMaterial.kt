@@ -13,11 +13,11 @@ class AddBenchMaterial : OsmFilterQuestType<BenchMaterial>() {
 
     override val elementFilter = """
         nodes, ways with
-          amenity = bench
+          (amenity = bench or leisure = picnic_table)
           and (!area or area = no)
           and !material
     """
-    override val changesetComment = "Add bench material type"
+    override val changesetComment = "Add material information to benches"
     override val wikiLink = "Tag:amenity=bench"
     override val icon = R.drawable.ic_quest_bench_material
     override val questTypeAchievements = listOf(PEDESTRIAN, OUTDOORS)
@@ -25,7 +25,7 @@ class AddBenchMaterial : OsmFilterQuestType<BenchMaterial>() {
     override fun getTitle(tags: Map<String, String>) = R.string.quest_benchMaterial_title
 
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
-        getMapData().filter("nodes, ways with amenity = bench")
+        getMapData().filter("nodes, ways with amenity = bench or leisure = picnic_table")
 
     override fun createForm() = AddBenchMaterialForm()
 
