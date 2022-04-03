@@ -16,9 +16,9 @@ class AddBenchMaterialForm : AImageListQuestAnswerFragment<BenchMaterial, BenchM
         Item(WOOD, R.drawable.bench_wood, R.string.quest_benchMaterial_wood),
         Item(METAL, R.drawable.bench_metal, R.string.quest_benchMaterial_metal),
         Item(PLASTIC, R.drawable.bench_plastic, R.string.quest_benchMaterial_plastic),
-        Item(CONCRETE, R.drawable.bench_concrete, R.string.quest_benchMaterial_concrete)
+        Item(CONCRETE, R.drawable.bench_concrete, R.string.quest_benchMaterial_concrete),
         Item(STONE, R.drawable.bench_stone, R.string.quest_benchMaterial_stone),
-        Item(BRICK, R.drawable.bench_brick, R.string.quest_benchMaterial_brick),
+        Item(BRICK, R.drawable.bench_brick, R.string.quest_benchMaterial_brick)
     )
 
     override val itemsPerRow = 3
