@@ -629,7 +629,7 @@ However, before uploading your changes, the app checks with a &lt;a href=\"https
     <string name="quest_bench_backrest_title">Does this bench have a backrest?</string>
     <string name="quest_bench_answer_picnic_table">It’s a picnic table</string>
 
-    <string name="quest_benchMaterial_title">What’s this bench made of?</string>
+    <string name="quest_benchMaterial_title">What’s this made of?</string>
     <string name="quest_benchMaterial_wood">Wood</string>
     <string name="quest_benchMaterial_metal">Metal</string>
     <string name="quest_benchMaterial_plastic">Plastic</string>

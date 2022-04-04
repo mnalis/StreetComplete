@@ -20,6 +20,7 @@ class AddBenchMaterial : OsmFilterQuestType<BenchMaterial>() {
     override val changesetComment = "Add material information to benches"
     override val wikiLink = "Tag:amenity=bench"
     override val icon = R.drawable.ic_quest_bench_material
+    override val isDeleteElementEnabled = true
     override val questTypeAchievements = listOf(PEDESTRIAN, OUTDOORS)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_benchMaterial_title
