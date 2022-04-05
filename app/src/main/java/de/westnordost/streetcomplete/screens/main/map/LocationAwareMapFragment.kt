@@ -215,7 +215,7 @@ open class LocationAwareMapFragment : MapFragment() {
         // so we need to check that first
         if (view != null) {
             viewLifecycleScope.launch {
-                delay(600)
+                delay(60)    // mn/ try to find cause of chunkines of updates
                 tracksMapComponent?.addToCurrentTrack(location)
             }
         }

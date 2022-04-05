@@ -10,8 +10,7 @@ import android.location.Location
 fun getTrackBearing(track: List<Location>): Float? {
     val last = track.lastOrNull() ?: return null
     val point = track.findLast { it.distanceTo(last) > MIN_TRACK_DISTANCE_FOR_BEARING } ?: return null
-//    return point.bearingTo(last)
-    return 90.00.toFloat();
+    return point.bearingTo(last)
 }
 
 private const val MIN_TRACK_DISTANCE_FOR_BEARING = 15f // 15 meters
