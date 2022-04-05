@@ -7,6 +7,7 @@ import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
 import android.view.WindowManager
+import android.view.animation.DecelerateInterpolator
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
@@ -150,10 +151,11 @@ open class LocationAwareMapFragment : MapFragment() {
         return isFollowingPosition
     }
 
+    private val interpolator = DecelerateInterpolator()
+
     fun centerCurrentPosition() {
         val displayedPosition = displayedLocation?.toLatLon() ?: return
         var centerPosition = displayedPosition
-        private val interpolator = DecelerateInterpolator()
 
         updateCameraPosition(300, interpolator) {
             if (isNavigationMode) {
