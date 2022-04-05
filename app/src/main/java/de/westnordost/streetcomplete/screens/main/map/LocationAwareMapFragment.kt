@@ -156,7 +156,9 @@ open class LocationAwareMapFragment : MapFragment() {
 
         updateCameraPosition(600) {
             if (isNavigationMode) {
-                val bearing = getTrackBearing(tracks.last())
+                //val bearing = getTrackBearing(tracks.last())
+                val bearing = locationMapComponent?.rotation
+
                 if (bearing != null) {
                     rotation = -(bearing * PI / 180.0).toFloat()
                     /* move center position down a bit, so there is more space in front of than
