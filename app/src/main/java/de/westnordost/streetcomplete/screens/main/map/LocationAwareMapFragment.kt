@@ -36,6 +36,8 @@ open class LocationAwareMapFragment : MapFragment() {
     var displayedLocation: Location? = null
         private set
 
+    private var compassRotation: Double? = null
+
     /** The GPS trackpoints the user has walked */
     private var tracks: MutableList<ArrayList<Location>>
 
@@ -61,6 +63,8 @@ open class LocationAwareMapFragment : MapFragment() {
 
     /** When the view follows the GPS position, whether the view already zoomed to the location once*/
     private var zoomedYet = false
+
+    private var viewDirection: Float? = null
 
     interface Listener {
         /** Called after the map fragment updated its displayed location */
@@ -230,7 +234,7 @@ open class LocationAwareMapFragment : MapFragment() {
         compassRotation = rot * 180 / PI
         locationMapComponent?.rotation = compassRotation
 
-        if (isCompassMode) {
+        if (isNavigationMode) {
             viewDirection =
                 if (viewDirection == null) -rot
                 else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
