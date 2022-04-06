@@ -161,7 +161,8 @@ open class LocationAwareMapFragment : MapFragment() {
         val displayedPosition = displayedLocation?.toLatLon() ?: return
         var centerPosition = displayedPosition
 
-        updateCameraPosition(300, interpolator) {
+//        updateCameraPosition(300, interpolator) {
+        updateCameraPosition {
             if (isNavigationMode) {
                 //val bearing = getTrackBearing(tracks.last())
                 val bearing = locationMapComponent?.rotation // /mn/ trying to track compass
@@ -235,17 +236,17 @@ open class LocationAwareMapFragment : MapFragment() {
     private fun onCompassRotationChanged(rot: Float, tilt: Float) {
         compassRotation = rot * 180 / PI
         locationMapComponent?.rotation = compassRotation
-
+/*
         if (isNavigationMode) {
             viewDirection =
                 if (viewDirection == null) -rot
                 else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
 
-//            locationMapComponent?.rotation = viewDirection    // FIXME /mn/ double/float issue
-//            controller?.updateCameraPosition { rotation = viewDirection }
-            centerCurrentPositionIfFollowing()
+            controller?.updateCameraPosition { rotation = viewDirection }
+            //centerCurrentPositionIfFollowing()
 
         }
+*/
     }
 
     private fun smoothenAngle( newValue: Float, oldValue: Float, factor: Float): Float {
