@@ -240,7 +240,7 @@ open class LocationAwareMapFragment : MapFragment() {
                 if (viewDirection == null) -rot
                 else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
 
-            locationMapComponent?.rotation = viewDirection
+            locationMapComponent?.rotation = viewDirection.toDouble()
 //            controller?.updateCameraPosition { rotation = viewDirection }
             centerCurrentPositionIfFollowing()
 
