@@ -64,7 +64,7 @@ open class LocationAwareMapFragment : MapFragment() {
     /** When the view follows the GPS position, whether the view already zoomed to the location once*/
     private var zoomedYet = false
 
-    private var viewDirection: Double? = null
+    private var viewDirection: Float? = null
 
     interface Listener {
         /** Called after the map fragment updated its displayed location */
@@ -234,13 +234,14 @@ open class LocationAwareMapFragment : MapFragment() {
 */
     private fun onCompassRotationChanged(rot: Float, tilt: Float) {
         compassRotation = rot * 180 / PI
+        locationMapComponent?.rotation = compassRotation
 
         if (isNavigationMode) {
             viewDirection =
-                if (viewDirection == null) -rot.toDouble()
-                else smoothenAngle(-rot.toDouble(), viewDirection ?: 0.00, 0.05)
+                if (viewDirection == null) -rot
+                else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
 
-            locationMapComponent?.rotation = viewDirection
+//            locationMapComponent?.rotation = viewDirection    // FIXME /mn/ double/float issue
 //            controller?.updateCameraPosition { rotation = viewDirection }
             centerCurrentPositionIfFollowing()
 
