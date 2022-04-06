@@ -237,8 +237,8 @@ open class LocationAwareMapFragment : MapFragment() {
 
         if (isNavigationMode) {
             viewDirection =
-                if (viewDirection == null) -rot
-                else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
+                if (viewDirection == null) -rot.toDouble()
+                else smoothenAngle(-rot.toDouble(), viewDirection ?: 0.00, 0.05)
 
             locationMapComponent?.rotation = viewDirection
 //            controller?.updateCameraPosition { rotation = viewDirection }
