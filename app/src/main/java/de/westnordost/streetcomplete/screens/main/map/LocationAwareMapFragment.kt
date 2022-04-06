@@ -223,9 +223,29 @@ open class LocationAwareMapFragment : MapFragment() {
 
     /* --------------------------------- Rotation tracking -------------------------------------- */
 
-    private fun onCompassRotationChanged(rot: Float, tilt: Float) {
+/*    private fun onCompassRotationChanged(rot: Float, tilt: Float) {
         locationMapComponent?.rotation = rot * 180 / PI
+    }*/
+    private fun onCompassRotationChanged(rot: Float, tilt: Float) {
+        compassRotation = rot * 180 / PI
+        locationMapComponent?.rotation = compassRotation
+
+        if (isCompassMode) {
+            viewDirection =
+                if (viewDirection == null) -rot
+                else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
+
+            controller?.updateCameraPosition { rotation = viewDirection }
+        }
     }
+
+    private fun smoothenAngle( newValue: Float, oldValue: Float, factor: Float): Float {
+        var delta = newValue - oldValue
+        while (delta > +PI) delta -= 2 * PI.toFloat()
+        while (delta < -PI) delta += 2 * PI.toFloat()
+        return oldValue + factor * delta
+    }
+    
 
     /* -------------------------------- Save and Restore State ---------------------------------- */
 
