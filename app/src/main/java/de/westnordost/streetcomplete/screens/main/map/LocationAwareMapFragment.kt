@@ -64,7 +64,7 @@ open class LocationAwareMapFragment : MapFragment() {
     /** When the view follows the GPS position, whether the view already zoomed to the location once*/
     private var zoomedYet = false
 
-    private var viewDirection: Float? = null
+    private var viewDirection: Double? = null
 
     interface Listener {
         /** Called after the map fragment updated its displayed location */
@@ -240,7 +240,7 @@ open class LocationAwareMapFragment : MapFragment() {
                 if (viewDirection == null) -rot
                 else smoothenAngle(-rot, viewDirection ?: 0f, 0.05f)
 
-            locationMapComponent?.rotation = viewDirection.toDouble()
+            locationMapComponent?.rotation = viewDirection
 //            controller?.updateCameraPosition { rotation = viewDirection }
             centerCurrentPositionIfFollowing()
 
