@@ -6,12 +6,15 @@ import android.content.Context
 import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
-import de.westnordost.streetcomplete.Prefs
+import de.westnordost.streetcomplete.Prefs.ORIENTATION_SELECT
+import de.westnordost.streetcomplete.Prefs.NavigationOrientation.MOVEMENT_DIRECTION
+import de.westnordost.streetcomplete.Prefs.NavigationOrientation.COMPASS_DIRECTION
 import de.westnordost.streetcomplete.screens.main.map.components.CurrentLocationMapComponent
 import de.westnordost.streetcomplete.screens.main.map.components.TracksMapComponent
 import de.westnordost.streetcomplete.screens.main.map.tangram.screenBottomToCenterDistance
@@ -268,7 +271,7 @@ open class LocationAwareMapFragment : MapFragment() {
         isFollowingPosition = prefs.getBoolean(PREF_FOLLOWING, true)
         isNavigationMode = prefs.getBoolean(PREF_NAVIGATION_MODE, false)
         isCompassDirection = prefs.getString(Prefs.ORIENTATION_SELECT, MOVEMENT_DIRECTION) == COMPASS_DIRECTION
-        Log.d(TAG, "restoreMapState() setting isCompassDirection to ${isCompassDirection}")
+        Log.d("restoreMapState", "setting isCompassDirection to ${isCompassDirection}")
     }
 
     private fun saveMapState() {
