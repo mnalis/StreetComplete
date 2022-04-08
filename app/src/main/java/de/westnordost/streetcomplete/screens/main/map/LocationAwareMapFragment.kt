@@ -11,6 +11,7 @@ import android.view.animation.DecelerateInterpolator
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
+import de.westnordost.streetcomplete.Prefs
 import de.westnordost.streetcomplete.screens.main.map.components.CurrentLocationMapComponent
 import de.westnordost.streetcomplete.screens.main.map.components.TracksMapComponent
 import de.westnordost.streetcomplete.screens.main.map.tangram.screenBottomToCenterDistance
@@ -49,6 +50,10 @@ open class LocationAwareMapFragment : MapFragment() {
                 _isNavigationMode = false
             }
         }
+
+    /** Whether to use CompassDirection or MovementDirection for rotating screen if we're in isNavigationMode */
+    var isCompassDirection = false
+
 
     /** Whether the view should automatically rotate with bearing (like during navigation) */
     private var _isNavigationMode: Boolean = false
@@ -262,6 +267,8 @@ open class LocationAwareMapFragment : MapFragment() {
         val prefs = activity?.getPreferences(Activity.MODE_PRIVATE) ?: return
         isFollowingPosition = prefs.getBoolean(PREF_FOLLOWING, true)
         isNavigationMode = prefs.getBoolean(PREF_NAVIGATION_MODE, false)
+        isCompassDirection = prefs.getString(Prefs.ORIENTATION_SELECT, MOVEMENT_DIRECTION) == COMPASS_DIRECTION
+        Log.d(TAG, "restoreMapState() setting isCompassDirection to ${isCompassDirection}")
     }
 
     private fun saveMapState() {
@@ -307,15 +314,3 @@ private fun <T> List<T?>.unflattenNullTerminated(): ArrayList<ArrayList<T>> {
     return result
 }
 
-/* /mn/ FIXME example preference reading
-import androidx.preference.PreferenceManager
-import de.westnordost.streetcomplete.Prefs
-import de.westnordost.streetcomplete.util.ktx.addedToFront
-import java.util.Locale
-
-// Get the override-locale selected in this app or null if there is no override
-fun getSelectedLocale(context: Context): Locale? {
-    val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-    val languageTag = prefs.getString(Prefs.LANGUAGE_SELECT, "") ?: ""
-    return if (languageTag.isEmpty()) null else Locale.forLanguageTag(languageTag)
-*/
