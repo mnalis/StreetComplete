@@ -6,7 +6,6 @@ import android.content.Context
 import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import androidx.core.content.edit

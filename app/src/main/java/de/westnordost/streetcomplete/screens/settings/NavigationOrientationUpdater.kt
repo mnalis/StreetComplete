@@ -1,6 +1,7 @@
 package de.westnordost.streetcomplete.screens.settings
 
 import android.content.SharedPreferences
+import android.util.Log
 import de.westnordost.streetcomplete.Prefs
 import de.westnordost.streetcomplete.Prefs.NavigationOrientation.MOVEMENT_DIRECTION
 import de.westnordost.streetcomplete.Prefs.NavigationOrientation.COMPASS_DIRECTION
@@ -13,7 +14,7 @@ class NavigationOrientationUpdater(private val prefs: SharedPreferences) {
 
     fun update() {
         val navDirection = navigationOrientation
-        isCompassDirection = Prefs.NavigationOrientation.valueOf(navDirection!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
+        isCompassDirection = (navDirection == Prefs.NavigationOrientation.COMPASS_DIRECTION)
 
         Log.d("NavigationOrientationUpdater", "setting isCompassDirection to ${isCompassDirection} (from ${navDirection})")
     }
