@@ -306,3 +306,16 @@ private fun <T> List<T?>.unflattenNullTerminated(): ArrayList<ArrayList<T>> {
     result.add(current)
     return result
 }
+
+/* /mn/ FIXME example preference reading
+import androidx.preference.PreferenceManager
+import de.westnordost.streetcomplete.Prefs
+import de.westnordost.streetcomplete.util.ktx.addedToFront
+import java.util.Locale
+
+// Get the override-locale selected in this app or null if there is no override
+fun getSelectedLocale(context: Context): Locale? {
+    val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+    val languageTag = prefs.getString(Prefs.LANGUAGE_SELECT, "") ?: ""
+    return if (languageTag.isEmpty()) null else Locale.forLanguageTag(languageTag)
+*/

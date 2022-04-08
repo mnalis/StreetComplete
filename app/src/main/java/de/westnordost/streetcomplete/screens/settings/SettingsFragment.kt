@@ -181,6 +181,10 @@ class SettingsFragment :
                 setDefaultLocales(getSelectedLocales(requireContext()))
                 activity?.let { ActivityCompat.recreate(it) }
             }
+            Prefs.ORIENTATION_SELECT -> {
+                // FIXME: what to set here? /mn/
+                activity?.let { ActivityCompat.recreate(it) }
+            }
             Prefs.RESURVEY_INTERVALS -> {
                 resurveyIntervalsUpdater.update()
             }
