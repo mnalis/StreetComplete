@@ -268,9 +268,10 @@ open class LocationAwareMapFragment : MapFragment() {
         val prefs = activity?.getPreferences(Activity.MODE_PRIVATE) ?: return
         isFollowingPosition = prefs.getBoolean(PREF_FOLLOWING, true)
         isNavigationMode = prefs.getBoolean(PREF_NAVIGATION_MODE, false)
-        isCompassDirection = Prefs.NavigationOrientation.valueOf(prefs.getString(Prefs.ORIENTATION_SELECT, "MOVEMENT_DIRECTION")!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
+        val navDirection = prefs.getString(Prefs.ORIENTATION_SELECT, "MOVEMENT_DIRECTION");
+        isCompassDirection = Prefs.NavigationOrientation.valueOf(navDirection!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
 
-        Log.d("restoreMapState", "setting isCompassDirection to ${isCompassDirection}")
+        Log.d("restoreMapState", "setting isCompassDirection to ${isCompassDirection} (from ${navDirection})")
     }
 
     private fun saveMapState() {
