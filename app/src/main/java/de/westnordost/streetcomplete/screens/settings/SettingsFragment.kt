@@ -55,6 +55,7 @@ class SettingsFragment :
     private val mapDataController: MapDataController by inject()
     private val questController: QuestController by inject()
     private val resurveyIntervalsUpdater: ResurveyIntervalsUpdater by inject()
+    private val navigationOrientationUpdater: NavigationOrientationUpdater by inject()
     private val questTypeRegistry: QuestTypeRegistry by inject()
     private val visibleQuestTypeSource: VisibleQuestTypeSource by inject()
     private val questPresetsSource: QuestPresetsSource by inject()
@@ -182,8 +183,7 @@ class SettingsFragment :
                 activity?.let { ActivityCompat.recreate(it) }
             }
             Prefs.ORIENTATION_SELECT -> {
-                // FIXME: what to set here? /mn/
-                activity?.let { ActivityCompat.recreate(it) }
+                navigationOrientationUpdater.update()
             }
             Prefs.RESURVEY_INTERVALS -> {
                 resurveyIntervalsUpdater.update()

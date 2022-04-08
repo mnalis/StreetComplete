@@ -3,7 +3,6 @@ package de.westnordost.streetcomplete.screens.main.map
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.content.SharedPreferences
 import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
@@ -13,10 +12,10 @@ import android.view.animation.DecelerateInterpolator
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
-import de.westnordost.streetcomplete.Prefs
 import de.westnordost.streetcomplete.screens.main.map.components.CurrentLocationMapComponent
 import de.westnordost.streetcomplete.screens.main.map.components.TracksMapComponent
 import de.westnordost.streetcomplete.screens.main.map.tangram.screenBottomToCenterDistance
+import de.westnordost.streetcomplete.screens.settings.NavigationOrientationUpdater
 import de.westnordost.streetcomplete.util.ktx.toLatLon
 import de.westnordost.streetcomplete.util.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.util.location.FineLocationManager
@@ -24,7 +23,6 @@ import de.westnordost.streetcomplete.util.math.translate
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.PI
-import org.koin.android.ext.android.inject
 
 /** Manages a map that shows the device's GPS location and orientation as markers on the map with
  *  the option to let the screen follow the location and rotation */
@@ -53,10 +51,6 @@ open class LocationAwareMapFragment : MapFragment() {
                 _isNavigationMode = false
             }
         }
-
-    /** Whether to use CompassDirection or MovementDirection for rotating screen if we're in isNavigationMode */
-    var isCompassDirection = false
-
 
     /** Whether the view should automatically rotate with bearing (like during navigation) */
     private var _isNavigationMode: Boolean = false
@@ -266,17 +260,11 @@ open class LocationAwareMapFragment : MapFragment() {
 
     /* -------------------------------- Save and Restore State ---------------------------------- */
 
-    private val prefs2: SharedPreferences by inject()
     private fun restoreMapState() {
         val prefs = activity?.getPreferences(Activity.MODE_PRIVATE) ?: return
 
-
         isFollowingPosition = prefs.getBoolean(PREF_FOLLOWING, true)
         isNavigationMode = prefs.getBoolean(PREF_NAVIGATION_MODE, false)
-        val navDirection = prefs2.getString(Prefs.ORIENTATION_SELECT, "MOVEMENT_DIRECTION");
-        isCompassDirection = Prefs.NavigationOrientation.valueOf(navDirection!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
-
-        Log.d("restoreMapState", "setting isCompassDirection to ${isCompassDirection} (from ${navDirection})")
     }
 
     private fun saveMapState() {

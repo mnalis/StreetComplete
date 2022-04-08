@@ -6,16 +6,16 @@ import de.westnordost.streetcomplete.Prefs.NavigationOrientation.MOVEMENT_DIRECT
 import de.westnordost.streetcomplete.Prefs.NavigationOrientation.COMPASS_DIRECTION
 import de.westnordost.streetcomplete.Prefs.NavigationOrientation.valueOf
 
-/** This class is just to access the user's preference about which multiplier for the resurvey
- *  intervals to use */
+/** This class is just to access the user's preference about which navigation orioentation to use */
 class NavigationOrientationUpdater(private val prefs: SharedPreferences) {
-    fun update() {
-        RelativeDate.MULTIPLIER = multiplier
-    }
+    /** Whether to use CompassDirection or MovementDirection for rotating screen if we're in isNavigationMode */
+    var isCompassDirection: Boolean = false
 
-    private val multiplier: Float get() = when (navigationOrientation) {
-        MOVEMENT_DIRECTION -> 2.0f
-        COMPASS_DIRECTION -> 0.5f
+    fun update() {
+        val navDirection = navigationOrientation
+        isCompassDirection = Prefs.NavigationOrientation.valueOf(navDirection!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
+
+        Log.d("NavigationOrientationUpdater", "setting isCompassDirection to ${isCompassDirection} (from ${navDirection})")
     }
 
     private val navigationOrientation: Prefs.NavigationOrientation get() =
