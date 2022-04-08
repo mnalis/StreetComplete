@@ -3,6 +3,7 @@ package de.westnordost.streetcomplete.screens.main.map
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
@@ -264,11 +265,14 @@ open class LocationAwareMapFragment : MapFragment() {
 
     /* -------------------------------- Save and Restore State ---------------------------------- */
 
+    private val prefs2: SharedPreferences by inject()
     private fun restoreMapState() {
         val prefs = activity?.getPreferences(Activity.MODE_PRIVATE) ?: return
+
+
         isFollowingPosition = prefs.getBoolean(PREF_FOLLOWING, true)
         isNavigationMode = prefs.getBoolean(PREF_NAVIGATION_MODE, false)
-        val navDirection = prefs.getString(Prefs.ORIENTATION_SELECT, "MOVEMENT_DIRECTION");
+        val navDirection = prefs2.getString(Prefs.ORIENTATION_SELECT, "MOVEMENT_DIRECTION");
         isCompassDirection = Prefs.NavigationOrientation.valueOf(navDirection!!) == Prefs.NavigationOrientation.COMPASS_DIRECTION
 
         Log.d("restoreMapState", "setting isCompassDirection to ${isCompassDirection} (from ${navDirection})")
