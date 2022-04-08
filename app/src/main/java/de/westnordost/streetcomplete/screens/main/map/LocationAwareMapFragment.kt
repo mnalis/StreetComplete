@@ -24,6 +24,7 @@ import de.westnordost.streetcomplete.util.math.translate
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.PI
+import org.koin.android.ext.android.inject
 
 /** Manages a map that shows the device's GPS location and orientation as markers on the map with
  *  the option to let the screen follow the location and rotation */
