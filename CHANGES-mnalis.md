@@ -22,6 +22,7 @@ From `mnalis-v38` branch:
 * ask for sidewalks more often (even if one separately mapped footway is nearby)
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
+* rearrange quest order, and enable by default some previously disabled quests
 
 ## TODO
 * create separate mnalis-v38-helium314 branch
