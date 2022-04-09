@@ -33,7 +33,7 @@ class AddSidewalkSurface : OsmFilterQuestType<SidewalkSurfaceAnswer>() {
     override val icon = R.drawable.ic_quest_sidewalk_surface
     override val isSplitWayEnabled = true
     override val questTypeAchievements = listOf(PEDESTRIAN, WHEELCHAIR)
-    override val defaultDisabledMessage = R.string.default_disabled_msg_difficult_and_time_consuming
+    //override val defaultDisabledMessage = R.string.default_disabled_msg_difficult_and_time_consuming
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_sidewalk_surface_title
 

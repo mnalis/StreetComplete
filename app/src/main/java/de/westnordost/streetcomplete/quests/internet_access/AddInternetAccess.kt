@@ -28,7 +28,7 @@ class AddInternetAccess : OsmFilterQuestType<InternetAccess>() {
     override val changesetComment = "Add internet access"
     override val wikiLink = "Key:internet_access"
     override val icon = R.drawable.ic_quest_wifi
-    override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
+    //override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
     override val questTypeAchievements = listOf(CITIZEN)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_internet_access_title
