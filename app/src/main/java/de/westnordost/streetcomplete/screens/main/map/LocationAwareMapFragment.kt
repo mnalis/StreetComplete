@@ -165,7 +165,8 @@ open class LocationAwareMapFragment : MapFragment() {
         updateCameraPosition(300, interpolator) {
             if (isNavigationMode) {
                 //val bearing = getTrackBearing(tracks.last())
-                val bearing = locationMapComponent?.rotation // /mn/ trying to track compass
+                //val bearing = locationMapComponent?.rotation // /mn/ trying to track compass
+                val bearing = compassRotation
 
                 if (bearing != null) {
                     rotation = -(bearing * PI / 180.0).toFloat()
@@ -228,15 +229,13 @@ open class LocationAwareMapFragment : MapFragment() {
 
     /* --------------------------------- Rotation tracking -------------------------------------- */
 
-/*
-    private fun onCompassRotationChanged(rot: Float, tilt: Float) {
-        locationMapComponent?.rotation = rot * 180 / PI
-    }
-*/
     private fun onCompassRotationChanged(rot: Float, tilt: Float) {
         compassRotation = rot * 180 / PI
-        locationMapComponent?.rotation = compassRotation
-        centerCurrentPosition()
+
+        //locationMapComponent?.rotation = compassRotation
+
+        //centerCurrentPosition()
+
 /*
         if (isNavigationMode) {
             viewDirection =
