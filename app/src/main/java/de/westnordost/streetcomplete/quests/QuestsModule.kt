@@ -207,10 +207,10 @@ fun questTypeRegistry(
     AddBusStopShelter(),  // used by at least OsmAnd
     AddBenchStatusOnBusStop(), // can be seen from across the street
     AddBinStatusOnBusStop(), // can be seen from across the street
-    AddTactilePavingBusStop(), // requires you to be very close to it
     AddBusStopName(), // requires text input
     AddBusStopRef(), // requires text input
     AddBusStopLit(), // at least during day requires to stand in it to see if there is a light in the shelter
+    AddTactilePavingBusStop(), // requires you to be very close to it
 
     AddRailwayCrossingBarrier(), // useful for routing
 
@@ -272,8 +272,8 @@ fun questTypeRegistry(
 
     // crossing quests: A little later because they are not all solvable from a distance
     AddCrossing(),
-    AddCrossingIsland(), // can be done at a glance
     AddCrossingType(),
+    AddCrossingIsland(), // can be done at a glance
     AddTactilePavingCrosswalk(),
     AddTrafficSignalsSound(), // Sound needs to be done as or after you're crossing
     AddTrafficSignalsButton(),
@@ -408,10 +408,8 @@ whether the postbox is still there in countries in which it is enabled */
     AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
     AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
     AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
-    AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
+    AddWayLit(),
     // AddStreetParking(),
-    AddShoulder(), // needs minimal thinking, but after AddStreetParking because a parking lane can be/look very similar to a shoulder
-    AddRoadWidth(arSupportChecker),
     AddRoadSmoothness(),
     AddPathSmoothness(),
 
@@ -434,6 +432,11 @@ whether the postbox is still there in countries in which it is enabled */
 
     AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
 
-    /* at the very last because it can be difficult to ascertain during day. used by OsmAnd if "Street lighting" is enabled. (Configure map, Map rendering, Details) */
-    AddWayLit(),
+    /* ↓ 6.quests that are not very important to /mn/  -------------------------------------- */
+
+    AddRoadWidth(arSupportChecker),
+    AddShoulder(), // needs minimal thinking, but after AddStreetParking because a parking lane can be/look very similar to a shoulder
+    AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
+
+
 ))
