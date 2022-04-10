@@ -162,7 +162,6 @@ open class LocationAwareMapFragment : MapFragment() {
     fun centerCurrentPosition() {
         val displayedPosition = displayedLocation?.toLatLon() ?: return
         var centerPosition = displayedPosition
-        var isCompassDirection = NavigationOrientationUpdater.isCompassDirection
 
         var isCompassDirection = NavigationOrientationUpdater.isCompassDirection
         Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}")
