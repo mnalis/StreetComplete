@@ -169,7 +169,7 @@ open class LocationAwareMapFragment : MapFragment() {
                 //val bearing = getTrackBearing(tracks.last())
                 //val bearing = locationMapComponent?.rotation // /mn/ trying to track compass
                 //val bearing = compassRotation
-                val bearing : Float? = if (isCompassDirection) locationMapComponent?.rotation.toFloatOrNull() else getTrackBearing(tracks.last())
+                val bearing : Float? = if (isCompassDirection) locationMapComponent?.rotation?.toFloatOrNull() else getTrackBearing(tracks.last())
                 Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}, newbearing=${bearing}")
 
                 if (bearing != null) {
