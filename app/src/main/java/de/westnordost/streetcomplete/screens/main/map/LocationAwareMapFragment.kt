@@ -164,13 +164,16 @@ open class LocationAwareMapFragment : MapFragment() {
         var centerPosition = displayedPosition
         var isCompassDirection = NavigationOrientationUpdater.isCompassDirection
 
+        var isCompassDirection = NavigationOrientationUpdater.isCompassDirection
         Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}")
 
         updateCameraPosition(300, interpolator) {
             if (isNavigationMode) {
-                //val bearing = getTrackBearing(tracks.last())
+                val bearing = getTrackBearing(tracks.last())
                 //val bearing = locationMapComponent?.rotation // /mn/ trying to track compass
-                val bearing = compassRotation
+                //val bearing = compassRotation
+                //val bearing = if (isCompassDirection) locationMapComponent?.rotation else getTrackBearing(tracks.last())
+                Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}, bearing=${bearing}")
 
                 if (bearing != null) {
                     rotation = -(bearing * PI / 180.0).toFloat()
