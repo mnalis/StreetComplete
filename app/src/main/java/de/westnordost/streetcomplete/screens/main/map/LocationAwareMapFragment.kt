@@ -236,7 +236,7 @@ open class LocationAwareMapFragment : MapFragment() {
     private fun onCompassRotationChanged(rot: Float, tilt: Float) {
         compassRotation = rot * 180 / PI
 
-        //locationMapComponent?.rotation = compassRotation
+        locationMapComponent?.rotation = compassRotation
 
         //centerCurrentPosition()
 
