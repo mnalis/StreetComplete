@@ -2,26 +2,23 @@ package de.westnordost.streetcomplete.quests.address
 
 import android.os.Bundle
 import android.text.Html
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.parseAsHtml
-import de.westnordost.streetcomplete.Injector
+import androidx.core.widget.doAfterTextChanged
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.meta.AbbreviationsByLocale
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
 import de.westnordost.streetcomplete.quests.AbstractQuestFormAnswerFragment
 import de.westnordost.streetcomplete.quests.AnswerItem
 import de.westnordost.streetcomplete.quests.road_name.RoadNameSuggestionsSource
-import de.westnordost.streetcomplete.util.TextChangedWatcher
+import org.koin.android.ext.android.inject
 import java.util.Locale
-import javax.inject.Inject
 
 class AddAddressStreetForm : AbstractQuestFormAnswerFragment<AddressStreetAnswer>() {
-    @Inject internal lateinit var abbreviationsByLocale: AbbreviationsByLocale
-    @Inject internal lateinit var roadNameSuggestionsSource: RoadNameSuggestionsSource
+    private val abbreviationsByLocale: AbbreviationsByLocale by inject()
+    private val roadNameSuggestionsSource: RoadNameSuggestionsSource by inject()
 
     private var streetNameInput: EditText? = null
     private var placeNameInput: EditText? = null
@@ -35,10 +32,6 @@ class AddAddressStreetForm : AbstractQuestFormAnswerFragment<AddressStreetAnswer
     override val otherAnswers = listOf(
         AnswerItem(R.string.quest_address_street_no_named_streets) { switchToPlaceNameLayout() }
     )
-
-    init {
-        Injector.applicationComponent.inject(this)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -86,7 +79,7 @@ class AddAddressStreetForm : AbstractQuestFormAnswerFragment<AddressStreetAnswer
     }
 
     override fun onClickOk() {
-        if(isPlaceName) {
+        if (isPlaceName) {
             applyAnswer(PlaceName(placeName))
         } else {
             if (selectedStreetName != null) {
@@ -126,15 +119,15 @@ class AddAddressStreetForm : AbstractQuestFormAnswerFragment<AddressStreetAnswer
     private fun setLayout(layoutResourceId: Int) {
         val view = setContentView(layoutResourceId)
 
-        val onChanged = TextChangedWatcher {
+        val onChanged = {
             checkIsFormComplete()
             // if the user changed the text, it is now his custom input
             selectedStreetName = null
         }
         streetNameInput = view.findViewById(R.id.streetNameInput)
         placeNameInput = view.findViewById(R.id.placeNameInput)
-        streetNameInput?.addTextChangedListener(onChanged)
-        placeNameInput?.addTextChangedListener(onChanged)
+        streetNameInput?.doAfterTextChanged { onChanged() }
+        placeNameInput?.doAfterTextChanged { onChanged() }
     }
 
     private fun switchToPlaceNameLayout() {

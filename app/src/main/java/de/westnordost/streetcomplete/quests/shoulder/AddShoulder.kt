@@ -1,19 +1,13 @@
 package de.westnordost.streetcomplete.quests.shoulder
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.meta.ANYTHING_UNPAVED
-import de.westnordost.streetcomplete.data.meta.MAXSPEED_TYPE_KEYS
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
-import de.westnordost.streetcomplete.data.osm.mapdata.Element
-import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
-import de.westnordost.streetcomplete.data.osm.mapdata.filter
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
-import de.westnordost.streetcomplete.quests.AbstractQuestAnswerFragment
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CAR
-import de.westnordost.streetcomplete.ktx.toYesNo
+import de.westnordost.streetcomplete.osm.ANYTHING_UNPAVED
+import de.westnordost.streetcomplete.osm.MAXSPEED_TYPE_KEYS
 
-
-class AddShoulder : OsmFilterQuestType<Boolean>() {
+class AddShoulder : OsmFilterQuestType<ShoulderSides>() {
 
     /* Trunks always, smaller roads only if they are either motorroads, bridges or tunnels or if
      * they are likely rural roads (high max speeds - implicit or explicit - or no sidewalk).
@@ -49,14 +43,11 @@ class AddShoulder : OsmFilterQuestType<Boolean>() {
           and cycleway:left !~ lane|opposite_lane
           and cycleway:right !~ lane|opposite_lane
           and cycleway:both !~ lane|opposite_lane
+          and !verge
           and !shoulder
           and !shoulder:left and !shoulder:right and !shoulder:both
           /*and (access !~ private|no or (foot and foot !~ private|no))*/
     """
-
-    override fun getApplicableElements(mapData: MapDataWithGeometry): Iterable<Element> =
-        mapData.filter(elementFilter).asIterable()
-
     override val changesetComment = "Add whether there are shoulders"
     override val wikiLink = "Key:shoulder"
     override val icon = R.drawable.ic_quest_street_shoulder
@@ -65,9 +56,9 @@ class AddShoulder : OsmFilterQuestType<Boolean>() {
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_shoulder_title
 
-    override fun createForm(): AbstractQuestAnswerFragment<Boolean> = AddShoulderForm()
+    override fun createForm() = AddShoulderForm()
 
-    override fun applyAnswerTo(answer: Boolean, changes: StringMapChangesBuilder) {
-        changes.add("shoulder", answer.toYesNo())
+    override fun applyAnswerTo(answer: ShoulderSides, tags: Tags, timestampEdited: Long) {
+        tags["shoulder"] = answer.osmValue
     }
 }

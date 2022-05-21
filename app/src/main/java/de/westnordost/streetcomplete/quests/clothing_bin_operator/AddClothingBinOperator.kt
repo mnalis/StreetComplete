@@ -1,12 +1,12 @@
 package de.westnordost.streetcomplete.quests.clothing_bin_operator
 
-import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.elementfilter.toElementFilterExpression
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.filter
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CITIZEN
 
 class AddClothingBinOperator : OsmElementQuestType<String> {
@@ -24,8 +24,9 @@ class AddClothingBinOperator : OsmElementQuestType<String> {
     override val wikiLink = "Tag:amenity=recycling"
     override val icon = R.drawable.ic_quest_recycling_clothes
     override val isDeleteElementEnabled = true
-
     override val questTypeAchievements = listOf(CITIZEN)
+
+    override fun getTitle(tags: Map<String, String>) = R.string.quest_clothes_container_operator_title
 
     override fun getApplicableElements(mapData: MapDataWithGeometry): Iterable<Element> =
         mapData.nodes.filter { filter.matches(it) && it.tags.hasNoOtherRecyclingTags() }
@@ -41,16 +42,12 @@ class AddClothingBinOperator : OsmElementQuestType<String> {
             && value == "yes"
         }
 
-    override fun getTitle(tags: Map<String, String>) = R.string.quest_clothes_container_operator_title
-
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
         getMapData().filter("nodes with amenity = recycling")
 
     override fun createForm() = AddClothingBinOperatorForm()
 
-    override fun applyAnswerTo(answer: String, changes: StringMapChangesBuilder) {
-        changes.add("operator", answer)
+    override fun applyAnswerTo(answer: String, tags: Tags, timestampEdited: Long) {
+        tags["operator"] = answer
     }
 }
-
-

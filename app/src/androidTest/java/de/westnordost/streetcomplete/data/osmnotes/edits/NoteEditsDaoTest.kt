@@ -3,7 +3,12 @@ package de.westnordost.streetcomplete.data.osmnotes.edits
 import de.westnordost.streetcomplete.data.ApplicationDbTestCase
 import de.westnordost.streetcomplete.data.osm.mapdata.BoundingBox
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
-import org.junit.Assert.*
+import de.westnordost.streetcomplete.data.osmtracks.Trackpoint
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -20,6 +25,26 @@ class NoteEditsDaoTest : ApplicationDbTestCase() {
         assertNotNull(edit.id)
         val dbEdit = dao.get(edit.id)
         assertEquals(edit, dbEdit)
+    }
+
+    @Test fun addGetWithAllPropertieS() {
+        val edit = NoteEdit(
+            1L,
+            123L,
+            LatLon(1.0, 2.0),
+            NoteEditAction.COMMENT,
+            "test345",
+            listOf("a", "b", "c"),
+            4654679L,
+            true,
+            true,
+            listOf(
+                Trackpoint(LatLon(3.0, 4.0), 1234L, 1f, 2f),
+                Trackpoint(LatLon(1.0, 5.0), 12345L, 2f, 3f),
+            )
+        )
+        dao.add(edit)
+        assertEquals(edit, dao.get(1L))
     }
 
     @Test fun addGetDelete() {
@@ -48,7 +73,7 @@ class NoteEditsDaoTest : ApplicationDbTestCase() {
         assertNotNull(dao.get(2))
         assertNotNull(dao.get(3))
 
-        dao.deleteAll(listOf(1,2,3))
+        dao.deleteAll(listOf(1, 2, 3))
 
         assertNull(dao.get(1))
         assertNull(dao.get(2))
@@ -201,13 +226,13 @@ class NoteEditsDaoTest : ApplicationDbTestCase() {
     }
 
     @Test fun updateNoteId() {
-        assertEquals(0, dao.updateNoteId( -5, 6))
+        assertEquals(0, dao.updateNoteId(-5, 6))
 
         val e1 = edit(noteId = -5)
         val e2 = edit(noteId = -5)
         dao.addAll(e1, e2)
 
-        assertEquals(2, dao.updateNoteId( -5, 6))
+        assertEquals(2, dao.updateNoteId(-5, 6))
         assertEquals(6, dao.get(e1.id)!!.noteId)
         assertEquals(6, dao.get(e2.id)!!.noteId)
     }
@@ -251,15 +276,17 @@ private fun edit(
     imagePaths: List<String> = emptyList(),
     pos: LatLon = LatLon(1.0, 1.0),
     timestamp: Long = 123L,
-    isSynced: Boolean = false
+    isSynced: Boolean = false,
+    track: List<Trackpoint> = emptyList()
 ) = NoteEdit(
-        1L,
-        noteId,
-        pos,
-        action,
-        text,
-        imagePaths,
-        timestamp,
-        isSynced,
-        imagePaths.isNotEmpty()
+    1L,
+    noteId,
+    pos,
+    action,
+    text,
+    imagePaths,
+    timestamp,
+    isSynced,
+    imagePaths.isNotEmpty(),
+    track
 )

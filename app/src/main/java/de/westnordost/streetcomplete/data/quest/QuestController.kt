@@ -2,12 +2,14 @@ package de.westnordost.streetcomplete.data.quest
 
 import android.util.Log
 import de.westnordost.streetcomplete.ApplicationConstants
-import de.westnordost.streetcomplete.data.meta.KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED
-import de.westnordost.streetcomplete.data.osm.edits.*
+import de.westnordost.streetcomplete.data.osm.edits.ElementEditsController
+import de.westnordost.streetcomplete.data.osm.edits.MapDataWithEditsSource
 import de.westnordost.streetcomplete.data.osm.edits.delete.DeletePoiNodeAction
 import de.westnordost.streetcomplete.data.osm.edits.split_way.SplitPolylineAtPosition
 import de.westnordost.streetcomplete.data.osm.edits.split_way.SplitWayAction
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.*
+import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChanges
+import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
+import de.westnordost.streetcomplete.data.osm.edits.update_tags.UpdateElementTagsAction
 import de.westnordost.streetcomplete.data.osm.geometry.ElementPolylinesGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
@@ -18,16 +20,16 @@ import de.westnordost.streetcomplete.data.osmnotes.edits.NoteEditAction
 import de.westnordost.streetcomplete.data.osmnotes.edits.NoteEditsController
 import de.westnordost.streetcomplete.data.osmnotes.notequests.OsmNoteQuest
 import de.westnordost.streetcomplete.data.osmnotes.notequests.OsmNoteQuestController
+import de.westnordost.streetcomplete.data.osmtracks.Trackpoint
+import de.westnordost.streetcomplete.osm.KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED
+import de.westnordost.streetcomplete.osm.removeCheckDates
 import de.westnordost.streetcomplete.quests.note_discussion.NoteAnswer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Singleton
-import kotlin.collections.ArrayList
 
 /** Controls the workflow of quests: Solving them, hiding them instead, splitting the way instead,
  *  undoing, etc. */
-@Singleton class QuestController @Inject constructor(
+class QuestController(
     private val osmQuestController: OsmQuestController,
     private val osmNoteQuestController: OsmNoteQuestController,
     private val elementEditsController: ElementEditsController,
@@ -64,10 +66,11 @@ import kotlin.collections.ArrayList
     suspend fun createNote(
         text: String,
         imagePaths: List<String>,
-        position: LatLon
+        position: LatLon,
+        track: List<Trackpoint>,
     ) = withContext(Dispatchers.IO) {
         val fullText = "$text\n\nvia ${ApplicationConstants.USER_AGENT}"
-        noteEditsController.add(0, NoteEditAction.CREATE, position, fullText, imagePaths)
+        noteEditsController.add(0, NoteEditAction.CREATE, position, fullText, imagePaths, track)
     }
 
     /** Split a way for the given OSM Quest.
@@ -138,30 +141,27 @@ import kotlin.collections.ArrayList
     }
 
     private fun createReplaceShopChanges(previousTags: Map<String, String>, newTags: Map<String, String>): StringMapChanges {
-        val changesList = mutableListOf<StringMapEntryChange>()
+        val tags = StringMapChangesBuilder(previousTags)
 
-        // first remove old tags
-        for ((key, value) in previousTags) {
-            val isOkToRemove = KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED.any { it.matches(key) }
-            if (isOkToRemove && !newTags.containsKey(key)) {
-                changesList.add(StringMapEntryDelete(key, value))
+        tags.removeCheckDates()
+
+        for (key in previousTags.keys) {
+            if (KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED.any { it.matches(key) }) {
+                tags.remove(key)
             }
         }
-        // then add new tags
         for ((key, value) in newTags) {
-            val valueBefore = previousTags[key]
-            if (valueBefore != null) changesList.add(StringMapEntryModify(key, valueBefore, value))
-            else changesList.add(StringMapEntryAdd(key, value))
+            tags[key] = value
         }
 
-        return StringMapChanges(changesList)
+        return tags.create()
     }
 
     /** Apply the user's answer to the given quest.
      * @return true if successful
      */
     suspend fun solve(quest: Quest, answer: Any, source: String): Boolean {
-        return when(quest) {
+        return when (quest) {
             is OsmNoteQuest -> solveOsmNoteQuest(quest, answer as NoteAnswer)
             is OsmQuest -> solveOsmQuest(quest, answer, source)
             else -> throw NotImplementedError()
@@ -184,7 +184,8 @@ import kotlin.collections.ArrayList
 
     private suspend fun solveOsmQuest(
         q: OsmQuest,
-        answer: Any, source: String
+        answer: Any,
+        source: String
     ): Boolean = withContext(Dispatchers.IO) {
         /* When OSM data is being updated (e.g. during download), first that data is persisted to
          *  the database and after that, the quests are updated on the new data.
@@ -224,9 +225,9 @@ import kotlin.collections.ArrayList
         return@withContext true
     }
 
-    private fun createOsmQuestChanges(quest: OsmQuest, element: Element, answer: Any) : StringMapChanges {
+    private fun createOsmQuestChanges(quest: OsmQuest, element: Element, answer: Any): StringMapChanges {
         val changesBuilder = StringMapChangesBuilder(element.tags)
-        quest.osmElementQuestType.applyAnswerToUnsafe(answer, changesBuilder)
+        quest.osmElementQuestType.applyAnswerToUnsafe(answer, changesBuilder, element.timestampEdited)
         return changesBuilder.create()
     }
 

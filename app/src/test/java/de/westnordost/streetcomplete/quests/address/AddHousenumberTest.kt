@@ -4,11 +4,20 @@ import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryAd
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryModify
 import de.westnordost.streetcomplete.data.osm.geometry.ElementPointGeometry
 import de.westnordost.streetcomplete.data.osm.geometry.ElementPolygonsGeometry
-import de.westnordost.streetcomplete.data.osm.mapdata.*
+import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
+import de.westnordost.streetcomplete.data.osm.mapdata.Node
+import de.westnordost.streetcomplete.data.osm.mapdata.Way
 import de.westnordost.streetcomplete.quests.createMapData
 import de.westnordost.streetcomplete.quests.verifyAnswer
-import de.westnordost.streetcomplete.testutils.*
-import org.junit.Assert.*
+import de.westnordost.streetcomplete.testutils.member
+import de.westnordost.streetcomplete.testutils.node
+import de.westnordost.streetcomplete.testutils.p
+import de.westnordost.streetcomplete.testutils.rel
+import de.westnordost.streetcomplete.testutils.way
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class AddHousenumberTest {
@@ -62,7 +71,7 @@ class AddHousenumberTest {
         ))
         val relationWithAddr = rel(
             members = listOf(member(ElementType.WAY, 1)),
-            tags =  mapOf("addr:housenumber" to "123")
+            tags = mapOf("addr:housenumber" to "123")
         )
 
         val mapData = createMapData(mapOf(
@@ -163,21 +172,21 @@ class AddHousenumberTest {
 
     @Test fun `apply house number answer`() {
         questType.verifyAnswer(
-            HouseNumber("99b"),
+            HouseNumberAndHouseName(HouseNumber("99b"), null),
             StringMapEntryAdd("addr:housenumber", "99b")
         )
     }
 
     @Test fun `apply house name answer`() {
         questType.verifyAnswer(
-            HouseName("La Escalera"),
+            HouseNumberAndHouseName(null, "La Escalera"),
             StringMapEntryAdd("addr:housename", "La Escalera")
         )
     }
 
     @Test fun `apply conscription number answer`() {
         questType.verifyAnswer(
-            ConscriptionNumber("I.123"),
+            HouseNumberAndHouseName(ConscriptionNumber("I.123"), null),
             StringMapEntryAdd("addr:conscriptionnumber", "I.123"),
             StringMapEntryAdd("addr:housenumber", "I.123")
         )
@@ -185,7 +194,7 @@ class AddHousenumberTest {
 
     @Test fun `apply conscription and street number answer`() {
         questType.verifyAnswer(
-            ConscriptionNumber("I.123", "12b"),
+            HouseNumberAndHouseName(ConscriptionNumber("I.123", "12b"), null),
             StringMapEntryAdd("addr:conscriptionnumber", "I.123"),
             StringMapEntryAdd("addr:streetnumber", "12b"),
             StringMapEntryAdd("addr:housenumber", "12b")
@@ -194,7 +203,7 @@ class AddHousenumberTest {
 
     @Test fun `apply block and house number answer`() {
         questType.verifyAnswer(
-            HouseAndBlockNumber("12A", "123"),
+            HouseNumberAndHouseName(HouseAndBlockNumber("12A", "123"), null),
             StringMapEntryAdd("addr:block_number", "123"),
             StringMapEntryAdd("addr:housenumber", "12A")
         )
@@ -202,7 +211,7 @@ class AddHousenumberTest {
 
     @Test fun `apply no house number answer`() {
         questType.verifyAnswer(
-            NoHouseNumber,
+            HouseNumberAndHouseName(null, null),
             StringMapEntryAdd("nohousenumber", "yes")
         )
     }
@@ -216,21 +225,21 @@ class AddHousenumberTest {
     }
 }
 
-private val P1 = p(0.25,0.25)
-private val P2 = p(0.25,0.75)
-private val P3 = p(0.75,0.75)
-private val P4 = p(0.75,0.25)
+private val P1 = p(0.25, 0.25)
+private val P2 = p(0.25, 0.75)
+private val P3 = p(0.75, 0.75)
+private val P4 = p(0.75, 0.25)
 
-private val P5 = p(0.1,0.1)
-private val P6 = p(0.1,0.9)
-private val P7 = p(0.9,0.9)
-private val P8 = p(0.9,0.1)
+private val P5 = p(0.1, 0.1)
+private val P6 = p(0.1, 0.9)
+private val P7 = p(0.9, 0.9)
+private val P8 = p(0.9, 0.1)
 
 private val PO = p(1.5, 1.5)
-private val PC = p(0.5,0.5)
+private val PC = p(0.5, 0.5)
 
-private val NODES1 = listOf<Long>(1,2,3,4,1)
-private val NODES2 = listOf<Long>(5,6,7,8,5)
+private val NODES1 = listOf<Long>(1, 2, 3, 4, 1)
+private val NODES2 = listOf<Long>(5, 6, 7, 8, 5)
 
 private val POSITIONS1 = ElementPolygonsGeometry(listOf(listOf(P1, P2, P3, P4, P1)), PC)
 private val POSITIONS2 = ElementPolygonsGeometry(listOf(listOf(P5, P6, P7, P8, P5)), PC)

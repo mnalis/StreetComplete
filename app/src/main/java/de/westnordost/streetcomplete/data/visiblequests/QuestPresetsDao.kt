@@ -1,12 +1,11 @@
 package de.westnordost.streetcomplete.data.visiblequests
 
 import de.westnordost.streetcomplete.data.Database
-import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsTable.NAME
 import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsTable.Columns.QUEST_PRESET_ID
 import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsTable.Columns.QUEST_PRESET_NAME
-import javax.inject.Inject
+import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsTable.NAME
 
-class QuestPresetsDao @Inject constructor(private val db: Database) {
+class QuestPresetsDao(private val db: Database) {
 
     fun add(name: String): Long =
         db.insert(NAME, listOf(QUEST_PRESET_NAME to name))

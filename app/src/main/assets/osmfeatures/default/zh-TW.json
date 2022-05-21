@@ -55,6 +55,10 @@
                 "access": {
                     "label": "允許通行限制",
                     "options": {
+                        "customers": {
+                            "description": "僅限於目的地的顧客",
+                            "title": "顧客"
+                        },
                         "designated": {
                             "description": "根據標誌或當地法律可以通過",
                             "title": "指定"
@@ -144,7 +148,7 @@
                         "block_number": "街區號碼",
                         "block_number!jp": "街區號碼",
                         "city": "城市",
-                        "city!cn": "城市／州／聯邦",
+                        "city!cn": "地級市／自治州／地區／盟",
                         "city!jp": "城市／鄉鎮／村里／東京特別區",
                         "city!vn": "城市／鄉鎮",
                         "conscriptionnumber": "123",
@@ -152,7 +156,7 @@
                         "county": "縣",
                         "county!jp": "區",
                         "district": "區",
-                        "district!cn": "區／縣／旗",
+                        "district!cn": "市轄區／縣／縣級市／旗",
                         "district!vn": "郡／鄉鎮／區",
                         "floor": "樓層",
                         "hamlet": "村莊",
@@ -164,7 +168,7 @@
                         "place": "地方",
                         "postcode": "郵遞區號",
                         "province": "省",
-                        "province!cn": "省／自治市／行政區／特別行政區",
+                        "province!cn": "省／直轄市／自治區／特別行政區",
                         "province!jp": "州",
                         "quarter": "地方",
                         "quarter!jp": "Ōaza/Machi",
@@ -360,8 +364,8 @@
                     "label": "種類"
                 },
                 "branch_brand": {
-                    "label": "分支",
-                    "terms": "分支,分店,分支機構"
+                    "label": "分店",
+                    "terms": "分支,分店,分支機構,分行"
                 },
                 "brand": {
                     "label": "品牌",
@@ -479,7 +483,18 @@
                     "label": "存款"
                 },
                 "castle_type": {
-                    "label": "種類"
+                    "label": "種類",
+                    "options": {
+                        "castrum": "古羅馬兵營",
+                        "defensive": "城堡",
+                        "fortress": "要塞",
+                        "hillfort": "丘堡",
+                        "kremlin": "克里姆林",
+                        "manor": "莊園大屋",
+                        "palace": "宮殿",
+                        "shiro": "日式城堡",
+                        "stately": "法式城堡"
+                    }
                 },
                 "changing_table": {
                     "label": "尿布更換桌"
@@ -615,6 +630,13 @@
                 },
                 "crossing/light": {
                     "label": "燈號"
+                },
+                "crossing_raised": {
+                    "label": "交通寧靜區",
+                    "options": {
+                        "table": "是",
+                        "undefined": "否"
+                    }
                 },
                 "cuisine": {
                     "label": "菜系",
@@ -1404,7 +1426,7 @@
                     "label": "類型"
                 },
                 "line_attachment": {
-                    "label": "線附件"
+                    "label": "線纜固著"
                 },
                 "line_management": {
                     "label": "線路管理",
@@ -1707,9 +1729,11 @@
                         "carports": "車棚",
                         "garage_boxes": "垃圾桶",
                         "lane": "路邊停車位",
+                        "layby": "休息站",
                         "multi-storey": "立體",
                         "rooftop": "屋頂",
                         "sheds": "有覆蓋",
+                        "street_side": "路邊",
                         "surface": "平面",
                         "underground": "地下"
                     }
@@ -1949,7 +1973,24 @@
                     "terms": "實體火燄"
                 },
                 "recycling_accepts": {
-                    "label": "接受"
+                    "label": "接受",
+                    "options": {
+                        "batteries": "電池",
+                        "cans": "金屬容器",
+                        "cardboard": "紙板",
+                        "clothes": "衣服",
+                        "cooking_oil": "食用油",
+                        "engine_oil": "機油",
+                        "glass": "任何玻璃（鋼化玻璃、窗戶、鏡子等等）",
+                        "glass_bottles": "玻璃瓶與罐子",
+                        "green_waste": "堆肥",
+                        "paper": "紙類",
+                        "plastic": "塑膠",
+                        "plastic_bottles": "塑膠瓶",
+                        "plastic_packaging": "塑膠包裝",
+                        "scrap_metal": "廢金屬",
+                        "shoes": "鞋子"
+                    }
                 },
                 "recycling_type": {
                     "label": "種類",
@@ -1972,6 +2013,10 @@
                 },
                 "ref_aeroway_gate": {
                     "label": "閘門編號"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "球洞編號",
+                    "placeholder": "1-18"
                 },
                 "ref_golf_hole": {
                     "label": "球洞編號",
@@ -2170,6 +2215,21 @@
                 },
                 "seamark/mooring/category": {
                     "label": "類別"
+                },
+                "seamark/rescue_station/category": {
+                    "label": "救生裝備",
+                    "options": {
+                        "aircraft": "飛機",
+                        "first_aid": "急救",
+                        "hovercraft": "氣墊船",
+                        "lifeboat": "救生艇（陸上）",
+                        "lifeboat_on_mooring": "救生艇（停泊處）",
+                        "radio": "廣播電臺",
+                        "refuge_intertidal": "潮間帶避難所",
+                        "refuge_shipwrecked": "沉船避難所",
+                        "seaplane": "水上飛機",
+                        "tug": "打撈拖船"
+                    }
                 },
                 "seamark/type": {
                     "label": "海標",
@@ -2421,7 +2481,7 @@
                     "label": "路面鋪設",
                     "options": {
                         "artificial_turf": "人造草皮",
-                        "asphalt": "柏油",
+                        "asphalt": "瀝青",
                         "compacted": "壓實",
                         "concrete": "混凝土",
                         "dirt": "土質",
@@ -2660,6 +2720,17 @@
                     },
                     "terms": "使用種類"
                 },
+                "usage_waterway": {
+                    "label": "用途類型",
+                    "options": {
+                        "headrace": "引水道",
+                        "irrigation": "灌溉",
+                        "spillway": "溢洪道",
+                        "tailrace": "尾水道",
+                        "transmission": "輸水",
+                        "transportation": "運輸"
+                    }
+                },
                 "utility": {
                     "label": "公用事業"
                 },
@@ -2722,15 +2793,15 @@
                     }
                 },
                 "voltage": {
-                    "label": "伏特"
+                    "label": "電壓"
                 },
                 "voltage/primary": {
-                    "label": "主要電壓",
-                    "terms": "主要電壓"
+                    "label": "一次電壓",
+                    "terms": "一次電壓"
                 },
                 "voltage/secondary": {
-                    "label": "次要電壓",
-                    "terms": "次要電壓"
+                    "label": "二次電壓",
+                    "terms": "二次電壓"
                 },
                 "voltage/tertiary": {
                     "label": "三次電壓",
@@ -2775,15 +2846,15 @@
                 "wetland": {
                     "label": "種類",
                     "options": {
-                        "bog": "沼澤",
-                        "fen": "沼池",
+                        "bog": "酸沼",
+                        "fen": "堿沼",
                         "mangrove": "紅樹林",
-                        "marsh": "沼澤地",
+                        "marsh": "草澤",
                         "reedbed": "蘆葦床",
-                        "saltmarsh": "岸邊鹹水沼澤地",
-                        "string_bog": "弦沼澤",
-                        "swamp": "樹沼",
-                        "tidalflat": "灘塗",
+                        "saltmarsh": "海岸鹽沼",
+                        "string_bog": "線狀酸沼",
+                        "swamp": "林澤",
+                        "tidalflat": "潮灘",
                         "wet_meadow": "濕草甸"
                     }
                 },
@@ -3440,7 +3511,7 @@
                     "terms": "廟,教堂,寺廟,清真寺,禮拜堂,寺,聚會所,教會"
                 },
                 "amenity/place_of_worship/buddhist": {
-                    "name": "佛寺",
+                    "name": "佛寺殿堂",
                     "terms": "寺,廟,閣,寶殿"
                 },
                 "amenity/place_of_worship/christian": {
@@ -3745,6 +3816,10 @@
                     "name": "露天劇場",
                     "terms": "露天劇場"
                 },
+                "amenity/ticket_validator": {
+                    "name": "剪票機",
+                    "terms": "剪票機"
+                },
                 "amenity/toilets": {
                     "name": "廁所",
                     "terms": "便所,公廁,洗手間,盥洗室,公共廁所"
@@ -3980,8 +4055,8 @@
                     "terms": "旋轉木馬"
                 },
                 "attraction/train": {
-                    "name": "遊樂園小火車",
-                    "terms": "遊樂園小火車"
+                    "name": "無軌遊覽小火車停靠站",
+                    "terms": "無軌,遊覽,小火車,停靠站,公路列車,遊樂園"
                 },
                 "attraction/water_slide": {
                     "name": "滑水道",
@@ -4580,6 +4655,18 @@
                 "demolished/building": {
                     "name": "最近拆除的建築物"
                 },
+                "disc_golf/basket": {
+                    "name": "飛盤高爾夫籃",
+                    "terms": "飛盤高爾夫籃"
+                },
+                "disc_golf/hole": {
+                    "name": "飛盤高爾夫洞",
+                    "terms": "飛盤高爾夫洞"
+                },
+                "disc_golf/tee": {
+                    "name": "飛盤高爾夫球座",
+                    "terms": "飛盤高爾夫球座"
+                },
                 "disused/amenity": {
                     "name": "廢棄設施"
                 },
@@ -4672,8 +4759,9 @@
                 "emergency/water_reservoir": {
                     "name": "緊急儲水池"
                 },
-                "emergency/water_reservoir covered": {
-                    "name": "緊急儲水池 (地下)"
+                "emergency/water_reservoir_covered": {
+                    "name": "緊急儲水池（地下）",
+                    "terms": "緊急儲水池（地下）"
                 },
                 "emergency/water_tank": {
                     "name": "緊急水箱",
@@ -4858,31 +4946,19 @@
                     "name": "標記人行穿越道",
                     "terms": "有斑馬線穿越道"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "標記人行穿越道（凸起）",
-                    "terms": "有斑馬線穿越道（凸起）"
-                },
                 "highway/crossing/signals": {
                     "name": "行人燈號交叉路口",
                     "terms": "行人燈號交叉路口"
                 },
-                "highway/crossing/signals-raised": {
-                    "name": "行人燈號交叉路口（升起）",
-                    "terms": "行人燈號交叉路口（升起）"
+                "highway/crossing/uncontrolled": {
+                    "name": "標記人行穿越道"
                 },
                 "highway/crossing/unmarked": {
                     "name": "無標記人行穿越道",
                     "terms": "無斑馬線穿越道"
                 },
-                "highway/crossing/unmarked-raised": {
-                    "name": "無標記人行穿越道（凸起）",
-                    "terms": "無斑馬線穿越道（凸起）"
-                },
                 "highway/crossing/zebra": {
                     "name": "標記人行穿越道"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "標記人行穿越道（凸起）"
                 },
                 "highway/cycleway": {
                     "name": "單車路線",
@@ -4938,27 +5014,20 @@
                     "name": "有標記人行穿越道",
                     "terms": "有斑馬線穿越道"
                 },
-                "highway/footway/marked-raised": {
-                    "name": "有標記人行穿越道（凸起）",
-                    "terms": "有斑馬線穿越道（凸起）"
-                },
                 "highway/footway/sidewalk": {
                     "name": "路邊人行道",
                     "terms": "人行道"
+                },
+                "highway/footway/signals": {
+                    "name": "行人燈號交叉路口",
+                    "terms": "行人燈號交叉路口"
                 },
                 "highway/footway/unmarked": {
                     "name": "無標記人行穿越道",
                     "terms": "無斑馬線穿越道"
                 },
-                "highway/footway/unmarked-raised": {
-                    "name": "無標記人行穿越道（凸起）",
-                    "terms": "無斑馬線穿越道（凸起）"
-                },
                 "highway/footway/zebra": {
                     "name": "標記人行穿越道"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "有斑馬線人行穿越道（凸起）"
                 },
                 "highway/give_way": {
                     "name": "通行標誌",
@@ -5365,8 +5434,8 @@
                     "terms": "工業區"
                 },
                 "landuse/industrial/scrap_yard": {
-                    "name": "廢料場",
-                    "terms": "廢料儲存地"
+                    "name": "廢車場",
+                    "terms": "廢車場"
                 },
                 "landuse/industrial/slaughterhouse": {
                     "name": "屠宰場",
@@ -5453,6 +5522,10 @@
                 "landuse/retail": {
                     "name": "零售用地",
                     "terms": "商店街"
+                },
+                "landuse/salt_pond": {
+                    "name": "鹽蒸發池",
+                    "terms": "鹽蒸發池,鹽田,鹽灘,鹽埕"
                 },
                 "landuse/vineyard": {
                     "name": "酒莊",
@@ -5649,6 +5722,10 @@
                     "name": "美式足球場",
                     "terms": "美式足球場"
                 },
+                "leisure/pitch/archery": {
+                    "name": "射箭場",
+                    "terms": "射箭場"
+                },
                 "leisure/pitch/australian_football": {
                     "name": "澳式足球場",
                     "terms": "澳式足球場"
@@ -5692,6 +5769,14 @@
                 "leisure/pitch/field_hockey": {
                     "name": "曲棍球場",
                     "terms": "曲棍球場"
+                },
+                "leisure/pitch/four_square": {
+                    "name": "四方球場",
+                    "terms": "四方球場"
+                },
+                "leisure/pitch/futsal": {
+                    "name": "室內五人制足球場",
+                    "terms": "室內五人制足球場"
                 },
                 "leisure/pitch/horseshoes": {
                     "name": "馬蹄鐵坑",
@@ -5881,8 +5966,7 @@
                     "terms": "羅盤方位圖,羅盤玫瑰,羅針圖,玫瑰風圖,風圖"
                 },
                 "man_made/courtyard": {
-                    "name": "庭院",
-                    "terms": "庭院,天井"
+                    "name": "庭院"
                 },
                 "man_made/crane": {
                     "name": "起重機",
@@ -6214,8 +6298,8 @@
                     "terms": "草地"
                 },
                 "natural/heath": {
-                    "name": "矮灌木叢",
-                    "terms": "矮灌木叢"
+                    "name": "歐石楠灌叢",
+                    "terms": "歐石楠灌叢"
                 },
                 "natural/hot_spring": {
                     "name": "溫泉",
@@ -6566,6 +6650,9 @@
                 "office/water_utility": {
                     "name": "自來水公司",
                     "terms": "自來水事務處,自來水公司"
+                },
+                "office/yes": {
+                    "name": "辦公室（未指定類型）"
                 },
                 "piste/downhill": {
                     "name": "下坡滑雪道",
@@ -7851,6 +7938,9 @@
                     "name": "販酒店",
                     "terms": "酒店"
                 },
+                "shop/yes": {
+                    "name": "商店（未指定類型）"
+                },
                 "telecom": {
                     "name": "電信圖徽"
                 },
@@ -8257,8 +8347,8 @@
                     "terms": "濕塢 / 乾塢"
                 },
                 "waterway/drain": {
-                    "name": "渠",
-                    "terms": "灌溉水圳"
+                    "name": "排水渠",
+                    "terms": "排水,渠,水圳"
                 },
                 "waterway/fish_pass": {
                     "name": "魚道",

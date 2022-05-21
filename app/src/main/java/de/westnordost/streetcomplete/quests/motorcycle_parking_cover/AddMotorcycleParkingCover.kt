@@ -1,14 +1,14 @@
 package de.westnordost.streetcomplete.quests.motorcycle_parking_cover
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
 import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.filter
+import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.CAR
-import de.westnordost.streetcomplete.ktx.toYesNo
 import de.westnordost.streetcomplete.quests.YesNoQuestAnswerFragment
+import de.westnordost.streetcomplete.util.ktx.toYesNo
 
 class AddMotorcycleParkingCover : OsmFilterQuestType<Boolean>() {
 
@@ -22,7 +22,6 @@ class AddMotorcycleParkingCover : OsmFilterQuestType<Boolean>() {
     override val wikiLink = "Tag:amenity=motorcycle_parking"
     override val icon = R.drawable.ic_quest_motorcycle_parking_cover
     override val isDeleteElementEnabled = true
-
     override val questTypeAchievements = listOf(CAR)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_motorcycleParkingCoveredStatus_title
@@ -32,7 +31,7 @@ class AddMotorcycleParkingCover : OsmFilterQuestType<Boolean>() {
 
     override fun createForm() = YesNoQuestAnswerFragment()
 
-    override fun applyAnswerTo(answer: Boolean, changes: StringMapChangesBuilder) {
-        changes.add("covered", answer.toYesNo())
+    override fun applyAnswerTo(answer: Boolean, tags: Tags, timestampEdited: Long) {
+        tags["covered"] = answer.toYesNo()
     }
 }

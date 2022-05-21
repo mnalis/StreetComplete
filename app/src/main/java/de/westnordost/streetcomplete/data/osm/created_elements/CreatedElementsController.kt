@@ -2,17 +2,17 @@ package de.westnordost.streetcomplete.data.osm.created_elements
 
 import de.westnordost.streetcomplete.data.osm.mapdata.ElementKey
 import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton class CreatedElementsController @Inject constructor(
+class CreatedElementsController(
     private val db: CreatedElementsDao
-): CreatedElementsSource {
+) : CreatedElementsSource {
 
-    private val cache: MutableSet<ElementKey> by lazy { db.getAll().toMutableSet() }
+    private val cache: MutableSet<ElementKey> by lazy {
+        synchronized(this) { db.getAll().toMutableSet() }
+    }
 
     override fun contains(elementType: ElementType, elementId: Long): Boolean =
-        cache.contains(ElementKey(elementType, elementId))
+        synchronized(this) { cache.contains(ElementKey(elementType, elementId)) }
 
     fun putAll(entries: Collection<ElementKey>) {
         synchronized(this) {

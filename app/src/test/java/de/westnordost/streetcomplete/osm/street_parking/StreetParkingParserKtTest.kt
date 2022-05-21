@@ -1,11 +1,14 @@
 package de.westnordost.streetcomplete.osm.street_parking
 
-import org.junit.Assert.*
+import de.westnordost.streetcomplete.osm.street_parking.ParkingOrientation.DIAGONAL
+import de.westnordost.streetcomplete.osm.street_parking.ParkingOrientation.PARALLEL
+import de.westnordost.streetcomplete.osm.street_parking.ParkingOrientation.PERPENDICULAR
+import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition.HALF_ON_KERB
+import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition.ON_KERB
+import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition.ON_STREET
+import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition.STREET_SIDE
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition.*
-import de.westnordost.streetcomplete.osm.street_parking.ParkingOrientation.*
-
 
 class StreetParkingParserKtTest {
 
@@ -103,6 +106,15 @@ class StreetParkingParserKtTest {
             createStreetParkingSides(mapOf(
                 "parking:lane:left" to "no",
                 "parking:condition:left" to "no_standing"
+            )))
+    }
+
+    @Test fun `prohibited tagged without explicit lane tag`() {
+        assertEquals(
+            LeftAndRightStreetParking(StreetStandingProhibited, NoStreetParking),
+            createStreetParkingSides(mapOf(
+                "parking:condition:left" to "no_standing",
+                "parking:condition:right" to "no"
             )))
     }
 

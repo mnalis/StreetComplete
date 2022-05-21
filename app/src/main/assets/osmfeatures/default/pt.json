@@ -42,7 +42,7 @@
                     "name": "Elementos de rota"
                 },
                 "category-utility": {
-                    "name": "Elementos utilitários"
+                    "name": "Elementos de distribuição"
                 },
                 "category-water": {
                     "name": "Corpos de água"
@@ -55,6 +55,10 @@
                 "access": {
                     "label": "Acesso autorizado",
                     "options": {
+                        "customers": {
+                            "description": "Limitado a clientes no destino",
+                            "title": "Clientes"
+                        },
                         "designated": {
                             "description": "Acesso permitido de acordo com a sinalização ou as leis locais",
                             "title": "Indicado"
@@ -171,7 +175,7 @@
                         "subdistrict!vn": "Ward/Commune/Townlet",
                         "suburb": "Subúrbio ",
                         "suburb!jp": "Ward",
-                        "unit": "Unidade / Suíte"
+                        "unit": "Unidade / Bloco"
                     },
                     "terms": "endereço,morada,endereçamento,código postal,localização,número de porta,nº de porta,n.º de porta,número de polícia,nº de polícia,n.º de polícia,número"
                 },
@@ -229,13 +233,13 @@
                     "label": "Tipo"
                 },
                 "animal_boarding": {
-                    "label": "Para animais"
+                    "label": "Animais"
                 },
                 "animal_breeding": {
-                    "label": "Para animais"
+                    "label": "Animais"
                 },
                 "animal_shelter": {
-                    "label": "Para animais"
+                    "label": "Animais"
                 },
                 "architect": {
                     "label": "Arquiteto",
@@ -476,7 +480,17 @@
                     "label": "Depósito"
                 },
                 "castle_type": {
-                    "label": "Tipo"
+                    "label": "Tipo",
+                    "options": {
+                        "castrum": "Forte romano",
+                        "defensive": "Castelo defensivo",
+                        "fortress": "Fortaleza",
+                        "hillfort": "Castro",
+                        "kremlin": "Kremlin",
+                        "manor": "Solar",
+                        "palace": "Palácio",
+                        "shiro": "Shiro"
+                    }
                 },
                 "changing_table": {
                     "label": "Mesa para troca de fraldas"
@@ -612,6 +626,13 @@
                 },
                 "crossing/light": {
                     "label": "Sinais luminosos"
+                },
+                "crossing_raised": {
+                    "label": "Elevado",
+                    "options": {
+                        "table": "Sim",
+                        "undefined": "No"
+                    }
                 },
                 "cuisine": {
                     "label": "Tipos de culinária",
@@ -1939,7 +1960,24 @@
                     "terms": "fogueira,fogo,fogão,aquecimento"
                 },
                 "recycling_accepts": {
-                    "label": "Aceita"
+                    "label": "Aceita",
+                    "options": {
+                        "batteries": "Pilhas",
+                        "cans": "Latas",
+                        "cardboard": "Cartão",
+                        "clothes": "Roupas",
+                        "cooking_oil": "Óleo alimentar",
+                        "engine_oil": "Óleo de motores",
+                        "glass": "Vidro",
+                        "glass_bottles": "Recipientes de vidro",
+                        "green_waste": "Resíduos vegetais",
+                        "paper": "Papel",
+                        "plastic": "Plástico",
+                        "plastic_bottles": "Garrafas de plástico",
+                        "plastic_packaging": "Embalagens de plástico",
+                        "scrap_metal": "Sucata",
+                        "shoes": "Calçado"
+                    }
                 },
                 "recycling_type": {
                     "label": "Tipo",
@@ -1962,6 +2000,10 @@
                 },
                 "ref_aeroway_gate": {
                     "label": "Número da porta"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "N.º do buraco",
+                    "placeholder": "1-18"
                 },
                 "ref_golf_hole": {
                     "label": "Número do buraco",
@@ -2648,6 +2690,14 @@
                         "tourism": "Turismo"
                     },
                     "terms": "utilizações,utilização,tipo de uso"
+                },
+                "usage_waterway": {
+                    "label": "Tipo de uso",
+                    "options": {
+                        "irrigation": "Irrigação",
+                        "transmission": "Transmissão",
+                        "transportation": "Transporte"
+                    }
                 },
                 "utility": {
                     "label": "Utilitário"
@@ -3729,6 +3779,10 @@
                 "amenity/theatre/type/amphi": {
                     "name": "Anfiteatro",
                     "terms": "anfiteatros"
+                },
+                "amenity/ticket_validator": {
+                    "name": "Máquina de validação de bilhetes",
+                    "terms": "bilhetes,validação,validar,validador,máquina,sistema,tickets,títulos"
                 },
                 "amenity/toilets": {
                     "name": "Casas de banho",
@@ -4837,31 +4891,16 @@
                     "name": "Passadeira marcada",
                     "terms": "passadeira,zebra,marcações,passagem,travessia,peões,pedestre"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "Passadeira marcada (elevada)",
-                    "terms": "passadeira levantada,passadeira elevada,lomba,travessia,pedestre,peões,faixa de segurança,lomba redutora de velocidade,trapézio,trapezoidal"
-                },
                 "highway/crossing/signals": {
                     "name": "Passadeira com semáforos",
                     "terms": "pedestre,passagem,travessia,atravessar,cruzar,peões,luzes,luminosos"
-                },
-                "highway/crossing/signals-raised": {
-                    "name": "Passadeira com semáforos (elevada)",
-                    "terms": "pedestre,passagem,travessia,atravessar,cruzar,peões,luzes,luminosos,lomba,lombada"
                 },
                 "highway/crossing/unmarked": {
                     "name": "Travessia sem marcações",
                     "terms": "passagem de pedestres não marcada,passadeira não marcada,passadeira sem marcas,atravessamento,pedestre,peões,passadeira,faixa de segurança"
                 },
-                "highway/crossing/unmarked-raised": {
-                    "name": "Passadeira não marcada (elevada)",
-                    "terms": "passadeira levantada,passadeira elevada,lomba,travessia,pedestre,peões,faixa de segurança,lomba redutora de velocidade,trapézio,trapezoidal"
-                },
                 "highway/crossing/zebra": {
                     "name": "Passadeira marcada"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "Passadeira marcada (elevada)"
                 },
                 "highway/cycleway": {
                     "name": "Ciclovia",
@@ -4917,27 +4956,20 @@
                     "name": "Passadeira marcada",
                     "terms": "passadeira,zebra,passagem,travessia,pedestres,peões,peão"
                 },
-                "highway/footway/marked-raised": {
-                    "name": "Passadeira marcada (elevada)",
-                    "terms": "passadeira,lomba,passadeira-lomba,passadeira elevada,pedestres,peões,peão,travessia"
-                },
                 "highway/footway/sidewalk": {
                     "name": "Passeio",
                     "terms": "calçada,passeios,bermas,berma"
+                },
+                "highway/footway/signals": {
+                    "name": "Passadeira com semáforos para peões",
+                    "terms": "pedestres,peão,travessia,faixa de segurança,atravessar,atravessamento,passadeiras,luzes,sinaleira,semáforo"
                 },
                 "highway/footway/unmarked": {
                     "name": "Passadeira não marcada",
                     "terms": "passagem de pedestres não marcada,passadeira,passagem,travessia,pedestres,peões,peão"
                 },
-                "highway/footway/unmarked-raised": {
-                    "name": "Passadeira não marcada (elevada)",
-                    "terms": "passagem de pedestres não marcada,passagem,atravessamento,passadeira,lomba,pedestres,peões,peão,travessia"
-                },
                 "highway/footway/zebra": {
                     "name": "Passadeira marcada"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "faixa de pedestres marcada, passadeira, atravessamento, passagem,travessia,pedestres,peões,peão"
                 },
                 "highway/give_way": {
                     "name": "Sinal de cedência de passagem",
@@ -4964,7 +4996,11 @@
                     "terms": "junção,saída,autoestrada,auto-estrada,nó,entrada,sair,mudança,mudar,estrada,rodovia"
                 },
                 "highway/motorway_link": {
-                    "name": "Ligação a uma autoestrada",
+                    "name": "Ligação a autoestrada",
+                    "terms": "ligação a autoestrada,entrada de autoestrada,saída de autoestrada,saída,acesso"
+                },
+                "highway/motorway_link-US-CA": {
+                    "name": "Ligação a autoestrada",
                     "terms": "ligação a autoestrada,entrada de autoestrada,saída de autoestrada,saída,acesso"
                 },
                 "highway/passing_place": {
@@ -4996,6 +5032,10 @@
                     "terms": "primary road,estrada nacional,rodovia principal,estrada primária,rodovia primária,primário"
                 },
                 "highway/primary_link": {
+                    "name": "Ligação a estrada primária",
+                    "terms": "primary link,ligação estrada nacional,ligação rodovia nacional,ligação nacional,ligação estrada principal,entrada estrada nacional,entrada rodovia nacional,entrada nacional,saída nacional,saída rodovia nacional,saída estrada nacional"
+                },
+                "highway/primary_link-US-CA": {
                     "name": "Ligação a estrada primária",
                     "terms": "primary link,ligação estrada nacional,ligação rodovia nacional,ligação nacional,ligação estrada principal,entrada estrada nacional,entrada rodovia nacional,entrada nacional,saída nacional,saída rodovia nacional,saída estrada nacional"
                 },
@@ -5116,6 +5156,10 @@
                     "terms": "via reservada a automóveis e motociclos,estrada reservada a automóveis e motociclos,via expressa,via reservada,itinerário principal,itinerário complementar,ip,ic"
                 },
                 "highway/trunk_link": {
+                    "name": "Ligação a via rápida",
+                    "terms": "ligação via rápida,entrada via rápida,saída via rápida,ligação via reservada a automóveis e motociclos,entrada via reservada a automóveis e motociclos,saída via reservada a automóveis e motociclos,ligação via expressa,entrada expressa,saída via expressa,ligação via reservada,entrada via reservada,saída via reservada,ip,ic"
+                },
+                "highway/trunk_link-US-CA": {
                     "name": "Ligação a via rápida",
                     "terms": "ligação via rápida,entrada via rápida,saída via rápida,ligação via reservada a automóveis e motociclos,entrada via reservada a automóveis e motociclos,saída via reservada a automóveis e motociclos,ligação via expressa,entrada expressa,saída via expressa,ligação via reservada,entrada via reservada,saída via reservada,ip,ic"
                 },
@@ -5622,6 +5666,10 @@
                     "name": "Campo de futebol americano",
                     "terms": "futebol americano,rugby,râguebi,american football,desporto"
                 },
+                "leisure/pitch/archery": {
+                    "name": "Campo de tiro com arco",
+                    "terms": "arco,flechas,tiro ao arco,desporto,desportivo,setas"
+                },
                 "leisure/pitch/australian_football": {
                     "name": "Campo de futebol australiano",
                     "terms": "futebol australiano,aussie rules,futebol,desporto,râguebi"
@@ -5665,6 +5713,14 @@
                 "leisure/pitch/field_hockey": {
                     "name": "Campo de hóquei em campo",
                     "terms": "field hockey pitch,hóquei em campo,hóquei sobre a grama,relvado,sintético"
+                },
+                "leisure/pitch/four_square": {
+                    "name": "Campo de Four Square",
+                    "terms": "desporto,desportivo,quadras"
+                },
+                "leisure/pitch/futsal": {
+                    "name": "Campo de futsal",
+                    "terms": "desporto,futebol,salão,desportivo,campo,soccer,cinco,treino,exercício"
                 },
                 "leisure/pitch/horseshoes": {
                     "name": "Jogo de ferraduras",
@@ -5854,8 +5910,7 @@
                     "terms": "compass,rose of the winds,rosa dos ventos,ventos,quadrante,norte,sul,este,oeste,leste"
                 },
                 "man_made/courtyard": {
-                    "name": "Pátio",
-                    "terms": "átrio,pateo,claustro,espaço murado,área"
+                    "name": "Pátio"
                 },
                 "man_made/crane": {
                     "name": "Grua",
@@ -6534,6 +6589,9 @@
                 "office/water_utility": {
                     "name": "Fornecedor de água",
                     "terms": "água,companhia de água,cooperativa de água,distribuidor,distribuição,águas"
+                },
+                "office/yes": {
+                    "name": "Escritório"
                 },
                 "piste/downhill": {
                     "name": "Pista de esqui alpino",
@@ -7505,7 +7563,7 @@
                     "terms": "interior,decoração,interiores"
                 },
                 "shop/jewelry": {
-                    "name": "Ouriversaria",
+                    "name": "Ourivesaria",
                     "terms": "joalharia,joalheria,jóias,joias,bijuteria,joalheiro,joalheira"
                 },
                 "shop/kiosk": {
@@ -7780,7 +7838,7 @@
                     "terms": "vacuum cleaner,aspirador,aspiradores,aspirar"
                 },
                 "shop/variety_store": {
-                    "name": "Loja dos chineses",
+                    "name": "Loja de variedades",
                     "terms": "loja dos 300,loja dos trezentos,bijuterias,adereços,quinquilharia"
                 },
                 "shop/video": {
@@ -7822,6 +7880,9 @@
                 "shop/wine": {
                     "name": "Loja de vinhos",
                     "terms": "wine shop,loja de licor,bebidas alcoolicas,bebidas,alcool,álcool,vinho,vinhos,garrafeira,branco,tinto,rosé,champanhe,xampanhe,espumante"
+                },
+                "shop/yes": {
+                    "name": "Loja"
                 },
                 "telecom": {
                     "name": "Telecomunicações"

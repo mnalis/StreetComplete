@@ -1,15 +1,21 @@
 package de.westnordost.streetcomplete.quests.roof_shape
 
-import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
+import de.westnordost.countryboundaries.CountryBoundaries
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.elementfilter.toElementFilterExpression
 import de.westnordost.streetcomplete.data.meta.CountryInfos
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
+import de.westnordost.streetcomplete.data.meta.getByLocation
 import de.westnordost.streetcomplete.data.osm.mapdata.Element
+import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.BUILDING
+import java.util.concurrent.FutureTask
 
-class AddRoofShape(private val countryInfos: CountryInfos) : OsmElementQuestType<RoofShape> {
+class AddRoofShape(
+    private val countryInfos: CountryInfos,
+    private val countryBoundariesFuture: FutureTask<CountryBoundaries>,
+) : OsmElementQuestType<RoofShape> {
 
     private val filter by lazy { """
         ways, relations with building
@@ -21,21 +27,15 @@ class AddRoofShape(private val countryInfos: CountryInfos) : OsmElementQuestType
     override val wikiLink = "Key:roof:shape"
     override val icon = R.drawable.ic_quest_roof_shape
     override val defaultDisabledMessage = R.string.default_disabled_msg_roofShape
-
     override val questTypeAchievements = listOf(BUILDING)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_roofShape_title
 
     override fun createForm() = AddRoofShapeForm()
 
-    override fun applyAnswerTo(answer: RoofShape, changes: StringMapChangesBuilder) {
-        changes.add("roof:shape", answer.osmValue)
-    }
-
     override fun getApplicableElements(mapData: MapDataWithGeometry) =
         mapData.filter { element ->
-            filter.matches(element)
-            && (
+            filter.matches(element) && (
                 element.tags["roof:levels"]?.toFloatOrNull() ?: 0f > 0f
                 || roofsAreUsuallyFlatAt(element, mapData) == false
             )
@@ -52,6 +52,14 @@ class AddRoofShape(private val countryInfos: CountryInfos) : OsmElementQuestType
 
     private fun roofsAreUsuallyFlatAt(element: Element, mapData: MapDataWithGeometry): Boolean? {
         val center = mapData.getGeometry(element.type, element.id)?.center ?: return null
-        return countryInfos.get(center.longitude, center.latitude).isRoofsAreUsuallyFlat
+        return countryInfos.getByLocation(
+            countryBoundariesFuture.get(),
+            center.longitude,
+            center.latitude,
+        ).roofsAreUsuallyFlat
+    }
+
+    override fun applyAnswerTo(answer: RoofShape, tags: Tags, timestampEdited: Long) {
+        tags["roof:shape"] = answer.osmValue
     }
 }

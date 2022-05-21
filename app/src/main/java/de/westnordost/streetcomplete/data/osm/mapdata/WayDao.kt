@@ -1,7 +1,5 @@
 package de.westnordost.streetcomplete.data.osm.mapdata
 
-import javax.inject.Inject
-
 import de.westnordost.streetcomplete.data.Database
 import de.westnordost.streetcomplete.data.osm.mapdata.WayTables.Columns.ID
 import de.westnordost.streetcomplete.data.osm.mapdata.WayTables.Columns.INDEX
@@ -18,7 +16,7 @@ import kotlinx.serialization.json.Json
 import java.lang.System.currentTimeMillis
 
 /** Stores OSM ways */
-class WayDao @Inject constructor(private val db: Database) {
+class WayDao(private val db: Database) {
     fun put(way: Way) {
         putAll(listOf(way))
     }
@@ -102,14 +100,20 @@ class WayDao @Inject constructor(private val db: Database) {
         }
     }
 
-    fun getAllForNode(nodeId: Long): List<Way> {
-        return db.transaction {
-            val ids = db.query(NAME_NODES,
-                columns = arrayOf(ID),
-                where = "$NODE_ID = $nodeId"
-            ) { it.getLong(ID) }.toSet()
-            getAll(ids)
-        }
+    fun getAllForNode(nodeId: Long): List<Way> =
+        getAllForNodes(listOf(nodeId))
+
+    fun getAllForNodes(nodeIds: Collection<Long>): List<Way> =
+        getAll(getAllIdsForNodes(nodeIds).toSet())
+
+    fun getAllIdsForNodes(nodeIds: Collection<Long>): List<Long> {
+        if (nodeIds.isEmpty()) return emptyList()
+        val idsString = nodeIds.joinToString(",")
+        return db.query(
+            NAME_NODES,
+            columns = arrayOf(ID),
+            where = "$NODE_ID IN ($idsString)"
+        ) { it.getLong(ID) }
     }
 
     fun getIdsOlderThan(timestamp: Long, limit: Int? = null): List<Long> {
