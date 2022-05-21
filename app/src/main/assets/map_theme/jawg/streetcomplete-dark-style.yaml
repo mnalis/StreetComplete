@@ -18,8 +18,8 @@ global:
     path_outline_color: '#555'
     square_color: global.road_color
 
-    earth_color: '#1e1e1e'
-    water_color: '#000'
+    earth_color: '#000000'
+    water_color: '#1e1e3e'
     green_color: '#465d2a'
     forest_color: '#284814'
     town_color: '#2d2d2d'
