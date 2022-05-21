@@ -39,8 +39,7 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
         val isMarked = answer !is UnmarkedLanes
         // if there is just one lane, the information whether it is marked or not is irrelevant
         // (if there are no more than one lane, there are no markings to separate them)
-<<<<<<< HEAD
-        //when {
+        // when {
         //    laneCount == 1 -> changes.deleteIfExists("lane_markings")
         //    isMarked ->       changes.modifyIfExists("lane_markings", "yes")
         //    else ->           changes.addOrModify("lane_markings", "no")

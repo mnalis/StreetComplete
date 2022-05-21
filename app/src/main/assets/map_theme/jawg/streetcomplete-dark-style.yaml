@@ -22,7 +22,7 @@ global:
     water_color: '#1e1e3e'
     green_color: '#465d2a'
     forest_color: '#284814'
-    town_color: '#2d2d2d'
+    town_color: '#000000'
 
     building_color: [0.56, 0.18, 0.18, 0.75]
     building_outline_color: [0.64, 0.24, 0.24, 0.75]
