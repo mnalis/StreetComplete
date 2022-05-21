@@ -16,6 +16,7 @@ CompleteStreet is a fork of StreetComplete aiming to unrestrict some quests (suc
 - Ask for existnece of a shoulder in more cases
 - Ask for path/road smoothness in more cases
 - Don't ask for confirmation when doing many splits
+- Don't remove tilt when switching location following modes
 
 # Original README
 
