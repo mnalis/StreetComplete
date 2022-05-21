@@ -3,7 +3,7 @@
 CompleteStreet is a fork of StreetComplete aiming to unrestrict some quests (such as adding surfaces to service roads). It's a personal project and will most probably not be released in package form.
 
 ## Modifications
-- Custom map style (darker, without blue tint, red accents)
+- Custom map style (darker, red accents, fullblack background, without blue tint)
 - Clicking on the copyright notice in the bottom-left does not open the browser
 - No asking whether you're within survey range
 - Ask for road surface of more road types as well as private roads and paths (**only for looking from afar**, do not tresspass)
