@@ -4,19 +4,25 @@ import android.content.Context
 import androidx.preference.PreferenceManager
 import de.westnordost.streetcomplete.ApplicationConstants.DELETE_OLD_DATA_AFTER
 import de.westnordost.streetcomplete.Prefs
-import okhttp3.*
+import okhttp3.Cache
+import okhttp3.CacheControl
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /** Configuration for the common cache shared by tangram-es and the map tile ("pre"-)downloader
  *  integrated into the normal map download process */
-@Singleton class MapTilesDownloadCacheConfig @Inject constructor(context: Context) {
+class MapTilesDownloadCacheConfig(context: Context) {
 
     val cacheControl = CacheControl.Builder()
         .maxAge(12, TimeUnit.HOURS)
         .maxStale(DELETE_OLD_DATA_AFTER.toInt(), TimeUnit.MILLISECONDS)
+        .build()
+
+    /* use separate cache control for tangram with large maxStale value to always show available
+    *  map tiles when panning the map, even without (or with bad) internet connection */
+    val tangramCacheControl = CacheControl.Builder()
+        .maxAge(12, TimeUnit.HOURS)
+        .maxStale(10 * 365, TimeUnit.DAYS) // ten years
         .build()
 
     val cache: Cache?

@@ -55,6 +55,10 @@
                 "access": {
                     "label": "Acceso permitido",
                     "options": {
+                        "customers": {
+                            "description": "Restringido a clientes en el destino",
+                            "title": "Clientes"
+                        },
                         "designated": {
                             "description": "Acceso permitido según señales o leyes locales específicas",
                             "title": "Designado"
@@ -479,7 +483,18 @@
                     "label": "Pagar en efectivo"
                 },
                 "castle_type": {
-                    "label": "Tipo"
+                    "label": "Tipo",
+                    "options": {
+                        "castrum": "Fuerte romano",
+                        "defensive": "Castillo defensivo",
+                        "fortress": "Fortaleza",
+                        "hillfort": "Fuerte en la colina",
+                        "kremlin": "Kremlin",
+                        "manor": "Casa solariega",
+                        "palace": "Palacio",
+                        "shiro": "Shiro",
+                        "stately": "Casa señorial"
+                    }
                 },
                 "changing_table": {
                     "label": "Cambiador de pañales"
@@ -615,6 +630,13 @@
                 },
                 "crossing/light": {
                     "label": "Luces"
+                },
+                "crossing_raised": {
+                    "label": "Elevado",
+                    "options": {
+                        "table": "Sí",
+                        "undefined": "No"
+                    }
                 },
                 "cuisine": {
                     "label": "Cocinas",
@@ -1427,7 +1449,7 @@
                     }
                 },
                 "lock": {
-                    "label": "Bloqueo"
+                    "label": "Esclusa"
                 },
                 "lockable": {
                     "label": "Se puede cerrar con llave"
@@ -1686,10 +1708,10 @@
                     "placeholder": "3, 4, 5..."
                 },
                 "parcel_dropoff": {
-                    "label": "Casillero para envío de paquetes"
+                    "label": "Casillero para envío de paquetería"
                 },
                 "parcel_pickup": {
-                    "label": "Casillero para retiro de paquetes",
+                    "label": "Casillero para retiro de paquetería",
                     "options": {
                         "no": "No",
                         "undefined": "Se asume que Sí",
@@ -1706,9 +1728,11 @@
                         "carports": "Cocheras",
                         "garage_boxes": "Garaje en cubículos",
                         "lane": "Carril al borde de la calzada",
+                        "layby": "Área de descanso",
                         "multi-storey": "Multinivel",
                         "rooftop": "Techo",
                         "sheds": "Galpones",
+                        "street_side": "Junto a la calle",
                         "surface": "Superficie",
                         "underground": "Subterráneo"
                     }
@@ -1948,7 +1972,24 @@
                     "terms": "chimenea,hogar,fuego,estufa,leña,carbón"
                 },
                 "recycling_accepts": {
-                    "label": "Acepta"
+                    "label": "Acepta",
+                    "options": {
+                        "batteries": "Baterías",
+                        "cans": "Latas",
+                        "cardboard": "Cartón",
+                        "clothes": "Ropa",
+                        "cooking_oil": "Aceite de cocina",
+                        "engine_oil": "Aceite de motor",
+                        "glass": "Cualquier vidrio (vidrio templado, ventanas, espejos, etc.)",
+                        "glass_bottles": "Botellas y frascos de vidrio",
+                        "green_waste": "Basura orgánica",
+                        "paper": "Papel",
+                        "plastic": "Plástico",
+                        "plastic_bottles": "Botellas de plástico",
+                        "plastic_packaging": "Envases de plástico",
+                        "scrap_metal": "Chatarra de metal",
+                        "shoes": "Zapatos"
+                    }
                 },
                 "recycling_type": {
                     "label": "Tipo",
@@ -1971,6 +2012,10 @@
                 },
                 "ref_aeroway_gate": {
                     "label": "Número de puerta"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "Número de hoyo",
+                    "placeholder": "1-18"
                 },
                 "ref_golf_hole": {
                     "label": "Número de hoyo",
@@ -2169,6 +2214,21 @@
                 },
                 "seamark/mooring/category": {
                     "label": "Categoría"
+                },
+                "seamark/rescue_station/category": {
+                    "label": "Equipo de salvamento",
+                    "options": {
+                        "aircraft": "Aeronave",
+                        "first_aid": "Primeros auxilios",
+                        "hovercraft": "Aerodeslizador",
+                        "lifeboat": "Bote salvavidas (en tierra)",
+                        "lifeboat_on_mooring": "Bote salvavidas (en un amarre)",
+                        "radio": "Estación de radio",
+                        "refuge_intertidal": "Refugio intermareal",
+                        "refuge_shipwrecked": "Refugio para náufragos",
+                        "seaplane": "Hidroavión",
+                        "tug": "Remolcador de salvamento"
+                    }
                 },
                 "seamark/type": {
                     "label": "Señal",
@@ -2658,6 +2718,17 @@
                         "tourism": "Turismo"
                     },
                     "terms": "tipo de uso,uso"
+                },
+                "usage_waterway": {
+                    "label": "Tipo de uso",
+                    "options": {
+                        "headrace": "Galería de conducción",
+                        "irrigation": "Irrigación",
+                        "spillway": "Aliviadero",
+                        "tailrace": "Canal de desagüe",
+                        "transmission": "Transmisión",
+                        "transportation": "Transporte"
+                    }
                 },
                 "utility": {
                     "label": "Servicio público"
@@ -3386,8 +3457,8 @@
                     "name": "Residencia de ancianos"
                 },
                 "amenity/parcel_locker": {
-                    "name": "Casillero de paquetes",
-                    "terms": "caja postal  automatizada,entrega,casillero,correo,packstation,paquete,retiro,amazon locker,casillero de amazon,taquilla de amazon,armario de amazon"
+                    "name": "Casillero de paquetería",
+                    "terms": "caja postal automatizada,entrega,casillero,locker,correo,packstation,paquete,paquetería,retiro,amazon locker,casillero de amazon,taquilla de amazon,armario de amazon"
                 },
                 "amenity/parking": {
                     "name": "Estacionamiento / Aparcamiento",
@@ -3748,6 +3819,10 @@
                     "name": "Anfiteatro",
                     "terms": "aire libre,al aire libre,griego,ampi,anfi,anfiteatro"
                 },
+                "amenity/ticket_validator": {
+                    "name": "Validador de boletos",
+                    "terms": "billete,boleto,pasaje,validador,perforadora"
+                },
                 "amenity/toilets": {
                     "name": "Baños",
                     "terms": "baño,baños,servicio,servicios,aseo,aseos,lavabo,tocador,inodoro,taza,letrina,retrete,toilette"
@@ -4013,7 +4088,7 @@
                 },
                 "barrier/cattle_grid": {
                     "name": "Paso canadiense",
-                    "terms": "paso con rejas para animales,paso canadiense,barrera canadiense,guardaganados,rejilla de retención"
+                    "terms": "paso con rejas para animales,paso canadiense,barrera canadiense,guardaganados,guarda ganados,rejilla de retención,paso de vehículo"
                 },
                 "barrier/chain": {
                     "name": "Cadena",
@@ -4112,7 +4187,7 @@
                 },
                 "barrier/turnstile": {
                     "name": "Torniquete",
-                    "terms": "puerta deflectora"
+                    "terms": "puerta deflectora,molinete"
                 },
                 "barrier/wall": {
                     "name": "Muro",
@@ -4589,6 +4664,18 @@
                 "demolished/building": {
                     "name": "Edificio recientemente demolido"
                 },
+                "disc_golf/basket": {
+                    "name": "Cesta de golf de disco",
+                    "terms": "objetivo de golf de disco,hoyo de poste de disco,golf,disco"
+                },
+                "disc_golf/hole": {
+                    "name": "Hoyo de golf de disco",
+                    "terms": "agujero,hoyo,golf,disco"
+                },
+                "disc_golf/tee": {
+                    "name": "Tee de golf de disco",
+                    "terms": "tee,punto de salida,caja de salida,golf"
+                },
                 "disused/amenity": {
                     "name": "Servicio en desuso"
                 },
@@ -4683,7 +4770,7 @@
                     "name": "Reserva de agua de emergencia operativas",
                     "terms": "cuenca,depósito,extinción,extinción de incendios"
                 },
-                "emergency/water_reservoir covered": {
+                "emergency/water_reservoir_covered": {
                     "name": "Reserva de agua de emergencia operativas (Bajo tierra)",
                     "terms": "cisterna,depósito,extinción,extinción de incendios"
                 },
@@ -4870,31 +4957,19 @@
                     "name": "Cruce peatonal marcado",
                     "terms": "cebra,paso de cebra,cruce marcado,paso de peatones,cruce de peatones"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "Cruce peatonal marcado (Elevado)",
-                    "terms": "paso de cebra,cruce marcado,paso de peatones,lomo de burro,lomada,velocidad,calmador,reductor"
-                },
                 "highway/crossing/signals": {
                     "name": "Cruce con señales para peatones",
                     "terms": "semáforo para peatones,paso de peatones,paso de bicicletas"
                 },
-                "highway/crossing/signals-raised": {
-                    "name": "Cruce con señales para peatones (Elevado)",
-                    "terms": "semáforo para peatones,cruce de bicicletas,cruce de peatones,lomada,lomo de burro,reductor de velocidad"
+                "highway/crossing/uncontrolled": {
+                    "name": "Cruce peatonal marcado"
                 },
                 "highway/crossing/unmarked": {
                     "name": "Cruce peatonal sin marcar",
                     "terms": "cruce,crucero,paso a nivel,sin marcar"
                 },
-                "highway/crossing/unmarked-raised": {
-                    "name": "Cruce peatonal sin marcar (Elevado)",
-                    "terms": "lomo de burro,lomada,velocidad,calmador,reductor,cruce,crucero,paso a nivel,sin marcar"
-                },
                 "highway/crossing/zebra": {
                     "name": "Cruce peatonal marcado"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "Cruce peatonal marcado (Elevado)"
                 },
                 "highway/cycleway": {
                     "name": "Ciclovía",
@@ -4950,27 +5025,20 @@
                     "name": "Cruce peatonal marcado",
                     "terms": "cebra,paso de cebra,cruce marcado,paso de peatones,cruce de peatones"
                 },
-                "highway/footway/marked-raised": {
-                    "name": "Cruce peatonal marcado (Elevado)",
-                    "terms": "paso de cebra,cruce marcado,paso de peatones,lomo de burro,lomada,velocidad,calmador,reductor"
-                },
                 "highway/footway/sidewalk": {
                     "name": "Acera",
                     "terms": "acera,vereda,banqueta,andén"
+                },
+                "highway/footway/signals": {
+                    "name": "Cruce con señales para peatones",
+                    "terms": "semáforo para peatones,paso de peatones,paso de bicicletas,lomo de burro,lomada,bajar velocidad"
                 },
                 "highway/footway/unmarked": {
                     "name": "Cruce sin marcar",
                     "terms": "cruce sin marcar"
                 },
-                "highway/footway/unmarked-raised": {
-                    "name": "Cruce sin marcar (Elevado)",
-                    "terms": "lomo de burro,lomada,velocidad,calmador,reductor"
-                },
                 "highway/footway/zebra": {
                     "name": "Cruce peatonal marcado"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "Cruce peatonal marcado (Elevado)"
                 },
                 "highway/give_way": {
                     "name": "Señal de ceda el paso",
@@ -5468,6 +5536,10 @@
                     "name": "Área de tiendas comerciales",
                     "terms": "área comercial,locales comerciales,venta al detalle,comercios minoristas,comercios,tiendas,venta,minorista,al por menor,menudeo"
                 },
+                "landuse/salt_pond": {
+                    "name": "Estanque de evaporación de sal",
+                    "terms": "evaporación,solución salina,sal,salinas"
+                },
                 "landuse/vineyard": {
                     "name": "Viñedo",
                     "terms": "viña,viñedo,majuelo,parral"
@@ -5524,8 +5596,8 @@
                     "terms": "disco golf,disco de golf,frisbee golf,frolf,ultimate"
                 },
                 "leisure/dog_park": {
-                    "name": "Parque canino",
-                    "terms": "perro,can,parque de perros"
+                    "name": "Parque para perros",
+                    "terms": "perro,can,canil,canino,parque de perros,parque canino"
                 },
                 "leisure/escape_game": {
                     "name": "Sala de escape",
@@ -5549,7 +5621,7 @@
                 },
                 "leisure/fitness_station": {
                     "name": "Estación de gimnasia al aire libre",
-                    "terms": "salud,gimnasio,entrenamiento,ejercicio,abierto,al aire libre,aeróbico"
+                    "terms": "salud,gimnasio,entrenamiento,ejercicio,abierto,al aire libre,aeróbico,parque de calistenia,calistenia,estación de fitness,estación de calistenia,gimnasio al aire libre"
                 },
                 "leisure/fitness_station/balance_beam": {
                     "name": "Barra de equilibrio para ejercicios",
@@ -5663,6 +5735,10 @@
                     "name": "Campo de fútbol americano",
                     "terms": "cancha,campo,fútbol,football,americano,gridiron"
                 },
+                "leisure/pitch/archery": {
+                    "name": "Campo de tiro con arco",
+                    "terms": "arco y flecha,ballesta,rango de arquería,tiro con arco"
+                },
                 "leisure/pitch/australian_football": {
                     "name": "Campo de fútbol australiano",
                     "terms": "australia,afl,fútbol,futbol,australiano"
@@ -5706,6 +5782,14 @@
                 "leisure/pitch/field_hockey": {
                     "name": "Campo de hockey",
                     "terms": "hockey"
+                },
+                "leisure/pitch/four_square": {
+                    "name": "Cancha de cuatro cuadras (Four Square)",
+                    "terms": "4 square,cancha,pista,four square,cuatro cuadras"
+                },
+                "leisure/pitch/futsal": {
+                    "name": "Cancha de fútbol sala (Futsal)",
+                    "terms": "fútbol sala,futbol sala,futsal,fútbol de salón,futbol de salon,futsala,futbolito,microfútbol,microfutbol"
                 },
                 "leisure/pitch/horseshoes": {
                     "name": "Foso de herraduras (juego)",
@@ -5895,8 +5979,7 @@
                     "terms": "brújula,este,norte,sur,oeste,rosa de los vientos"
                 },
                 "man_made/courtyard": {
-                    "name": "Patio",
-                    "terms": "aire libre cerrado,cuadrilátero,patio"
+                    "name": "Patio"
                 },
                 "man_made/crane": {
                     "name": "Grúa",
@@ -6596,6 +6679,9 @@
                 "office/water_utility": {
                     "name": "Oficina de servicios públicos de agua",
                     "terms": "servicio público,servicio publico,agua,saneamiento"
+                },
+                "office/yes": {
+                    "name": "Oficina (tipo no especificado)"
                 },
                 "piste/downhill": {
                     "name": "Pista de esquí alpino",
@@ -7884,6 +7970,9 @@
                 "shop/wine": {
                     "name": "Tienda de vinos",
                     "terms": "vinatería,vinos,espirituosos,licorería,bebidas,establecimiento de vinos"
+                },
+                "shop/yes": {
+                    "name": "Tienda (tipo no especificado)"
                 },
                 "telecom": {
                     "name": "Elemento de telecomunicaciones"

@@ -3,13 +3,11 @@ package de.westnordost.streetcomplete.data.visiblequests
 import de.westnordost.streetcomplete.data.osmnotes.notequests.OsmNoteQuestType
 import de.westnordost.streetcomplete.data.quest.QuestType
 import java.util.concurrent.CopyOnWriteArrayList
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton class VisibleQuestTypeController @Inject constructor(
+class VisibleQuestTypeController(
     private val visibleQuestTypeDao: VisibleQuestTypeDao,
     private val questPresetsSource: QuestPresetsSource
-): VisibleQuestTypeSource {
+) : VisibleQuestTypeSource {
 
     private val listeners = CopyOnWriteArrayList<VisibleQuestTypeSource.Listener>()
 
@@ -29,13 +27,9 @@ import javax.inject.Singleton
     /** in-memory cache of visible quests */
     private var _visibleQuests: MutableMap<String, Boolean>? = null
     private val visibleQuests: MutableMap<String, Boolean>
-        get() {
+        get() = synchronized(this) {
             if (_visibleQuests == null) {
-                synchronized(this) {
-                    if (_visibleQuests == null) {
-                        _visibleQuests = visibleQuestTypeDao.getAll(questPresetsSource.selectedId)
-                    }
-                }
+                _visibleQuests = visibleQuestTypeDao.getAll(questPresetsSource.selectedId)
             }
             return _visibleQuests!!
         }

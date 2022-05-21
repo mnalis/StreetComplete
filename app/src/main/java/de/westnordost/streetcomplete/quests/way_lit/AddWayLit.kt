@@ -1,11 +1,11 @@
 package de.westnordost.streetcomplete.quests.way_lit
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.meta.MAXSPEED_TYPE_KEYS
-import de.westnordost.streetcomplete.data.meta.updateWithCheckDate
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.PEDESTRIAN
+import de.westnordost.streetcomplete.osm.MAXSPEED_TYPE_KEYS
+import de.westnordost.streetcomplete.osm.updateWithCheckDate
 
 class AddWayLit : OsmFilterQuestType<WayLitOrIsStepsAnswer>() {
 
@@ -35,27 +35,16 @@ class AddWayLit : OsmFilterQuestType<WayLitOrIsStepsAnswer>() {
     override val wikiLink = "Key:lit"
     override val icon = R.drawable.ic_quest_lantern
     override val isSplitWayEnabled = true
-
     override val questTypeAchievements = listOf(PEDESTRIAN)
 
-    override fun getTitle(tags: Map<String, String>): Int {
-        val type = tags["highway"]
-        val hasName = tags.containsKey("name")
-        val isRoad = LIT_NON_RESIDENTIAL_ROADS.contains(type) || LIT_RESIDENTIAL_ROADS.contains(type)
-
-        return when {
-            hasName -> R.string.quest_way_lit_named_title
-            isRoad  -> R.string.quest_way_lit_road_title
-            else    -> R.string.quest_way_lit_title
-        }
-    }
+    override fun getTitle(tags: Map<String, String>) = R.string.quest_lit_title
 
     override fun createForm() = WayLitForm()
 
-    override fun applyAnswerTo(answer: WayLitOrIsStepsAnswer, changes: StringMapChangesBuilder) {
+    override fun applyAnswerTo(answer: WayLitOrIsStepsAnswer, tags: Tags, timestampEdited: Long) {
         when (answer) {
-            is IsActuallyStepsAnswer -> changes.modify("highway", "steps")
-            is WayLit -> changes.updateWithCheckDate("lit", answer.osmValue)
+            is IsActuallyStepsAnswer -> tags["highway"] = "steps"
+            is WayLit -> tags.updateWithCheckDate("lit", answer.osmValue)
         }
     }
 

@@ -1862,7 +1862,7 @@
                     "options": {
                         "crossover": "Intercambiador",
                         "siding": "Apartador",
-                        "spur": "Canvi d'agulles",
+                        "spur": "Ramal curt",
                         "yard": "Platja"
                     }
                 },
@@ -3721,7 +3721,7 @@
                     "terms": "memorial"
                 },
                 "historic/memorial/plaque": {
-                    "name": "Paca commemorativa"
+                    "name": "Placa commemorativa"
                 },
                 "historic/monument": {
                     "name": "Monument",
@@ -4796,6 +4796,9 @@
                 "railway/subway_entrance": {
                     "name": "Boca de Metro",
                     "terms": "boca de metro,entrada de metro"
+                },
+                "railway/switch": {
+                    "name": "Canvi d'agulles"
                 },
                 "railway/train_wash": {
                     "name": "Rentat de trens"

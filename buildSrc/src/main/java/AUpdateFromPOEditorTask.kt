@@ -53,7 +53,7 @@ abstract class AUpdateFromPOEditorTask : DefaultTask() {
     private fun <T> URL.retryingQuotaConnection(setup: ((HttpURLConnection) -> Unit)? = null, block: (InputStream) -> T): T {
         val maxWait = 12
         var i = 0
-        while(i++ < maxWait) {
+        while (i++ < maxWait) {
             val connection = openConnection() as HttpURLConnection
             setup?.invoke(connection)
             if (connection.responseCode == 429) {
@@ -67,4 +67,10 @@ abstract class AUpdateFromPOEditorTask : DefaultTask() {
         }
         throw Exception("POEditor API continues to report http status code 429")
     }
+}
+
+fun Locale.transformPOEditorLanguageTag() = when (toLanguageTag()) {
+    "sr-Cyrl" -> Locale("sr") // Serbian is referred to as Serbian (Cyrillic) in POEditor
+    "zh-CN" -> Locale("zh") // Chinese is referred to as Chinese (China) in POEditor
+    else -> this
 }

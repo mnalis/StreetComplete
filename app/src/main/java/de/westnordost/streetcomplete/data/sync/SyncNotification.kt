@@ -1,18 +1,19 @@
 package de.westnordost.streetcomplete.data.sync
 
-import android.app.*
+import android.app.Notification
+import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationChannelCompat
-import androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW
 import de.westnordost.streetcomplete.ApplicationConstants.NAME
 import de.westnordost.streetcomplete.ApplicationConstants.NOTIFICATIONS_CHANNEL_SYNC
-import de.westnordost.streetcomplete.MainActivity
 import de.westnordost.streetcomplete.R
+import de.westnordost.streetcomplete.screens.MainActivity
 
 /** Creates the notification for syncing in the Android notifications area. Used both by the upload
  *  and by the download service. */

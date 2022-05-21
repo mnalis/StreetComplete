@@ -1,7 +1,14 @@
 package de.westnordost.streetcomplete.quests.street_parking
 
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryAdd
-import de.westnordost.streetcomplete.osm.street_parking.*
+import de.westnordost.streetcomplete.osm.street_parking.LeftAndRightStreetParking
+import de.westnordost.streetcomplete.osm.street_parking.NoStreetParking
+import de.westnordost.streetcomplete.osm.street_parking.ParkingOrientation
+import de.westnordost.streetcomplete.osm.street_parking.ParkingPosition
+import de.westnordost.streetcomplete.osm.street_parking.StreetParkingPositionAndOrientation
+import de.westnordost.streetcomplete.osm.street_parking.StreetParkingSeparate
+import de.westnordost.streetcomplete.osm.street_parking.StreetStandingProhibited
+import de.westnordost.streetcomplete.osm.street_parking.StreetStoppingProhibited
 import de.westnordost.streetcomplete.quests.verifyAnswer
 import org.junit.Test
 
@@ -55,7 +62,20 @@ class AddStreetParkingTest {
         )
     }
 
-    @Test fun `apply different parkings on sides`() {
+    @Test fun `apply street side parking answer with different orientations on sides`() {
+        questType.verifyAnswer(
+            LeftAndRightStreetParking(
+                StreetParkingPositionAndOrientation(ParkingOrientation.PERPENDICULAR, ParkingPosition.STREET_SIDE),
+                StreetParkingPositionAndOrientation(ParkingOrientation.PARALLEL, ParkingPosition.STREET_SIDE)
+            ),
+            StringMapEntryAdd("parking:lane:left", "perpendicular"),
+            StringMapEntryAdd("parking:lane:right", "parallel"),
+            StringMapEntryAdd("parking:lane:left:perpendicular", "street_side"),
+            StringMapEntryAdd("parking:lane:right:parallel", "street_side"),
+        )
+    }
+
+    @Test fun `apply different parking positions and orientations on sides`() {
         questType.verifyAnswer(
             LeftAndRightStreetParking(
                 StreetParkingPositionAndOrientation(ParkingOrientation.DIAGONAL, ParkingPosition.STREET_SIDE),

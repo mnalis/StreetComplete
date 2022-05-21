@@ -7,19 +7,18 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import de.westnordost.streetcomplete.BuildConfig
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.ktx.toast
+import de.westnordost.streetcomplete.util.ktx.sendEmail
+import de.westnordost.streetcomplete.util.ktx.toast
 import java.io.IOException
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.Locale
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /** Exception handler that takes care of asking the user to send the report of the last crash
  *  to the email address [mailReportTo].
  *  When a crash occurs, the stack trace is saved to [crashReportFile] so that it can be accessed
  *  on next startup */
-@Singleton class CrashReportExceptionHandler @Inject constructor(
+class CrashReportExceptionHandler(
     private val appCtx: Context,
     private val mailReportTo: String,
     private val crashReportFile: String
@@ -56,18 +55,18 @@ import javax.inject.Singleton
 
     private fun askUserToSendErrorReport(activityCtx: Activity, @StringRes titleResourceId: Int, error: String?) {
         val report = """
-Describe how to reproduce it here:
+        Describe how to reproduce it here:
 
 
 
-$error
-"""
+        $error
+        """.trimIndent()
 
         AlertDialog.Builder(activityCtx)
             .setTitle(titleResourceId)
             .setMessage(R.string.crash_message)
             .setPositiveButton(R.string.crash_compose_email) { _, _ ->
-                sendEmail(activityCtx, mailReportTo, "Error Report", report)
+                activityCtx.sendEmail(mailReportTo, "Error Report", report)
             }
             .setNegativeButton(android.R.string.no) { _, _ ->
                 activityCtx.toast("\uD83D\uDE22")
@@ -80,14 +79,13 @@ $error
         val stackTrace = StringWriter()
         e.printStackTrace(PrintWriter(stackTrace))
         writeCrashReportToFile("""
-Thread: ${t.name}
-App version: ${BuildConfig.VERSION_NAME}
-Device: ${Build.BRAND}  ${Build.DEVICE}, Android ${Build.VERSION.RELEASE}
-Locale: ${Locale.getDefault()}
-Stack trace:
-$stackTrace
-"""
-        )
+        Thread: ${t.name}
+        App version: ${BuildConfig.VERSION_NAME}
+        Device: ${Build.BRAND}  ${Build.DEVICE}, Android ${Build.VERSION.RELEASE}
+        Locale: ${Locale.getDefault()}
+        Stack trace:
+        $stackTrace
+        """.trimIndent())
         defaultUncaughtExceptionHandler!!.uncaughtException(t, e)
     }
 
@@ -111,5 +109,4 @@ $stackTrace
     private fun deleteCrashReport() {
         appCtx.deleteFile(crashReportFile)
     }
-
 }

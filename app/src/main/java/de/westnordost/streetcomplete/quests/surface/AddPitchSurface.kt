@@ -1,11 +1,9 @@
 package de.westnordost.streetcomplete.quests.surface
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.data.meta.updateWithCheckDate
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
-import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapChangesBuilder
+import de.westnordost.streetcomplete.data.osm.osmquests.Tags
 import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.OUTDOORS
-
 
 class AddPitchSurface : OsmFilterQuestType<SurfaceAnswer>() {
     private val sportValuesWherePitchSurfaceQuestionIsInteresting = listOf(
@@ -44,17 +42,11 @@ class AddPitchSurface : OsmFilterQuestType<SurfaceAnswer>() {
     override val icon = R.drawable.ic_quest_pitch_surface
     override val questTypeAchievements = listOf(OUTDOORS)
 
-    override fun getTitle(tags: Map<String, String>) =
-        if (tags.get("leisure") == "track")
-            R.string.quest_pitchSurface_title_track
-        else
-            R.string.quest_pitchSurface_title
-
-
+    override fun getTitle(tags: Map<String, String>) = R.string.quest_surface_title
 
     override fun createForm() = AddPitchSurfaceForm()
 
-    override fun applyAnswerTo(answer: SurfaceAnswer, changes: StringMapChangesBuilder) {
-        answer.applyTo(changes, "surface")
+    override fun applyAnswerTo(answer: SurfaceAnswer, tags: Tags, timestampEdited: Long) {
+        answer.applyTo(tags, "surface")
     }
 }

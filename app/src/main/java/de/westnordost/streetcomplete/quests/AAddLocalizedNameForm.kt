@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.meta.AbbreviationsByLocale
-import de.westnordost.streetcomplete.util.AdapterDataChangedWatcher
+import de.westnordost.streetcomplete.view.AdapterDataChangedWatcher
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -24,18 +24,18 @@ abstract class AAddLocalizedNameForm<T> : AbstractQuestFormAnswerFragment<T>() {
 
     open val adapterRowLayoutResId = R.layout.quest_localizedname_row
 
-    protected lateinit var adapter: AddLocalizedNameAdapter
+    protected var adapter: AddLocalizedNameAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initLocalizedNameAdapter(
-            savedInstanceState?.let { Json.decodeFromString(it.getString(LOCALIZED_NAMES_DATA)!!) }
+            savedInstanceState?.getString(LOCALIZED_NAMES_DATA)?.let { Json.decodeFromString(it) }
         )
     }
 
     private fun initLocalizedNameAdapter(data: MutableList<LocalizedName>? = null) {
-        adapter = AddLocalizedNameAdapter(
+        val adapter = AddLocalizedNameAdapter(
             data.orEmpty(),
             requireContext(),
             getSelectableLanguageTags(),
@@ -46,6 +46,8 @@ abstract class AAddLocalizedNameForm<T> : AbstractQuestFormAnswerFragment<T>() {
         )
         adapter.addOnNameChangedListener { checkIsFormComplete() }
         adapter.registerAdapterDataObserver(AdapterDataChangedWatcher { checkIsFormComplete() })
+        lifecycle.addObserver(adapter)
+        this.adapter = adapter
         namesList.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         namesList.adapter = adapter
         namesList.isNestedScrollingEnabled = false
@@ -61,7 +63,7 @@ abstract class AAddLocalizedNameForm<T> : AbstractQuestFormAnswerFragment<T>() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(LOCALIZED_NAMES_DATA, Json.encodeToString(adapter.localizedNames))
+        adapter?.localizedNames?.let { outState.putString(LOCALIZED_NAMES_DATA, Json.encodeToString(it)) }
     }
 
     final override fun onClickOk() {
@@ -69,16 +71,16 @@ abstract class AAddLocalizedNameForm<T> : AbstractQuestFormAnswerFragment<T>() {
     }
 
     private fun createOsmModel(): List<LocalizedName> {
-        val data = adapter.localizedNames.toMutableList()
+        val data = adapter?.localizedNames.orEmpty().toMutableList()
         // language is only specified explicitly in OSM (usually) if there is more than one name specified
-        if(data.size == 1) {
+        if (data.size == 1) {
             data[0].languageTag = ""
         }
         // but if there is more than one language, ensure that a "main" name is also specified
         else {
             val mainLanguageIsSpecified = data.indexOfFirst { it.languageTag == "" } >= 0
             // use the name specified in the top row for that
-            if(!mainLanguageIsSpecified) {
+            if (!mainLanguageIsSpecified) {
                 data.add(LocalizedName("", data[0].name))
             }
         }
@@ -129,9 +131,10 @@ abstract class AAddLocalizedNameForm<T> : AbstractQuestFormAnswerFragment<T>() {
     }
 
     // all added name rows are not empty
-    override fun isFormComplete() =
-        adapter.localizedNames.isNotEmpty() &&
-        adapter.localizedNames.all { it.name.trim().isNotEmpty() }
+    override fun isFormComplete(): Boolean {
+        val localizedNames = adapter?.localizedNames.orEmpty()
+        return localizedNames.isNotEmpty() && localizedNames.all { it.name.trim().isNotEmpty() }
+    }
 
     companion object {
         private const val LOCALIZED_NAMES_DATA = "localized_names_data"

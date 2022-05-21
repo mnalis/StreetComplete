@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.FragmentQuestAnswerBinding
-import de.westnordost.streetcomplete.ktx.popIn
-import de.westnordost.streetcomplete.ktx.popOut
-import de.westnordost.streetcomplete.ktx.toast
+import de.westnordost.streetcomplete.util.ktx.popIn
+import de.westnordost.streetcomplete.util.ktx.popOut
+import de.westnordost.streetcomplete.util.ktx.toast
 
 /** Abstract base class for dialogs in which the user answers a quest with a form he has to fill
  * out  */
