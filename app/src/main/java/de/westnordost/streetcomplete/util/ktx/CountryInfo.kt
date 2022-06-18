@@ -20,6 +20,17 @@ val CountryInfo.livingStreetSignDrawableResId: Int? get() = when (livingStreetSi
     else        -> null
 }
 
+val CountryInfo.noEntrySignDrawableResId: Int get() = when (noEntrySignStyle) {
+    "default"           -> R.drawable.ic_no_entry_sign_default
+    "yellow"            -> R.drawable.ic_no_entry_sign_yellow
+    "arrow"             -> R.drawable.ic_no_entry_sign_arrow
+    "do not enter"      -> R.drawable.ic_no_entry_sign_do_not_enter
+    "no entry"          -> R.drawable.ic_no_entry_sign_no_entry
+    "no entre"          -> R.drawable.ic_no_entry_sign_no_entre
+    "no entry on white" -> R.drawable.ic_no_entry_sign_no_entry_on_white
+    else                -> R.drawable.ic_no_entry_sign_default
+}
+
 val CountryInfo.noStandingSignDrawableResId: Int? get() = when (noStandingSignStyle) {
     "mutcd text standing" -> R.drawable.ic_no_standing_mutcd_text
     "mutcd text waiting"  -> R.drawable.ic_no_waiting_mutcd_text
@@ -40,16 +51,17 @@ val CountryInfo.noParkingSignDrawableResId: Int get() = when (noParkingSignStyle
 }
 
 val CountryInfo.noStoppingSignDrawableResId: Int get() = when (noStoppingSignStyle) {
-    "vienna"      -> R.drawable.ic_no_stopping
-    "mutcd"       -> R.drawable.ic_no_stopping_mutcd
-    "mutcd latin" -> R.drawable.ic_no_stopping_mutcd_latin_america
-    "mutcd text"  -> R.drawable.ic_no_stopping_mutcd_text
-    "sadc"        -> R.drawable.ic_no_stopping_sadc
-    "australia"   -> R.drawable.ic_no_stopping_australia
-    "colombia"    -> R.drawable.ic_no_stopping_colombia
-    "canada"      -> R.drawable.ic_no_stopping_canada
-    "israel"      -> R.drawable.ic_no_stopping_israel
-    else          -> R.drawable.ic_no_stopping
+    "vienna"             -> R.drawable.ic_no_stopping
+    "mutcd"              -> R.drawable.ic_no_stopping_mutcd
+    "mutcd latin"        -> R.drawable.ic_no_stopping_mutcd_latin_america
+    "mutcd text"         -> R.drawable.ic_no_stopping_mutcd_text
+    "mutcd text spanish" -> R.drawable.ic_no_stopping_mutcd_text_spanish
+    "sadc"               -> R.drawable.ic_no_stopping_sadc
+    "australia"          -> R.drawable.ic_no_stopping_australia
+    "colombia"           -> R.drawable.ic_no_stopping_colombia
+    "canada"             -> R.drawable.ic_no_stopping_canada
+    "israel"             -> R.drawable.ic_no_stopping_israel
+    else                 -> R.drawable.ic_no_stopping
 }
 
 val CountryInfo.noParkingLineStyleResId: Int? get() = noParkingLineStyle.asLineStyleResId

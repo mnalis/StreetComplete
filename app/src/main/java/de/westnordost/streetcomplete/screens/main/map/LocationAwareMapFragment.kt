@@ -11,6 +11,7 @@ import android.view.WindowManager
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
+import de.westnordost.streetcomplete.data.osmtracks.Trackpoint
 import de.westnordost.streetcomplete.screens.main.map.components.CurrentLocationMapComponent
 import de.westnordost.streetcomplete.screens.main.map.components.TracksMapComponent
 import de.westnordost.streetcomplete.screens.main.map.tangram.screenBottomToCenterDistance
@@ -46,6 +47,15 @@ open class LocationAwareMapFragment : MapFragment() {
     /** The GPS trackpoints the user has walked */
     private var tracks: MutableList<ArrayList<Location>>
 
+    /** If we are actively recording track history */
+    var isRecordingTracks = false
+        private set
+
+    /** The GPS trackpoints the user has recorded */
+    private var _recordedTracks: ArrayList<Trackpoint>
+
+    val recordedTracks: List<Trackpoint> get() = _recordedTracks
+
     /** Whether the view should automatically center on the GPS location */
     var isFollowingPosition = true
         set(value) {
@@ -73,6 +83,7 @@ open class LocationAwareMapFragment : MapFragment() {
         /** Called after the map fragment updated its displayed location */
         fun onDisplayedLocationDidChange()
     }
+
     private val listener: Listener? get() = parentFragment as? Listener ?: activity as? Listener
 
     /* ------------------------------------ Lifecycle ------------------------------------------- */
@@ -80,6 +91,7 @@ open class LocationAwareMapFragment : MapFragment() {
     init {
         tracks = ArrayList()
         tracks.add(ArrayList())
+        _recordedTracks = ArrayList()
     }
 
     override fun onAttach(context: Context) {
@@ -95,10 +107,19 @@ open class LocationAwareMapFragment : MapFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        displayedLocation = savedInstanceState?.getParcelable(DISPLAYED_LOCATION)
-        val nullTerminatedTracks = savedInstanceState?.getParcelableArrayList<Location?>(TRACKS) as ArrayList<Location?>?
-        if (nullTerminatedTracks != null) {
-            tracks = nullTerminatedTracks.unflattenNullTerminated()
+        // Restore value of members from saved state
+        if (savedInstanceState != null) {
+            displayedLocation = savedInstanceState.getParcelable(DISPLAYED_LOCATION)
+            isRecordingTracks = savedInstanceState.getBoolean(TRACKS_IS_RECORDING)
+            val nullTerminatedTracks = savedInstanceState.getParcelableArrayList<Location?>(TRACKS) as ArrayList<Location?>?
+            if (nullTerminatedTracks != null) {
+                tracks = nullTerminatedTracks.unflattenNullTerminated()
+                // unflattenNullTerminated creates an empty list item (i.e. a new track) at the end.
+                // This is fine if the track is not being recorded.
+                if (isRecordingTracks) {
+                    tracks.removeLastOrNull()
+                }
+            }
         }
     }
 
@@ -127,7 +148,7 @@ open class LocationAwareMapFragment : MapFragment() {
         locationMapComponent?.location = displayedLocation
 
         tracksMapComponent = TracksMapComponent(ctrl)
-        tracksMapComponent?.setTracks(tracks)
+        tracksMapComponent?.setTracks(tracks, isRecordingTracks)
 
         centerCurrentPositionIfFollowing()
     }
@@ -159,6 +180,33 @@ open class LocationAwareMapFragment : MapFragment() {
         tracks.add(ArrayList())
 
         tracksMapComponent?.clear()
+    }
+
+    @SuppressLint("MissingPermission")
+    fun startPositionTrackRecording() {
+        isRecordingTracks = true
+        _recordedTracks.clear()
+        tracks.add(ArrayList())
+        locationMapComponent?.isVisible = true
+        locationManager.requestUpdates(500, 1f)
+        tracksMapComponent?.startNewTrack(true)
+    }
+
+    fun stopPositionTrackRecording() {
+        isRecordingTracks = false
+        _recordedTracks.clear()
+        tracks.last().forEach {
+            _recordedTracks.add(
+                Trackpoint(
+                    LatLon(it.latitude, it.longitude),
+                    it.time, // in milliseconds
+                    it.accuracy,
+                    it.altitude.toFloat() // always zero in emulator: https://stackoverflow.com/q/65325665
+                )
+            )
+        }
+        tracks.add(ArrayList())
+        tracksMapComponent?.startNewTrack(false)
     }
 
     protected open fun shouldCenterCurrentPosition(): Boolean {
@@ -224,10 +272,10 @@ open class LocationAwareMapFragment : MapFragment() {
         val lastLocation = tracks.last().lastOrNull()
 
         // create new track if last position too old
-        if (lastLocation != null) {
+        if (lastLocation != null && !isRecordingTracks) {
             if ((displayedLocation?.time ?: 0) - lastLocation.time > MAX_TIME_BETWEEN_LOCATIONS) {
                 tracks.add(ArrayList())
-                tracksMapComponent?.startNewTrack()
+                tracksMapComponent?.startNewTrack(false)
             }
         }
 
@@ -268,6 +316,7 @@ open class LocationAwareMapFragment : MapFragment() {
         super.onSaveInstanceState(outState)
         outState.putParcelable(DISPLAYED_LOCATION, displayedLocation)
         outState.putParcelableArrayList(TRACKS, tracks.flattenToNullTerminated())
+        outState.putBoolean(TRACKS_IS_RECORDING, isRecordingTracks)
     }
 
     companion object {
@@ -276,6 +325,7 @@ open class LocationAwareMapFragment : MapFragment() {
 
         private const val DISPLAYED_LOCATION = "displayed_location"
         private const val TRACKS = "tracks"
+        private const val TRACKS_IS_RECORDING = "tracks_is_recording"
 
         private const val MIN_TRACK_ACCURACY = 20f
         private const val MAX_TIME_BETWEEN_LOCATIONS = 60L * 1000 // 1 minute

@@ -179,6 +179,10 @@ parking lane graphics/
     car4.svg
     car5.svg
 
+pins/
+    choker.svg                      modified from https://www.svgrepo.com/svg/236894/belt, SVG Repo, License: CC-0
+    island.svg                      modified from https://www.svgrepo.com/svg/62967/island, SVG Repo, License: CC-0
+
 police type graphics/
     carabinieri.svg                 modified from https://commons.wikimedia.org/wiki/File:Italian_traffic_signs_-_icona_carabinieri.svg, Gigillo83, License: CC-BY-SA 3.0
     ferroviaria.svg                 modified from https://commons.wikimedia.org/wiki/File:Italian_traffic_signs_-_icona_polizia.svg, Gigillo83, License: CC-BY-SA 3.0
@@ -472,6 +476,9 @@ steps incline graphics/
     up.svg
     up_reversed.svg
     unknown.svg
+
+street parking/no stopping sign/
+    mutcd_text_spanish.svg              modified from https://commons.wikimedia.org/wiki/File:MUTCD-PR_R7-4.svg, License: Public Domain
 
 traffic lights blind features graphics/
     arrow.svg
