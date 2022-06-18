@@ -1,7 +1,7 @@
 package de.westnordost.streetcomplete.quests.bench_material
 
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.quests.AImageListQuestAnswerFragment
+import de.westnordost.streetcomplete.quests.AImageListQuestForm
 import de.westnordost.streetcomplete.quests.bench_material.BenchMaterial.WOOD
 import de.westnordost.streetcomplete.quests.bench_material.BenchMaterial.METAL
 import de.westnordost.streetcomplete.quests.bench_material.BenchMaterial.PLASTIC
@@ -10,7 +10,7 @@ import de.westnordost.streetcomplete.quests.bench_material.BenchMaterial.STONE
 import de.westnordost.streetcomplete.quests.bench_material.BenchMaterial.BRICK
 import de.westnordost.streetcomplete.view.image_select.Item
 
-class AddBenchMaterialForm : AImageListQuestAnswerFragment<BenchMaterial, BenchMaterial>() {
+class AddBenchMaterialForm : AImageListQuestForm<BenchMaterial, BenchMaterial>() {
 
     override val items = listOf(
         Item(WOOD, R.drawable.bench_wood, R.string.quest_benchMaterial_wood),
