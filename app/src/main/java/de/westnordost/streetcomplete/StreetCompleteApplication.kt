@@ -25,6 +25,7 @@ import de.westnordost.streetcomplete.data.osmApiModule
 import de.westnordost.streetcomplete.data.osmnotes.edits.noteEditsModule
 import de.westnordost.streetcomplete.data.osmnotes.notequests.osmNoteQuestModule
 import de.westnordost.streetcomplete.data.osmnotes.notesModule
+import de.westnordost.streetcomplete.data.overlays.overlayModule
 import de.westnordost.streetcomplete.data.quest.questModule
 import de.westnordost.streetcomplete.data.upload.uploadModule
 import de.westnordost.streetcomplete.data.user.UserLoginStatusController
@@ -32,6 +33,7 @@ import de.westnordost.streetcomplete.data.user.achievements.achievementsModule
 import de.westnordost.streetcomplete.data.user.statistics.statisticsModule
 import de.westnordost.streetcomplete.data.user.userModule
 import de.westnordost.streetcomplete.data.visiblequests.questPresetsModule
+import de.westnordost.streetcomplete.overlays.overlaysModule
 import de.westnordost.streetcomplete.quests.oneway_suspects.data.trafficFlowSegmentsModule
 import de.westnordost.streetcomplete.quests.questsModule
 import de.westnordost.streetcomplete.screens.main.mainModule
@@ -78,9 +80,6 @@ class StreetCompleteApplication : Application() {
         deleteDatabase(ApplicationConstants.OLD_DATABASE_NAME)
 
         startKoin {
-            // Level.ERROR is used as a workaround for this Koin issue:
-            // https://github.com/InsertKoinIO/koin/issues/1188 TODO remove when updated to Koin 3.2.0
-            androidLogger(Level.ERROR)
             androidContext(this@StreetCompleteApplication)
             workManagerFactory()
             modules(
@@ -111,7 +110,9 @@ class StreetCompleteApplication : Application() {
                 trafficFlowSegmentsModule,
                 uploadModule,
                 userModule,
-                arModule
+                arModule,
+                overlaysModule,
+                overlayModule
             )
         }
 

@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         val kotlinVersion = "1.6.21"
-        classpath("com.android.tools.build:gradle:7.0.4")
+        classpath("com.android.tools.build:gradle:7.2.1")
         classpath(kotlin("gradle-plugin", version = kotlinVersion))
     }
 }
@@ -104,6 +104,7 @@ tasks.register("updateStreetCompleteData") {
         "app:updateTranslations",
         "app:updateTranslationCompleteness",
         "app:copyDefaultStringsToEnStrings",
+        "app:updateMapStyle",
         "app:generateMetadataByCountry",
         "app:updateTranslatorCredits",
         "app:updateAvailableLanguages"
