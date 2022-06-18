@@ -363,7 +363,6 @@ fun questTypeRegistry(
     // road but information is visible usually at the beginning of the marked stretch of way
     AddMaxWeight(), // used by OSRM and other routing engines
     AddMaxHeight(), // OSRM and other routing engines
-    AddMaxPhysicalHeight(arSupportChecker), // same as above, best if it appears right after (if enabled)
     AddRoadName(),
     AddOneway(),
     AddSuspectedOneway(trafficFlowSegmentsApi, trafficFlowDao),
@@ -389,9 +388,9 @@ fun questTypeRegistry(
 
     AddLevel(), // requires to search for the place on several levels (or at least find a mall map)
 
-    AddAirConditioning(), // often visible from the outside across the street, if not, visible/feelable inside
-
     AddSmoking(), // often marked on the entrance, if not, visible/smellable inside
+
+    AddAirConditioning(), // often visible from the outside across the street, if not, visible/feelable inside
 
     /* ↓ 4.quests that may need to go inside ------------------------------------------------ */
 
@@ -399,14 +398,8 @@ fun questTypeRegistry(
 
     AddIsDefibrillatorIndoor(), // need to go inside in case it is inside (or gone)
 
-    // toilets
-    AddToiletAvailability(), // OSM Carto, shown in OsmAnd descriptions
-    AddToiletsFee(), // used by OsmAnd in the object description
-    AddBabyChangingTable(), // used by OsmAnd in the object description
-    AddWheelchairAccessToiletsPart(),
-    AddWheelchairAccessToilets(), // used by wheelmap, OsmAnd, Organic Maps
-
     // shop
+    AddAcceptsCards(), // this will often involve going inside and near the till
     AddBikeRepairAvailability(),
     AddSecondHandBicycleAvailability(),
     AddVegetarian(), // menus are often posted externally
@@ -415,8 +408,14 @@ fun questTypeRegistry(
     AddKosher(),
     AddWheelchairAccessBusiness(), // used by wheelmap, OsmAnd, Organic Maps
     AddInternetAccess(), // used by OsmAnd
-    AddAcceptsCards(), // this will often involve going inside and near the till
     AddAcceptsCash(),
+
+    // toilets
+    AddToiletAvailability(), // OSM Carto, shown in OsmAnd descriptions
+    AddToiletsFee(), // used by OsmAnd in the object description
+    AddBabyChangingTable(), // used by OsmAnd in the object description
+    AddWheelchairAccessToiletsPart(),
+    AddWheelchairAccessToilets(), // used by wheelmap, OsmAnd, Organic Maps
 
     AddFuelSelfService(),
 
@@ -427,7 +426,6 @@ fun questTypeRegistry(
     AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
     AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
     AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
-    AddWayLit(),
     // AddStreetParking(),
     AddRoadSmoothness(),
     AddPathSmoothness(),
@@ -438,11 +436,8 @@ fun questTypeRegistry(
     AddFootwayPartSurface(),
     AddCyclewayPartSurface(),
     AddSidewalkSurface(),
-    AddCyclewayWidth(arSupportChecker), // should be after cycleway segregation
 
-    /* should best be after road surface because it excludes unpaved roads, also, need to search
-    *  for the sign which is one reason why it is disabled by default */
-    AddMaxSpeed(),
+    AddWayLit(),
 
     // buildings
     AddBuildingType(),
@@ -451,11 +446,17 @@ fun questTypeRegistry(
 
     AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
 
-    /* ↓ 6.quests that are not very important to /mn/  -------------------------------------- */
-
-    AddRoadWidth(arSupportChecker),
     AddShoulder(), // needs minimal thinking, but after AddStreetParking because a parking lane can be/look very similar to a shoulder
     AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
 
+    /* should best be after road surface because it excludes unpaved roads, also, need to search
+    *  for the sign which is one reason why it is disabled by default */
+    AddMaxSpeed(),
+
+    /* ↓ 6.quests that are not very important to /mn/  -------------------------------------- */
+
+    AddMaxPhysicalHeight(arSupportChecker), // same as above, best if it appears right after (if enabled)
+    AddCyclewayWidth(arSupportChecker), // should be after cycleway segregation
+    AddRoadWidth(arSupportChecker),
 
 ))
