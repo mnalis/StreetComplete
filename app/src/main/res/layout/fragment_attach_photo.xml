@@ -24,7 +24,7 @@
 
     <ImageView
         android:id="@+id/attachedGpxView"
-        android:layout_toEndOf="@id/takePhotoButton"
+        android:layout_toStartOf="@id/takePhotoButton"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:src="@drawable/ic_attach_gpx_24dp"
@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/photosAreUsefulExplanation"
-        android:layout_toEndOf="@id/attachedGpxView"
+        android:layout_toStartOf="@id/attachedGpxView"
         android:layout_marginStart="8dp"
         android:text="@string/quest_leave_new_note_photos_are_useful"
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/photosList"
-        android:layout_toEndOf="@id/attachedGpxView"
+        android:layout_toStartOf="@id/attachedGpxView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
         android:layout_width="match_parent"
