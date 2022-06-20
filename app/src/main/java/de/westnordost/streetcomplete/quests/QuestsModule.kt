@@ -264,7 +264,6 @@ fun questTypeRegistry(
 
     // air pump, may require some checking within a garage forecourt
     AddAirCompressor(),
-    AddBicyclePump(),
 
     // recycling containers
     AddRecyclingType(),
@@ -346,6 +345,7 @@ fun questTypeRegistry(
     AddPlaceName(featureDictionaryFuture),
     AddOpeningHours(featureDictionaryFuture),
     AddSeating(), // easily visible from outside, but only seasonally
+    AddBicyclePump(), // visible from the outside, but only during opening hours
 
     AddAtmOperator(),
 
