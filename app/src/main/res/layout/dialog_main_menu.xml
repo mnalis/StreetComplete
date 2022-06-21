@@ -25,17 +25,6 @@
             app:drawableTopCompat="@drawable/ic_profile_48dp" />
 
         <TextView
-            android:id="@+id/overlays_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="144dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_vertical"
-            android:padding="16dp"
-            android:text="@string/action_overlays"
-            android:textAppearance="@android:style/TextAppearance.Theme.Dialog"
-            app:drawableTopCompat="@drawable/ic_overlay_48dp" />
-
-        <TextView
             android:id="@+id/settingsButton"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="144dp"
@@ -56,27 +45,6 @@
             android:text="@string/action_about2"
             android:textAppearance="@android:style/TextAppearance.Theme.Dialog"
             app:drawableTopCompat="@drawable/ic_info_outline_48dp" />
-
-    </GridLayout>
-
-    <View
-        android:id="@+id/dividerTop"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_above="@id/bigMenuItemsContainer"
-        android:layout_alignStart="@id/bigMenuItemsContainer"
-        android:layout_alignEnd="@id/bigMenuItemsContainer"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/button_bar_divider" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/dividerTop"
-        android:layout_alignStart="@id/bigMenuItemsContainer"
-        android:layout_alignEnd="@id/bigMenuItemsContainer"
-        android:orientation="vertical">
 
         <TextView
             android:id="@+id/enableTeamModeButton"
@@ -117,10 +85,32 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/overlays_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:padding="16dp"
+            android:text="@string/action_overlays"
+            android:textAppearance="@android:style/TextAppearance.Theme.Dialog"
+            app:drawableTopCompat="@drawable/ic_overlay_48dp" />
+
+        <TextView
+            android:id="@+id/downloadButton2"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:padding="16dp"
+            android:text="@string/action_download"
+            android:textAppearance="@android:style/TextAppearance.Theme.Dialog"
+            app:drawableTopCompat="@drawable/ic_settings_48dp" />
+
+    </GridLayout>
 
     <View
-        android:id="@+id/dividerBottom"
+        android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_below="@id/bigMenuItemsContainer"
@@ -133,7 +123,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividerBottom"
+        android:layout_below="@id/divider"
         android:layout_alignStart="@id/bigMenuItemsContainer"
         android:layout_alignEnd="@id/bigMenuItemsContainer"
         android:orientation="vertical">
