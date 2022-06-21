@@ -108,7 +108,7 @@
             android:padding="16dp"
             android:text="@string/action_download"
             android:textAppearance="@android:style/TextAppearance.Theme.Dialog"
-            app:drawableTopCompat="@drawable/ic_settings_48dp" />
+            app:drawableTopCompat="@drawable/ic_search_48dp" />
 
     </GridLayout>
 
