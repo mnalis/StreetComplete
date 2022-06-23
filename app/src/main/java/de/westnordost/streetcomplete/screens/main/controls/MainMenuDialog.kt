@@ -50,11 +50,6 @@ class MainMenuDialog(
             onClickDownload()
             dismiss()
         }
-        binding.downloadButton2.setOnClickListener {
-            onClickDownload()
-            dismiss()
-        }
-
         binding.overlaysButton.setOnClickListener {
             onClickOverlays()
             dismiss()
