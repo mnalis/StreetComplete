@@ -303,8 +303,12 @@
                     "label": "Serviço",
                     "options": {
                         "cosmetics": "Cosméticos",
-                        "nails": "Unhas",
-                        "tanning": "Bronzeamento"
+                        "hair_removal": "Depilação",
+                        "nails": "Desabilitar pontes integradas",
+                        "skin_care": "Cuidados com a pele",
+                        "spa": "Spa diurno",
+                        "tanning": "Bronzeamento",
+                        "waxing": "Depilação"
                     }
                 },
                 "bench": {
@@ -408,6 +412,9 @@
                 "bunker_type": {
                     "label": "Tipo"
                 },
+                "button_operated": {
+                    "label": "Funciona por botão"
+                },
                 "cables": {
                     "label": "Cabos",
                     "placeholder": "1, 2, 3..."
@@ -415,8 +422,13 @@
                 "cai_scale-IT": {
                     "label": "Dificuldade de rota de trilha (Clube Alpino Italiano)",
                     "options": {
-                        "E": "E: Para trilheiros experientes"
-                    }
+                        "E": "E: Para trilheiros experientes",
+                        "EAI": "EAI: Caminhadas em condições de neve",
+                        "EE": "EE: Para caminhantes experientes",
+                        "EEA": "EEE: Para caminhantes experientes com equipamento",
+                        "T": "T: Turístico"
+                    },
+                    "placeholder": "T, E, EE, …"
                 },
                 "camera/direction": {
                     "label": "Direção (Graus Sentido Horário)",
@@ -468,6 +480,9 @@
                 "castle_type": {
                     "label": "Tipo",
                     "options": {
+                        "castrum": "Forte romano",
+                        "defensive": "Castelo defensivo",
+                        "fortress": "Fortaleza",
                         "palace": "Palácio"
                     }
                 },
@@ -487,11 +502,6 @@
                 "check_date": {
                     "label": "Última data de verificação",
                     "placeholder": "AAAA-MM-DD"
-                },
-                "circumference": {
-                    "label": "Circunferência",
-                    "placeholder": "1 m, 20 cm, 30 na…",
-                    "terms": "círculo,circunferências"
                 },
                 "clothes": {
                     "label": "Roupas"
@@ -607,6 +617,7 @@
                     "label": "Sinais luminosos"
                 },
                 "crossing_raised": {
+                    "label": "Elevado",
                     "options": {
                         "table": "Sim",
                         "undefined": "Não"
@@ -737,6 +748,9 @@
                         "yes": "Sim"
                     }
                 },
+                "deposit/trolley": {
+                    "label": "Garagem"
+                },
                 "depth": {
                     "label": "Profundidade (metros)"
                 },
@@ -778,6 +792,9 @@
                 "diameter": {
                     "label": "Diâmetro",
                     "placeholder": "5 mm, 10 cm, 15 in…"
+                },
+                "diameter_crown": {
+                    "label": "Diâmetro da coroa"
                 },
                 "diet_multi": {
                     "label": "Tipos de dieta",
@@ -980,6 +997,15 @@
                     "label": "Diâmetro (mm, in, ou letras)",
                     "terms": "diâmetro (mm,in,ou letras)"
                 },
+                "fire_hydrant/position": {
+                    "label": "Posição",
+                    "options": {
+                        "green": "Área verde",
+                        "lane": "Faixa de rolamento",
+                        "parking_lot": "Estacionamento",
+                        "sidewalk": "Calçada"
+                    }
+                },
                 "fire_hydrant/pressure": {
                     "label": "Pressão (bar)",
                     "terms": "pressão (em bar)"
@@ -1015,6 +1041,29 @@
                 },
                 "flag/wikidata": {
                     "label": "Wikidata da bandeira"
+                },
+                "flashing_lights": {
+                    "label": "Luzes piscantes",
+                    "options": {
+                        "always": {
+                            "description": "As luzes estão sempre piscando",
+                            "title": "Sempre piscando"
+                        },
+                        "button": {
+                            "description": "Luzes ativadas pressionando um botão",
+                            "title": "Botão ativado"
+                        },
+                        "button;sensor": {
+                            "description": "Luzes ativadas por sensor ou botão",
+                            "title": "Ativado por botão e sensor"
+                        },
+                        "no": "Não",
+                        "sensor": {
+                            "description": "Luzes ativadas por sensor",
+                            "title": "Sensor ativado"
+                        },
+                        "yes": "Sim"
+                    }
                 },
                 "floating": {
                     "label": "Flutuando"
@@ -1077,6 +1126,10 @@
                 },
                 "generator/type": {
                     "label": "Tipo"
+                },
+                "genus": {
+                    "label": "Gênero",
+                    "placeholder": "Acer, Platanus, Quercus…"
                 },
                 "geyser/height": {
                     "label": "Altura da erupção"
@@ -1488,13 +1541,6 @@
                 },
                 "mtb/scale/imba": {
                     "label": "Trilha de baixa dificuldade",
-                    "options": {
-                        "0": "Mais fácil (cículo branco)",
-                        "1": "Fácil (círculo verde)",
-                        "2": "Médio (quadrado azul)",
-                        "3": "Difícil (diamante negro)",
-                        "4": "Extremamente difícil (duplo diamante negro)"
-                    },
                     "placeholder": "Fácil, Médio, Difícil..."
                 },
                 "mtb/scale/uphill": {
@@ -1647,6 +1693,7 @@
                         "carports": "Abrigo de carros",
                         "garage_boxes": "Vagas de estacionamento",
                         "lane": "Faixa de acostamento",
+                        "layby": "Separado/Alça de acesso",
                         "multi-storey": "Vários níveis",
                         "rooftop": "Telhado",
                         "sheds": "Cabanas",
@@ -2159,9 +2206,6 @@
                         "parking_aisle": "Corredor de estacionamento"
                     }
                 },
-                "service/bicycle": {
-                    "label": "Serviços"
-                },
                 "service/vehicle": {
                     "label": "Serviços"
                 },
@@ -2525,6 +2569,12 @@
                 "traffic_signals": {
                     "label": "Tipo"
                 },
+                "traffic_signals/arrow": {
+                    "label": "Seta tátil"
+                },
+                "traffic_signals/countdown": {
+                    "label": "Temporizador"
+                },
                 "traffic_signals/direction": {
                     "label": "Direção afetada",
                     "options": {
@@ -2532,6 +2582,12 @@
                         "both": "Ambas / Todas",
                         "forward": "Igual à direção da linha"
                     }
+                },
+                "traffic_signals/minimap": {
+                    "label": "Mapa tátil"
+                },
+                "traffic_signals/sound": {
+                    "label": "Sinais sonoros"
                 },
                 "trail_visibility": {
                     "label": "Visibilidade da Trilha",
@@ -3658,10 +3714,6 @@
                     "name": "Máquina de validação de bilhetes",
                     "terms": "ticket,bilhete,ingresso,validação de ingresso,catraca,entrada"
                 },
-                "amenity/toilets": {
-                    "name": "Banheiros públicos",
-                    "terms": "banheiros,sanitário,wc,lavabo,toalete"
-                },
                 "amenity/toilets/disposal/flush": {
                     "name": "Banheiros com descarga",
                     "terms": "banheiro"
@@ -4745,10 +4797,6 @@
                 "highway/bus_stop": {
                     "name": "Ponto de ônibus"
                 },
-                "highway/construction": {
-                    "name": "Via fechada",
-                    "terms": "via fechada"
-                },
                 "highway/corridor": {
                     "name": "Corredor interno",
                     "terms": "corredor interno,corredor interior,corredor coberto"
@@ -4845,8 +4893,8 @@
                     "terms": "rua de convivência,rua preferencial a pedestres,espaço compartilhado,rua compartilhada,vila,beco"
                 },
                 "highway/milestone": {
-                    "name": "Marco da Rodovia",
-                    "terms": "marco da rodovia"
+                    "name": "Marco quilométrico rodoviário",
+                    "terms": "marco rodoviário,marco da rodovia,quilometragem"
                 },
                 "highway/mini_roundabout": {
                     "name": "Mini-Rotatória",
@@ -4999,10 +5047,6 @@
                 "highway/toll_gantry": {
                     "name": "Pedágio de fluxo livre",
                     "terms": "pedágio de fluxo livre,pedágio sem dinheiro"
-                },
-                "highway/track": {
-                    "name": "Estrada agrícola",
-                    "terms": "estrada de fazenda,fazenda,estrada em floresta,floresta"
                 },
                 "highway/traffic_mirror": {
                     "name": "Espelho de tráfego",
@@ -5483,10 +5527,6 @@
                     "name": "Hackerspace",
                     "terms": "hacklab,makerspace,hackspace,clube de programação,clube de hackers"
                 },
-                "leisure/horse_riding": {
-                    "name": "Centro de Hipismo",
-                    "terms": "hipismo,equitação,centro de equitação,cavalos,galopamento"
-                },
                 "leisure/ice_rink": {
                     "name": "Pista de Patinação no Gelo",
                     "terms": "ringue de patinação no gelo,patinação,hóquei,patins"
@@ -5566,10 +5606,6 @@
                 "leisure/pitch/cricket": {
                     "name": "Campo de Críquete",
                     "terms": "campo de cricket,críquete,cricket"
-                },
-                "leisure/pitch/equestrian": {
-                    "name": "Pista de Hipismo",
-                    "terms": "equitação,picadeiro,hipismo,cavalos,equinos"
                 },
                 "leisure/pitch/field_hockey": {
                     "name": "Campo de hóquei em campo",
@@ -5693,10 +5729,6 @@
                 "leisure/track/cycling": {
                     "name": "Trilha de ciclismo",
                     "terms": "trilha de ciclismo"
-                },
-                "leisure/track/horse_racing": {
-                    "name": "Corrida de Cavalos",
-                    "terms": "corrida de cavalos"
                 },
                 "leisure/track/running": {
                     "name": "Pista de Atletismo",
@@ -6894,7 +6926,7 @@
                     "terms": "veículo leve sobre trilhos (vlt)"
                 },
                 "railway/milestone": {
-                    "name": "Marco de Ferrovia",
+                    "name": "Marco quilométrico ferroviário",
                     "terms": "marco de quilometragem,quilômetro,kilometro,ferrovia,marco quilométrico"
                 },
                 "railway/miniature": {
@@ -7696,6 +7728,9 @@
                     "name": "Loja de Vinhos",
                     "terms": "vinícola,adega"
                 },
+                "shop/yes": {
+                    "name": "Loja (tipo não especificado)"
+                },
                 "telecom": {
                     "name": "Recurso de telecomunicações"
                 },
@@ -8022,10 +8057,6 @@
                     "name": "Rota de Caminhada",
                     "terms": "rota de trekking"
                 },
-                "type/route/horse": {
-                    "name": "Rota de hipismo",
-                    "terms": "rota de hipismo"
-                },
                 "type/route/light_rail": {
                     "name": "Rota de VLT",
                     "terms": "rota de veículo leve sobre trilhos,rota de trem ligeiro"
@@ -8126,15 +8157,12 @@
                     "terms": "portão de dique"
                 },
                 "waterway/milestone": {
-                    "name": "Marco da via navegável",
-                    "terms": "marco da via navegável"
+                    "name": "Marco quilométrico hidroviário",
+                    "terms": "marco da via navegável,marco hidroviário,quilometragem"
                 },
                 "waterway/river": {
                     "name": "Rio",
                     "terms": "rio"
-                },
-                "waterway/riverbank": {
-                    "name": "Orla fluvial"
                 },
                 "waterway/sanitary_dump_station": {
                     "name": "Ponto de descarga de dejetos (para barcos)",

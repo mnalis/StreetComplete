@@ -53,7 +53,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/trackingErrorTextView"
+            android:id="@+id/tracking_message_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -103,7 +103,7 @@
                 android:layout_centerVertical="true"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_check_48"
+                android:src="@drawable/ic_check_48dp"
                 app:tint="#fff"
                 tools:ignore="RtlHardcoded" />
 

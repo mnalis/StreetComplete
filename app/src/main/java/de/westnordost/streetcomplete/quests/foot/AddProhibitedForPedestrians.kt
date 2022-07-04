@@ -2,17 +2,16 @@ package de.westnordost.streetcomplete.quests.foot
 
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
-import de.westnordost.streetcomplete.data.osm.osmquests.Tags
-import de.westnordost.streetcomplete.data.user.achievements.QuestTypeAchievement.PEDESTRIAN
+import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.PEDESTRIAN
 import de.westnordost.streetcomplete.osm.ANYTHING_PAVED
 import de.westnordost.streetcomplete.osm.ROADS_ASSUMED_TO_BE_PAVED
+import de.westnordost.streetcomplete.osm.Tags
 import de.westnordost.streetcomplete.quests.foot.ProhibitedForPedestriansAnswer.HAS_SEPARATE_SIDEWALK
 import de.westnordost.streetcomplete.quests.foot.ProhibitedForPedestriansAnswer.IS_LIVING_STREET
 import de.westnordost.streetcomplete.quests.foot.ProhibitedForPedestriansAnswer.NO
 import de.westnordost.streetcomplete.quests.foot.ProhibitedForPedestriansAnswer.YES
 
 class AddProhibitedForPedestrians : OsmFilterQuestType<ProhibitedForPedestriansAnswer>() {
-
     override val elementFilter = """
         ways with (
           sidewalk:both ~ none|no
@@ -45,8 +44,7 @@ class AddProhibitedForPedestrians : OsmFilterQuestType<ProhibitedForPedestriansA
     override val changesetComment = "Add whether roads are prohibited for pedestrians"
     override val wikiLink = "Key:foot"
     override val icon = R.drawable.ic_quest_no_pedestrians
-    override val isSplitWayEnabled = true
-    override val questTypeAchievements = listOf(PEDESTRIAN)
+    override val achievements = listOf(PEDESTRIAN)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_accessible_for_pedestrians_title_prohibited
 
@@ -57,7 +55,17 @@ class AddProhibitedForPedestrians : OsmFilterQuestType<ProhibitedForPedestriansA
             // the question is whether it is prohibited, so YES -> foot=no etc
             YES -> tags["foot"] = "no"
             NO -> tags["foot"] = "yes"
-            HAS_SEPARATE_SIDEWALK -> tags["sidewalk"] = "separate"
+            HAS_SEPARATE_SIDEWALK -> {
+                tags["sidewalk"] = "separate"
+                // wrong tagging may exist, it should be removed to prevent quest from reappearing
+                // technically it may remove sidewalk:both=separate and replace it with less accurate
+                // sidewalk=separate but it will happen only with contradicting wrong data such as
+                // sidewalk:left=no or sidewalk:right=none or sidewalk=no
+                // And in such case all sidewalk tagging is suspect anyway
+                tags.remove("sidewalk:both")
+                tags.remove("sidewalk:left")
+                tags.remove("sidewalk:right")
+            }
             IS_LIVING_STREET -> tags["highway"] = "living_street"
         }
     }

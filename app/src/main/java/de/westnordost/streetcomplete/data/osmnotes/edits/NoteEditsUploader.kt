@@ -11,6 +11,7 @@ import de.westnordost.streetcomplete.data.osmtracks.Trackpoint
 import de.westnordost.streetcomplete.data.osmtracks.TracksApi
 import de.westnordost.streetcomplete.data.upload.ConflictException
 import de.westnordost.streetcomplete.data.upload.OnUploadedChangeListener
+import de.westnordost.streetcomplete.data.user.UserDataSource
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,10 +19,12 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import java.net.URLEncoder
 
 class NoteEditsUploader(
     private val noteEditsController: NoteEditsController,
     private val noteController: NoteController,
+    private val userDataSource: UserDataSource,
     private val notesApi: NotesApi,
     private val tracksApi: TracksApi,
     private val imageUploader: StreetCompleteImageUploader
@@ -124,8 +127,9 @@ class NoteEditsUploader(
         noteText: String?
     ): String {
         if (trackpoints.isEmpty()) return ""
-        val track = tracksApi.create(trackpoints, noteText)
-        return "\n\nGPS Trace: \nhttps://www.openstreetmap.org/user/${track.userName}/traces/${track.id}"
+        val trackId = tracksApi.create(trackpoints, noteText)
+        val encodedUsername = URLEncoder.encode(userDataSource.userName, "utf-8").replace("+", "%20")
+        return "\n\nGPS Trace: https://www.openstreetmap.org/user/$encodedUsername/traces/$trackId\n"
     }
 
     companion object {

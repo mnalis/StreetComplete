@@ -79,6 +79,11 @@
                 "seamark/buoy_lateral/colour": {
                     "label": "Colour"
                 },
+                "toilets/disposal": {
+                    "options": {
+                        "pitlatrine": "Long Drop"
+                    }
+                },
                 "traffic_sign/direction": {
                     "options": {
                         "backward": "Backwards",
@@ -170,6 +175,13 @@
                 "amenity/theatre": {
                     "name": "Theatre"
                 },
+                "amenity/toilets": {
+                    "name": "Toilets"
+                },
+                "amenity/toilets/disposal/pitlatrine": {
+                    "name": "Long-drop Toilet",
+                    "aliases": "Pit Latrine"
+                },
                 "amenity/vending_machine/fuel": {
                     "name": "Fuel Pump",
                     "terms": "petrol,fuel,gasoline,propane,diesel,lng,cng,biodiesel,gas pump"
@@ -224,9 +236,6 @@
                 },
                 "leisure/fitness_centre": {
                     "name": "Gym / Fitness Centre"
-                },
-                "leisure/horse_riding": {
-                    "name": "Horse Riding Facility"
                 },
                 "leisure/indoor_play": {
                     "name": "Indoor Play Centre"

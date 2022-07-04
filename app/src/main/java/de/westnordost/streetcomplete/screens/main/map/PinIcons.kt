@@ -2,7 +2,7 @@ package de.westnordost.streetcomplete.screens.main.map
 
 import androidx.annotation.DrawableRes
 import de.westnordost.streetcomplete.R
-import de.westnordost.streetcomplete.quests.getNameLabel
+import de.westnordost.streetcomplete.util.getNameLabel
 
 @DrawableRes fun getPinIcon(map: Map<String, String>): Int? {
     when (map["amenity"]) {
@@ -36,10 +36,10 @@ import de.westnordost.streetcomplete.quests.getNameLabel
     }
     when (map["highway"]) {
         "crossing" -> {
-            if (map["crossing"] == "traffic_signals")
-                return R.drawable.ic_pin_pedestrian_traffic_light
-            else
-                return R.drawable.ic_pin_crossing
+            return when (map["crossing"]) {
+                "traffic_signals" -> R.drawable.ic_pin_pedestrian_traffic_light
+                else -> R.drawable.ic_pin_crossing
+            }
         }
         "traffic_signals" -> {
             if (map["crossing"] == "traffic_signals") return R.drawable.ic_pin_pedestrian_traffic_light
@@ -64,6 +64,10 @@ import de.westnordost.streetcomplete.quests.getNameLabel
     }
     when (map["tourism"]) {
         "information" -> return R.drawable.ic_pin_information
+    }
+    when (map["traffic_calming"]) {
+        "choker", "choked_table", "chicane", "choked_island" -> return R.drawable.ic_pin_choker
+        "island" -> return R.drawable.ic_pin_island
     }
     if (getHouseNumber(map) != null && getNameLabel(map) == null) {
         return R.drawable.ic_none
