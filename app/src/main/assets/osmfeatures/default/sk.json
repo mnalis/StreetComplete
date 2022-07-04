@@ -301,7 +301,6 @@
                     "label": "Služby",
                     "options": {
                         "cosmetics": "Kozmetika",
-                        "nails": "nechty",
                         "tanning": "Opaľovanie"
                     }
                 },
@@ -462,11 +461,6 @@
                 "check_date": {
                     "label": "Dátum poslednej kontroly",
                     "placeholder": "RRRR-MM-DD"
-                },
-                "circumference": {
-                    "label": "Obvod",
-                    "placeholder": "1 m, 20 cm, 30 in…",
-                    "terms": "obvod"
                 },
                 "clothes": {
                     "label": "Typ oblečenia"
@@ -1425,13 +1419,6 @@
                 },
                 "mtb/scale/imba": {
                     "label": "Obtiažnosť podľa IMBA",
-                    "options": {
-                        "0": "Najľahšia (biely kruh)",
-                        "1": "Ľahká (zelený kruh)",
-                        "2": "Stredná (modrý štvorec)",
-                        "3": "Ťažká (čierny kosoštvorec)",
-                        "4": "Veľmi ťažká (dvojitý čierny kosoštvorec)"
-                    },
                     "placeholder": "Lahká, stredná, ťažká...",
                     "terms": "imba,náročnosť trailu podľa imba,mtb trail,horská cyklistika"
                 },
@@ -1926,8 +1913,8 @@
                     "label": "Izby"
                 },
                 "roundtrip": {
-                    "label": "Vytvára uzavretú slučku",
-                    "terms": "slučka,okruh,uzavretá slučka"
+                    "label": "Okružná trasa",
+                    "terms": "slučka,slucka,okruh,uzavretá slučka,uzavreta slucka,okruzna trasa"
                 },
                 "route": {
                     "label": "Typ"
@@ -2085,9 +2072,6 @@
                         "emergency_access": "Núdzový vstup",
                         "parking_aisle": "Parkovacia ulička"
                     }
-                },
-                "service/bicycle": {
-                    "label": "Služby"
                 },
                 "service/vehicle": {
                     "label": "Služby"
@@ -3181,15 +3165,16 @@
                     "name": "Fotobúdka"
                 },
                 "amenity/place_of_worship": {
-                    "name": "Náboženské miesto",
-                    "terms": "kostol,kaplnka,chrám,katedrála,bazilika,dom boží,dom modlitieb,misia,mešita,minaret,synagóga,dóm,svätostánok,oratórium,fara,diecéza,stupa,chram,dom bozi,mesita,synagoga,dom,svatostanok,oratorium,dieceza"
+                    "name": "Miesto náboženských obradov",
+                    "terms": "miesto nabozenskych obradov,náboženské miesto,nabozenske miesto"
                 },
                 "amenity/place_of_worship/buddhist": {
                     "name": "Budhistický chrám",
                     "terms": "stupa,vihara,kláštor,pagoda,zendo,dojo,chrám,klastor,chram"
                 },
                 "amenity/place_of_worship/christian": {
-                    "name": "Katolícky kostol"
+                    "name": "Miesto kresťanskej bohoslužby",
+                    "terms": "miesto krestanskej bohosluzby"
                 },
                 "amenity/place_of_worship/christian/jehovahs_witness": {
                     "name": "Sála Kráľovstva Jehovových svedkov"
@@ -3377,7 +3362,8 @@
                     "name": "Altán"
                 },
                 "amenity/shelter/lean_to": {
-                    "name": "Hrubý prístrešok s otvorenou stenou"
+                    "name": "Hrubý prístrešok s otvorenou stenou",
+                    "terms": "hruby pristresok s otvorenou stenou,útulňa,utulna,prístrešok,pristresok"
                 },
                 "amenity/shelter/picnic_shelter": {
                     "name": "Piknikový prístrešok"
@@ -3451,17 +3437,19 @@
                     "name": "Amfiteáter"
                 },
                 "amenity/toilets": {
-                    "name": "Toalety",
-                    "terms": "záchod,záchody,toaleta,toalety,wc,zachod,zachody"
+                    "name": "Verejné toalety",
+                    "terms": "verejne toalety,toalety,záchod,zachod,latrína,latrina,wc"
                 },
                 "amenity/toilets/disposal/flush": {
-                    "name": "Splachovacie záchody"
+                    "name": "Splachovacie WC",
+                    "terms": "splachovacie záchody,splachovacie zachody,splachovací záchod,splachovaci zachod,splachovacie toalety,splachovacia toaleta"
                 },
                 "amenity/toilets/disposal/pitlatrine": {
                     "name": "Latrína"
                 },
                 "amenity/toilets/portable": {
-                    "name": "Prenosné WC"
+                    "name": "Prenosné WC",
+                    "terms": "prenosne wc,prenosné toalety,prenosná toaleta,prenosne toalety,prenosna toaleta,mobilné wc,mobilná toaleta,mobilné toalety,mobilna toaleta,mobilne toalety"
                 },
                 "amenity/townhall": {
                     "name": "Mestský úrad",
@@ -3726,6 +3714,9 @@
                     "name": "Oporný múr",
                     "terms": "podporna stena,múr,mur,vyrovnávacia stena,vyrovnavacia stena,oporny mur,podporná stena"
                 },
+                "barrier/sally_port": {
+                    "name": "Výpadová brána"
+                },
                 "barrier/spikes": {
                     "name": "Ostnatý pás"
                 },
@@ -3873,7 +3864,8 @@
                     "name": "Hausbót"
                 },
                 "building/hut": {
-                    "name": "Chatrč"
+                    "name": "Chatrč",
+                    "terms": "chatrc"
                 },
                 "building/industrial": {
                     "name": "Priemyselná budova",
@@ -4284,7 +4276,7 @@
                     "name": "Núdzovy východ"
                 },
                 "entrance/emergency_ward_entrance": {
-                    "name": "Nádzový vstup do budovy"
+                    "name": "Núdzový vstup do budovy"
                 },
                 "entrance/main": {
                     "name": "Hlavný vchod",
@@ -4403,9 +4395,6 @@
                 },
                 "highway/bus_stop": {
                     "name": "Autobusová zastávka"
-                },
-                "highway/construction": {
-                    "name": "Uzavretá cesta"
                 },
                 "highway/corridor": {
                     "name": "Chodba v budove",
@@ -4620,10 +4609,6 @@
                 },
                 "highway/toll_gantry": {
                     "name": "Mýtny portál"
-                },
-                "highway/track": {
-                    "name": "Neudržiavaná lesná cesta",
-                    "terms": "lesná cesta,lesna cesta,poľná cesta,polna cesta"
                 },
                 "highway/traffic_mirror": {
                     "name": "Dopravné zrkadlo"
@@ -4884,7 +4869,8 @@
                     "name": "Zóna železnice"
                 },
                 "landuse/recreation_ground": {
-                    "name": "Rekreačný areál"
+                    "name": "Rekreačný park (s ihriskami)",
+                    "terms": "rekreacny park,rekreačný areál,rekreacny areal"
                 },
                 "landuse/religious": {
                     "name": "Náboženský areál"
@@ -4922,7 +4908,7 @@
                 },
                 "leisure/bandstand": {
                     "name": "Hudobný pavilón",
-                    "terms": "hudobny pavilon,hudobný altán,hudobny altan,altan,pavilón,pavilon,pódium"
+                    "terms": "hudobny pavilon,hudobný altán,hudobny altan,altan,pavilón,pavilon,pódium,podium"
                 },
                 "leisure/beach_resort": {
                     "name": "Plážový rezort"
@@ -5032,9 +5018,6 @@
                 "leisure/hackerspace": {
                     "name": "Hackerspace"
                 },
-                "leisure/horse_riding": {
-                    "name": "Zariadenie jazdy na koni"
-                },
                 "leisure/ice_rink": {
                     "name": "Klzisko",
                     "terms": "ľadová plocha,ladova plocha,korčulovanie,korculovanie,ľad,lad"
@@ -5105,9 +5088,6 @@
                 "leisure/pitch/cricket": {
                     "name": "Kriketové ihrisko"
                 },
-                "leisure/pitch/equestrian": {
-                    "name": "Jazdecká aréna"
-                },
                 "leisure/pitch/field_hockey": {
                     "name": "Ihrisko pre pozemný hokej"
                 },
@@ -5174,8 +5154,12 @@
                     "name": "Sauna"
                 },
                 "leisure/slipway": {
-                    "name": "Spúšťanie lodí",
-                    "terms": "spustanie lodi,dok,lodenica,klzacka,kĺzačka"
+                    "name": "Lodný sklz",
+                    "terms": "lodny sklz,spúšťanie lodí,spustanie lodi,lodenica"
+                },
+                "leisure/slipway_drivable": {
+                    "name": "Lodný sklz (príjazdový)",
+                    "terms": "lodny sklz prijazdovy,spúšťanie lodí,spustanie lodi,lodenica"
                 },
                 "leisure/sports_centre": {
                     "name": "Športové centrum / Komplex"
@@ -5206,9 +5190,6 @@
                 },
                 "leisure/track/cycling": {
                     "name": "Cyklodráha"
-                },
-                "leisure/track/horse_racing": {
-                    "name": "Dostihová dráha"
                 },
                 "leisure/track/running": {
                     "name": "Bežecká dráha"
@@ -6831,7 +6812,7 @@
                 },
                 "tourism/alpine_hut": {
                     "name": "Vysokohorská chata",
-                    "terms": "vysokohorska chata,horska chata,horská chata,chata,útulňa,utulna,buda,búda,nocľah,noclah,prenocovanie"
+                    "terms": "vysokohorska chata,horska chata,horská chata,chata,nocľah,noclah,prenocovanie"
                 },
                 "tourism/apartment": {
                     "name": "Dovolenkový apartmán"
@@ -6957,8 +6938,8 @@
                     "terms": "výhľad,vyhlad,rozhľad,rozhlad,rozhľadňa,rozhladna"
                 },
                 "tourism/wilderness_hut": {
-                    "name": "Chata v divočine",
-                    "terms": "horska chata,horská chata,chata,útulňa,utulna,nocľah,noclah,prenocovanie"
+                    "name": "Útulňa (s vnútorným ohniskom)",
+                    "terms": "chata v divočine,chatav divocine,horska chata,horská chata,chata,útulňa,utulna,nocľah,noclah,prenocovanie"
                 },
                 "tourism/zoo": {
                     "name": "Zoo",
@@ -7048,6 +7029,10 @@
                     "name": "Trasa",
                     "terms": "trasa,linka,trat,trať"
                 },
+                "type/route/bicycle": {
+                    "name": "Cyklistická trasa",
+                    "terms": "cyklisticka trasa,cyklotrasa"
+                },
                 "type/route/bus": {
                     "name": "Autobusová trasa",
                     "terms": "autobusova trasa,linka,spoj,trat,trať"
@@ -7068,9 +7053,6 @@
                     "name": "Turistická trasa",
                     "terms": "turisticka trasa,hiking,trekking,trasa,trek,tura,túra,turistika"
                 },
-                "type/route/horse": {
-                    "name": "Jazdecká trasa"
-                },
                 "type/route/light_rail": {
                     "name": "Trasa ľahkého metra"
                 },
@@ -7078,7 +7060,8 @@
                     "name": "Trasa jednokoľajovej železnice"
                 },
                 "type/route/mtb": {
-                    "name": "MTB trasa"
+                    "name": "MTB trasa",
+                    "terms": "trasa pre horské bicykle,trasa pre horske bicykle,downhill,enduro,trail,all mountain,cross-country,freeride"
                 },
                 "type/route/pipeline": {
                     "name": "Potrubná trasa",
@@ -7158,9 +7141,6 @@
                 "waterway/river": {
                     "name": "Rieka",
                     "terms": "riečka,potok,potúčik,potocik,bystrina"
-                },
-                "waterway/riverbank": {
-                    "name": "Breh rieky"
                 },
                 "waterway/sanitary_dump_station": {
                     "name": "Vyprázdnovanie lodných toaliet",
