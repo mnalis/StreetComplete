@@ -1,4 +1,4 @@
-name: Build debug apk
+name: Build debug signed apk
 
 on:
   [workflow_dispatch]
@@ -18,8 +18,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Create keystore file
+      run: echo "${{ secrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+        -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks
+        -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }}
+        -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }}
+        -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
     - name: Rename APK
       run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/StreetComplete-debug-$(git log -n 1 --format='%h').apk
     - name: Archive APK
