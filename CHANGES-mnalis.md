@@ -25,6 +25,7 @@ From `mnalis-v42b1` branch:
 * rearrange quest order, and enable by default some previously disabled quests
 * revert and update design of main menu, as to not reduce UI usability
   https://github.com/streetcomplete/StreetComplete/discussions/4130
+* autosync off by default
 
 From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
