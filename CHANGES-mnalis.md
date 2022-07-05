@@ -23,6 +23,7 @@ From `mnalis-v38` branch:
 * ask cycleway on residential streets without maxspeed too
   https://github.com/streetcomplete/StreetComplete/issues/3519
 * rearrange quest order, and enable by default some previously disabled quests
+* autosync off by default
 
 ## TODO
 * create separate mnalis-v38-helium314 branch
