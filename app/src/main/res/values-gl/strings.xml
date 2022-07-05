@@ -337,8 +337,6 @@ Se iso non é posíbel, podes descarregar outro teclado na tenda de aplicacións
     <string name="produce_vanilla">"Vainilla"</string>
     <string name="produce_walnuts">"Noces"</string>
     <string name="produce_sisal">"Sisal"</string>
-    <string name="quest_way_lit_automatic">"Vai con sensores de movemento"</string>
-    <string name="quest_way_lit_24_7">"Está alumeada de día e de noite"</string>
     <string name="cannot_find_bbox_or_reduce_tilt">"Non se puido buscar aquí. Achega o mapa un chisco máis ou non o inclines tanto."</string>
     <string name="quest_crossing_type_title">"Que tipo de paso de peóns é este?"</string>
     <string name="quest_crossing_type_unmarked">"Sen marcas viarias"</string>
@@ -1301,8 +1299,12 @@ Os datos actualízanse após %1$s días e os datos non utilizados elimínanse de
     <!-- Fuzzy -->
     <string name="quest_shoulder_title">"Esta estrada ten beiravía?"</string>
     <string name="quest_fireHydrant_position_title">"Onde está a toma de auga para incendios?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_green">"Na herba ou terra"</string>
     <string name="quest_fireHydrant_position_lane">"Na estrada"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_sidewalk">"Na beirarúa"</string>
     <string name="quest_fireHydrant_position_parking_lot">"No punto de estacionamento"</string>
     <string name="quest_generic_hasFeature_yes_leave_note">"Si (deixar nota)"</string>

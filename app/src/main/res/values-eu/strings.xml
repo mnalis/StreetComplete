@@ -748,12 +748,6 @@ Bestela beste teklatu bat instalatu dezakezu. Hainbat hizkuntza onartzen dituzte
     <string name="produce_sisal">"SIsala"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_way_lit_automatic">"Mugimendu-antzematea darabil"</string>
-
-    <!-- Fuzzy -->
-    <string name="quest_way_lit_24_7">"Gau eta egunez dago argituta"</string>
-
-    <!-- Fuzzy -->
     <string name="cannot_find_bbox_or_reduce_tilt">"Ezin da hemen eskaneatu. Saiatu zooma hurbiltzen."</string>
 
     <!-- Fuzzy -->
@@ -2386,8 +2380,12 @@ Bestela, ohar bat utz dezakezu (argazki batekin)."</string>
     <!-- Fuzzy -->
     <string name="quest_shoulder_title">"Errepide honek ba du bazterbiderik?"</string>
     <string name="quest_fireHydrant_position_title">"Non dago suteetako ur-hargune hori?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_green">"Belar edo lurrean"</string>
     <string name="quest_fireHydrant_position_lane">"Errepidean"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_sidewalk">"Espaloian"</string>
     <string name="quest_fireHydrant_position_parking_lot">"Aparkaleku batean"</string>
     <string name="quest_generic_hasFeature_yes_leave_note">"Bai (utzi oharra)"</string>

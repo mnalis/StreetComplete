@@ -344,8 +344,6 @@ U suprotnom možete preuzeti drugu tipkovnicu u trgovini aplikacija. Popularne t
     <string name="produce_vanilla">"Vanilla"</string>
     <string name="produce_walnuts">"Orasi"</string>
     <string name="produce_sisal">"Sisal-konoplja"</string>
-    <string name="quest_way_lit_automatic">"Koristi detektor pokreta"</string>
-    <string name="quest_way_lit_24_7">"Osvjetljeno je i danju i noću"</string>
     <string name="cannot_find_bbox_or_reduce_tilt">"Ovdje se ne može skenirati. Pokušajte dodatno približiti ili manje naginjati kartu."</string>
     <string name="quest_crossing_type_title">"Kakav je ovo pješački prijelaz?"</string>
 
@@ -1356,8 +1354,12 @@ Alternativno, možete ostaviti bilješku (sa fotografijom)"</string>
     <!-- Fuzzy -->
     <string name="quest_shoulder_title">"Ima li ova cesta zaustavnu traku?"</string>
     <string name="quest_fireHydrant_position_title">"Gdje se nalazi ovaj vatrogasni hidrant?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_green">"U travi ili zemlji"</string>
     <string name="quest_fireHydrant_position_lane">"Na cesti"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_sidewalk">"Na nogostupu"</string>
     <string name="quest_fireHydrant_position_parking_lot">"Na parkirnom mjestu"</string>
     <string name="quest_generic_hasFeature_yes_leave_note">"Da (ostavi bilješku)"</string>

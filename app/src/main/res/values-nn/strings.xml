@@ -284,8 +284,6 @@
     <string name="produce_vanilla">"Vanilje"</string>
     <string name="produce_walnuts">"Valnøtter"</string>
     <string name="produce_sisal">"Sisal"</string>
-    <string name="quest_way_lit_automatic">"Lyset brukar rørslesensor"</string>
-    <string name="quest_way_lit_24_7">"Lyset er på dag og natt"</string>
     <string name="cannot_find_bbox_or_reduce_tilt">"Kan ikkje søkja her. Prøv å zooma lenger inn eller å ha kartet mindre på skrå."</string>
     <string name="quest_crossing_type_title">"Kva type fotgjengarovergang er dette?"</string>
     <string name="quest_crossing_type_unmarked">"Utan vegmarkering"</string>
@@ -1010,7 +1008,7 @@
     <string name="quest_presets_preset_name">"Namn på oppdragsutvalet"</string>
     <string name="quest_presets_default_name">"Standard"</string>
     <string name="quest_presets_selected">"Merkt"</string>
-    <string name="quest_presets_delete_message">"Vil du sletta oppdragsutvalet «%1». Val av oppdrag og oppdrags­rekkjefølgja går då tapt for alltid."</string>
+    <string name="quest_presets_delete_message">"Vil du sletta oppdragsutvalet «%s». Val av oppdrag og oppdrags­rekkjefølgja går då tapt for alltid."</string>
     <string name="notification_syncing">"Synkroniserer data …"</string>
 
     <!-- Android notifications -->

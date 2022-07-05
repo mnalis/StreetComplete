@@ -401,8 +401,6 @@ Pero recuerda que siempre puedes descargar aplicaciones de teclado alternativas 
     <string name="produce_vanilla">"Vainilla"</string>
     <string name="produce_walnuts">"Nueces"</string>
     <string name="produce_sisal">"Sisal (enequén)"</string>
-    <string name="quest_way_lit_automatic">"Con sensores de movimiento"</string>
-    <string name="quest_way_lit_24_7">"Está alumbrada de día y de noche"</string>
     <string name="cannot_find_bbox_or_reduce_tilt">"No se puede escanear aquí. Amplía el mapa un poco más para buscar tareas."</string>
     <string name="quest_crossing_type_title">"¿Qué tipo de cruce es?"</string>
     <string name="quest_crossing_type_unmarked">"Cruce sin señalizar"</string>
@@ -1564,8 +1562,12 @@ También puedes dejar una nota (con foto)."</string>
     <!-- Fuzzy -->
     <string name="quest_shoulder_title">"¿Tiene arcén?"</string>
     <string name="quest_fireHydrant_position_title">"¿Dónde está esta boca de incendios?"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_green">"Sobre hierba o tierra"</string>
     <string name="quest_fireHydrant_position_lane">"En la vía"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_fireHydrant_position_sidewalk">"En la acera"</string>
     <string name="quest_fireHydrant_position_parking_lot">"En un aparcamiento"</string>
     <string name="quest_generic_hasFeature_yes_leave_note">"Sí (dejar nota)"</string>
