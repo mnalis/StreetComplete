@@ -21,7 +21,7 @@ class AddIsDefibrillatorIndoor : OsmFilterQuestType<Boolean>() {
     override val changesetComment = "Specify whether there is drinking water in camp site"
     override val wikiLink = "Key:drinking_water"
     override val icon = R.drawable.ic_quest_drinking_water
-    override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
+    //override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
     override val achievements = listOf(OUTDOORS)
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_camp_drinking_water_title
