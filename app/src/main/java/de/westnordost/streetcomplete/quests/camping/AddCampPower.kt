@@ -10,21 +10,23 @@ import de.westnordost.streetcomplete.osm.Tags
 import de.westnordost.streetcomplete.quests.YesNoQuestForm
 import de.westnordost.streetcomplete.util.ktx.toYesNo
 
-class AddCampDrinkingWater : OsmFilterQuestType<Boolean>() {
+class AddCampPower : OsmFilterQuestType<Boolean>() {
 
+    /* We only resurvey power_supply=yes and power_supply=no, as it might have more detailed 
+     * values from other editors, and we don't want to damage them */
     override val elementFilter = """
         nodes, ways with (
           tourism=camp_site
         )
-        and (!drinking_water or drinking_water older today -4 years)
+        and (!power_supply or (power_supply older today -4 years and power_supply ~ yes|no))
     """
-    override val changesetComment = "Specify whether there is drinking water in camp site"
-    override val wikiLink = "Key:drinking_water"
-    override val icon = R.drawable.ic_quest_drinking_water
-    //override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
+    override val changesetComment = "Specify whether there is electricity available at camp site"
+    override val wikiLink = "Key:power_supply"
+    override val icon = R.drawable.ic_quest_camp_power_supply
+    override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside
     override val achievements = listOf(OUTDOORS)
 
-    override fun getTitle(tags: Map<String, String>) = R.string.quest_camp_drinking_water_title
+    override fun getTitle(tags: Map<String, String>) = R.string.quest_camp_power_supply_title
 
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
         getMapData().filter("nodes, ways with tourism=camp_site")
@@ -32,6 +34,6 @@ class AddCampDrinkingWater : OsmFilterQuestType<Boolean>() {
     override fun createForm() = YesNoQuestForm()
 
     override fun applyAnswerTo(answer: Boolean, tags: Tags, timestampEdited: Long) {
-        tags["drinking_water"] = answer.toYesNo()
+        tags["power_supply"] = answer.toYesNo()
     }
 }
