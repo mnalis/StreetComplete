@@ -333,12 +333,7 @@ class AddCycleway(
         private val untaggedRoadsFilter by lazy { """
             ways with (
                 highway ~ primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|unclassified
-                or highway = residential and (
-                  maxspeed > 30
-                  or (maxspeed ~ ".*mph" and maxspeed !~ "([1-9]|1[0-9]|20) mph")
-                  or $notIn30ZoneOrLess
-                  or true
-                )
+                or highway = residential and (maxspeed > 33 or $notIn30ZoneOrLess or true)
               )
               and !cycleway
               and !cycleway:left
@@ -351,7 +346,6 @@ class AddCycleway(
               and (
                 !maxspeed
                 or maxspeed > 20
-                or (maxspeed ~ ".*mph" and maxspeed !~ "([1-9]|1[0-2]) mph")
                 or $notIn30ZoneOrLess
                 or true
               )

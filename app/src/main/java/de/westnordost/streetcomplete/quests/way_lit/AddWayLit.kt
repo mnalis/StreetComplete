@@ -20,7 +20,16 @@ class AddWayLit : OsmFilterQuestType<WayLitOrIsStepsAnswer>() {
     override val elementFilter = """
         ways with
         (
-          highway
+          highway ~ ${LIT_RESIDENTIAL_ROADS.joinToString("|")}
+          or highway ~ ${LIT_NON_RESIDENTIAL_ROADS.joinToString("|")} and
+          (
+            sidewalk ~ both|left|right|yes|separate
+            or ~${(MAXSPEED_TYPE_KEYS + "maxspeed").joinToString("|")} ~ .*urban|.*zone.*
+            or maxspeed <= 60
+          )
+          or highway ~ ${LIT_WAYS.joinToString("|")}
+          or highway = path and (foot = designated or bicycle = designated)
+          or highway !~ construction
         )
         and
         (
