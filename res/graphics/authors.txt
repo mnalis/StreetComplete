@@ -139,9 +139,6 @@ building levels/
     building_levels_icon.svg
     building_levels_illustration.svg
 
-camping/
-    camp.svg                    https://commons.wikimedia.org/wiki/File:Noun_camp_2695642.svg, sbts2018 (https://thenounproject.com/sbts2018/) CC-BY 4.0
-
 charging station capacity/
     electric_car.svg            parts taken from Twemoji: U+1F698 and U+1F50C
 
@@ -279,6 +276,7 @@ quest/
     bicycle_second_hand.svg
     bicycleway.svg
     bicycleway_surface.svg
+    bicycleway_surface_detail.svg
     bicycleway_width.svg
     bin_public_transport.svg         Flo Edelmann, parts from https://www.svgrepo.com/svg/187115/trash (License: CC0 1.0)
     blind.svg
@@ -297,6 +295,7 @@ quest/
     bus_stop_lit.svg                 parts taken from Twemoji: U+1F68D
     bus_stop_shelter.svg             parts taken from Twemoji: U+1F68D
     bus_stop_name.svg                parts taken from Twemoji: U+1F68D
+    camp_power.svg
     car.svg                          modified from Twemoji: U+1F698
     car_bumpy.svg                    modified from Twemoji: U+1F698
     car_wash.svg                     modified from Twemoji: U+1F698
@@ -319,6 +318,8 @@ quest/
     fire_hydrant.svg
     fire_hydrant_diameter.svg
     fire_hydrant_grass.svg
+    footway_surface.svg
+    footway_surface_detail.svg
     fuel.svg
     housenumber.svg
     housenumber_street.svg
@@ -335,6 +336,7 @@ quest/
     mail_ref.svg
     max_width.svg
     max_height.svg
+    max_height_measure.svg
     max_speed.svg
     max_weight.svg
     memorial.svg
@@ -383,6 +385,7 @@ quest/
     road_construction.svg
     roof_shape.svg
     seating.svg
+    shower.svg
     sidewalk.svg
     smoking.svg
     snow_poi.svg                     Scott de Jonge from https://commons.wikimedia.org/wiki/File:Map_icons_by_Scott_de_Jonge_-_snow.svg (License: CC-BY-3.0)
@@ -402,6 +405,7 @@ quest/
     summit_cross.svg                based on peak.svg which is (c) 2020 Mateusz Konieczny and Tobias Zwick (CC-BY-SA 4.0), with cross added by Flo Edelmann (so also CC-BY-SA 4.0)
     surveillance.svg
     surveillance_camera.svg
+    tent.svg
     toilets.svg
     toilet_fee.svg
     toilets_wheelchair.svg
@@ -447,6 +451,7 @@ recycling/
     glass_bottles.svg
     newspaper.svg                    modified from EmojiOne 2: U+1F4F0
     paper.svg
+    pet.svg
     plastic.svg
     plastic_bottles.svg
     plastic_packaging.svg
