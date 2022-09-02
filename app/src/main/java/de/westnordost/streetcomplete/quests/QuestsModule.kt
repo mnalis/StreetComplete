@@ -440,7 +440,6 @@ fun questTypeRegistry(
     AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
     AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
     AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
-    // AddStreetParking(),
     AddRoadSmoothness(),
     AddPathSmoothness(),
 
