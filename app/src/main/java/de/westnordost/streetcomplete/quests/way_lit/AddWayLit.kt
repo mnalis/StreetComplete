@@ -29,7 +29,7 @@ class AddWayLit : OsmFilterQuestType<WayLitOrIsStepsAnswer>() {
           )
           or highway ~ ${LIT_WAYS.joinToString("|")}
           or highway = path and (foot = designated or bicycle = designated)
-          or highway !~ construction
+          or (highway and highway !~ construction)
         )
         and
         (
