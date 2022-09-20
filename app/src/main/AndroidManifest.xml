@@ -38,7 +38,6 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:supportsRtl="true">
-        <meta-data android:name="com.google.ar.core" android:value="optional" />
         <activity
             android:windowSoftInputMode="adjustResize"
             android:name="de.westnordost.streetcomplete.screens.MainActivity"

@@ -14,26 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.lifecycle.lifecycleScope
-import com.google.ar.core.Config
-import com.google.ar.core.Frame
-import com.google.ar.core.HitResult
-import com.google.ar.core.Plane
-import com.google.ar.core.Pose
-import com.google.ar.core.Session
-import com.google.ar.core.TrackingState.TRACKING
-import com.google.ar.core.exceptions.CameraNotAvailableException
-import com.google.ar.sceneform.AnchorNode
-import com.google.ar.sceneform.ArSceneView
-import com.google.ar.sceneform.FrameTime
-import com.google.ar.sceneform.Node
-import com.google.ar.sceneform.Scene
-import com.google.ar.sceneform.math.Quaternion
-import com.google.ar.sceneform.math.Vector3
-import com.google.ar.sceneform.rendering.Color
-import com.google.ar.sceneform.rendering.MaterialFactory
-import com.google.ar.sceneform.rendering.Renderable
-import com.google.ar.sceneform.rendering.ShapeFactory
-import com.google.ar.sceneform.rendering.ViewRenderable
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.ActivityMeasureBinding
 import de.westnordost.streetcomplete.screens.measure.MeasureActivity.Companion.createIntent
@@ -57,8 +37,6 @@ import kotlin.math.tan
 
 /** Activity to measure distances. Can be started as activity for result, see [createIntent] */
 class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
-
-    private val createArCoreSession = ArCoreSessionCreator(this, ::askUserToAcknowledgeCameraPermissionRationale)
 
     private lateinit var binding: ActivityMeasureBinding
     private var arSceneView: ArSceneView? = null
@@ -94,15 +72,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
         )
         readIntent()
         distance = 0f
-
-        try {
-            binding = ActivityMeasureBinding.inflate(layoutInflater)
-        } catch (e: Exception) {
-            /* layout inflation may fail for the ArSceneView for some old devices that don't support
-               AR anyway. So we can just exit */
-            finish()
-            return
-        }
 
         setContentView(binding.root)
         binding.startOverButton.setOnClickListener { clearMeasuring() }
@@ -217,24 +186,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
 
     /* ------------------------------------------ Session --------------------------------------- */
 
-    private suspend fun initializeSession() {
-        val result = createArCoreSession()
-        if (result is ArCoreSessionCreator.Success) {
-            val session = result.session
-            configureSession(session)
-            addArSceneView(session)
-        } else if (result is ArCoreSessionCreator.Failure) {
-            val reason = result.reason
-            if (reason == ArNotAvailableReason.AR_CORE_SDK_TOO_OLD) {
-                toast(R.string.ar_core_error_sdk_too_old)
-            } else if (reason == ArNotAvailableReason.NO_CAMERA_PERMISSION) {
-                toast(R.string.no_camera_permission_toast)
-            }
-            // otherwise nothing we can do here...
-            finish()
-        }
-    }
-
     private fun configureSession(session: Session) {
         val config = Config(session)
 
@@ -247,16 +198,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
         config.lightEstimationMode = Config.LightEstimationMode.DISABLED
 
         session.configure(config)
-    }
-
-    private fun addArSceneView(session: Session) {
-        val arSceneView = ArSceneView(this)
-        arSceneView.planeRenderer.isEnabled = false
-        binding.arSceneViewContainer.addView(arSceneView, MATCH_PARENT, MATCH_PARENT)
-        arSceneView.setupSession(session)
-        arSceneView.scene.addOnUpdateListener(this)
-        arSceneView.setOnClickListener { onTapPlane() }
-        this.arSceneView = arSceneView
     }
 
     /* ---------------------------------------- Measuring --------------------------------------- */
