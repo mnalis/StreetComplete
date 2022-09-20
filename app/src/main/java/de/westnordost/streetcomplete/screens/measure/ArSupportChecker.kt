@@ -6,5 +6,5 @@ import android.os.Build
 import androidx.core.content.getSystemService
 
 class ArSupportChecker(private val context: Context) {
-    operator fun invoke(): Boolean = False
+    operator fun invoke(): Boolean = false
 }
