@@ -183,10 +183,6 @@ dependencies {
 
     // opening hours parser
     implementation("ch.poole:OpeningHoursParser:0.27.0")
-
-    // measuring distance with AR
-    implementation("com.google.ar:core:1.33.0")
-    implementation("com.google.ar.sceneform:core:1.17.1")
 }
 
 /** Localizations that should be pulled from POEditor */
