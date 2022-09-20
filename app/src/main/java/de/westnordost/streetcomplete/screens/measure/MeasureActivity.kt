@@ -38,8 +38,6 @@ import kotlin.math.tan
 /** Activity to measure distances. Can be started as activity for result, see [createIntent] */
 class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
 
-    private val createArCoreSession = ArCoreSessionCreator(this, ::askUserToAcknowledgeCameraPermissionRationale)
-
     private lateinit var binding: ActivityMeasureBinding
     private var arSceneView: ArSceneView? = null
 
@@ -74,15 +72,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
         )
         readIntent()
         distance = 0f
-
-        try {
-            binding = ActivityMeasureBinding.inflate(layoutInflater)
-        } catch (e: Exception) {
-            /* layout inflation may fail for the ArSceneView for some old devices that don't support
-               AR anyway. So we can just exit */
-            finish()
-            return
-        }
 
         setContentView(binding.root)
         binding.startOverButton.setOnClickListener { clearMeasuring() }
@@ -197,24 +186,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
 
     /* ------------------------------------------ Session --------------------------------------- */
 
-    private suspend fun initializeSession() {
-        val result = createArCoreSession()
-        if (result is ArCoreSessionCreator.Success) {
-            val session = result.session
-            configureSession(session)
-            addArSceneView(session)
-        } else if (result is ArCoreSessionCreator.Failure) {
-            val reason = result.reason
-            if (reason == ArNotAvailableReason.AR_CORE_SDK_TOO_OLD) {
-                toast(R.string.ar_core_error_sdk_too_old)
-            } else if (reason == ArNotAvailableReason.NO_CAMERA_PERMISSION) {
-                toast(R.string.no_camera_permission_toast)
-            }
-            // otherwise nothing we can do here...
-            finish()
-        }
-    }
-
     private fun configureSession(session: Session) {
         val config = Config(session)
 
@@ -227,16 +198,6 @@ class MeasureActivity : AppCompatActivity(), Scene.OnUpdateListener {
         config.lightEstimationMode = Config.LightEstimationMode.DISABLED
 
         session.configure(config)
-    }
-
-    private fun addArSceneView(session: Session) {
-        val arSceneView = ArSceneView(this)
-        arSceneView.planeRenderer.isEnabled = false
-        binding.arSceneViewContainer.addView(arSceneView, MATCH_PARENT, MATCH_PARENT)
-        arSceneView.setupSession(session)
-        arSceneView.scene.addOnUpdateListener(this)
-        arSceneView.setOnClickListener { onTapPlane() }
-        this.arSceneView = arSceneView
     }
 
     /* ---------------------------------------- Measuring --------------------------------------- */
