@@ -35,8 +35,8 @@ android {
         applicationId = "de.westnordost.streetcomplete.mn"
         minSdk = 21
         targetSdk = 33
-        versionCode = 4700
-        versionName = "47.0-alpha1"
+        versionCode = 4701
+        versionName = "47.0-beta1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -103,13 +103,6 @@ configurations {
     all {
         // it's already included in Android
         exclude(group = "net.sf.kxml", module = "kxml2")
-
-        // TODO remove substitution when `kaml` dependency uses newer version of `org.snakeyaml:snakeyaml-engine`
-        resolutionStrategy.dependencySubstitution {
-            substitute(module("org.snakeyaml:snakeyaml-engine:2.3"))
-                .using(module("org.bitbucket.snakeyaml:snakeyaml-engine:8209bb9484"))
-                .because("https://github.com/streetcomplete/StreetComplete/issues/3889")
-        }
     }
 }
 
@@ -183,7 +176,7 @@ dependencies {
 
     // serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
-    implementation("com.charleskorn.kaml:kaml:0.47.0")
+    implementation("com.charleskorn.kaml:kaml:0.48.0")
 
     // map and location
     implementation("com.mapzen.tangram:tangram:0.17.1")
@@ -205,9 +198,9 @@ val bcp47ExportLanguages = setOf(
 )
 
 // see https://github.com/osmlab/name-suggestion-index/tags for latest version
-val nsiVersion = "v6.0.20220829"
+val nsiVersion = "v6.0.20220919"
 // see https://github.com/openstreetmap/id-tagging-schema/releases for latest version
-val presetsVersion = "v3.4.2"
+val presetsVersion = "v3.5.1"
 
 tasks.register("updateAvailableLanguages") {
     group = "streetcomplete"
