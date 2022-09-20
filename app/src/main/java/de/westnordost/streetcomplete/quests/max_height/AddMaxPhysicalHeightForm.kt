@@ -8,7 +8,6 @@ import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.databinding.QuestLengthBinding
 import de.westnordost.streetcomplete.quests.AbstractOsmQuestForm
 import de.westnordost.streetcomplete.screens.measure.ArSupportChecker
-import de.westnordost.streetcomplete.screens.measure.TakeMeasurementLauncher
 import de.westnordost.streetcomplete.view.controller.LengthInputViewController
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -17,7 +16,6 @@ class AddMaxPhysicalHeightForm : AbstractOsmQuestForm<MaxPhysicalHeightAnswer>()
 
     override val contentLayoutResId = R.layout.quest_length
     private val binding by contentViewBinding(QuestLengthBinding::bind)
-    private val takeMeasurement = TakeMeasurementLauncher(this)
     private val checkArSupport: ArSupportChecker by inject()
     private var isARMeasurement: Boolean = false
     private lateinit var lengthInput: LengthInputViewController
@@ -43,14 +41,6 @@ class AddMaxPhysicalHeightForm : AbstractOsmQuestForm<MaxPhysicalHeightAnswer>()
             checkIsFormComplete()
         }
         binding.measureButton.isGone = !checkArSupport()
-        binding.measureButton.setOnClickListener { lifecycleScope.launch { takeMeasurement() } }
-    }
-
-    private suspend fun takeMeasurement() {
-        val lengthUnit = lengthInput.unit ?: return
-        val length = takeMeasurement(requireContext(), lengthUnit, true) ?: return
-        lengthInput.length = length
-        isARMeasurement = true
     }
 
     override fun isFormComplete(): Boolean = lengthInput.length != null
