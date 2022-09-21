@@ -6,7 +6,6 @@ import android.content.Context
 import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import androidx.core.content.edit
 import androidx.core.content.getSystemService
@@ -205,9 +204,7 @@ open class LocationAwareMapFragment : MapFragment() {
 
         updateCameraPosition(600) {
             if (isNavigationMode) {
-                val isCompassDirection = NavigationOrientationUpdater.isCompassDirection
-                val bearing = if (isCompassDirection) locationMapComponent?.rotation else getTrackBearing(tracks.last())
-                Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}, bearing=${bearing}")
+                val bearing = getTrackBearing(tracks.last())
                 if (bearing != null) {
                     rotation = -(bearing * PI / 180.0).toFloat()
                     /* move center position down a bit, so there is more space in front of than
