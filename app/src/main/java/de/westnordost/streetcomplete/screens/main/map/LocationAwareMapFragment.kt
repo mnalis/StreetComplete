@@ -206,11 +206,8 @@ open class LocationAwareMapFragment : MapFragment() {
         updateCameraPosition(600) {
             if (isNavigationMode) {
                 val isCompassDirection = NavigationOrientationUpdater.isCompassDirection
-                val bearing1 = getTrackBearing(tracks.last())
-                val bearing2 = locationMapComponent?.rotation // /mn/ trying to track compass
-                Log.d("centerCurrentPosition", "getTrackBearing is ${bearing1} and locationMapComponent.rotation is ${bearing2}")
-                val bearing : Float? = if (isCompassDirection) locationMapComponent?.rotation?.toFloat() else getTrackBearing(tracks.last())
-                Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}, newbearing=${bearing}")
+                val bearing = if (isCompassDirection) locationMapComponent?.rotation else getTrackBearing(tracks.last())
+                Log.d("centerCurrentPosition", "isCompassDirection = ${isCompassDirection}, bearing=${bearing}")
                 if (bearing != null) {
                     rotation = -(bearing * PI / 180.0).toFloat()
                     /* move center position down a bit, so there is more space in front of than
