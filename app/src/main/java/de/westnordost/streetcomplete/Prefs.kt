@@ -15,7 +15,6 @@ object Prefs {
     const val THEME_SELECT = "theme.select"
     const val LANGUAGE_SELECT = "language.select"
     const val THEME_BACKGROUND = "theme.background_type"
-    const val ORIENTATION_SELECT = "orientation.select"
 
     const val RESURVEY_INTERVALS = "quests.resurveyIntervals"
 
@@ -61,9 +60,5 @@ object Prefs {
 
     enum class ResurveyIntervals {
         LESS_OFTEN, DEFAULT, MORE_OFTEN
-    }
-
-    enum class NavigationOrientation {
-        MOVEMENT_DIRECTION, COMPASS_DIRECTION
     }
 }

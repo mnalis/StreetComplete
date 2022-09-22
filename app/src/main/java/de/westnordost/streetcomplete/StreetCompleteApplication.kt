@@ -41,7 +41,6 @@ import de.westnordost.streetcomplete.screens.main.mainModule
 import de.westnordost.streetcomplete.screens.main.map.mapModule
 import de.westnordost.streetcomplete.screens.measure.arModule
 import de.westnordost.streetcomplete.screens.settings.ResurveyIntervalsUpdater
-import de.westnordost.streetcomplete.screens.settings.NavigationOrientationUpdater
 import de.westnordost.streetcomplete.screens.settings.settingsModule
 import de.westnordost.streetcomplete.util.CrashReportExceptionHandler
 import de.westnordost.streetcomplete.util.getSelectedLocale
@@ -65,7 +64,6 @@ class StreetCompleteApplication : Application() {
     private val preloader: Preloader by inject()
     private val crashReportExceptionHandler: CrashReportExceptionHandler by inject()
     private val resurveyIntervalsUpdater: ResurveyIntervalsUpdater by inject()
-    private val navigationOrientationUpdater: NavigationOrientationUpdater by inject()
     private val downloadedTilesDao: DownloadedTilesDao by inject()
     private val prefs: SharedPreferences by inject()
     private val editHistoryController: EditHistoryController by inject()
@@ -138,7 +136,6 @@ class StreetCompleteApplication : Application() {
         setDefaultTheme()
 
         resurveyIntervalsUpdater.update()
-        navigationOrientationUpdater.update()
 
         val lastVersion = prefs.getString(Prefs.LAST_VERSION_DATA, null)
         if (BuildConfig.VERSION_NAME != lastVersion) {
