@@ -26,7 +26,6 @@ global:
 
     building_color: [0.56, 0.18, 0.18, 0.75]
     building_outline_color: [0.64, 0.24, 0.24, 0.75]
-
     boundary_color: '#e72'
 
     oneway_arrow_color: '#ccf'

@@ -1,11 +1,14 @@
 package de.westnordost.streetcomplete
 
 import android.app.Application
+import android.content.ComponentCallbacks2
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import de.westnordost.streetcomplete.data.CacheTrimmer
 import de.westnordost.streetcomplete.data.CleanerWorker
 import de.westnordost.streetcomplete.data.Preloader
 import de.westnordost.streetcomplete.data.dbModule
@@ -67,6 +70,7 @@ class StreetCompleteApplication : Application() {
     private val prefs: SharedPreferences by inject()
     private val editHistoryController: EditHistoryController by inject()
     private val userLoginStatusController: UserLoginStatusController by inject()
+    private val cacheTrimmer: CacheTrimmer by inject()
 
     private val applicationScope = CoroutineScope(SupervisorJob() + CoroutineName("Application"))
 
@@ -138,7 +142,7 @@ class StreetCompleteApplication : Application() {
 
         val lastVersion = prefs.getString(Prefs.LAST_VERSION_DATA, null)
         if (BuildConfig.VERSION_NAME != lastVersion) {
-            prefs.edit().putString(Prefs.LAST_VERSION_DATA, BuildConfig.VERSION_NAME).apply()
+            prefs.edit { putString(Prefs.LAST_VERSION_DATA, BuildConfig.VERSION_NAME) }
             if (lastVersion != null) {
                 onNewVersion()
             }
@@ -153,6 +157,20 @@ class StreetCompleteApplication : Application() {
     override fun onTerminate() {
         super.onTerminate()
         applicationScope.cancel()
+    }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        when (level) {
+            ComponentCallbacks2.TRIM_MEMORY_COMPLETE, ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL -> {
+                // very low on memory -> drop caches
+                cacheTrimmer.clearCaches()
+            }
+            ComponentCallbacks2.TRIM_MEMORY_MODERATE, ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW -> {
+                // memory needed, but not critical -> trim only
+                cacheTrimmer.trimCaches()
+            }
+        }
     }
 
     private fun setDefaultLocales() {
