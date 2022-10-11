@@ -382,7 +382,6 @@ fun questTypeRegistry(
     // road but information is visible usually at the beginning of the marked stretch of way
     AddMaxWeight(), // used by OSRM and other routing engines
     AddMaxHeight(), // OSRM and other routing engines
-    AddRoadName(),
     AddOneway(),
     AddSuspectedOneway(trafficFlowSegmentsApi, trafficFlowDao),
 
@@ -448,12 +447,14 @@ fun questTypeRegistry(
     /* ↓ 5.quests that are very numerous ---------------------------------------------------- */
 
     // roads
-    AddSidewalk(), // for any pedestrian routers, needs minimal thinking
     AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
-    AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
-    AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
     AddRoadSmoothness(),
     AddPathSmoothness(),
+    AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
+    AddSidewalk(), // for any pedestrian routers, needs minimal thinking
+    AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
+
+    AddRoadName(),
 
     // footways
     AddPathSurface(), // used by OSM Carto, BRouter, OsmAnd, OSRM, graphhopper...
