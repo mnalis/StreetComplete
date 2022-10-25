@@ -82,6 +82,7 @@ class AddSidewalk : OsmElementQuestType<LeftAndRightSidewalk> {
             (estimateRoadwayWidth(tags) ?: guessRoadwayWidth(tags)) +
             (estimateParkingOffRoadWidth(tags) ?: 0f) +
             (estimateCycleTrackWidth(tags) ?: 0f) +
+            8.0f +  // /mn/ sidewalks are further away in Croatia, so do not needlessly ask to map sidewalk=separate
             1.5f    // assumed sidewalk width
         ) / 2f +
         4f // + generous buffer for possible grass verge
