@@ -31,6 +31,7 @@ class AddCyclewayPartSurfaceTest {
 
     @Test fun `not applicable to non-bicycle path`() {
         assertIsNotApplicable("highway" to "bridleway", "segregated" to "yes")
+        assertIsNotApplicable("highway" to "footway", "segregated" to "yes")
         assertIsNotApplicable("highway" to "path", "bicycle" to "no", "segregated" to "yes")
     }
 
@@ -54,12 +55,19 @@ class AddCyclewayPartSurfaceTest {
         assertIsNotApplicable("highway" to "path", "bicycle" to "designated", "segregated" to "yes", "cycleway:surface" to "unpaved", "note:cycleway:surface" to "it's complicated")
     }
 
-    @Test fun `applicable to private cycleways`() {
-        assertIsApplicable("highway" to "footway", "segregated" to "yes", "bicycle" to "private")
+    @Test fun `not applicable to private cycleways`() {
+        assertIsNotApplicable("highway" to "cycleway", "segregated" to "yes", "bicycle" to "private")
+        assertIsNotApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "private")
+        assertIsNotApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "yes", "bicycle" to "private")
+        assertIsNotApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "private", "bicycle" to "private")
     }
 
-    @Test fun `not applicable to access-restricted cycleways`() {
-        assertIsNotApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "no")
+    @Test fun `applicable to access-restricted but cycle allowed cycleway`() {
+        assertIsApplicable("highway" to "cycleway", "segregated" to "yes")
+        assertIsApplicable("highway" to "cycleway", "segregated" to "yes", "bicycle" to "permissive")
+        assertIsApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "yes")
+        assertIsApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "yes", "bicycle" to "permissive")
+        assertIsApplicable("highway" to "cycleway", "segregated" to "yes", "access" to "no", "bicycle" to "yes")
     }
 
     @Test fun `applicable to access-restricted but bicycle designated cycleway`() {

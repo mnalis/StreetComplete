@@ -12,7 +12,8 @@ class AddFootwayPartSurface : OsmFilterQuestType<SurfaceAnswer>() {
     override val elementFilter = """
         ways with (
           highway = footway
-          or (highway ~ path|cycleway|bridleway and foot != no)
+          or highway = path and foot != no
+          or (highway ~ cycleway|bridleway and foot and foot != no)
         )
         and segregated = yes
         and !sidewalk
@@ -25,7 +26,11 @@ class AddFootwayPartSurface : OsmFilterQuestType<SurfaceAnswer>() {
             and !note:footway:surface
           )
         )
-        and (access !~ private|no or (foot and foot !~ private|no))
+        and (
+          !access and foot !~ private|no
+          or access and access !~ private|no and foot !~ private|no
+          or access and access  ~ private|no and foot and foot !~ private|no
+        )
     """
     override val changesetComment = "Add footway path surfaces"
     override val wikiLink = "Key:surface"
