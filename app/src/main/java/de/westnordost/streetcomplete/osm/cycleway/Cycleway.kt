@@ -90,7 +90,6 @@ fun Cycleway.isAmbiguous(countryInfo: CountryInfo) = when (this) {
 
 fun getSelectableCyclewaysInCountry(countryInfo: CountryInfo): List<Cycleway> {
     val cycleways = mutableListOf(
-        NONE,
         TRACK,
         EXCLUSIVE_LANE,
         ADVISORY_LANE,
@@ -98,6 +97,7 @@ fun getSelectableCyclewaysInCountry(countryInfo: CountryInfo): List<Cycleway> {
         SUGGESTION_LANE,
         SEPARATE,
         PICTOGRAMS,
+        NONE,
         BUSWAY,
         SIDEWALK_EXPLICIT,
         DUAL_LANE,
