@@ -15,6 +15,7 @@ import de.westnordost.streetcomplete.util.mostCommonWithin
 import de.westnordost.streetcomplete.util.padWith
 import de.westnordost.streetcomplete.view.image_select.GroupableDisplayItem
 import de.westnordost.streetcomplete.view.image_select.GroupedImageSelectAdapter
+import de.westnordost.streetcomplete.view.image_select.Item2
 
 /**
  * Abstract class for quests with a grouped list of images and one to select.
@@ -94,7 +95,7 @@ abstract class AGroupedImageListQuestForm<I, T> : AbstractOsmQuestForm<T>() {
     }
 
     private fun getInitialItems(): List<GroupableDisplayItem<I>> =
-        favs.get().mostCommonWithin(6, historyCount = 50, first = 1).padWith(topItems).toList()
+        favs.get().mostCommonWithin(6, historyCount = 50, first = 1).padWith(topItems).toList().map { Item2(it.value, it.image, it.title, it.description) }
 
     override fun onClickOk() {
         val item = selectedItem!!
