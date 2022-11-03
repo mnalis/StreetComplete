@@ -95,7 +95,7 @@ abstract class AGroupedImageListQuestForm<I, T> : AbstractOsmQuestForm<T>() {
     }
 
     private fun getInitialItems(): List<GroupableDisplayItem<I>> =
-        favs.get().mostCommonWithin(6, historyCount = 50, first = 1).padWith(topItems).map { Item2(it.value, it.image, it.title, it.description) }.toList()
+        favs.get().map { Item2(it.value, it.image, it.title, it.description) }.mostCommonWithin(6, historyCount = 50, first = 1).padWith(topItems).toList()
 
     override fun onClickOk() {
         val item = selectedItem!!
