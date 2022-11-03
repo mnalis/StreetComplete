@@ -79,7 +79,7 @@ abstract class AGroupedImageListQuestForm<I, T> : AbstractOsmQuestForm<T>() {
 
         imageSelector.items = getInitialItems() + allItems
 
-        binding.list.adapter = imageSelector.map { Item2(it.value, it.image, it.title, it.description) }
+        binding.list.adapter = imageSelector//.map { Item2(it.value, it.image, it.title, it.description) }
     }
 
     private fun scrollTo(index: Int) {
