@@ -79,7 +79,7 @@ abstract class AGroupedImageListQuestForm<I, T> : AbstractOsmQuestForm<T>() {
 
         imageSelector.items = getInitialItems() + allItems
 
-        binding.list.adapter = imageSelector//.map { Item2(it.value, it.image, it.title, it.description) }
+        binding.list.adapter = imageSelector
     }
 
     private fun scrollTo(index: Int) {
@@ -95,7 +95,7 @@ abstract class AGroupedImageListQuestForm<I, T> : AbstractOsmQuestForm<T>() {
     }
 
     private fun getInitialItems(): List<GroupableDisplayItem<I>> =
-        favs.get().mostCommonWithin(6, historyCount = 50, first = 1).padWith(topItems).toList()
+        favs.get().mostCommonWithin(6, historyCount = 50, first = 1).map { Item2(it.value, it.image, it.title, it.description) }.padWith(topItems).toList()
 
     override fun onClickOk() {
         val item = selectedItem!!
