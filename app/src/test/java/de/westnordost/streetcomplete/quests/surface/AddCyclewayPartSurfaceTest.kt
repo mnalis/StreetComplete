@@ -3,6 +3,7 @@ package de.westnordost.streetcomplete.quests.surface
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryAdd
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryDelete
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.StringMapEntryModify
+import de.westnordost.streetcomplete.osm.nowAsCheckDateString
 import de.westnordost.streetcomplete.osm.toCheckDateString
 import de.westnordost.streetcomplete.quests.TestMapDataWithGeometry
 import de.westnordost.streetcomplete.quests.verifyAnswer
@@ -105,7 +106,7 @@ class AddCyclewayPartSurfaceTest {
             mapOf("cycleway:surface" to "asphalt", "check_date:cycleway:surface" to "2000-10-10"),
             SurfaceAnswer(Surface.ASPHALT),
             StringMapEntryModify("cycleway:surface", "asphalt", "asphalt"),
-            StringMapEntryModify("check_date:cycleway:surface", "2000-10-10", LocalDate.now().toCheckDateString()),
+            StringMapEntryModify("check_date:cycleway:surface", "2000-10-10", nowAsCheckDateString()),
         )
     }
 
@@ -169,7 +170,7 @@ class AddCyclewayPartSurfaceTest {
             mapOf(
                 "surface" to "paving_stones",
                 "cycleway:surface" to "paving_stones",
-                "footway:surface" to "paving_stones",
+                "footway:surface" to "gravel",
             ),
             SurfaceAnswer(Surface.CONCRETE),
             StringMapEntryModify("cycleway:surface", "paving_stones", "concrete"),
