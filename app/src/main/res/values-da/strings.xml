@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="action_settings">"Indstillinger"</string>
-    <string name="oauth_communication_error">"Kan ikke tilgå autoriseringsserveren"</string>
+    <string name="oauth_communication_error">"Kan ikke tilgå godkendelsesserveren"</string>
     <string name="oauth_failed_permissions">"Godkendelse mislykkedes: alle de angivne tilladelser skal gives"</string>
 
     <!-- Settings screen -->
@@ -441,7 +441,6 @@ Ellers kan du downloade et andet keyboard i Play Store. Populære keyboards der 
     <string name="quest_powerPolesMaterial_metal">"Stål"</string>
     <string name="quest_powerPolesMaterial_concrete">"Beton"</string>
     <string name="quest_maxspeed_answer_advisory_speed_limit">"Kun en anbefalet hastighedsgrænse…"</string>
-    <string name="quest_address_answer_house_name">"Intet husnummer men et navn…"</string>
     <string name="quest_address_house_name_label">"Husnavn:"</string>
     <string name="quest_buildingLevels_roofLevelsLabel2">"etager i taget"</string>
     <string name="quest_buildingLevels_levelsLabel2">"normale etager (eksl. taget)"</string>
@@ -947,9 +946,6 @@ Opdel den nu?"</string>
     <string name="about_summary_current_version">"Nuværende version:  %s"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_postboxRef_title">"Hvad er identifikationsnummeret for denne postkasse?"</string>
-
-    <!-- Fuzzy -->
     <string name="quest_ref_answer_noRef">"Intet synligt referencenummer…"</string>
 
     <!-- Fuzzy -->
@@ -1202,9 +1198,10 @@ Bemærk, at denne app kun spørger efter en bygnings husnummer, når dens bygnin
     <string name="user_profile_days_active">"Dage
 aktiv"</string>
     <string name="user_profile_achievement_levels">"Præstationsniveau"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_address_street_no_named_streets">"Det tilhører ikke en gade/vej med navn"</string>
     <string name="quest_address_street_place_name_label">"Stednavn:"</string>
-    <string name="quest_address_street_description">"Tryk på vejen det hører til på kortet, ellers skriv det uden forkortelser i feltet herunder:"</string>
     <string name="quest_recycling_type_cooking_oil">"Madolie"</string>
     <string name="quest_recycling_type_engine_oil">"Motorolie"</string>
     <string name="link_photon_description">"Selvstændig udvidelse til Nominatim som indeholder fuzzy søgning og søg-mens-du-taster funktion"</string>
@@ -1337,9 +1334,6 @@ fortrolighedserklæring&lt;/a&gt;  for mere information.&lt;/p&gt;"</string>
     <string name="quest_maxheight_answer_noSign_question_no">"Høje lastbiler kan ikke passere"</string>
 
     <!-- Fuzzy -->
-    <string name="quest_address_street_hint">"Tryk på vejen på kortet"</string>
-
-    <!-- Fuzzy -->
     <string name="quest_crossing_type_marked">"Markeret fodgængerfelt"</string>
 
     <!-- Fuzzy -->
@@ -1362,7 +1356,7 @@ fortrolighedserklæring&lt;/a&gt;  for mere information.&lt;/p&gt;"</string>
     <!-- Svar på spørgsmålet "Denne butik har stået tom. Hvad er her nu?" -->
     <string name="quest_shop_gone_vacant_answer">"Den står tom"</string>
     <string name="quest_shop_gone_replaced_answer">"En/Et…"</string>
-    <string name="quest_shop_gone_replaced_answer_hint">"Indtast her hvilken slags sted"</string>
+    <string name="quest_shop_gone_replaced_answer_hint">"Indtast type sted her"</string>
 
     <!-- Fuzzy -->
     <string name="quest_shop_vacant_type_title">"Denne butik har stået tom. Hvad er her nu?"</string>
@@ -1568,7 +1562,6 @@ Data fornyes efter %1$s dage og ubrugte data slettes automatisk efter %2$s dage.
 
     <!-- Fuzzy -->
     <string name="quest_postboxCollectionTimes_resurvey_title">"Er tømningstider på denne postkasse stadigvæk korrekte?"</string>
-    <string name="quest_shop_gone_replaced_answer_error2">"Ej genkendt. Prøv at indtaste typen af sted, f.eks. \"bageri\". Ellers overvej at efterlade en note."</string>
     <string name="quest_bicycle_barrier_type_title">"Hvilken type cykelchikane er dette?"</string>
     <string name="quest_barrier_bicycle_type_diagonal">"Diagonal i forhold til stien"</string>
     <string name="quest_barrier_bicycle_type_tilted">"Snæver passage, smallere mod toppen"</string>
@@ -1611,7 +1604,6 @@ Data fornyes efter %1$s dage og ubrugte data slettes automatisk efter %2$s dage.
     <string name="street_parking_conditional_restrictions_hint">"Hvis det overhovedet er muligt at parkere eller standse her, skal du først svare på, hvordan de, der har lov til det, parkerer her. Hvilke begrænsninger der præcist gælder, kan specificeres senere.
 
 Alternativt kan du efterlade en note (med et foto)."</string>
-    <string name="quest_address_answer_house_name_and_housenumber">"Både et husnummer og et navn…"</string>
     <string name="quest_address_house_number_label">"Husnummer:"</string>
 
     <!-- Fuzzy -->
@@ -1909,13 +1901,15 @@ sorted alphabetically by title -->
     <string name="link_opencampingmap_description">"Et kort over campingpladser"</string>
     <string name="quest_atm_cashin_title">"Kan man indbetale kontanter i denne pengeautomat?"</string>
     <string name="create_node_action_description">"Du oprettede et punkt med …"</string>
-    <string name="quest_accessPointRef_title">"Hvilket identifikationsnummer er der her?"</string>
     <string name="quest_accessPointRef_answer_assembly_point">"Det er et samlingssted"</string>
     <string name="quest_accessPointRef_detailed_answer_impossible_confirmation">"Et samlingssted er et sted, hvor folk samles i tilfælde af en nødsituation. Det ligner normalt dette:"</string>
+
+    <!-- Fuzzy -->
     <string name="quest_address_answer_house_name2">"Det har et husnavn …"</string>
     <string name="quest_address_street_street_name_label">"Gadenavn:"</string>
     <string name="quest_address_street_hint2">"Tryk på gaden på kortet for at vælge den"</string>
     <string name="quest_bicycle_incline_title">"Hvilken retning fører opad her?"</string>
+    <string name="quest_bicycle_incline_up_and_down">"Det er op og ned hop"</string>
     <string name="quest_drinking_water_type_title">"Hvordan leveres drikkevand her?"</string>
     <string name="quest_drinking_water_type_generic_water_fountain">"Anden vandfontæne"</string>
     <string name="quest_drinking_water_type_jet_water_fountain">"Vandfontæne, der udsender en lille vandstråle"</string>
@@ -1929,5 +1923,43 @@ sorted alphabetically by title -->
     <string name="overlay_shops">"Butikker"</string>
     <string name="name_label">"Navn:"</string>
     <string name="vacant_shop_title">"Tom butik"</string>
+
+    <!-- Used for places unknown by iD presets. Does not mean it is invalid. The wording that it is "unknown" is avoided so that the user does not think an action is necessary from him -->
+    <!-- Fuzzy -->
     <string name="unknown_shop_title">"Ukendt type sted"</string>
+    <string name="quest_address_answer_no_address">"Ingen adresse her"</string>
+
+    <!-- Fuzzy -->
+    <string name="quest_bicycle_barrier_installation_title">"Kan denne cykelbarriere åbnes?"</string>
+    <string name="quest_barrier_bicycle_installation_fixed">"Fast"</string>
+    <string name="quest_barrier_bicycle_installation_openable">"Kan åbnes"</string>
+    <string name="quest_barrier_bicycle_installation_removable">"Kan fjernes"</string>
+    <string name="quest_buildingType_guardhouse">"Vagtbygning"</string>
+    <string name="quest_genericRef_title">"Hvilket identifikationsnummer er der her?"</string>
+    <string name="quest_sidewalk_answer_different">"Fortovet er anderledes"</string>
+    <string name="about_title_get_involved">"Deltag i arbejdet"</string>
+    <string name="pref_category_quests_overlays">"Opgaver og overlejringer"</string>
+    <string name="quest_presets_rename">"Omdøb"</string>
+    <string name="quest_presets_share">"Del"</string>
+    <string name="quest_presets_delete">"Slet"</string>
+
+    <!-- Config via URL/QRCode -->
+    <string name="urlconfig_qr_code_description">"Del din forudindstilling ved at lade andre scanne denne QR-kode."</string>
+    <string name="urlconfig_as_url">"Eller som URL:"</string>
+    <string name="urlconfig_url_copied">"URL kopieret til udklipsholder"</string>
+    <string name="urlconfig_apply_title">"Anvend forudindstilling"</string>
+    <string name="urlconfig_apply_message">"Anvend og vælg forudindstilling %1$s?"</string>
+    <string name="urlconfig_apply_message_overwrite">"Bemærk: Din forudindstilling med samme navn vil blive overskrevet!"</string>
+    <string name="urlconfig_switch_hint">"Du kan til enhver tid skifte forindstillinger i indstillingerne."</string>
+    <string name="quest_bicycle_parking_type_two_tier">"Cykelstativ i to niveauer"</string>
+
+    <!-- Fuzzy -->
+    <string name="user_profile_current_week_title">"Denne uge"</string>
+
+    <!-- Fuzzy -->
+    <string name="user_profile_dates_mapped">"Dage, hvor du har kortlagt for nylig"</string>
+
+    <!-- A kind of second-grade cycle lane. It has a lower minimum width and other traffic may drive or even legally stop on it and thus conceptually akin to "sharrows". It is often used in places where there is not enough space for both full car lanes and full cycle lanes. Hence it is usually not mandatory for cyclists. The concept of such a cycle lanes only exists in some countries. It is called differently in different countries, some examples: "advisory cycle lane" (GB), "suggestion cycle lane" (NL,BE), "protective lane" (DE,CZ), "multiple-purpose strip" (AT), see https://github.com/streetcomplete/countrymetadata/blob/master/data/hasAdvisoryCycleLane.yml if you think somehting is missing -->
+    <string name="quest_cycleway_value_advisory_lane">"2-minus-1-vej"</string>
+    <string name="urlconfig_scan_qr_code_again2">"Når du har installeret appen, skal du scanne QR-koden igen eller klikke på &lt;a href=\"%s\"&gt;dette link&lt;/a&gt; for at anvende forudindstillingen."</string>
 </resources>
