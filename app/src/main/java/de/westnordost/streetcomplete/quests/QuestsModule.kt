@@ -127,7 +127,6 @@ import de.westnordost.streetcomplete.quests.segregated.AddCyclewaySegregation
 import de.westnordost.streetcomplete.quests.self_service.AddSelfServiceLaundry
 import de.westnordost.streetcomplete.quests.shop_type.CheckShopType
 import de.westnordost.streetcomplete.quests.shop_type.SpecifyShopType
-import de.westnordost.streetcomplete.quests.shoulder.AddShoulder
 import de.westnordost.streetcomplete.quests.sidewalk.AddSidewalk
 import de.westnordost.streetcomplete.quests.smoking.AddSmoking
 import de.westnordost.streetcomplete.quests.smoothness.AddPathSmoothness
