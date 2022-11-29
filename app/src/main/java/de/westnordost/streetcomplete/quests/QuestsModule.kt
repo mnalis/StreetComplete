@@ -482,7 +482,9 @@ fun questTypeRegistry(
     *  for the sign which is one reason why it is disabled by default */
     149 to AddMaxSpeed(),
 
-    139 to AddShoulder(), // needs minimal thinking
+    // disabled completely because definition is too fuzzy/broad to be useful and easy to answer,
+    // see https://community.openstreetmap.org/t/shoulder-tag-is-confusing/5185
+    //139 to AddShoulder(), // needs minimal thinking
     138 to AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
 
     /* ↓ 6.quests that are not very important to /mn/  -------------------------------------- */
