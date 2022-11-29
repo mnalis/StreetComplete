@@ -19,7 +19,7 @@ global:
     water_color: [0.106, 0.122, 0.243, 1.00]
     green_color: [0.137, 0.145, 0.125, 1.00]
     forest_color: [0.067, 0.110, 0.078, 1.00]
-    town_color: [0.087, 0.090, 0.090, 1.00]
+    town_color: [0.0, 0.0, 0.0, 1.00]
 
     # alpha is shown as double of what is specified https://github.com/tangrams/tangram-es/issues/2333
     building_color: [0.153, 0.094, 0.086, 0.40]
