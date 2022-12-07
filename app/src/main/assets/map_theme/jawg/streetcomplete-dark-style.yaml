@@ -30,7 +30,7 @@ global:
     oneway_arrow_color: '#ccf'
     barrier_color: [0.502, 0.498, 0.486, 1.00]
 
-    tunnel_color: [0., 0., 0., 0.2]
+    tunnel_color: [0.3, 0.2, 1.0, 0.2]
 
 styles:
     buildings-style:

@@ -113,10 +113,10 @@ class AddFootwayPartSurfaceTest {
             mapOf(
                 "footway:surface" to "asphalt",
                 "cycleway:surface" to "gravel",
-                "smoothness" to "intermediate"
+                "footway:smoothness" to "intermediate"
             ),
             SurfaceAnswer(Surface.PAVING_STONES),
-            StringMapEntryDelete("smoothness", "intermediate"),
+            StringMapEntryDelete("footway:smoothness", "intermediate"),
             StringMapEntryModify("footway:surface", "asphalt", "paving_stones")
         )
     }
@@ -129,7 +129,9 @@ class AddFootwayPartSurfaceTest {
                 "smoothness" to "good"
             ),
             SurfaceAnswer(Surface.PAVING_STONES),
-            StringMapEntryAdd("footway:surface", "paving_stones")
+            StringMapEntryAdd("footway:surface", "paving_stones"),
+            StringMapEntryModify("surface", "paving_stones", "paving_stones"),
+            StringMapEntryAdd("check_date:surface", nowAsCheckDateString()),
         )
     }
 
