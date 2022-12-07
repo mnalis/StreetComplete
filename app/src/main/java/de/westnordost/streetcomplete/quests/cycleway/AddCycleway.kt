@@ -190,7 +190,7 @@ private val roadsFilter by lazy { """
 private val untaggedRoadsFilter by lazy { """
     ways with (
         highway ~ primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|unclassified
-        or highway = residential and (maxspeed > 33 or $notIn30ZoneOrLess)
+        or highway ~ residential|service|pedestrian
       )
       and !cycleway
       and !cycleway:left
