@@ -39,9 +39,12 @@ fun LeftAndRightCycleway.isNotOnewayForCyclistsNow(tags: Map<String, String>, is
     val previous = createCyclewaySides(tags, isLeftHandTraffic)
     val l = (left ?: previous?.left)
     val r = (right ?: previous?.right)
-    // "no cycleway" has no direction and should be ignored
-    val leftDir = l?.direction?.takeIf { l.cycleway != NONE }
-    val rightDir = r?.direction?.takeIf { r.cycleway != NONE }
+    /* "no cycleway" has no direction and should be ignored
+       "separate" should also be ignored because if the cycleway is mapped separately, the existance
+       of a separate way that enables cyclists to go in contra-flow-direction doesn't mean that they
+       can do the same on the main way for the road too (see #4715) */
+    val leftDir = l?.direction?.takeIf { l.cycleway != NONE && l.cycleway != SEPARATE }
+    val rightDir = r?.direction?.takeIf { r.cycleway != NONE && r.cycleway != SEPARATE }
 
     return leftDir == BOTH || rightDir == BOTH ||
         leftDir != null && leftDir != onewayDir ||
@@ -53,8 +56,8 @@ data class CyclewayAndDirection(val cycleway: Cycleway, val direction: Direction
 
 fun CyclewayAndDirection.isSelectable(countryInfo: CountryInfo): Boolean =
     cycleway.isSelectable(countryInfo) &&
-    // only allow dual track and dual lanes (not dual pictograms or something)
-    (direction != BOTH || cycleway == TRACK || cycleway == UNSPECIFIED_LANE || cycleway == EXCLUSIVE_LANE)
+    // only allow dual track, dual lanes and "dual" sidewalk (not dual pictograms or something)
+    (direction != BOTH || cycleway in listOf(TRACK, UNSPECIFIED_LANE, EXCLUSIVE_LANE, SIDEWALK_EXPLICIT))
 
 @Serializable
 enum class Direction {
@@ -162,8 +165,11 @@ fun Cycleway.isAmbiguous(countryInfo: CountryInfo) = when (this) {
 fun getSelectableCycleways(
     countryInfo: CountryInfo,
     roadTags: Map<String, String>,
-    direction: Direction
+    isRightSide: Boolean,
+    isLeftHandTraffic: Boolean,
+    direction: Direction?
 ): List<CyclewayAndDirection> {
+    val dir = direction?.takeUnless { it == BOTH } ?: Direction.getDefault(isRightSide, isLeftHandTraffic)
     val cycleways = mutableListOf(
         TRACK,
         EXCLUSIVE_LANE,
@@ -198,11 +204,10 @@ fun getSelectableCycleways(
         cycleways.remove(SUGGESTION_LANE)
     }
     // different wording for a contraflow lane that is marked like a "shared" lane (just bicycle pictogram)
-    if (isInContraflowOfOneway(roadTags, direction)) {
-        cycleways.remove(PICTOGRAMS)
+    if (isInContraflowOfOneway(roadTags, dir)) {
         cycleways.add(cycleways.indexOf(NONE) + 1, NONE_NO_ONEWAY)
     }
-    return cycleways.map { CyclewayAndDirection(it, direction) } + dualCycleways
+    return cycleways.map { CyclewayAndDirection(it, dir) } + dualCycleways
 }
 
 /** Return the default direction of a cycleway if nothing is specified */
