@@ -45,7 +45,7 @@ From `upstream-helium314-new` (and `upstream-helium314-old`?) branches:
 * move "no cycleway" answer to different position  (commit 1af6ce536211bd005a927414b372aa3c360f0620)
 
 ## TODO
-* FIXME all "mnalis:" commits in mnalis-everything but not in mnalis-v42b1
+* FIXME all "mnalis:" and "/mn/" commits in mnalis-everything but not in mnalis-v42b1
   (and move that all as PRs for Helium314 SC-EE branch!)
 * update APK build code, and put date/version/last commit in filename.
   Also, is it possible to download apk directly from actions, or must it be packed in debug.zip ?
