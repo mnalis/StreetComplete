@@ -45,6 +45,12 @@ styles:
     geometry-lines:
         base: lines
         blend: overlay
+        texcoords: true
+        shaders:
+            blocks:
+                color: |
+                    float y = step(0.33, mod(v_texcoord.y / 2.0 + u_time, 1.0));
+                    color.a = color.a * y;
     geometry-polygons:
         base: polygons
         blend: overlay
