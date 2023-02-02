@@ -19,7 +19,7 @@ class AddGritBinSeasonal : OsmFilterQuestType<Boolean>() {
     override val wikiLink = "Key:seasonal"
     override val icon = R.drawable.ic_quest_calendar
     override val achievements = listOf(CITIZEN)
-    override val defaultDisabledMessage = R.string.default_disabled_msg_seasonal
+    //override val defaultDisabledMessage = R.string.default_disabled_msg_seasonal
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_gritBinSeasonal_title
 
