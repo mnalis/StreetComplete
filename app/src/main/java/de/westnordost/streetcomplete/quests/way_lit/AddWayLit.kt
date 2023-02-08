@@ -39,6 +39,7 @@ class AddWayLit : OsmFilterQuestType<WayLitOrIsStepsAnswer>() {
           or lit older today -16 years
         )
         and indoor != yes
+        and ~path|footway|cycleway !~ link
     """
 
     override val changesetComment = "Specify whether ways are lit"
