@@ -4,6 +4,7 @@ This file details changes made in https://github.com/mnalis/StreetComplete/tree/
 as modified from upstream https://github.com/streetcomplete/StreetComplete
 
 From `mnalis-v42b1` branch:
+* ask building type for building=maybe
 * update email/github links to this repository
   so upstream is not bothered with bugs introduced here
 * show ALL notes
