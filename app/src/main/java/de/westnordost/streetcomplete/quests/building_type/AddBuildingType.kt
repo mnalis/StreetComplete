@@ -13,7 +13,7 @@ class AddBuildingType : OsmFilterQuestType<BuildingType>() {
     // or question would be confusing as there is no matching reply in available answers
     // same goes (more or less) for tourism, amenity, leisure. See #1854, #1891, #3233
     override val elementFilter = """
-        ways, relations with (building = yes or building = unclassified)
+        ways, relations with (building = yes or building = unclassified or building = maybe)
          and !man_made
          and !historic
          and !military
