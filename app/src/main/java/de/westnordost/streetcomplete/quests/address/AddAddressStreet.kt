@@ -61,6 +61,14 @@ class AddAddressStreet : OsmElementQuestType<StreetOrPlaceName> {
     override fun isApplicableTo(element: Element): Boolean? =
         if (!filter.matches(element)) false else null
 
+    /* /mn/ highlight recently added addresses in StreetName quest too, not HouseNumber quest only */
+    override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
+        getMapData().filter("""
+            nodes, ways, relations with
+            (addr:housenumber or addr:housename or addr:conscriptionnumber or addr:streetnumber)
+            and !name and !brand and !operator and !ref
+        """.toElementFilterExpression())
+
     override fun createForm() = AddAddressStreetForm()
 
     override fun applyAnswerTo(answer: StreetOrPlaceName, tags: Tags, geometry: ElementGeometry, timestampEdited: Long) {
