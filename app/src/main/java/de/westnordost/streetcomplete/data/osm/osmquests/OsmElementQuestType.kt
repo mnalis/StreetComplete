@@ -95,7 +95,7 @@ interface OsmElementQuestType<T> : QuestType, ElementEditType {
     /** The radius in which certain elements should be shown (see getHighlightedElements).
      *  30m is the default because this is about "across this large street". There shouldn't be
      *  any misunderstandings which element is meant that far apart. */
-    val highlightedElementsRadius: Double get() = 30.0
+    val highlightedElementsRadius: Double get() = 60.0
 
     /** Applies the data from [answer] to the element that has last been edited at [timestampEdited]
      * with the given [tags] and the given [geometry].
