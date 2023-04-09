@@ -1,11 +1,13 @@
 package de.westnordost.streetcomplete.quests.lanes
 
 import de.westnordost.streetcomplete.R
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.CAR
-import de.westnordost.streetcomplete.osm.ANYTHING_PAVED
+import de.westnordost.streetcomplete.osm.MAXSPEED_TYPE_KEYS
 import de.westnordost.streetcomplete.osm.ROADS_ASSUMED_TO_BE_PAVED
 import de.westnordost.streetcomplete.osm.Tags
+import de.westnordost.streetcomplete.osm.surface.ANYTHING_PAVED
 
 class AddLanes : OsmFilterQuestType<LanesAnswer>() {
 
@@ -21,6 +23,7 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
           and placement != transition
           and (access !~ private|no or (foot and foot !~ private|no))
     """
+
     override val changesetComment = "Determine roads lane count"
     override val wikiLink = "Key:lanes"
     override val icon = R.drawable.ic_quest_street_lanes
@@ -30,7 +33,7 @@ class AddLanes : OsmFilterQuestType<LanesAnswer>() {
 
     override fun createForm() = AddLanesForm()
 
-    override fun applyAnswerTo(answer: LanesAnswer, tags: Tags, timestampEdited: Long) {
+    override fun applyAnswerTo(answer: LanesAnswer, tags: Tags, geometry: ElementGeometry, timestampEdited: Long) {
 
         val laneCount = answer.total
 

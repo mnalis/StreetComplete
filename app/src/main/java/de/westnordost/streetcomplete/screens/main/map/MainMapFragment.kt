@@ -231,7 +231,6 @@ class MainMapFragment : LocationAwareMapFragment(), ShowsGeometryMarkers {
 
     fun hideOverlay() {
         styleableOverlayMapComponent?.isVisible = false
-        styleableOverlayMapComponent?.isVisible = false
     }
 
     fun highlightGeometry(geometry: ElementGeometry) {
@@ -245,6 +244,10 @@ class MainMapFragment : LocationAwareMapFragment(), ShowsGeometryMarkers {
         selectedPinsMapComponent?.clear()
         geometryMapComponent?.clearGeometry()
         geometryMarkersMapComponent?.clear()
+    }
+
+    fun clearSelectedPins() {
+        selectedPinsMapComponent?.clear()
     }
 
     /* ----------------------------  Markers for current highlighting --------------------------- */

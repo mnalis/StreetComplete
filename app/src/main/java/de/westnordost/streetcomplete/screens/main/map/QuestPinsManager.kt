@@ -133,7 +133,7 @@ class QuestPinsManager(
         properties.toQuestKey()
 
     fun onNewScreenPosition() {
-        if (!isVisible) return
+        if (!isStarted || !isVisible) return
         val zoom = ctrl.cameraPosition.zoom
         // require zoom >= 14, which is the lowest zoom level where quests are shown
         if (zoom < 14) return
@@ -170,6 +170,7 @@ class QuestPinsManager(
         synchronized(pinsMapComponent) {
             if (coroutineContext.isActive) {
                 pinsMapComponent.set(pins)
+                ctrl.requestRender()
             }
         }
     }
@@ -187,6 +188,7 @@ class QuestPinsManager(
             synchronized(pinsMapComponent) {
                 if (coroutineContext.isActive) {
                     pinsMapComponent.set(pins)
+                    ctrl.requestRender()
                 }
             }
         }

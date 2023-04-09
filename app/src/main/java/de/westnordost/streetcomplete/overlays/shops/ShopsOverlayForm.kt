@@ -26,7 +26,7 @@ import de.westnordost.streetcomplete.osm.applyTo
 import de.westnordost.streetcomplete.osm.createLocalizedNames
 import de.westnordost.streetcomplete.osm.replaceShop
 import de.westnordost.streetcomplete.overlays.AbstractOverlayForm
-import de.westnordost.streetcomplete.quests.AnswerItem
+import de.westnordost.streetcomplete.overlays.AnswerItem
 import de.westnordost.streetcomplete.quests.LocalizedNameAdapter
 import de.westnordost.streetcomplete.util.getLocalesForFeatureDictionary
 import de.westnordost.streetcomplete.util.getLocationLabel
@@ -50,22 +50,24 @@ class ShopsOverlayForm : AbstractOverlayForm() {
 
     private val prefs: SharedPreferences by inject()
 
+    private var originalFeature: Feature? = null
+    private var originalNoName: Boolean = false
+    private var originalNames: List<LocalizedName> = emptyList()
+
     private lateinit var featureCtrl: FeatureViewController
+    private var isNoName: Boolean = false
+    private var namesAdapter: LocalizedNameAdapter? = null
 
-    private var feature: Feature? = null
-    private var names: List<LocalizedName> = emptyList()
-
-    private var adapter: LocalizedNameAdapter? = null
-
-    override val otherAnswers = listOf(
-        AnswerItem(R.string.quest_shop_gone_vacant_answer) { setVacant() }
+    override val otherAnswers get() = listOfNotNull(
+        AnswerItem(R.string.quest_shop_gone_vacant_answer) { setVacant() },
+        createNoNameAnswer()
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val element = element
-        feature = element?.let {
+        originalFeature = element?.let {
             if (IS_DISUSED_SHOP_EXPRESSION.matches(element)) {
                 createVacantShop(requireContext().resources)
             } else {
@@ -85,6 +87,8 @@ class ShopsOverlayForm : AbstractOverlayForm() {
                 )
             }
         }
+        originalNoName = element?.tags?.get("name:signed") == "no" || element?.tags?.get("noname") == "yes"
+        isNoName = savedInstanceState?.getBoolean(NO_NAME) ?: originalNoName
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -96,7 +100,7 @@ class ShopsOverlayForm : AbstractOverlayForm() {
 
         featureCtrl = FeatureViewController(featureDictionary, binding.featureTextView, binding.featureIconView)
         featureCtrl.countryOrSubdivisionCode = countryOrSubdivisionCode
-        featureCtrl.feature = feature
+        featureCtrl.feature = originalFeature
 
         binding.featureView.setOnClickListener {
             SearchFeaturesDialog(
@@ -110,7 +114,7 @@ class ShopsOverlayForm : AbstractOverlayForm() {
             ).show()
         }
 
-        names = createLocalizedNames(element?.tags.orEmpty()).orEmpty()
+        originalNames = createLocalizedNames(element?.tags.orEmpty()).orEmpty()
 
         val persistedNames = savedInstanceState?.getString(LOCALIZED_NAMES_DATA)?.let { Json.decodeFromString<List<LocalizedName>>(it) }
 
@@ -123,7 +127,7 @@ class ShopsOverlayForm : AbstractOverlayForm() {
         }
 
         val adapter = LocalizedNameAdapter(
-            persistedNames ?: names.map { it.copy() },
+            persistedNames ?: originalNames.map { it.copy() },
             requireContext(),
             selectableLanguages,
             null,
@@ -133,16 +137,18 @@ class ShopsOverlayForm : AbstractOverlayForm() {
         adapter.addOnNameChangedListener { checkIsFormComplete() }
         adapter.registerAdapterDataObserver(AdapterDataChangedWatcher { checkIsFormComplete() })
         lifecycle.addObserver(adapter)
-        this.adapter = adapter
+        namesAdapter = adapter
         binding.nameContainer.namesList.adapter = adapter
         binding.nameContainer.namesList.isNestedScrollingEnabled = false
 
         updateNameContainerVisibility()
+        updateNoNameHint()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        adapter?.names?.let { outState.putString(LOCALIZED_NAMES_DATA, Json.encodeToString(it)) }
+        namesAdapter?.names?.let { outState.putString(LOCALIZED_NAMES_DATA, Json.encodeToString(it)) }
+        outState.putBoolean(NO_NAME, isNoName)
     }
 
     private fun filterOnlyShops(feature: Feature): Boolean {
@@ -155,7 +161,7 @@ class ShopsOverlayForm : AbstractOverlayForm() {
         // clear (previous) names if selected feature contains already a name (i.e. is a brand feature)
         // or is vacant
         if (feature.addTags?.get("name") != null || feature.id == "shop/vacant") {
-            adapter?.names = emptyList()
+            namesAdapter?.names = emptyList()
         }
 
         updateNameContainerVisibility()
@@ -164,6 +170,16 @@ class ShopsOverlayForm : AbstractOverlayForm() {
 
     private fun setVacant() {
         onSelectedFeature(createVacantShop(requireContext().resources))
+    }
+
+    private fun createNoNameAnswer(): AnswerItem? =
+        if (featureCtrl.feature == null || isNoName) null
+        else AnswerItem(R.string.quest_placeName_no_name_answer) { setNoName() }
+
+    private fun setNoName() {
+        isNoName = true
+        namesAdapter?.names = listOf()
+        updateNoNameHint()
     }
 
     private fun updateNameContainerVisibility() {
@@ -179,21 +195,28 @@ class ShopsOverlayForm : AbstractOverlayForm() {
         binding.nameLabel.isGone = isNameInputInvisible
     }
 
+    private fun updateNoNameHint() {
+        val showHint = isNoName && namesAdapter?.names?.isEmpty() == true
+        namesAdapter?.emptyNamesHint = if (showHint) getString(R.string.quest_placeName_no_name_answer) else null
+    }
+
     override fun hasChanges(): Boolean =
-        feature != featureCtrl.feature || names != adapter?.names
+        originalFeature != featureCtrl.feature || originalNames != namesAdapter?.names
+        || originalNoName != isNoName
 
     override fun isFormComplete(): Boolean =
         featureCtrl.feature != null // name is not necessary
 
     override fun onClickOk() {
-        val firstLanguage = adapter?.names?.firstOrNull()?.languageTag?.takeIf { it.isNotBlank() }
+        val firstLanguage = namesAdapter?.names?.firstOrNull()?.languageTag?.takeIf { it.isNotBlank() }
         if (firstLanguage != null) prefs.edit { putString(PREFERRED_LANGUAGE_FOR_NAMES, firstLanguage) }
 
         viewLifecycleScope.launch {
             applyEdit(createEditAction(
                 element, geometry,
-                adapter?.names.orEmpty(), names,
-                featureCtrl.feature!!, feature,
+                namesAdapter?.names.orEmpty(), originalNames,
+                featureCtrl.feature!!, originalFeature,
+                isNoName,
                 ::confirmReplaceShop
             ))
         }
@@ -212,6 +235,7 @@ class ShopsOverlayForm : AbstractOverlayForm() {
 
     companion object {
         private const val LOCALIZED_NAMES_DATA = "localized_names_data"
+        private const val NO_NAME = "NO_NAME"
     }
 }
 
@@ -222,52 +246,64 @@ private suspend fun createEditAction(
     previousNames: List<LocalizedName>,
     newFeature: Feature,
     previousFeature: Feature?,
+    isNoName: Boolean,
     confirmReplaceShop: suspend () -> Boolean
 ): ElementEditAction {
     val tagChanges = StringMapChangesBuilder(element?.tags ?: emptyMap())
 
-    if (element != null) {
-        /* Do not replace shop if:
-           + only a name was added (name was missing before; user wouldn't be able to answer if
-             the place changed or not anyway, so rather keep previous information)
-           + only the feature was changed but the non-empty name did not change (if it was a
-             different shop now, it would also have a different name)
+    val hasAddedNames = previousNames.isEmpty() && newNames.isNotEmpty()
+    val hasChangedNames = previousNames != newNames
+    val hasChangedFeature = newFeature != previousFeature
+    val isFeatureWithName = newFeature.addTags?.get("name") != null
+    val wasFeatureWithName = previousFeature?.addTags?.get("name") != null
+    val wasVacant = element != null && IS_DISUSED_SHOP_EXPRESSION.matches(element)
+    val isVacant = newFeature.id == "shop/vacant"
 
-           Ask whether it is still the same shop if:
-           + the name was changed
-           + the feature was changed and the name was empty before
+    val doReplaceShop =
+        // do not replace shop if:
+        if (
+            // only a name was added (name was missing before; user wouldn't be able to answer
+            // if the place changed or not anyway, so rather keep previous information)
+            hasAddedNames && !hasChangedFeature
+            // only the feature was changed, the non-empty name did not change (if it was a
+            // different shop now, it would also have a different name)
+            || hasChangedFeature && !hasChangedNames && previousNames.isNotEmpty()
+            // place has been added, nothing to replace
+            || element == null
+        ) false
+        // always replace if:
+        else if (
+            // the feature is a brand feature or was a brand feature (i.e. overwrites the name)
+            isFeatureWithName || wasFeatureWithName
+            // was vacant before but not anymore (-> cleans up any previous tags that may be
+            // associated with the old place
+            || wasVacant && hasChangedFeature
+            // it's vacant now
+            || isVacant
+        ) true
+        // ask whether it is still the same shop if:
+        // + the name was changed
+        // + the feature was changed and the name was empty before
+        else confirmReplaceShop()
 
-           Always replace shop if:
-           + the feature now or previous feature is a brand feature (i.e. it also overwrites the name)
-         */
-        val hasAddedNames = previousNames.isEmpty() && newNames.isNotEmpty()
-        val hasChangedNames = previousNames != newNames
-        val hasChangedFeature = newFeature != previousFeature
-        val isFeatureWithName = newFeature.addTags?.get("name") != null
-        val wasFeatureWithName = previousFeature?.addTags?.get("name") != null
-
-        val doReplaceShop =
-            if (hasAddedNames && !hasChangedFeature
-                || hasChangedFeature && !hasChangedNames && previousNames.isNotEmpty()
-            ) false
-            else if (isFeatureWithName || wasFeatureWithName) true
-            else confirmReplaceShop()
-
-        if (doReplaceShop) {
-            tagChanges.replaceShop(newFeature.addTags)
-        } else {
-            for ((key, value) in previousFeature?.removeTags.orEmpty()) {
-                tagChanges.remove(key)
-            }
-            for ((key, value) in newFeature.addTags) {
-                tagChanges[key] = value
-            }
+    if (doReplaceShop) {
+        tagChanges.replaceShop(newFeature.addTags)
+    } else {
+        for ((key, value) in previousFeature?.removeTags.orEmpty()) {
+            tagChanges.remove(key)
+        }
+        for ((key, value) in newFeature.addTags) {
+            tagChanges[key] = value
         }
     }
 
-    newNames.applyTo(tagChanges)
-    if (tagChanges["name"] != null) {
-        tagChanges.remove("noname")
+    if (!isFeatureWithName) {
+        // in this case name input was not even shown so newNames will be empty
+        // newNames should not be applied as it will erase names provided by NSI
+        newNames.applyTo(tagChanges)
+    }
+    if (newNames.isEmpty() && isNoName) {
+        tagChanges["name:signed"] = "no"
     }
 
     return if (element != null) {

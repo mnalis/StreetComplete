@@ -17,6 +17,8 @@ import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 import kotlin.math.max
 
+/** Download the SVG preset icons referred to by the iD presets and convert them to Android
+ *  drawables. */
 open class DownloadAndConvertPresetIconsTask : DefaultTask() {
     @get:Input var targetDir: String? = null
     @get:Input var version: String? = null
@@ -225,6 +227,9 @@ open class DownloadAndConvertPresetIconsTask : DefaultTask() {
             "fab" -> listOf(
                 "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/$file.svg",
                 "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/brands/$file.svg",
+            )
+            "roentgen" -> listOf(
+                "https://raw.githubusercontent.com/openstreetmap/iD/develop/svg/roentgen/$file.svg"
             )
             else -> null
         }
