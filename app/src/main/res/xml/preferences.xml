@@ -18,7 +18,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="display"
+        android:key="quests_overlays"
         android:title="@string/pref_category_quests_overlays">
 
         <Preference
@@ -62,7 +62,7 @@
             android:key="theme.select"
             android:title="@string/pref_title_theme_select"
             app:useSimpleSummaryProvider="true"
-            android:defaultValue="AUTO"
+            android:defaultValue="@string/default_theme"
             android:entries="@array/pref_entries_theme_select"
             android:entryValues="@array/pref_entryvalues_theme_select"
             android:persistent="true" />

@@ -1,12 +1,16 @@
 package de.westnordost.streetcomplete.quests.surface
 
 import de.westnordost.streetcomplete.R
+import de.westnordost.streetcomplete.data.osm.geometry.ElementGeometry
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.BICYCLIST
 import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.OUTDOORS
 import de.westnordost.streetcomplete.osm.Tags
+import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
+import de.westnordost.streetcomplete.osm.surface.applyTo
+import de.westnordost.streetcomplete.osm.surface.updateCommonSurfaceFromFootAndCyclewaySurface
 
-class AddCyclewayPartSurface : OsmFilterQuestType<SurfaceAnswer>() {
+class AddCyclewayPartSurface : OsmFilterQuestType<SurfaceAndNote>() {
 
     override val elementFilter = """
         ways with (
@@ -26,6 +30,7 @@ class AddCyclewayPartSurface : OsmFilterQuestType<SurfaceAnswer>() {
           )
         )
         and (access !~ private|no or (foot and foot !~ private|no) or (bicycle and bicycle !~ private|no))
+        and ~path|footway|cycleway|bridleway !~ link
     """
     override val changesetComment = "Specify cycleway path surfaces"
     override val wikiLink = "Key:surface"
@@ -36,14 +41,8 @@ class AddCyclewayPartSurface : OsmFilterQuestType<SurfaceAnswer>() {
 
     override fun createForm() = AddPathPartSurfaceForm()
 
-    override fun applyAnswerTo(answer: SurfaceAnswer, tags: Tags, timestampEdited: Long) {
+    override fun applyAnswerTo(answer: SurfaceAndNote, tags: Tags, geometry: ElementGeometry, timestampEdited: Long) {
         answer.applyTo(tags, "cycleway")
-        if (tags["cycleway:surface"] != null && tags["footway:surface"] != null) {
-            if (tags["footway:surface"] == tags["cycleway:surface"]) {
-                tags["surface"] = tags["cycleway:surface"]!!
-            } else {
-                tags.remove("surface")
-            }
-        }
+        updateCommonSurfaceFromFootAndCyclewaySurface(tags)
     }
 }

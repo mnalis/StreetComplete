@@ -29,9 +29,9 @@ import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsSource
 import de.westnordost.streetcomplete.data.visiblequests.VisibleQuestTypeSource
 import de.westnordost.streetcomplete.databinding.DialogDeleteCacheBinding
 import de.westnordost.streetcomplete.screens.HasTitle
-import de.westnordost.streetcomplete.screens.measure.MeasureActivity
 import de.westnordost.streetcomplete.screens.settings.debug.ShowLinksActivity
 import de.westnordost.streetcomplete.screens.settings.debug.ShowQuestFormsActivity
+import de.westnordost.streetcomplete.util.getDefaultTheme
 import de.westnordost.streetcomplete.util.getSelectedLocales
 import de.westnordost.streetcomplete.util.ktx.format
 import de.westnordost.streetcomplete.util.ktx.getYamlObject
@@ -122,16 +122,6 @@ class SettingsFragment :
             true
         }
 
-        findPreference<Preference>("debug.ar_measure_horizontal")?.setOnPreferenceClickListener {
-            startActivity(MeasureActivity.createIntent(requireContext(), false))
-            true
-        }
-
-        findPreference<Preference>("debug.ar_measure_vertical")?.setOnPreferenceClickListener {
-            startActivity(MeasureActivity.createIntent(requireContext(), true))
-            true
-        }
-
         buildLanguageSelector()
     }
 
@@ -182,7 +172,7 @@ class SettingsFragment :
                 }
             }
             Prefs.THEME_SELECT -> {
-                val theme = Prefs.Theme.valueOf(prefs.getString(Prefs.THEME_SELECT, "AUTO")!!)
+                val theme = Prefs.Theme.valueOf(prefs.getString(Prefs.THEME_SELECT, getDefaultTheme())!!)
                 AppCompatDelegate.setDefaultNightMode(theme.appCompatNightMode)
                 activity?.let { ActivityCompat.recreate(it) }
             }
