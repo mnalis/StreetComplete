@@ -24,6 +24,7 @@ suspend fun checkIsSurvey(
     geometry: ElementGeometry,
     locations: List<Location>
 ): Boolean {
+    return true
     if (dontShowAgain || isWithinSurveyDistance(geometry, locations)) {
         return true
     }
