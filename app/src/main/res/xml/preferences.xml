@@ -44,7 +44,7 @@
             android:key="autosync"
             android:title="@string/pref_title_sync2"
             app:useSimpleSummaryProvider="true"
-            android:defaultValue="ON"
+            android:defaultValue="OFF"
             android:entries="@array/pref_entries_autosync"
             android:entryValues="@array/pref_entryvalues_autosync"
             android:persistent="true" />
