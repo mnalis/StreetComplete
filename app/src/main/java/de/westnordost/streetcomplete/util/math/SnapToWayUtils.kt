@@ -24,7 +24,7 @@ data class PositionOnWaySegment(
     val wayId: Long,
     override val position: LatLon,
     val segment: Pair<LatLon, LatLon>
-): PositionOnWay
+) : PositionOnWay
 
 /** Returns the point on any of the given ways that is nearest to this point and at most
  *  [maxDistance] meters away from this point or null if there is no such point.
@@ -68,7 +68,7 @@ private fun LatLon.getNearestVertexOfWays(
                 minDistance = distance
                 nearestNodeId = nodeId
                 nearestPoint = point
-                nearestWayIds = mutableSetOf()
+                nearestWayIds = mutableSetOf(way.id)
             }
         }
     }

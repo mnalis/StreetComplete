@@ -13,6 +13,7 @@ import de.westnordost.streetcomplete.data.osm.edits.ElementEditsTable.Columns.QU
 import de.westnordost.streetcomplete.data.osm.edits.ElementEditsTable.Columns.SOURCE
 import de.westnordost.streetcomplete.data.osm.edits.ElementEditsTable.NAME
 import de.westnordost.streetcomplete.data.osm.edits.create.CreateNodeAction
+import de.westnordost.streetcomplete.data.osm.edits.create.CreateNodeFromVertexAction
 import de.westnordost.streetcomplete.data.osm.edits.create.RevertCreateNodeAction
 import de.westnordost.streetcomplete.data.osm.edits.delete.DeletePoiNodeAction
 import de.westnordost.streetcomplete.data.osm.edits.delete.RevertDeletePoiNodeAction
@@ -21,7 +22,6 @@ import de.westnordost.streetcomplete.data.osm.edits.move.RevertMoveNodeAction
 import de.westnordost.streetcomplete.data.osm.edits.split_way.SplitWayAction
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.RevertUpdateElementTagsAction
 import de.westnordost.streetcomplete.data.osm.edits.update_tags.UpdateElementTagsAction
-import de.westnordost.streetcomplete.data.osm.edits.create.CreateNodeFromVertexAction
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
 import de.westnordost.streetcomplete.data.overlays.OverlayRegistry
 import de.westnordost.streetcomplete.data.quest.QuestTypeRegistry
@@ -55,8 +55,9 @@ class ElementEditsDao(
     }
 
     fun put(edit: ElementEdit) {
-        val rowId = db.insert(NAME, edit.toPairs())
-        edit.id = rowId
+        val rowId = db.replace(NAME, edit.toPairs())
+        // only set id if it was "undefined" before
+        if (edit.id <= 0) edit.id = rowId
     }
 
     fun get(id: Long): ElementEdit? =
@@ -94,7 +95,8 @@ class ElementEditsDao(
     fun getSyncedOlderThan(timestamp: Long): List<ElementEdit> =
         db.query(NAME, where = "$IS_SYNCED = 1 AND $CREATED_TIMESTAMP < $timestamp") { it.toElementEdit() }
 
-    private fun ElementEdit.toPairs(): List<Pair<String, Any?>> = listOf(
+    private fun ElementEdit.toPairs(): List<Pair<String, Any?>> = listOfNotNull(
+        if (id <= 0) null else ID to id,
         QUEST_TYPE to type.name,
         GEOMETRY to json.encodeToString(originalGeometry),
         SOURCE to source,
