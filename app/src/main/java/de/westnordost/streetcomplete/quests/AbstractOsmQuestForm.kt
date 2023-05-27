@@ -37,6 +37,7 @@ import de.westnordost.streetcomplete.data.quest.OsmQuestKey
 import de.westnordost.streetcomplete.osm.IS_SHOP_OR_DISUSED_SHOP_EXPRESSION
 import de.westnordost.streetcomplete.osm.replaceShop
 import de.westnordost.streetcomplete.quests.shop_type.ShopGoneDialog
+import de.westnordost.streetcomplete.screens.main.RecentLocationStore
 import de.westnordost.streetcomplete.screens.main.checkIsSurvey
 import de.westnordost.streetcomplete.util.getNameAndLocationLabel
 import de.westnordost.streetcomplete.util.ktx.geometryType
@@ -63,6 +64,7 @@ abstract class AbstractOsmQuestForm<T> : AbstractQuestForm(), IsShowingQuestDeta
     private val osmQuestController: OsmQuestController by inject()
     private val featureDictionaryFuture: FutureTask<FeatureDictionary> by inject(named("FeatureDictionaryFuture"))
     private val mapDataWithEditsSource: MapDataWithEditsSource by inject()
+    private val recentLocationStore: RecentLocationStore by inject()
 
     protected val featureDictionary: FeatureDictionary get() = featureDictionaryFuture.get()
 
@@ -287,7 +289,7 @@ abstract class AbstractOsmQuestForm<T> : AbstractQuestForm(), IsShowingQuestDeta
 
     private suspend fun solve(action: ElementEditAction) {
         setLocked(true)
-        if (!checkIsSurvey(requireContext(), geometry, listOfNotNull(listener?.displayedMapLocation))) {
+        if (!checkIsSurvey(requireContext(), geometry, recentLocationStore.get())) {
             setLocked(false)
             return
         }

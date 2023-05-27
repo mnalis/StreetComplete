@@ -11,6 +11,7 @@ import androidx.core.content.edit
 import androidx.core.content.getSystemService
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
 import de.westnordost.streetcomplete.data.osmtracks.Trackpoint
+import de.westnordost.streetcomplete.screens.main.RecentLocationStore
 import de.westnordost.streetcomplete.screens.main.map.components.CurrentLocationMapComponent
 import de.westnordost.streetcomplete.screens.main.map.components.TracksMapComponent
 import de.westnordost.streetcomplete.screens.main.map.tangram.screenBottomToCenterDistance
@@ -34,6 +35,7 @@ import kotlin.math.PI
 open class LocationAwareMapFragment : MapFragment() {
 
     private val locationAvailabilityReceiver: LocationAvailabilityReceiver by inject()
+    private val recentLocationStore: RecentLocationStore by inject()
 
     private lateinit var compass: Compass
     private lateinit var locationManager: FineLocationManager
@@ -238,6 +240,7 @@ open class LocationAwareMapFragment : MapFragment() {
 
     private fun onLocationChanged(location: Location) {
         displayedLocation = location
+        recentLocationStore.add(location)
         locationMapComponent?.location = location
         addTrackLocation(location)
         compass.setLocation(location)

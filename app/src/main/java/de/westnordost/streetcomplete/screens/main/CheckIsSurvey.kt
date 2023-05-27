@@ -22,7 +22,7 @@ import kotlin.coroutines.resume
 suspend fun checkIsSurvey(
     context: Context,
     geometry: ElementGeometry,
-    locations: List<Location>
+    locations: Sequence<Location>
 ): Boolean {
     if (dontShowAgain || isWithinSurveyDistance(geometry, locations)) {
         return true
@@ -51,7 +51,7 @@ suspend fun checkIsSurvey(
 
 private suspend fun isWithinSurveyDistance(
     geometry: ElementGeometry,
-    locations: List<Location>
+    locations: Sequence<Location>
 ): Boolean = withContext(Dispatchers.Default) {
     // suspending because distanceToArcs is slow
     locations.any { location ->
@@ -84,7 +84,7 @@ Considerations for choosing these values:
   "ok", MINUS the current GPS accuracy, so it is a pretty forgiving calculation already
 */
 
-private const val MAX_DISTANCE_TO_ELEMENT_FOR_SURVEY = 80f // m
+const val MAX_DISTANCE_TO_ELEMENT_FOR_SURVEY = 80f // m
 
 // "static" values, i.e. persisted per application start
 private var dontShowAgain = false
