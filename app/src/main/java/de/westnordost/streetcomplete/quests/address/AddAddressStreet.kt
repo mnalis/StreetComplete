@@ -9,7 +9,6 @@ import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
 import de.westnordost.streetcomplete.data.osm.mapdata.MapDataWithGeometry
 import de.westnordost.streetcomplete.data.osm.mapdata.Relation
-import de.westnordost.streetcomplete.data.osm.mapdata.Way
 import de.westnordost.streetcomplete.data.osm.mapdata.filter
 import de.westnordost.streetcomplete.data.osm.osmquests.OsmElementQuestType
 import de.westnordost.streetcomplete.data.quest.AllCountriesExcept
@@ -65,7 +64,6 @@ class AddAddressStreet : OsmElementQuestType<StreetOrPlaceName> {
     override fun isApplicableTo(element: Element): Boolean? =
         if (!filter.matches(element)) false else null
 
-    /* /mn/ highlight recently added addresses in StreetName quest too, not HouseNumber quest only */
     override fun getHighlightedElements(element: Element, getMapData: () -> MapDataWithGeometry) =
         getMapData().filter("""
             nodes, ways, relations with
