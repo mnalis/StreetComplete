@@ -26,7 +26,7 @@ class AddIsPharmacyDispensing : OsmFilterQuestType<Boolean>() {
     override val wikiLink = "Key:dispensing"
     override val icon = R.drawable.ic_building_hospital
     override val achievements = listOf(CITIZEN)
-    override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside_regional_warning
+    // override val defaultDisabledMessage = R.string.default_disabled_msg_go_inside_regional_warning
 
     override fun getTitle(tags: Map<String, String>) = R.string.quest_is_pharmacy_dispensing_title
 
