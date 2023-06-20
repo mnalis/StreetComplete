@@ -37,6 +37,7 @@ class AddTrafficSignalsVibration : OsmElementQuestType<Boolean> {
     override val wikiLink = "Key:$VIBRATING_BUTTON"
     override val icon = R.drawable.ic_quest_blind_traffic_lights
     override val achievements = listOf(BLIND)
+    override val defaultDisabledMessage = R.string.default_disabled_msg_difficult_and_time_consuming
     override val enabledInCountries = AllCountriesExcept(
         "RU" // see https://github.com/streetcomplete/StreetComplete/issues/4021
     )
