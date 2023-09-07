@@ -2,10 +2,10 @@ package de.westnordost.streetcomplete.data.download.tiles
 
 import de.westnordost.streetcomplete.testutils.bbox
 import de.westnordost.streetcomplete.testutils.p
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class TilesRectTest {
 
@@ -13,10 +13,9 @@ class TilesRectTest {
     fun `convert bbox to tiles rect and back results in same bbox`() {
         val points = listOf(
             p(53.0, 9.0),
-            p(0.0, 0.0),
             p(48.179, 16.414),
             p(0.236, 47.235),
-            // p(85.049, -179.989), // fails
+            p(85.049, -179.989),
         )
         for (p in points) {
             val tile = p.enclosingTilePos(15)
