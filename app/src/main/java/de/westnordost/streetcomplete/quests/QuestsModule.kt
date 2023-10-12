@@ -3,7 +3,10 @@ package de.westnordost.streetcomplete.quests
 import de.westnordost.countryboundaries.CountryBoundaries
 import de.westnordost.osmfeatures.Feature
 import de.westnordost.osmfeatures.FeatureDictionary
+import de.westnordost.streetcomplete.data.meta.CountryInfo
 import de.westnordost.streetcomplete.data.meta.CountryInfos
+import de.westnordost.streetcomplete.data.meta.getByLocation
+import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
 import de.westnordost.streetcomplete.data.osmnotes.notequests.OsmNoteQuestType
 import de.westnordost.streetcomplete.data.quest.QuestTypeRegistry
 import de.westnordost.streetcomplete.quests.accepts_cards.AddAcceptsCards
@@ -184,8 +187,11 @@ val questsModule = module {
             get(),
             get(),
             get(),
-            get(named("CountryBoundariesFuture")),
-            get(),
+            { location ->
+                val countryInfos = get<CountryInfos>()
+                val countryBoundaries = get<FutureTask<CountryBoundaries>>(named("CountryBoundariesFuture")).get()
+                countryInfos.getByLocation(countryBoundaries, location.longitude, location.latitude)
+            },
             { tags ->
                 get<FutureTask<FeatureDictionary>>(named("FeatureDictionaryFuture"))
                     .get().getFeature(tags)
@@ -197,9 +203,8 @@ val questsModule = module {
 fun questTypeRegistry(
     trafficFlowSegmentsApi: TrafficFlowSegmentsApi,
     trafficFlowDao: WayTrafficFlowDao,
-    countryInfos: CountryInfos,
-    countryBoundariesFuture: FutureTask<CountryBoundaries>,
     arSupportChecker: ArSupportChecker,
+    getCountryInfoByLocation: (location: LatLon) -> CountryInfo,
     getFeature: (tags: Map<String, String>) -> Feature?,
 ) = QuestTypeRegistry(listOf(
 
@@ -473,6 +478,15 @@ fun questTypeRegistry(
 
     // roads
     135 to AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
+    136 to AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
+    137 to AddCycleway(getCountryInfoByLocation), // for any cyclist routers (and cyclist maps)
+    138 to AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
+
+    // disabled completely because definition is too fuzzy/broad to be useful and easy to answer,
+    // see https://community.openstreetmap.org/t/shoulder-tag-is-confusing/5185
+    // 139 to AddShoulder(), // needs minimal thinking
+
+    140 to AddRoadWidth(arSupportChecker),
     141 to AddRoadSmoothness(),
     142 to AddPathSmoothness(),
     137 to AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
@@ -493,7 +507,7 @@ fun questTypeRegistry(
     // buildings
     150 to AddBuildingType(),
     151 to AddBuildingLevels(),
-    152 to AddRoofShape(countryInfos, countryBoundariesFuture),
+    152 to AddRoofShape(getCountryInfoByLocation),
 
     153 to AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
 
