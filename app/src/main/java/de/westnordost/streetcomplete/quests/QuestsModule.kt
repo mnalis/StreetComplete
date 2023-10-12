@@ -489,7 +489,6 @@ fun questTypeRegistry(
     140 to AddRoadWidth(arSupportChecker),
     141 to AddRoadSmoothness(),
     142 to AddPathSmoothness(),
-    137 to AddCycleway(countryInfos, countryBoundariesFuture), // for any cyclist routers (and cyclist maps)
     134 to AddSidewalk(), // for any pedestrian routers, needs minimal thinking
     136 to AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
 
