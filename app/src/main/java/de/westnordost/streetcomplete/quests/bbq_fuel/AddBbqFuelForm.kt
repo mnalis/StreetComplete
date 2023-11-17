@@ -16,15 +16,16 @@ class AddBbqFuelForm : AListQuestForm<BbqFuelAnswer>() {
         TextItem(CHARCOAL, R.string.quest_bbq_fuel_charcoal),
     )
 
-    override val otherAnswers = listOfNotNull(
+    override val otherAnswers = listOf(
         AnswerItem(R.string.quest_bbq_fuel_not_a_bbq) { confirmNotBbq() },
     )
 
     private fun confirmNotBbq() {
         val ctx = context ?: return
         AlertDialog.Builder(ctx)
-            .setTitle(R.string.quest_bbq_fuel_not_a_bbq_confirmation_title)
-            .setPositiveButton(R.string.quest_generic_confirmation_yes) { _, _ -> applyAnswer(NOT_BBQ) }
+            .setTitle(R.string.quest_generic_confirmation_title)
+            .setMessage(R.string.quest_bbq_fuel_not_a_bbq_confirmation)
+            .setPositiveButton(R.string.quest_generic_confirmation_yes) { _, _ -> applyAnswer(IsFirePitAnswer) }
             .setNegativeButton(R.string.quest_generic_confirmation_no, null)
             .show()
     }
