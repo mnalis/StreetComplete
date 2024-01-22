@@ -108,7 +108,7 @@ private fun StringWithCursor.parseElementsDeclaration(): Set<ElementsTypeFilter>
 
 private fun StringWithCursor.parseElementDeclaration(): ElementsTypeFilter {
     expectAnyNumberOfSpaces()
-    for (t in ElementsTypeFilter.values()) {
+    for (t in ElementsTypeFilter.entries) {
         val name = when (t) {
             ElementsTypeFilter.NODES -> "nodes"
             ElementsTypeFilter.WAYS -> "ways"
@@ -180,8 +180,11 @@ private fun StringWithCursor.parseBracketsAndSpaces(bracket: Char, expr: Boolean
         expectAnyNumberOfSpaces()
         if (nextIsAndAdvance(bracket)) {
             try {
-                if (bracket == '(')      expr.addOpenBracket()
-                else if (bracket == ')') expr.addCloseBracket()
+                if (bracket == '(') {
+                    expr.addOpenBracket()
+                } else if (bracket == ')') {
+                    expr.addCloseBracket()
+                }
             } catch (e: IllegalStateException) {
                 throw ParseException(e.message, cursorPos)
             }
