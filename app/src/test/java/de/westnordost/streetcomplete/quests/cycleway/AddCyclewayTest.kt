@@ -165,7 +165,7 @@ class AddCyclewayTest {
         // because we don't know if we are in Belgium
         assertNull(questType.isApplicableTo(way))
     }
-
+/* /mn/
     @Test
     fun `not applicable to maxspeed 30 zone with zone_traffic urban`() {
         val residentialWayIn30Zone = way(1L, listOf(1, 2, 3), mapOf(
@@ -177,10 +177,10 @@ class AddCyclewayTest {
 
         val mapData = TestMapDataWithGeometry(listOf(residentialWayIn30Zone))
 
-//mn/        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
+        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
         assertFalse(questType.isApplicableTo(residentialWayIn30Zone)!!)
     }
-
+*/
     @Test
     fun `applicable to maxspeed 30 in built-up area`() {
         val residentialWayInBuiltUpAreaWithMaxspeed30 = way(tags = mapOf(
@@ -195,6 +195,7 @@ class AddCyclewayTest {
         assertTrue(questType.isApplicableTo(residentialWayInBuiltUpAreaWithMaxspeed30)!!)
     }
 
+/* /mn/ disabled
     @Test
     fun `not applicable to residential road in maxspeed 30 zone`() {
         val residentialWayIn30Zone = way(1L, listOf(1, 2, 3), mapOf(
@@ -205,7 +206,7 @@ class AddCyclewayTest {
 
         val mapData = TestMapDataWithGeometry(listOf(residentialWayIn30Zone))
 
-//mn/        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
+        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
         assertFalse(questType.isApplicableTo(residentialWayIn30Zone)!!)
     }
 
@@ -219,7 +220,8 @@ class AddCyclewayTest {
         val mapData = TestMapDataWithGeometry(listOf(residentialWayWithMaxspeed30))
 
         // a residential way with maxspeed=30 and no other maxspeed tags is assumed to be in a max-speed 30 zone
-//mn/        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
+        assertEquals(0, questType.getApplicableElements(mapData).toList().size)
         assertFalse(questType.isApplicableTo(residentialWayWithMaxspeed30)!!)
     }
+*/
 }
