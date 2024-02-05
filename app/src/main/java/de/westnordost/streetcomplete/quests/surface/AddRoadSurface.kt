@@ -31,13 +31,13 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
             surface ~ paved|unpaved|${INVALID_SURFACES.joinToString("|")}
             and !surface:note
             and !note:surface
+            and !surface:lanes
+            and !surface:lanes:forward
+            and !surface:lanes:backward
+            and !surface:lanes:both_ways
           )
           ${INVALID_SURFACES_FOR_TRACKTYPES.map{tracktypeConflictClause(it)}.joinToString("\n")}
         )
-        and !surface:lanes
-        and !surface:lanes:forward
-        and !surface:lanes:backward
-        and !surface:lanes:both_ways
         and (access !~ private|no or (foot and foot !~ private|no))
     """
 
