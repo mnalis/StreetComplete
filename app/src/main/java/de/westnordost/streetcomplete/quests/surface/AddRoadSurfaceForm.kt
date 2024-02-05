@@ -8,6 +8,7 @@ import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
 import de.westnordost.streetcomplete.osm.surface.isSurfaceAndTracktypeConflicting
 import de.westnordost.streetcomplete.osm.surface.toItems
 import de.westnordost.streetcomplete.quests.AImageListQuestForm
+import de.westnordost.streetcomplete.overlays.surface
 
 class AddRoadSurfaceForm : AImageListQuestForm<Surface, SurfaceAndNote>() {
     override val items get() = SELECTABLE_WAY_SURFACES.toItems()
