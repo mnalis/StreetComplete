@@ -8,7 +8,6 @@ import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
 import de.westnordost.streetcomplete.osm.surface.isSurfaceAndTracktypeConflicting
 import de.westnordost.streetcomplete.osm.surface.toItems
 import de.westnordost.streetcomplete.quests.AImageListQuestForm
-import de.westnordost.streetcomplete.overlays.surface
 
 class AddRoadSurfaceForm : AImageListQuestForm<Surface, SurfaceAndNote>() {
     override val items get() = SELECTABLE_WAY_SURFACES.toItems()
@@ -24,6 +23,9 @@ class AddRoadSurfaceForm : AImageListQuestForm<Surface, SurfaceAndNote>() {
             }
         }
     }
+
+    private fun isComplexSurfaceLanes(tags: Map<String, String>): Boolean =
+        tags["surface:lanes"] != null || tags["surface:lanes:forward"] != null || tags["surface:lanes:backward"] != null || tags["surface:lanes:both_ways"] != null
 
     private fun confirmPotentialTracktypeMismatch(surface: Surface, onConfirmed: () -> Unit) {
         val tracktype = element.tags["tracktype"]
