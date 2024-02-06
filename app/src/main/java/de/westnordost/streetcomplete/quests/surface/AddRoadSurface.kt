@@ -37,7 +37,11 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
             and !surface:lanes:backward
             and !surface:lanes:both_ways
           )
-          ${INVALID_SURFACES_FOR_TRACKTYPES.map{tracktypeConflictClause(it)}.joinToString("\n")}
+          or tracktype = grade1 and surface ~ earth|dirt|soil|grass|sand|mud|ice|salt|snow|woodchips|ground|unpaved|compacted|gravel|fine_gravel|pebblestone|grass_paver
+          or tracktype = grade2 and surface ~ earth|dirt|soil|grass|sand|mud|ice|salt|snow|woodchips
+          or tracktype = grade3 and surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
+          or tracktype = grade4 and surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
+          or tracktype = grade5 and surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
         )
         and (access !~ private|no or (foot and foot !~ private|no))
     """
