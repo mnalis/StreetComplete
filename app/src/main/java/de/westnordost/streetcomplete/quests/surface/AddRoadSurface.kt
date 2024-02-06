@@ -34,6 +34,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
             and !surface:lanes:backward
             and !surface:lanes:both_ways
           )
+          ${INVALID_SURFACES_FOR_TRACKTYPES.map{tracktypeConflictClause(it)}.joinToString("\n")}
         )
         and (access !~ private|no or (foot and foot !~ private|no))
     """
