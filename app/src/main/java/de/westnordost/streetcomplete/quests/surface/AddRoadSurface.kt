@@ -37,7 +37,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
             and !surface:lanes:backward
             and !surface:lanes:both_ways
           )
-          ( or tracktype = grade3 and surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30 )
+          or ( tracktype = grade3 and surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30 )
         )
         and (access !~ private|no or (foot and foot !~ private|no))
     """
