@@ -11,6 +11,7 @@ import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES
 import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES_FOR_TRACKTYPES
 import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
 import de.westnordost.streetcomplete.osm.surface.applyTo
+import de.westnordost.streetcomplete.util.logs.Log
 
 class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
 
@@ -40,7 +41,9 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
     """
 
     private fun tracktypeConflictClause(conflictEntry: Map.Entry<String, Set<String>>): String {
-        return "          or tracktype = " + conflictEntry.key + " and surface ~ ${conflictEntry.value.joinToString("|")}"
+        val rules = "          or tracktype = " + conflictEntry.key + " and surface ~ ${conflictEntry.value.joinToString("|")}"
+        Log.w("/mn/ DEBUG INVALID_SURFACES_FOR_TRACKTYPES", "rule=#${rules}")
+        return rules
     }
 
     override val changesetComment = "Specify road surfaces"
