@@ -25,7 +25,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
           or highway = service and service !~ driveway|slipway
         )
         and (
-          surface ~ xxpaved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
+          surface ~ concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
         )
         and (access !~ private|no or (foot and foot !~ private|no))
     """
