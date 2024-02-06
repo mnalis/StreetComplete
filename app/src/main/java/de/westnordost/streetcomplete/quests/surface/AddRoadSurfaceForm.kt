@@ -18,9 +18,9 @@ class AddRoadSurfaceForm : AImageListQuestForm<Surface, SurfaceAndNote>() {
         val surface = selectedItems.single()
         confirmPotentialTracktypeMismatch(surface) {
             if (!isComplexSurfaceLanes(element.tags)) {
-            collectSurfaceDescriptionIfNecessary(requireContext(), surface) { description ->
-                applyAnswer(SurfaceAndNote(surface, description))
-            }
+                collectSurfaceDescriptionIfNecessary(requireContext(), surface) { description ->
+                    applyAnswer(SurfaceAndNote(surface, description))
+                }
             }
         }
     }
