@@ -11,7 +11,6 @@ import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES
 import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES_FOR_TRACKTYPES
 import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
 import de.westnordost.streetcomplete.osm.surface.applyTo
-import de.westnordost.streetcomplete.util.logs.Log
 
 class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
 
@@ -25,15 +24,25 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
           or highway = service and service !~ driveway|slipway
         )
         and (
-          surface ~ paved|asphalt|cobblestone|cobblestone:flattened|sett|concrete|concrete:plates|paving_stones|metal|wood|unhewn_cobblestone|chipseal|brick|bricks|paving_stones:30
+          !surface
+          or surface ~ ${ANYTHING_UNPAVED.joinToString("|")} and surface older today -6 years
+          or surface older today -12 years
+          or (
+            surface ~ paved|unpaved|${INVALID_SURFACES.joinToString("|")}
+            and !surface:note
+            and !note:surface
+            and !surface:lanes
+            and !surface:lanes:forward
+            and !surface:lanes:backward
+            and !surface:lanes:both_ways
+          )
+          ${INVALID_SURFACES_FOR_TRACKTYPES.map{tracktypeConflictClause(it)}.joinToString("\n")}
         )
         and (access !~ private|no or (foot and foot !~ private|no))
     """
 
     private fun tracktypeConflictClause(conflictEntry: Map.Entry<String, Set<String>>): String {
-        val rules = "          or tracktype = " + conflictEntry.key + " and surface ~ ${conflictEntry.value.joinToString("|")}"
-        Log.w("/mn/ DEBUG INVALID_SURFACES_FOR_TRACKTYPES", "rule=#${rules}")
-        return rules
+        return "          or tracktype = " + conflictEntry.key + " and surface ~ ${conflictEntry.value.joinToString("|")}"
     }
 
     override val changesetComment = "Specify road surfaces"
