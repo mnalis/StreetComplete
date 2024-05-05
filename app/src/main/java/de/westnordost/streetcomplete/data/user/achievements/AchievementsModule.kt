@@ -1,6 +1,7 @@
 package de.westnordost.streetcomplete.data.user.achievements
 
 import de.westnordost.streetcomplete.R
+import de.westnordost.streetcomplete.overlays.places.PlacesOverlay
 import de.westnordost.streetcomplete.overlays.street_parking.StreetParkingOverlay
 import de.westnordost.streetcomplete.quests.amenity_cover.AddAmenityCover
 import de.westnordost.streetcomplete.quests.amenity_indoor.AddIsAmenityIndoor
@@ -41,7 +42,7 @@ val achievementsModule = module {
     factory { UserLinksDao(get()) }
 
     single<AchievementsSource> { get<AchievementsController>() }
-    single { AchievementsController(get(), get(), get(), get(), get(), get(named("Achievements")), get(named("Links"))) }
+    single { AchievementsController(get(), get(), get(), get(), get(named("Achievements")), get(named("Links"))) }
 }
 
 // list of (quest) synonyms (this alternate name is mentioned to aid searching for this code)
@@ -61,10 +62,12 @@ private val typeAliases = listOf(
     "CyclewayOverlay"                    to AddCycleway::class.simpleName!!,
     "BuildingsOverlay"                   to AddBuildingType::class.simpleName!!,
     "AddStreetParking"                   to StreetParkingOverlay::class.simpleName!!,
-    "AddIsDefibrillatorIndoor"           to AddIsAmenityIndoor::class.simpleName!!
+    "AddIsDefibrillatorIndoor"           to AddIsAmenityIndoor::class.simpleName!!,
+    "ShopsOverlay"                       to PlacesOverlay::class.simpleName!!,
 )
 
-private val links = listOf(
+/** this is only public so that it can be previewed in compose */
+val links = listOf(
 
     /* ---------------------------------------- Intro ----------------------------------------*/
     Link(
@@ -487,13 +490,14 @@ private val links = listOf(
         "Prettymapp",
         LinkCategory.GOODIES,
         R.drawable.ic_link_prettymapp,
-        R.string.link_opencampingmap_description
+        R.string.link_prettymapp_description
     )
 )
 
 private val linksById = links.associateBy { it.id }
 
-private val achievements = listOf(
+/** this is only public so that it can be previewed in compose */
+val achievements = listOf(
 
     Achievement(
         "first_edit",

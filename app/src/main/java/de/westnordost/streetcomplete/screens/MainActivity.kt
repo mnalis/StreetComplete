@@ -23,6 +23,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
+import com.russhwolf.settings.ObservableSettings
 import de.westnordost.streetcomplete.Prefs
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.UnsyncedChangesCountSource
@@ -44,8 +45,6 @@ import de.westnordost.streetcomplete.data.user.UserLoginStatusController
 import de.westnordost.streetcomplete.data.user.UserUpdater
 import de.westnordost.streetcomplete.data.visiblequests.QuestPresetsSource
 import de.westnordost.streetcomplete.screens.main.MainFragment
-import de.westnordost.streetcomplete.screens.main.controls.MessagesButtonFragment
-import de.westnordost.streetcomplete.screens.main.controls.OverlaysButtonFragment
 import de.westnordost.streetcomplete.screens.main.messages.MessagesContainerFragment
 import de.westnordost.streetcomplete.screens.tutorial.OverlaysTutorialFragment
 import de.westnordost.streetcomplete.screens.tutorial.TutorialFragment
@@ -56,7 +55,6 @@ import de.westnordost.streetcomplete.util.ktx.toast
 import de.westnordost.streetcomplete.util.location.LocationAvailabilityReceiver
 import de.westnordost.streetcomplete.util.location.LocationRequestFragment
 import de.westnordost.streetcomplete.util.parseGeoUri
-import de.westnordost.streetcomplete.util.prefs.Preferences
 import de.westnordost.streetcomplete.view.dialogs.RequestLoginDialog
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -65,9 +63,7 @@ class MainActivity :
     BaseActivity(),
     MainFragment.Listener,
     TutorialFragment.Listener,
-    OverlaysButtonFragment.Listener,
-    OverlaysTutorialFragment.Listener,
-    MessagesButtonFragment.Listener {
+    OverlaysTutorialFragment.Listener {
 
     private val crashReportExceptionHandler: CrashReportExceptionHandler by inject()
     private val questAutoSyncer: QuestAutoSyncer by inject()
@@ -81,7 +77,7 @@ class MainActivity :
     private val userLoginStatusController: UserLoginStatusController by inject()
     private val urlConfigController: UrlConfigController by inject()
     private val questPresetsSource: QuestPresetsSource by inject()
-    private val prefs: Preferences by inject()
+    private val prefs: ObservableSettings by inject()
 
     private var mainFragment: MainFragment? = null
 
@@ -183,9 +179,7 @@ class MainActivity :
     public override fun onStart() {
         super.onStart()
 
-        if (prefs.getBoolean(Prefs.KEEP_SCREEN_ON, false)) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        }
+        updateScreenOn()
 
         uploadProgressSource.addListener(uploadProgressListener)
         downloadProgressSource.addListener(downloadProgressListener)
@@ -247,6 +241,16 @@ class MainActivity :
 
     private val isConnected: Boolean
         get() = getSystemService<ConnectivityManager>()?.activeNetworkInfo?.isConnected == true
+
+    /* ------------------------------------- Preferences ---------------------------------------- */
+
+    private fun updateScreenOn() {
+        if (prefs.getBoolean(Prefs.KEEP_SCREEN_ON, false)) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+    }
 
     /* ------------------------------ Upload progress listener ---------------------------------- */
 

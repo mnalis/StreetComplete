@@ -1,19 +1,42 @@
 # Changelog
 
-## v57.0-beta2
+## v57.4
 
-- Use new method to upload and download data as mandated by Google Play policy. Be sure to report
-  any issues related to this. On Android 13 and above, there's no notification for continuing to 
-  sync in the background anymore. (#5492)
-- A few small fixes, thanks @matkoniecz
+- Fix crash under certain circumstances in bike path overlay (#5604) (regression from #5596)
 
+## v57.3
 
-## v57.0-beta1
+- Fix UNDO: It didn't actually do anything for edits that were already synced! This critical issue existed since v57.2 (#5600, #5602)
+- Traffic signals: Improve wording (#5591)
+- Max speed: Show warning when inputting implausible slow zone tempo limit (#5592)
+- Payment methods: Don't ask in shops if they have been specified exhaustively already (#5589), by @urbalazs
+- Railway crossings barriers: Don't ask for abandoned railways (#5597)
+- Bike paths overlay: Fix selecting "not designated as bike path" when it was a "path or trail" wouldn't do anything (#5596)
+
+## v57.2
+
+- Lit overlay: Unsupported current tagging is now indicated as such (#5571)
+- Building overlay: Selecting a specific building type for a historic building does now not remove its property as historic (#5547)
+- Fix max width for road narrowing traffic calmings were not answerable if mapped as a way (#5569, #5578), by @mnalis
+- Fix regression in v57.1 that may lead to issues displaying the current GPS location (#5516)
+- Fix the feature name label was slightly wrong for a few map features (#5549)
+- Fix description of Prettymapp (#5570), by @FloEdelmann
+- Other small improvements (#5533, #5558, #5559, #5525, #5573), thanks @matkoniecz, @burrscurr
+
+## v57.1
+
+- fixed crash on startup if you recently solved a crossing quest (#5522)
+- fixed that you could e.g. add a POI in an overlay twice if you tap OK fast enough (#5523)
+
+## v57.0
+
+Take cover! For you don't want to be squashed by this m-m-mega phat update, or do you?
 
 ### Buildings Overlay (#5461)
 
 The new Buildings overlay now lets you comprehensively view and edit building types all around town,
 color-coded for your convenience!
+Conversely, the building type quest is disabled by default now as it was really spammy, don't you think?
 
 (You'll be amazed and/or appalled how many buildings are currently actually tagged wrong or imprecise! 😅)
 
@@ -35,15 +58,18 @@ you map places that are not shops - like hotels, hospitals, schools and so forth
 - Measuring widths and heights: [StreetMeasure](https://play.google.com/store/apps/details?id=de.westnordost.streetmeasure) doesn't work for you? In that case you'll be offered to quickly disable these AR measurement quests now (#4849)
 - Max Height: Don't prompt to estimate height when there is no sign (#5458)
 - Opening Hours: Also ask for places whose already set opening hours likely contain mistakes (#5463)
-- Building Type: disabled by default now, because we have an overlay now and it was really spammy, don't you think?
+- BBQ fuel: Add "gas" answer (#5495), by @k-yle
+- Steps: Don't ask about ramps and tactile paving for hiking steps, by @matkoniecz
 - Fire Hydrant Diameter: Disable for Austria again (#5470)
 
 ### Other
 
+- Fix a (shockingly common) crash (#5498)
 - Fix issues with doing edits while data is being downloaded (#4258)
 - Add some interesting links as achievement rewards (#5466)
 - Translation to Amharic has been disabled, it was not maintained for over a year
-- Other small enhancements, performance and wording improvements (#5468, #5154, #5474...), thanks @Jean-BaptisteC
+- Use new method to upload and download data as mandated by Google Play policy. On Android 13 and above, there's no notification for continuing to sync in the background anymore. (#5492)
+- Other small enhancements, performance and wording improvements (#5468, #5154, #5474...), thanks @Jean-BaptisteC, @matkoniecz, @FloEdelmann
 
 ## v56.1
 

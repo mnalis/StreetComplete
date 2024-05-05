@@ -20,6 +20,7 @@ import com.mapzen.tangram.TouchInput.ShoveResponder
 import com.mapzen.tangram.TouchInput.TapResponder
 import com.mapzen.tangram.networking.DefaultHttpHandler
 import com.mapzen.tangram.networking.HttpHandler
+import com.russhwolf.settings.ObservableSettings
 import de.westnordost.streetcomplete.ApplicationConstants
 import de.westnordost.streetcomplete.Prefs
 import de.westnordost.streetcomplete.R
@@ -38,7 +39,6 @@ import de.westnordost.streetcomplete.util.ktx.openUri
 import de.westnordost.streetcomplete.util.ktx.setMargins
 import de.westnordost.streetcomplete.util.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.util.math.distanceTo
-import de.westnordost.streetcomplete.util.prefs.Preferences
 import de.westnordost.streetcomplete.util.viewBinding
 import de.westnordost.streetcomplete.view.insets_animation.respectSystemInsets
 import kotlinx.coroutines.delay
@@ -93,7 +93,7 @@ open class MapFragment :
 
     private val vectorTileProvider: VectorTileProvider by inject()
     private val cacheConfig: MapTilesDownloadCacheConfig by inject()
-    private val prefs: Preferences by inject()
+    private val prefs: ObservableSettings by inject()
 
     interface Listener {
         /** Called when the map has been completely initialized */
@@ -109,21 +109,10 @@ open class MapFragment :
     }
     private val listener: Listener? get() = parentFragment as? Listener ?: activity as? Listener
 
-    private val onThemeBackgroundChanged = {
-        sceneMapComponent?.isAerialView =
-            (prefs.getStringOrNull(Prefs.THEME_BACKGROUND) ?: "MAP") == "AERIAL"
-    }
-
     /* ------------------------------------ Lifecycle ------------------------------------------- */
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        prefs.addListener(Prefs.THEME_BACKGROUND, onThemeBackgroundChanged)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_map, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_map, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -172,11 +161,6 @@ open class MapFragment :
         controller = null
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        prefs.removeListener(Prefs.THEME_BACKGROUND, onThemeBackgroundChanged)
-    }
-
     override fun onLowMemory() {
         super.onLowMemory()
         try {
@@ -196,7 +180,6 @@ open class MapFragment :
         registerResponders(ctrl)
 
         sceneMapComponent = SceneMapComponent(resources, ctrl, vectorTileProvider)
-        sceneMapComponent?.isAerialView = (prefs.getStringOrNull(Prefs.THEME_BACKGROUND) ?: "MAP") == "AERIAL"
 
         onBeforeLoadScene()
 
@@ -266,27 +249,27 @@ open class MapFragment :
         listener?.onPanBegin()
         return false
     }
-    override fun onPan(startX: Float, startY: Float, endX: Float, endY: Float): Boolean { return false }
-    override fun onPanEnd(): Boolean { return false }
+    override fun onPan(startX: Float, startY: Float, endX: Float, endY: Float): Boolean = false
+    override fun onPanEnd(): Boolean = false
 
-    override fun onFling(posX: Float, posY: Float, velocityX: Float, velocityY: Float): Boolean { return false }
-    override fun onCancelFling(): Boolean { return false }
+    override fun onFling(posX: Float, posY: Float, velocityX: Float, velocityY: Float): Boolean = false
+    override fun onCancelFling(): Boolean = false
 
-    override fun onScaleBegin(): Boolean { return false }
-    override fun onScale(x: Float, y: Float, scale: Float, velocity: Float): Boolean { return false }
-    override fun onScaleEnd(): Boolean { return false }
+    override fun onScaleBegin(): Boolean = false
+    override fun onScale(x: Float, y: Float, scale: Float, velocity: Float): Boolean = false
+    override fun onScaleEnd(): Boolean = false
 
-    override fun onShoveBegin(): Boolean { return false }
-    override fun onShove(distance: Float): Boolean { return false }
-    override fun onShoveEnd(): Boolean { return false }
+    override fun onShoveBegin(): Boolean = false
+    override fun onShove(distance: Float): Boolean = false
+    override fun onShoveEnd(): Boolean = false
 
-    override fun onRotateBegin(): Boolean { return false }
-    override fun onRotate(x: Float, y: Float, rotation: Float): Boolean { return false }
-    override fun onRotateEnd(): Boolean { return false }
+    override fun onRotateBegin(): Boolean = false
+    override fun onRotate(x: Float, y: Float, rotation: Float): Boolean = false
+    override fun onRotateEnd(): Boolean = false
 
-    override fun onSingleTapUp(x: Float, y: Float): Boolean { return false }
+    override fun onSingleTapUp(x: Float, y: Float): Boolean = false
 
-    override fun onSingleTapConfirmed(x: Float, y: Float): Boolean { return false }
+    override fun onSingleTapConfirmed(x: Float, y: Float): Boolean = false
 
     override fun onDoubleTap(x: Float, y: Float): Boolean {
         val pos = controller?.screenPositionToLatLon(PointF(x, y))
@@ -385,9 +368,8 @@ open class MapFragment :
         }
     }
 
-    fun getPositionThatCentersPosition(pos: LatLon, offset: RectF): LatLon? {
-        return controller?.getLatLonThatCentersLatLon(pos, offset)
-    }
+    fun getPositionThatCentersPosition(pos: LatLon, offset: RectF): LatLon? =
+        controller?.getLatLonThatCentersLatLon(pos, offset)
 
     fun getDisplayedArea(): BoundingBox? = controller?.screenAreaToBoundingBox(RectF())
 

@@ -128,12 +128,7 @@ abstract class AbstractOsmQuestForm<T> : AbstractQuestForm(), IsShowingQuestDeta
     }
 
     protected fun updateButtonPanel() {
-        val answers = assembleOtherAnswers()
-        val otherAnswersItem = if (answers.size == 1) {
-            answers.single()
-        } else {
-            AnswerItem(R.string.quest_generic_otherAnswers) { showOtherAnswers() }
-        }
+        val otherAnswersItem = AnswerItem(R.string.quest_generic_otherAnswers2) { showOtherAnswers() }
         setButtonPanelAnswers(listOf(otherAnswersItem) + buttonPanelAnswers)
     }
 
@@ -148,8 +143,8 @@ abstract class AbstractOsmQuestForm<T> : AbstractQuestForm(), IsShowingQuestDeta
         createDeleteOrReplaceElementAnswer()?.let { answers.add(it) }
 
         if (element is Node // add moveNodeAnswer only if it's a free floating node
-                && mapDataWithEditsSource.getWaysForNode(element.id).isEmpty()
-                && mapDataWithEditsSource.getRelationsForNode(element.id).isEmpty()) {
+            && mapDataWithEditsSource.getWaysForNode(element.id).isEmpty()
+            && mapDataWithEditsSource.getRelationsForNode(element.id).isEmpty()) {
             answers.add(AnswerItem(R.string.move_node) { onClickMoveNodeAnswer() })
         }
 

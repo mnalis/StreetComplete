@@ -49,9 +49,7 @@ class AddSmoothnessForm : AImageListQuestForm<Smoothness, SmoothnessAnswer>() {
         stringBuilder.replaceEmojiWithImageSpan(context, "🚲", R.drawable.ic_smoothness_city_bike)
         stringBuilder.replaceEmojiWithImageSpan(context, "🚗", R.drawable.ic_smoothness_car)
         stringBuilder.replaceEmojiWithImageSpan(context, "🚙", R.drawable.ic_smoothness_suv)
-
-        binding.descriptionLabel.isGone = false
-        binding.descriptionLabel.text = stringBuilder
+        setHint(stringBuilder)
     }
 
     override val moveFavoritesToFront = false
@@ -85,15 +83,14 @@ class AddSmoothnessForm : AImageListQuestForm<Smoothness, SmoothnessAnswer>() {
             .show()
     }
 
-    private fun createConvertToStepsAnswer(): AnswerItem? {
-        return if (element.couldBeSteps()) {
+    private fun createConvertToStepsAnswer(): AnswerItem? =
+        if (element.couldBeSteps()) {
             AnswerItem(R.string.quest_generic_answer_is_actually_steps) {
                 applyAnswer(IsActuallyStepsAnswer)
             }
         } else {
             null
         }
-    }
 }
 
 private fun SpannableStringBuilder.replaceEmojiWithImageSpan(

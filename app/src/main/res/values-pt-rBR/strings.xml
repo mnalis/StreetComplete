@@ -226,7 +226,6 @@ Caso contrário, pode baixar outro teclado na loja de aplicativos. Teclados popu
     <string name="credits_translations_title">"Traduções"</string>
     <string name="credits_contributors_title">"Contribuidores de código"</string>
     <string name="credits_author_title">"Autor e mantenedor"</string>
-    <string name="credits_and_more">"e outros…"</string>
     <string name="quest_maxspeed_answer_living_street">"É uma rua compartilhada"</string>
     <string name="quest_maxspeed_answer_living_street_confirmation_title">"Então, há uma placa como esta?"</string>
     <string name="quest_orchard_produce_title">"O que é cultivado aqui?"</string>
@@ -499,7 +498,6 @@ Parcialmente significa que um cadeirante pode entrar e usar o banheiro, mas não
     <string name="quest_motorcycleParkingCoveredStatus_title">"O estacionamento de motocicletas é coberto (protegido da chuva)?"</string>
     <string name="default_disabled_msg_maxspeed">"Este tipo de missão está desabilitado por padrão porque normalmente é necessário conferir a rua toda por placas de limite de velocidade, não apenas o trecho destacado. Isto às vezes pode ser bastante trabalho para para resolver uma única missão."</string>
     <string name="pref_title_quests_restore_hidden">"Restaurar missões ocultadas"</string>
-    <string name="restore_hidden_success">"Restauradas %d missões ocultadas"</string>
     <string name="on_level">"no nível %s"</string>
     <string name="underground">"subterrâneo"</string>
     <string name="quest_sidewalk_value_yes">"com calçada"</string>
@@ -840,7 +838,6 @@ Observe todas as opções disponíveis: alguns casos não são óbvios, como uma
     <string name="team_mode_active">"O Modo de equipe está ativo"</string>
     <string name="team_mode_deactivated">"O Modo de equipe desativado"</string>
     <string name="undo_confirm_title2">"Desfazer a seguinte edição?"</string>
-    <string name="synced">"Sincronizado"</string>
     <string name="toast_undo_unavailable">"Esta edição já está sincronizada e não pode ser desfeita"</string>
     <string name="quest_cycleway_value_separate">"exibido separadamente no mapa"</string>
     <string name="created_note_action_title">"Nota criada"</string>
@@ -1062,8 +1059,6 @@ Faça o mesmo para o outro lado, se houver."</string>
     <string name="quest_road_width_title">"Qual é a largura desta estrada aqui?"</string>
     <string name="quest_road_width_explanation">"A largura da estrada de um meio-fio ao outro: isto inclui qualquer coisa na superfície da rua, inclusive estacionamento na própria via ou ciclofaixas, mas exclui qualquer coisa além do meio-fio como calçadas, estacionamento fora da via ou ciclovias próximas."</string>
     <string name="quest_sidewalk_answer_none">"Nada de calçada"</string>
-    <string name="about_description_donate_google_play2">"Obrigado por considerar apoiar este aplicativo!
-Infelizmente, devido a uma política da Google Play Store, nenhum link que leve a doações pode ser exibido no aplicativo. Nesse contexto, nem mesmo o link para a página inicial do nosso projeto é permitido."</string>
     <string name="link_osmand_description">"Aplicativo móvel para visualização e navegação de mapas online e offline"</string>
     <string name="link_sunders_description">"Um mapa de câmeras e equipamentos de vigilância"</string>
     <string name="ar_core_tracking_error_no_plane_hit">"Mantenha-se mais perto da seta, mas cuidado com o trânsito!"</string>
@@ -1346,4 +1341,47 @@ Além disso, algumas sobreposições permitem adicionar novos dados na posição
     <string name="quest_recycling_type_food_waste">"Desperdício de comida"</string>
     <string name="quest_defibrillator_location">"Onde está localizado esse desfibrilador?"</string>
     <string name="quest_defibrillator_location_description">"Por favor, forneça uma descrição da sua posição (por exemplo, “na portaria”)."</string>
+    <string name="quest_sanitary_dump_station_title">"Existe uma estação de despejo de esgotos?"</string>
+    <string name="quest_sanitary_dump_station_description">"Instalação para depósito de dejetos humanos provenientes de tanque sanitário de autocaravana (motorhome), carreta, etc.
+Geralmente indicado por uma placa como esta:"</string>
+    <string name="quest_generalFee_title">"Você precisa pagar para usar?"</string>
+    <string name="quest_bbq_fuel_not_a_bbq">"É um sistema corta-fogo"</string>
+    <string name="quest_bbq_fuel_not_a_bbq_confirmation">"O sistema corta-fogo não têm superfície para cozimento (por exemplo, grelha/placa), ao contrário das churrasqueiras."</string>
+    <string name="about_title_logs">"Logs (%1$d)"</string>
+    <string name="about_summary_logs">"para uso em relatórios de erros"</string>
+    <string name="action_filter">"Filtro"</string>
+    <string name="action_share">"Compartilhar logs"</string>
+    <string name="about_title_show_logs">"Exiba os logs"</string>
+    <string name="label_log_level">"Detalhamento do log"</string>
+    <string name="label_log_newer_than">"De"</string>
+    <string name="label_log_older_than">"Para"</string>
+    <string name="label_log_message_contains">"A mensagem contém"</string>
+    <string name="title_logs_filters">"Filtrar mensagens"</string>
+    <string name="pref_title_quests_restore_hidden_summary">"Número de missões ocultas: %d"</string>
+    <string name="link_every_door_description">"Poderoso editor de POI para Android e iOS"</string>
+    <string name="link_mapcomplete_description">"Coleção de mapas OSM temáticos que mostram e permitem editar um tipo de elemento"</string>
+    <string name="link_forum_description">"Preciso de ajuda? Quer saber o que está acontecendo? Venha e misture-se, o fórum está repleto de atividades das comunidades de todo o mundo!"</string>
+    <string name="link_calendar_description">"Os eventos ou reuniões das comunidades do OpenStreetMap estão perto de você? (Se não, você pode adicionar o seu próprio!)"</string>
+    <string name="link_prettymapp_description">"Crie lindos pôsteres de mapas multicoloridos de bairros ou freguesias"</string>
+    <string name="quest_disable_action">"Desativar"</string>
+    <string name="quest_disable_title">"Desativar este tipo de missão?"</string>
+    <string name="quest_disable_message_not_installed">"StreetMeasure (ainda) não está instalado."</string>
+    <string name="quest_disable_message_not_working">"StreetMeasure não retornou nenhuma medição."</string>
+    <string name="quest_disable_message_tape_measure">"Você poderia usar uma fita métrica, mas isso pode ser um pouco estranho."</string>
+    <string name="quest_buildingType_outbuilding">"Anexo"</string>
+    <string name="quest_buildingType_outbuilding_description">"edifício de menor importância em uma propriedade"</string>
+    <string name="quest_buildingType_other_description">"um edifício específico que não pode ser selecionado neste aplicativo"</string>
+    <string name="quest_buildingType_container">"Container"</string>
+    <string name="quest_buildingType_tent">"Tenda"</string>
+    <string name="quest_buildingType_tomb">"Tumba"</string>
+    <string name="quest_buildingType_tower">"Torre"</string>
+    <string name="quest_buildingType_tower_description">"qualquer tipo de torre"</string>
+    <string name="quest_buildingType_under_construction">"Em contrução"</string>
+    <string name="overlay_buildings">"Edifícios"</string>
+    <string name="quest_pedestrian_crossing_signals">"Você tem que esperar um sinal do semáforo  para passar aqui?"</string>
+    <string name="quest_pedestrian_crossing_markings">"Esta passagem de pedestres tem marcações no terreno?"</string>
+    <string name="overlay_places">"Lugares"</string>
+    <string name="overlay_things">"Coisas"</string>
+    <string name="disused">"não está mais em uso"</string>
+    <string name="unknown_object">"Objeto desconhecido"</string>
 </resources>

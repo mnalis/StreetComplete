@@ -100,7 +100,7 @@ class AboutFragment : TwoPaneListFragment(), HasTitle {
                 .show()
         } else {
             AlertDialog.Builder(ctx)
-                .setMessage(R.string.about_description_donate_google_play2)
+                .setMessage(R.string.about_description_donate_google_play3)
                 .show()
         }
     }
@@ -116,7 +116,7 @@ class AboutFragment : TwoPaneListFragment(), HasTitle {
                 binding.imageView.setImageResource(with.iconId)
                 binding.textView.text = with.title
                 binding.root.setOnClickListener { openUri(with.url) }
-                TextViewCompat.setTextAppearance(binding.textView, R.style.TextAppearance_Title)
+                TextViewCompat.setTextAppearance(binding.textView, R.style.TextAppearance_TitleLarge)
             }
         }
     }

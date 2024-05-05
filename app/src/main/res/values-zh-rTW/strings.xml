@@ -144,7 +144,7 @@
     <string name="upload_server_error">"上傳回答時出現連線問題，請稍後再試。"</string>
     <string name="quest_generic_hasFeature_yes">"有"</string>
     <string name="quest_generic_hasFeature_no">"沒有"</string>
-    <string name="quest_bikeParkingCapacity_title">"這裡可以停幾量輛單車？"</string>
+    <string name="quest_bikeParkingCapacity_title">"這裡可以停幾輛單車？"</string>
     <string name="quest_address_unusualHousenumber_confirmation_description">"門牌號碼看起來怪怪的。"</string>
     <string name="quest_sport_title">"這個場地是為哪一種運動而設的？"</string>
     <string name="quest_sport_answer_multi">"無特定運動"</string>
@@ -226,7 +226,6 @@
     <string name="credits_translations_title">"翻譯"</string>
     <string name="credits_contributors_title">"程式碼貢獻者"</string>
     <string name="credits_author_title">"作者及維護者"</string>
-    <string name="credits_and_more">"以及更多…"</string>
     <string name="quest_maxspeed_answer_living_street">"社區街道"</string>
     <string name="quest_maxspeed_answer_living_street_confirmation_title">"所以那裡有一個像這樣的道路標識嗎？"</string>
     <string name="quest_orchard_produce_title">"這裡栽種了些什麼？"</string>
@@ -501,7 +500,6 @@
     <string name="quest_motorcycleParkingCoveredStatus_title">"這個機車/電單車停車場屬於有蓋式嗎(可遮陽擋雨)？"</string>
     <string name="default_disabled_msg_maxspeed">"這項任務類型預設關閉，因為通常得檢查整條道路的速限指標，不只是注意路段。有時候只是要簡單解決的話，會相當累。"</string>
     <string name="pref_title_quests_restore_hidden">"恢復被隱藏的任務"</string>
-    <string name="restore_hidden_success">"恢復 %d 被藏隱的任務"</string>
     <string name="on_level">"位於樓層 %s"</string>
     <string name="underground">"地下"</string>
     <string name="quest_sidewalk_value_yes">"人行道"</string>
@@ -836,7 +834,6 @@
     <string name="team_mode_active">"協作模式已啟用"</string>
     <string name="team_mode_deactivated">"協作模式已停用"</string>
     <string name="undo_confirm_title2">"要復原接下來的編輯嗎？"</string>
-    <string name="synced">"已經同步了"</string>
     <string name="toast_undo_unavailable">"這筆編輯已經同步，因此無法復原"</string>
     <string name="quest_cycleway_value_separate">"在地圖上顯示分離的"</string>
     <string name="created_note_action_title">"新增註解"</string>
@@ -1058,8 +1055,6 @@
     <string name="quest_road_width_title">"這條道路的寬度多少？"</string>
     <string name="quest_road_width_explanation">"道路從路緣到路緣之間寬度：這包括路面鋪面上的事物，如路邊停車場或是單車道，但排除之外的事物，例如單車道或是路緣外的停車場。"</string>
     <string name="quest_sidewalk_answer_none">"完全沒有人行道"</string>
-    <string name="about_description_donate_google_play2">"感謝你考慮支持這款 app！
-然後，由於 Google Play 商店的政策，我們不會在 app 內顯示導引至捐款連結，所以，我們也不能連到自家官網。"</string>
     <string name="link_osmand_description">"顯示或導航線上或離線地圖的行動 app"</string>
     <string name="link_sunders_description">"照相機與監視器的地圖"</string>
     <string name="ar_core_tracking_error_no_plane_hit">"盡量靠近箭頭但小心路況！"</string>
@@ -1356,4 +1351,33 @@
     <string name="label_log_older_than">"到"</string>
     <string name="label_log_message_contains">"訊息含有"</string>
     <string name="title_logs_filters">"篩選訊息"</string>
+    <string name="pref_title_quests_restore_hidden_summary">"隱藏的任務數量：%d"</string>
+    <string name="link_every_door_description">"Android 與 iOS 的強大 POI 編輯器"</string>
+    <string name="link_mapcomplete_description">"顯示與讓你編輯特定圖徵的主題 OSM 地圖集合"</string>
+    <string name="link_forum_description">"需要協助嗎？想要知道最近狀況嗎？來聊聊，與全球所有社群交流！"</string>
+    <string name="link_calendar_description">"你附近有開放街圖活動或是社群聚會嗎？(如果沒有，你可以加你的活動！)"</string>
+    <string name="link_prettymapp_description">"創建社區鄰里的多重顏色地圖海報"</string>
+    <string name="quest_disable_action">"關閉"</string>
+    <string name="quest_disable_title">"關閉這類型任務？"</string>
+    <string name="quest_disable_message_not_installed">"StreetMeasure (還) 沒有安裝。"</string>
+    <string name="quest_disable_message_not_working">"StreetMeasure 並沒有回傳測量值。"</string>
+    <string name="quest_disable_message_tape_measure">"你可以採用帶子測量取代，但終究可能會有點怪怪的。"</string>
+    <string name="quest_buildingType_outbuilding">"外面的建築"</string>
+    <string name="quest_buildingType_outbuilding_description">"地產上較不重要的建築"</string>
+    <string name="quest_buildingType_other_description">"在 app 上無法被選取的建築"</string>
+    <string name="quest_buildingType_container">"容器"</string>
+    <string name="quest_buildingType_tent">"帳篷"</string>
+    <string name="quest_buildingType_tomb">"墓穴"</string>
+    <string name="quest_buildingType_tower">"高塔"</string>
+    <string name="quest_buildingType_tower_description">"任何高塔"</string>
+    <string name="quest_buildingType_under_construction">"施工中"</string>
+    <string name="overlay_buildings">"建築"</string>
+    <string name="quest_pedestrian_crossing_signals">"你需要等待交通燈號才能穿越嗎？"</string>
+    <string name="quest_pedestrian_crossing_markings">"這個穿越道有路面標記嗎？"</string>
+    <string name="overlay_places">"地方"</string>
+    <string name="overlay_things">"東西"</string>
+    <string name="disused">"棄用"</string>
+    <string name="unknown_object">"未知物件"</string>
+    <string name="quest_leafType_tree_title">"這棵樹是針葉還是會落葉？"</string>
+    <string name="quest_bbq_fuel_gas">"燒油的"</string>
 </resources>
