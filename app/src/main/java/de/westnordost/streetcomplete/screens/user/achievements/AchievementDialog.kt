@@ -96,7 +96,6 @@ private fun ContentWithIconPortraitOrLandscape(
             if (isLandscape) PaddingValues(start = iconSize * 0.75f)
             else PaddingValues(top = iconSize  * 0.75f)
 
-
         val dialogModifier = modifier
             .backgroundWithPadding(
                 color = MaterialTheme.colors.surface,
@@ -178,7 +177,7 @@ private fun AchievementDetails(
 @PreviewScreenSizes
 @PreviewLightDark
 @Composable
-fun PreviewAchievementDetailsDialog() {
+private fun PreviewAchievementDetailsDialog() {
     AppTheme {
         AchievementDialog(
             achievement = achievements.associateBy { it.id }["regular"]!!,

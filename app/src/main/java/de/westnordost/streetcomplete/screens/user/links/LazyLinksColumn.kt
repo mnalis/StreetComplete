@@ -24,7 +24,7 @@ fun LazyGroupedLinksColumn(
     // TODO Compose: revisit animate-in of list items when androidx.compose.animation 1.7 is stable
     // probably Modifier.animateItem or Modifier.animateEnterExit
     LazyLinksGrid(modifier, contentPadding = contentPadding) {
-        val groupedLinks = allLinks.groupBy { it.category }.map { (k,v) -> k to v }
+        val groupedLinks = allLinks.groupBy { it.category }.map { (k, v) -> k to v }
         for ((category, links) in groupedLinks) {
             item(
                 span = { GridItemSpan(maxLineSpan) },
@@ -71,7 +71,7 @@ private fun LazyLinksGrid(
 
 @PreviewScreenSizes
 @Composable
-fun PreviewLazyGroupedLinksColumn() {
+private fun PreviewLazyGroupedLinksColumn() {
     LazyGroupedLinksColumn(links,
         onClickLink = {},
         contentPadding = PaddingValues(16.dp)

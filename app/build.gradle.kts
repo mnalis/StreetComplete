@@ -155,7 +155,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     // photos
@@ -183,7 +182,7 @@ dependencies {
     // finding in which country we are for country-specific logic
     implementation("de.westnordost:countryboundaries:2.1")
     // finding a name for a feature without a name tag
-    implementation("de.westnordost:osmfeatures-android:5.2")
+    implementation("de.westnordost:osmfeatures:6.0")
     // talking with the OSM API
     implementation("de.westnordost:osmapi-map:3.0")
     implementation("de.westnordost:osmapi-changesets:3.0")
