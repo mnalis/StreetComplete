@@ -93,7 +93,7 @@ class SurfaceAndNoteViewController(
     private fun collectSurfaceData(callback: (Surface, String?) -> Unit) {
         ImageListPickerDialog(selectButton.context, items, cellLayoutId, 2) { item ->
             val value = item.value
-            if (value != null && value.shouldBeDescribed && !hasSurfaceLanes(element.tags)) {
+            if (value != null && value.shouldBeDescribed /* && !hasSurfaceLanes(element.tags)*/) {
                 DescribeGenericSurfaceDialog(selectButton.context) { description ->
                     callback(item.value!!, description)
                 }.show()
