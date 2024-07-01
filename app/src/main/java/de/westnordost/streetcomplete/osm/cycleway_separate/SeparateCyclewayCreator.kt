@@ -24,6 +24,9 @@ fun SeparateCycleway.applyTo(tags: Tags) {
             if (tags.containsKey("bicycle") && tags["bicycle"] !in yesButNotDesignated) {
                 tags["bicycle"] = "yes"
             }
+            if (tags.containsKey("bicycle:signed")) {
+                tags.remove("bicycle:signed")
+            }
         }
         NOT_ALLOWED -> {
             if (tags["bicycle"] !in noCycling) tags["bicycle"] = "no"
@@ -33,15 +36,18 @@ fun SeparateCycleway.applyTo(tags: Tags) {
             if (tags["foot"] == "no") {
                 tags["foot"] = "yes"
             }
+            tags["bicycle:signed"] = "yes"
         }
         ALLOWED_ON_FOOTWAY, NON_DESIGNATED_ON_FOOTWAY -> {
             tags["highway"] = "footway"
             if (tags.containsKey("foot")) tags["foot"] = "designated"
 
             if (this == ALLOWED_ON_FOOTWAY) {
-                if (tags["bicycle"] !in yesButNotDesignated) tags["bicycle"] = "yes"
+                tags["bicycle"] = "yes"
+                tags["bicycle:signed"] = "yes"
             } else {
                 if (tags["bicycle"] == "designated") tags.remove("bicycle")
+                tags.remove("bicycle:signed")
             }
         }
         NON_SEGREGATED, SEGREGATED -> {
@@ -57,7 +63,8 @@ fun SeparateCycleway.applyTo(tags: Tags) {
             // retag if it is an exclusive cycleway
             tags["highway"] = "cycleway"
             if (tags.containsKey("bicycle")) tags["bicycle"] = "designated"
-
+            // if bicycle:signed is explicitly no, set it to yes
+            if (tags["bicycle:signed"] == "no") tags["bicycle:signed"] = "yes"
             if (this == EXCLUSIVE) {
                 tags["foot"] = "no"
             } else {

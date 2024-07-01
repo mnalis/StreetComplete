@@ -43,7 +43,6 @@
     <string name="action_download">"Descarcă datele de aici"</string>
     <string name="action_upload">"Trimite răspunsurile"</string>
     <string name="no_changes">"Nu ați dat niciun răspuns"</string>
-    <string name="close">"închide"</string>
     <string name="download_error">"Eroare la căutarea de misiuni"</string>
     <string name="upload_error">"Eroare la trimiterea răspunsurilor"</string>
     <string name="download_area_too_big">"Măriți harta mai mult"</string>
@@ -504,7 +503,6 @@ la parter"</string>
     <string name="quest_sidewalk_value_yes">"trotuar"</string>
     <string name="quest_sidewalk_value_no">"nu este trotuar"</string>
     <string name="quest_accessible_for_pedestrians_title_prohibited">"Le este interzis accesul pietonilor pe acest drum?"</string>
-    <string name="quest_accessible_for_pedestrians_separate_sidewalk_explanation">"Această stradă a fost etichetată ca neavând trotuar pe ambele părți. În cazul în care există un trotuar, dar este afișat ca o alee separată, vă rugăm să  selectați \"trotuar\"."</string>
     <string name="quest_buildingType_title">"Ce fel de clădire este?"</string>
     <string name="pref_title_theme_select">"Selectează tema de culori"</string>
     <string name="theme_automatic">"Automată"</string>
@@ -697,7 +695,6 @@ activitate"</string>
     <string name="quest_recycling_type_engine_oil">"Ulei de motor"</string>
     <string name="link_photon_description">"O extensie autonomă la Nominatim, care include căutare neclară și căutare în timp real"</string>
     <string name="link_graphhopper_description">"Un motor de rutare flexibil"</string>
-    <string name="link_qwant_maps_description">"O hartă cu locații și indicații de căutare"</string>
     <string name="privacy_html_tileserver2">"&lt;p&gt; Pentru a afișa harta, informțiile vectoriale sunt obținute din %1$s. Consultați &lt;a href=\"%2$s\"&gt; declarația de confidențialitate&lt;/a&gt; pentru mai multe informații. &lt;/p&gt;"</string>
     <string name="about_title_sponsors">"Sponsori"</string>
     <string name="quest_board_type_history">"Istoric"</string>
@@ -1261,8 +1258,6 @@ Doriți să îl mutați acum?"</string>
     <string name="bicycle_boulevard_is_a">"Este un %1$s"</string>
     <string name="bicycle_boulevard_is_not_a">"Nu este un %1$s"</string>
     <string name="bicycle_boulevard">"Bulevard pentru biciclete"</string>
-    <string name="separate_cycleway_no">"Fără biciclete"</string>
-    <string name="separate_cycleway_allowed">"Access permis bicicliștilor"</string>
     <string name="separate_cycleway_no_or_allowed">"Nu este special făcută pentru bicicliști (dar ciclismul poate fi în continuare permis)"</string>
     <string name="separate_cycleway_non_segregated">"Pistă comună"</string>
     <string name="separate_cycleway_segregated">"Piste separate pentru bicicliști și pietoni"</string>

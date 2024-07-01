@@ -43,7 +43,6 @@
     <string name="action_download">"Procurar por tarefas neste lugar"</string>
     <string name="action_upload">"Subir respostas"</string>
     <string name="no_changes">"Non diches ningunha resposta"</string>
-    <string name="close">"pechar"</string>
     <string name="download_error">"Ocorreu un erro ó procura-las tarefas"</string>
     <string name="upload_error">"Ocorreu un erro ó subi-las respostas"</string>
     <string name="download_area_too_big">"Achega un chisco máis o mapa"</string>
@@ -503,7 +502,6 @@ Se iso non é posíbel, podes descarregar outro teclado na tenda de aplicacións
     <string name="quest_sidewalk_value_yes">"beirarrúa"</string>
     <string name="quest_sidewalk_value_no">"sen beirarrúa"</string>
     <string name="quest_accessible_for_pedestrians_title_prohibited">"Os peóns teñen prohibido camiñar por esta estrada?"</string>
-    <string name="quest_accessible_for_pedestrians_separate_sidewalk_explanation">"Esta rúa foi etiquetada como que non ten beirarrúa en ningunha das dúas beiras. No caso de que ó final si que haxa beirarrúa pero que estea mostrada no mapa como unha vía separada, responde \"beirarrúa\"."</string>
     <string name="quest_buildingType_title">"Que tipo de edificio é?"</string>
     <string name="pref_title_theme_select">"Escolle a aparencia"</string>
     <string name="theme_automatic">"Automático"</string>
@@ -697,7 +695,6 @@ logros"</string>
     <string name="quest_recycling_type_engine_oil">"Aceite de motor"</string>
     <string name="link_photon_description">"Unha extensión independente para Nominatim, con procura dinámica mentres escribes"</string>
     <string name="link_graphhopper_description">"Un motor de enrutamento flexíbel"</string>
-    <string name="link_qwant_maps_description">"Un mapa con lugares e enderezos que se poden procurar"</string>
     <string name="privacy_html_tileserver2">"&lt;p&gt;Para amosar o mapa, as teselas vectoriais son obtidas de %1$s. Ollar a súa &lt;a href=\"%2$s\"&gt;declaración de privacidade&lt;/a&gt; para máis información.&lt;/p&gt;"</string>
     <string name="about_title_sponsors">"Padroádegos"</string>
     <string name="quest_board_type_history">"Historia"</string>

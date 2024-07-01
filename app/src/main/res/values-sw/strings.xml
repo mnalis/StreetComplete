@@ -43,7 +43,6 @@
     <string name="action_download">"Tafuta utafutaji hapa"</string>
     <string name="action_upload">"Tuma majibu"</string>
     <string name="no_changes">"Hukutoa jibu"</string>
-    <string name="close">"Karibu/Pembeni au Funga"</string>
     <string name="download_error">"Hitilafu wakati wa utafutaji"</string>
     <string name="upload_error">"Hitilafu wakati wa kutuma majibu"</string>
     <string name="download_area_too_big">"Tafadhali ikuze zaidi"</string>
@@ -364,7 +363,7 @@
     <string name="questList_disabled_in_country">"Haijaonyeshwa katika %s"</string>
     <string name="quest_select_hint_most_specific">"Chagua moja mahususi zaidi ambayo inafaa:"</string>
     <string name="quest_generic_item_confirmation">"Je, una uhakika kuwa huwezi kubainisha hasa zaidi?"</string>
-    <string name="privacy_html_third_party_quest_sources">"&lt;p&gt;Kwa baadhi ya vipengele, baadhi ya taarifa za ziada kutoka kwa wahusika wengine hupatikanwa. Hasa, swala la njia moja huuliza API, ambayo pia inapangishwa kwenye westnodi.de, kuhusu uwezekano wa wagombea wa njia moja.&lt;/p&gt;"</string>
+    <string name="privacy_html_third_party_quest_sources">"&lt;p&gt;Kwa baadhi ya vipengele, baadhi ya taarifa za ziada kutoka kwa wahusika wengine hupatikanwa. Hasa, swala la njia moja huuliza API, ambayo pia inapangishwa kwenye westnordost.de, kuhusu uwezekano wa wagombea wa njia moja.&lt;/p&gt;"</string>
     <string name="quest_generic_hasFeature_no_leave_note">"Hapana (acha dokezo)"</string>
     <string name="pref_quests_reset">"futa vipengele vyote vilivoekwa na kuwezeshwa hapa?"</string>
     <string name="quest_generic_item_invalid_value">"Tafadhali chagua thamani mahususi zaidi."</string>
@@ -477,7 +476,6 @@
     <string name="quest_sidewalk_value_yes">"Njia ya pembezoni mwa barabara"</string>
     <string name="quest_sidewalk_value_no">"hakuna njia pembeni mwa barabara"</string>
     <string name="quest_accessible_for_pedestrians_title_prohibited">"Je, watembea kwa miguu hawaruhusiwi kutembea kwenye barabara hii hapa?"</string>
-    <string name="quest_accessible_for_pedestrians_separate_sidewalk_explanation">"Mtaa huu uliwekwa alama kuwa hauna njia za pembezoni mwa barabara katika pande zote. Ikiwa kuna njia ya pembezoni lakini imeoneshwa kama njia iliyo kando, tafadhali jibu \"Njia ya pembezoni\"."</string>
     <string name="quest_buildingType_title">"Jengo hili ni la aina gani?"</string>
     <string name="pref_title_theme_select">"Chagua mandhari"</string>
     <string name="theme_automatic">"Otomatiki"</string>
@@ -661,7 +659,6 @@
     <string name="quest_recycling_type_engine_oil">"Mafuta ya Injini"</string>
     <string name="link_photon_description">"Kiendelezi cha pekee kwa uteuzi, kinachoangazia utafutaji usioeleweka na kutafuta kama unachapa"</string>
     <string name="link_graphhopper_description">"Injini inayoweza kubadilika ya uelekezaji"</string>
-    <string name="link_qwant_maps_description">"Ramani yenye maeneo na maelekezo yanayoweza kutafutwa"</string>
     <string name="privacy_html_tileserver2">"&lt;p&gt;Ili kuonyesha ramani, vigao vya vekta hurejeshwa kutoka %1$s. Tazama &lt;a href=\"%2$s\"&gt;taarifa yao ya faragha&lt;/a&gt; kwa maelezo zaidi.&lt;/p&gt;"</string>
     <string name="about_title_sponsors">"Wafadhili"</string>
     <string name="quest_board_type_history">"Historia"</string>
@@ -1218,8 +1215,6 @@
     <string name="bicycle_boulevard_is_a">"Ni %1$s"</string>
     <string name="bicycle_boulevard_is_not_a">"Sio %1$s"</string>
     <string name="bicycle_boulevard">"Njia ya baiskeli iliojengewa"</string>
-    <string name="separate_cycleway_no">"Hakuna kuendesha baiskeli"</string>
-    <string name="separate_cycleway_allowed">"waendesha baskeli wanaruhusiwa"</string>
     <string name="separate_cycleway_no_or_allowed">"Haijaundwa kwa ajili ya waendesha baiskeli (baiskeli bado inaweza kuruhusiwa)"</string>
     <string name="separate_cycleway_non_segregated">"Njia ya matumizi ya pamoja"</string>
     <string name="separate_cycleway_segregated">"Njia iliyotengwa ya baiskeli na miguu"</string>

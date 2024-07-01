@@ -6,7 +6,7 @@ import de.westnordost.streetcomplete.data.osm.osmquests.OsmFilterQuestType
 import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.CAR
 import de.westnordost.streetcomplete.osm.MAXSPEED_TYPE_KEYS
 import de.westnordost.streetcomplete.osm.Tags
-import de.westnordost.streetcomplete.osm.surface.ANYTHING_UNPAVED
+import de.westnordost.streetcomplete.osm.surface.UNPAVED_SURFACES
 
 class AddShoulder : OsmFilterQuestType<ShoulderSides>() {
 
@@ -44,15 +44,15 @@ class AddShoulder : OsmFilterQuestType<ShoulderSides>() {
             )
           )
           and lane_markings != no
-          and surface !~ ${ANYTHING_UNPAVED.joinToString("|")}
+          and surface !~ ${UNPAVED_SURFACES.joinToString("|")}
           and (!parking:lane or parking:lane ~ no|none|no_stopping|no_parking|separate)
           and (!parking:lane:left or parking:lane:left ~ no|none|no_stopping|no_parking|separate)
           and (!parking:lane:right or parking:lane:right ~ no|none|no_stopping|no_parking|separate)
           and (!parking:lane:both or parking:lane:both ~ no|none|no_stopping|no_parking|separate)
-          and cycleway !~ lane|opposite_lane
-          and cycleway:left !~ lane|opposite_lane
-          and cycleway:right !~ lane|opposite_lane
-          and cycleway:both !~ lane|opposite_lane
+          and cycleway != lane
+          and cycleway:left != lane
+          and cycleway:right != lane
+          and cycleway:both != lane
           and !verge
           and !shoulder
           and !shoulder:left and !shoulder:right and !shoulder:both
