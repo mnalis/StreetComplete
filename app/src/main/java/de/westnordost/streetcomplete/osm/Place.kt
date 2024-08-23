@@ -30,7 +30,7 @@ fun Element.isPlace(): Boolean =
  *             exists. This policy exists in order to reduce effort to maintain this list, i.e. we
  *             don't want to check, weigh and balance requests in parallel to iD maintainers (in
  *             terms of notability, it being unambiguous, consensus etc.)
- *  */
+ */
 private val IS_PLACE_EXPRESSION by lazy {
     val tags = mapOf(
         "amenity" to listOf(
@@ -201,6 +201,25 @@ private val IS_PLACE_EXPRESSION by lazy {
     or tourism = information and information ~ office|visitor_centre
     """.toElementFilterExpression()
 }
+
+/** Get tags to denote the element with the given [tags] as disused */
+fun getDisusedPlaceTags(tags: Map<String, String>?): Map<String, String> {
+    val (key, value) = tags?.entries?.find { it.key in placeTypeKeys }?.toPair() ?: ("shop" to "yes")
+    return mapOf("disused:$key" to value)
+}
+
+private val placeTypeKeys = setOf(
+    "amenity",
+    "club",
+    "craft",
+    "emergency",
+    "healthcare",
+    "leisure",
+    "office",
+    "military",
+    "shop",
+    "tourism"
+)
 
 /** Expression to see if an element is some kind of vacant shop */
 private val IS_VACANT_PLACE_EXPRESSION = """

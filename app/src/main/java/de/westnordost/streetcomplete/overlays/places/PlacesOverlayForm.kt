@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isGone
-import com.russhwolf.settings.ObservableSettings
 import de.westnordost.osmfeatures.Feature
 import de.westnordost.osmfeatures.GeometryType
-import de.westnordost.streetcomplete.Prefs.PREFERRED_LANGUAGE_FOR_NAMES
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.data.osm.edits.ElementEditAction
 import de.westnordost.streetcomplete.data.osm.edits.create.CreateNodeAction
@@ -18,10 +16,12 @@ import de.westnordost.streetcomplete.data.osm.mapdata.Element
 import de.westnordost.streetcomplete.data.osm.mapdata.ElementType
 import de.westnordost.streetcomplete.data.osm.mapdata.LatLon
 import de.westnordost.streetcomplete.data.osm.mapdata.Node
+import de.westnordost.streetcomplete.data.preferences.Preferences
 import de.westnordost.streetcomplete.databinding.FragmentOverlayPlacesBinding
 import de.westnordost.streetcomplete.osm.LocalizedName
 import de.westnordost.streetcomplete.osm.POPULAR_PLACE_FEATURE_IDS
 import de.westnordost.streetcomplete.osm.applyTo
+import de.westnordost.streetcomplete.osm.getDisusedPlaceTags
 import de.westnordost.streetcomplete.osm.isDisusedPlace
 import de.westnordost.streetcomplete.osm.isPlace
 import de.westnordost.streetcomplete.osm.parseLocalizedNames
@@ -31,7 +31,7 @@ import de.westnordost.streetcomplete.overlays.AnswerItem
 import de.westnordost.streetcomplete.quests.LocalizedNameAdapter
 import de.westnordost.streetcomplete.util.DummyFeature
 import de.westnordost.streetcomplete.util.getLanguagesForFeatureDictionary
-import de.westnordost.streetcomplete.util.getLocationLabel
+import de.westnordost.streetcomplete.util.getLocationSpanned
 import de.westnordost.streetcomplete.util.ktx.geometryType
 import de.westnordost.streetcomplete.util.ktx.viewLifecycleScope
 import de.westnordost.streetcomplete.view.AdapterDataChangedWatcher
@@ -49,7 +49,7 @@ class PlacesOverlayForm : AbstractOverlayForm() {
     override val contentLayoutResId = R.layout.fragment_overlay_places
     private val binding by contentViewBinding(FragmentOverlayPlacesBinding::bind)
 
-    private val prefs: ObservableSettings by inject()
+    private val prefs: Preferences by inject()
 
     private var originalFeature: Feature? = null
     private var originalNoName: Boolean = false
@@ -98,7 +98,7 @@ class PlacesOverlayForm : AbstractOverlayForm() {
         super.onViewCreated(view, savedInstanceState)
 
         // title hint label with name is a duplication, it is displayed in the UI already
-        setTitleHintLabel(element?.tags?.let { getLocationLabel(it, resources) })
+        setTitleHintLabel(element?.tags?.let { getLocationSpanned(it, resources) })
         setMarkerIcon(R.drawable.ic_quest_shop)
 
         featureCtrl = FeatureViewController(featureDictionary, binding.featureTextView, binding.featureIconView)
@@ -123,7 +123,7 @@ class PlacesOverlayForm : AbstractOverlayForm() {
         val persistedNames = savedInstanceState?.getString(LOCALIZED_NAMES_DATA)?.let { Json.decodeFromString<List<LocalizedName>>(it) }
 
         val selectableLanguages = (countryInfo.officialLanguages + countryInfo.additionalStreetsignLanguages).distinct().toMutableList()
-        val preferredLanguage = prefs.getStringOrNull(PREFERRED_LANGUAGE_FOR_NAMES)
+        val preferredLanguage = prefs.preferredLanguageForNames
         if (preferredLanguage != null) {
             if (selectableLanguages.remove(preferredLanguage)) {
                 selectableLanguages.add(0, preferredLanguage)
@@ -216,7 +216,7 @@ class PlacesOverlayForm : AbstractOverlayForm() {
 
     override fun onClickOk() {
         val firstLanguage = namesAdapter?.names?.firstOrNull()?.languageTag?.takeIf { it.isNotBlank() }
-        if (firstLanguage != null) prefs.putString(PREFERRED_LANGUAGE_FOR_NAMES, firstLanguage)
+        if (firstLanguage != null) prefs.preferredLanguageForNames = firstLanguage
 
         viewLifecycleScope.launch {
             applyEdit(createEditAction(
@@ -296,7 +296,11 @@ private suspend fun createEditAction(
         }
 
     if (doReplaceShop) {
-        tagChanges.replacePlace(newFeature.addTags)
+        if (isVacant) {
+            tagChanges.replacePlace(getDisusedPlaceTags(element?.tags))
+        } else {
+            tagChanges.replacePlace(newFeature.addTags)
+        }
     } else {
         for ((key, value) in previousFeature?.removeTags.orEmpty()) {
             tagChanges.remove(key)

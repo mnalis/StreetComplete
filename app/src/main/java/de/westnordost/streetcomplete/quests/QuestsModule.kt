@@ -25,6 +25,7 @@ import de.westnordost.streetcomplete.quests.atm_operator.AddAtmOperator
 import de.westnordost.streetcomplete.quests.baby_changing_table.AddBabyChangingTable
 import de.westnordost.streetcomplete.quests.barrier_bicycle_barrier_installation.AddBicycleBarrierInstallation
 import de.westnordost.streetcomplete.quests.barrier_bicycle_barrier_type.AddBicycleBarrierType
+import de.westnordost.streetcomplete.quests.barrier_opening.AddBarrierOpening
 import de.westnordost.streetcomplete.quests.barrier_type.AddBarrierOnPath
 import de.westnordost.streetcomplete.quests.barrier_type.AddBarrierOnRoad
 import de.westnordost.streetcomplete.quests.barrier_type.AddBarrierType
@@ -107,15 +108,10 @@ import de.westnordost.streetcomplete.quests.moped.AddMopedAccess
 import de.westnordost.streetcomplete.quests.motorcycle_parking_capacity.AddMotorcycleParkingCapacity
 import de.westnordost.streetcomplete.quests.motorcycle_parking_cover.AddMotorcycleParkingCover
 import de.westnordost.streetcomplete.quests.oneway.AddOneway
-import de.westnordost.streetcomplete.quests.oneway_suspects.AddSuspectedOneway
-import de.westnordost.streetcomplete.quests.oneway_suspects.data.TrafficFlowSegmentsApi
-import de.westnordost.streetcomplete.quests.oneway_suspects.data.WayTrafficFlowDao
 import de.westnordost.streetcomplete.quests.opening_hours.AddOpeningHours
 import de.westnordost.streetcomplete.quests.opening_hours_signed.CheckOpeningHoursSigned
 import de.westnordost.streetcomplete.quests.orchard_produce.AddOrchardProduce
 import de.westnordost.streetcomplete.quests.parcel_locker_brand.AddParcelLockerBrand
-import de.westnordost.streetcomplete.quests.parcel_locker_mail_in.AddParcelLockerMailIn
-import de.westnordost.streetcomplete.quests.parcel_locker_pickup.AddParcelLockerPickup
 import de.westnordost.streetcomplete.quests.parking_access.AddBikeParkingAccess
 import de.westnordost.streetcomplete.quests.parking_access.AddParkingAccess
 import de.westnordost.streetcomplete.quests.parking_fee.AddBikeParkingFee
@@ -189,12 +185,9 @@ import org.koin.dsl.module
 
 val questsModule = module {
     factory { RoadNameSuggestionsSource(get()) }
-    factory { WayTrafficFlowDao(get()) }
 
     single {
         questTypeRegistry(
-            get(),
-            get(),
             get(),
             { location ->
                 val countryInfos = get<CountryInfos>()
@@ -209,8 +202,6 @@ val questsModule = module {
 }
 
 fun questTypeRegistry(
-    trafficFlowSegmentsApi: TrafficFlowSegmentsApi,
-    trafficFlowDao: WayTrafficFlowDao,
     arSupportChecker: ArSupportChecker,
     getCountryInfoByLocation: (LatLon) -> CountryInfo,
     getFeature: (Element) -> Feature?,
@@ -392,8 +383,6 @@ fun questTypeRegistry(
     74 to AddBikeParkingCapacity(), // used by cycle map layer on osm.org, OsmAnd
 
     167 to AddParcelLockerBrand(),
-    168 to AddParcelLockerPickup(),
-    169 to AddParcelLockerMailIn(),
 
     // address: usually only visible when just in front + sometimes requires to take "other answer"
     75 to AddHousenumber(),
@@ -429,7 +418,6 @@ fun questTypeRegistry(
     93 to AddMaxWeight(), // used by OSRM and other routing engines
     94 to AddMaxHeight(), // OSRM and other routing engines
     97 to AddOneway(),
-    98 to AddSuspectedOneway(trafficFlowSegmentsApi, trafficFlowDao),
 
     99 to AddEntrance(),
     100 to AddEntranceReference(),
@@ -538,4 +526,5 @@ fun questTypeRegistry(
     95 to AddMaxPhysicalHeight(arSupportChecker), // same as above, best if it appears right after (if enabled)
     148 to AddCyclewayWidth(arSupportChecker), // should be after cycleway segregation
     140 to AddRoadWidth(arSupportChecker),
+    170 to AddBarrierOpening(arSupportChecker),
 ))
