@@ -39,6 +39,7 @@ class AddTrafficSignalsVibration : OsmElementQuestType<Boolean> {
     override val achievements = listOf(BLIND)
     override val defaultDisabledMessage = R.string.default_disabled_msg_difficult_and_time_consuming
     override val enabledInCountries = AllCountriesExcept(
+        "BG", // see https://github.com/streetcomplete/StreetComplete/issues/5846
         "FI", // see https://github.com/streetcomplete/StreetComplete/issues/5791
         "RU" // see https://github.com/streetcomplete/StreetComplete/issues/4021
     )
