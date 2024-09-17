@@ -25,12 +25,9 @@ import org.maplibre.android.style.expressions.Expression.division
 import org.maplibre.android.style.expressions.Expression.get
 import org.maplibre.android.style.expressions.Expression.gt
 import org.maplibre.android.style.expressions.Expression.gte
-import org.maplibre.android.style.expressions.Expression.interpolate
-import org.maplibre.android.style.expressions.Expression.linear
 import org.maplibre.android.style.expressions.Expression.literal
 import org.maplibre.android.style.expressions.Expression.log2
 import org.maplibre.android.style.expressions.Expression.lte
-import org.maplibre.android.style.expressions.Expression.stop
 import org.maplibre.android.style.expressions.Expression.sum
 import org.maplibre.android.style.expressions.Expression.toNumber
 import org.maplibre.android.style.expressions.Expression.zoom
@@ -89,7 +86,7 @@ class PinsMapComponent(
             .withProperties(
                 circleColor("white"),
                 circleStrokeColor("#aaaaaa"),
-                circleRadius(6f),
+                circleRadius(5f),
                 circleStrokeWidth(1f),
                 circleTranslate(arrayOf(0f, -8f)), // so that it hides behind the pin
                 circleTranslateAnchor(Property.CIRCLE_TRANSLATE_ANCHOR_VIEWPORT),
