@@ -66,9 +66,9 @@
             android:id="@+id/shortcuts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:elevation="2dp"
             android:paddingVertical="8dp"
+            android:paddingRight="12dp"
             android:orientation="vertical" />
 
     </ScrollView>
