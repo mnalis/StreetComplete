@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,12 +25,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.westnordost.streetcomplete.R
 import de.westnordost.streetcomplete.ui.ktx.pxToDp
+import kotlin.math.roundToInt
 
 /** Bar chart row that shows a title, the count and the bar in the selected color */
 @Composable
 fun BarChartRow(
     title: @Composable BoxScope.() -> Unit,
-    count: Int,
+    count: Float,
     maxCount: Int,
     modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colors.primary,
@@ -46,7 +45,7 @@ fun BarChartRow(
         BoxWithConstraints(Modifier.weight(1f)) {
             val textMeasurer = rememberTextMeasurer(1)
             val textStyle = MaterialTheme.typography.body1
-            val textSize = textMeasurer.measure(count.toString(), textStyle).size
+            val textSize = textMeasurer.measure(count.roundToInt().toString(), textStyle).size
             val availableBarWidth = maxWidth - textSize.width.pxToDp() - 8.dp
             val barWidth = (availableBarWidth * count / maxCount)
 
@@ -67,7 +66,7 @@ fun BarChartRow(
                 }
 
                 Text(
-                    text = count.toString(),
+                    text = count.roundToInt().toString(),
                     style = textStyle,
                     maxLines = 1
                 )
@@ -87,7 +86,7 @@ private fun PreviewStatisticsRow() {
                 modifier = Modifier.size(48.dp)
             )
         },
-        count = 68,
+        count = 68f,
         maxCount = 100
     )
 }
