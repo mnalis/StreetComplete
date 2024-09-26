@@ -35,8 +35,8 @@ android {
         applicationId = "de.westnordost.streetcomplete.mn"
         minSdk = 21
         targetSdk = 34
-        versionCode = 5905
-        versionName = "59.0"
+        versionCode = 5906
+        versionName = "59.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -136,7 +136,7 @@ dependencies {
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
 
     // Jetpack Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.09.01")
+    val composeBom = platform("androidx.compose:compose-bom:2024.09.02")
     implementation(composeBom)
     androidTestImplementation(composeBom)
     implementation("androidx.compose.material:material")
@@ -145,10 +145,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("androidx.navigation:navigation-compose:2.8.1")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.5")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
 
     // reorderable lists (raw Compose API is pretty complicated)
     implementation("sh.calvin.reorderable:reorderable:2.4.0-beta01")
@@ -197,12 +197,12 @@ dependencies {
     implementation("com.ionspin.kotlin:bignum:0.3.10")
 
     // serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("com.charleskorn.kaml:kaml:0.61.0")
     implementation("io.github.pdvrieze.xmlutil:core:0.90.1")
 
     // map and location
-    implementation("org.maplibre.gl:android-sdk:11.4.0")
+    implementation("org.maplibre.gl:android-sdk:11.5.0")
 
     // opening hours parser
     implementation("de.westnordost:osm-opening-hours:0.1.0")
