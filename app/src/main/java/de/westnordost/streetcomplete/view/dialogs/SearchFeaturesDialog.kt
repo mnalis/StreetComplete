@@ -35,6 +35,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 import java.util.Locale
+import de.westnordost.streetcomplete.util.logs.Log
 
 /** Search and select a preset */
 class SearchFeaturesDialog(
@@ -70,6 +71,7 @@ class SearchFeaturesDialog(
         binding.searchResultsList.isNestedScrollingEnabled = true
 
         setView(binding.root)
+        Log.w("Debug postbox AddPOI", "in SearchFeaturesDialog with countryOrSubdivisionCode=${countryOrSubdivisionCode}")
 
         if (prefs.getBoolean(Prefs.CREATE_NODE_SHOW_KEYBOARD, true) || text != null || codesOfDefaultFeatures.isEmpty())
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)

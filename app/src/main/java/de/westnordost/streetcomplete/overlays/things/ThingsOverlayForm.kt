@@ -26,6 +26,7 @@ import de.westnordost.streetcomplete.util.getNameAndLocationSpanned
 import de.westnordost.streetcomplete.util.ktx.geometryType
 import de.westnordost.streetcomplete.view.controller.FeatureViewController
 import de.westnordost.streetcomplete.view.dialogs.SearchFeaturesDialog
+import de.westnordost.streetcomplete.util.logs.Log
 
 class ThingsOverlayForm : AbstractOverlayForm() {
 
@@ -74,6 +75,8 @@ class ThingsOverlayForm : AbstractOverlayForm() {
     private fun getFeatureDictionaryFeature(element: Element): Feature? {
         val languages = getLanguagesForFeatureDictionary(resources.configuration)
         val geometryType = if (element.type == ElementType.NODE) null else element.geometryType
+
+        Log.w("Debug postbox ThingsOverlay", "calling getByTags with country=${countryOrSubdivisionCode}")
 
         return featureDictionary.getByTags(
             tags = element.tags,
