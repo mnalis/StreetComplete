@@ -53,6 +53,10 @@ The info you enter is directly added to OpenStreetMap in your name, without the 
 
     <string name="action_upload">"Upload answers"</string>
 
+    <string name="action_messages">"Show messages"</string>
+
+    <string name="action_create_new_poi">"Create new"</string>
+
     <string name="action_open_location">Open location in another app</string>
     <string name="map_application_missing">No other map application installed</string>
 
@@ -267,8 +271,7 @@ If you are overwhelmed by the number of quests, you can always fine-tune which q
     <string name="team_mode_exit">Exit Team Mode</string>
     <string name="team_mode_description">"When mapping the same area together in a group, you can enter team mode to split up quests between all team members.
 Each of you will then see different quests."</string>
-    <string name="team_mode_team_size_label2">How many people are mapping? Enter the same number on everyone’s phone.</string>
-    <string name="team_mode_team_size_hint">Team mode works for groups of 2 to 12 people.</string>
+    <string name="team_mode_team_size_label2">How many people are mapping? Select the same number on everyone’s phone.</string>
     <string name="team_mode_choose_color2">Next, each person must pick a different color. Choose yours:</string>
     <string name="team_mode_active">Team mode is active</string>
     <string name="team_mode_deactivated">Team mode deactivated</string>
@@ -290,8 +293,10 @@ Each of you will then see different quests."</string>
     <string name="download_server_error">"Connection error while downloading data. Try again later."</string>
     <string name="upload_server_error">"Connection error while uploading answers. Try again later."</string>
 
-    <string name="download_error">"Error while downloading data"</string>
-    <string name="upload_error">"Error while uploading answers"</string>
+    <string name="auth_error">"Authorization error. Try logging in again."</string>
+
+    <string name="download_error">"Download error"</string>
+    <string name="upload_error">"Upload error"</string>
 
     <string name="crash_title">"Oh no, StreetComplete crashed last time!"</string>
     <string name="crash_message">"Send an error report to the developer?"</string>
@@ -1362,6 +1367,11 @@ If there are no signs along the whole street which apply for the highlighted sec
     <string name="quest_postboxRoyalCypher_title">What’s the royal cypher on this postbox?</string>
     <string name="quest_postboxRoyalCypher_type_none">No royal cypher is visible</string>
     <string name="quest_postboxRoyalCypher_type_scottish_crown">The Crown of Scotland</string>
+	
+    <string name="quest_powerAttachment_title">How is this power line attached?</string>
+    <string name="quest_powerAttachment_suspension">Supported from above</string>
+    <string name="quest_powerAttachment_anchor">Fixed horizontally</string>
+    <string name="quest_powerAttachment_pin">Supported from below</string>
 
     <!-- I.e. which material. Pole as in "power pole" or "utility pole" -->
     <string name="quest_powerPolesMaterial_title">What’s this pole made of?</string>
@@ -1711,9 +1721,9 @@ Partially means that a wheelchair can enter and use the restroom, but no handrai
     <!-- foot=designated + bicycle=designated + segregated=yes -->
     <string name="separate_cycleway_segregated">Separated bike and foot path</string>
     <!-- highway=cycleway / bicycle=designated -->
-    <string name="separate_cycleway_exclusive">Bike-only path</string>
+    <string name="separate_cycleway_exclusive">Bike path</string>
     <!-- highway=cycleway + sidewalk=* -->
-    <string name="separate_cycleway_with_sidewalk">Bike-only path with adjacent sidewalk (separated by a curb)</string>
+    <string name="separate_cycleway_with_sidewalk">Bike path with adjacent sidewalk (separated by a curb)</string>
     <string name="cycleway_reverse_direction">Reverse bike path direction</string>
     <string name="cycleway_reverse_direction_warning">A bike path that goes into the other direction is extremely rare.</string>
     <string name="cycleway_reverse_direction_toast">Tap which side to reverse</string>

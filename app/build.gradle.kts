@@ -35,8 +35,8 @@ android {
         applicationId = "de.westnordost.streetcomplete.mn"
         minSdk = 21
         targetSdk = 34
-        versionCode = 5908
-        versionName = "59.3"
+        versionCode = 6001
+        versionName = "60.0-alpha2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -86,6 +86,10 @@ android {
     namespace = "de.westnordost.streetcomplete"
 }
 
+composeCompiler {
+    enableStrongSkippingMode = true
+}
+
 val keystorePropertiesFile = rootProject.file("keystore.properties")
 if (keystorePropertiesFile.exists()) {
     val props = Properties()
@@ -105,7 +109,7 @@ repositories {
 dependencies {
     val mockitoVersion = "3.12.4"
 
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
 
     // tests
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
@@ -128,15 +132,15 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.annotation:annotation:1.9.0")
-    implementation("androidx.fragment:fragment-ktx:1.8.4")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    implementation("androidx.annotation:annotation:1.9.1")
+    implementation("androidx.fragment:fragment-ktx:1.8.5")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.viewpager:viewpager:1.0.0")
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
 
     // Jetpack Compose
-    val composeBom = platform("androidx.compose:compose-bom:2024.09.02")
+    val composeBom = platform("androidx.compose:compose-bom:2024.10.01")
     implementation(composeBom)
     androidTestImplementation(composeBom)
     implementation("androidx.compose.material:material")
@@ -145,10 +149,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    implementation("androidx.navigation:navigation-compose:2.8.1")
+    implementation("androidx.navigation:navigation-compose:2.8.4")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
     // reorderable lists (raw Compose API is pretty complicated)
     implementation("sh.calvin.reorderable:reorderable:2.4.0")
@@ -214,14 +218,15 @@ dependencies {
 /** Localizations that should be pulled from POEditor */
 val bcp47ExportLanguages = setOf(
     "ar", "ast", "be", "bg", "bs", "ca", "cs", "da", "de", "el",
-    "en", "en-AU", "en-GB", "eo", "es", "es-AR", "eu", "fa", "fi", "fr", "gl", "he", "hr", "hu", "hy",
+    "en", "en-AU", "en-GB", "eo", "es", "es-AR", "et", "eu",
+    "fa", "fi", "fr", "gl", "he", "hr", "hu", "hy",
     "id", "it", "ja", "ko", "lt", "lv", "nb", "no", "nl", "nn", "pl", "pt", "pt-BR",
     "ro", "ru", "sk", "sl", "sr-cyrl", "sr-latn", "sv", "sw", "th", "tr", "uk",
     "zh", "zh-CN", "zh-HK", "zh-TW"
 )
 
 // see https://github.com/osmlab/name-suggestion-index/tags for latest version
-val nsiVersion = "v6.0.20240909"
+val nsiVersion = "v6.0.20241014"
 // see https://github.com/openstreetmap/id-tagging-schema/releases for latest version
 val presetsVersion = "v6.8.1"
 
