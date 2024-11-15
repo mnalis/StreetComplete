@@ -1,11 +1,11 @@
 - name: "Tobias Zwick"
   githubUsername: "westnordost"
-  linesOfCodeChanged: 482274
-  linesOfInterfaceMarkupChanged: 152677
-  assetFilesChanged: 2130
+  linesOfCodeChanged: 484000
+  linesOfInterfaceMarkupChanged: 152750
+  assetFilesChanged: 2157
 - name: "Mateusz Konieczny"
   githubUsername: "matkoniecz"
-  linesOfCodeChanged: 22172
+  linesOfCodeChanged: 22190
   linesOfInterfaceMarkupChanged: 5233
   assetFilesChanged: 636
 - name: "Flo Edelmann"
@@ -30,7 +30,7 @@
   assetFilesChanged: 4
 - name: "Matija Nalis"
   githubUsername: "mnalis"
-  linesOfCodeChanged: 3422
+  linesOfCodeChanged: 3512
   linesOfInterfaceMarkupChanged: 523
   assetFilesChanged: 70
 - name: "arrival-spring"
@@ -84,14 +84,14 @@
 - name: "Peter Newman"
   githubUsername: "peternewman"
   linesOfCodeChanged: 903
+- name: "Wieland"
+  githubUsername: "wielandb"
+  linesOfCodeChanged: 851
+  linesOfInterfaceMarkupChanged: 241
+  assetFilesChanged: 3
 - name: "Krzysztof Krason"
   linesOfCodeChanged: 738
   assetFilesChanged: 22
-- name: "Wieland"
-  githubUsername: "wielandb"
-  linesOfCodeChanged: 678
-  linesOfInterfaceMarkupChanged: 161
-  assetFilesChanged: 2
 - name: "Enno Hermann"
   githubUsername: "eginhard"
   linesOfCodeChanged: 524
@@ -114,16 +114,16 @@
   linesOfCodeChanged: 344
   linesOfInterfaceMarkupChanged: 1956
   assetFilesChanged: 56
-- name: "mcliquid"
-  githubUsername: "mcliquid"
-  linesOfCodeChanged: 286
-  linesOfInterfaceMarkupChanged: 442
-  assetFilesChanged: 8
 - name: "Kai Michael Poppe"
   githubUsername: "kmpoppe"
-  linesOfCodeChanged: 268
-  linesOfInterfaceMarkupChanged: 203
+  linesOfCodeChanged: 291
+  linesOfInterfaceMarkupChanged: 297
   assetFilesChanged: 44
+- name: "mcliquid"
+  githubUsername: "mcliquid"
+  linesOfCodeChanged: 289
+  linesOfInterfaceMarkupChanged: 442
+  assetFilesChanged: 12
 - name: "darken"
   githubUsername: "d4rken"
   linesOfCodeChanged: 230
@@ -228,6 +228,10 @@
 - name: "Jeroen Hoek"
   githubUsername: "jdhoek"
   linesOfCodeChanged: 17
+- name: "André Schröder"
+  githubUsername: "schra"
+  linesOfCodeChanged: 16
+  assetFilesChanged: 4
 - name: "typebrook"
   linesOfCodeChanged: 16
 - name: "Nils Rokita"

@@ -8,11 +8,11 @@ import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement.
 import de.westnordost.streetcomplete.osm.Tags
 import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES
 import de.westnordost.streetcomplete.osm.surface.INVALID_SURFACES_FOR_TRACKTYPES
-import de.westnordost.streetcomplete.osm.surface.SurfaceAndNote
+import de.westnordost.streetcomplete.osm.surface.Surface
 import de.westnordost.streetcomplete.osm.surface.UNPAVED_SURFACES
 import de.westnordost.streetcomplete.osm.surface.applyTo
 
-class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
+class AddRoadSurface : OsmFilterQuestType<Surface>() {
 
     override val elementFilter = """
         ways with (
@@ -25,17 +25,15 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
         )
         and (
           !surface
-          or surface ~ ${UNPAVED_SURFACES.joinToString("|")} and surface older today -6 years
-          or surface older today -12 years
+          or surface ~ ${INVALID_SURFACES.joinToString("|")}
           or (
-            surface ~ paved|unpaved|${INVALID_SURFACES.joinToString("|")}
+            surface ~ paved|unpaved
             and !surface:note
             and !note:surface
-            and !surface:lanes
-            and !surface:lanes:forward
-            and !surface:lanes:backward
-            and !surface:lanes:both_ways
+            and !check_date:surface
           )
+          or surface ~ ${UNPAVED_SURFACES.joinToString("|")} and surface older today -6 years
+          or surface older today -12 years
           ${INVALID_SURFACES_FOR_TRACKTYPES.entries.joinToString("\n") { (tracktype, surfaces) ->
               "or tracktype = $tracktype and surface ~ ${surfaces.joinToString("|")}"
           }}
@@ -57,7 +55,7 @@ class AddRoadSurface : OsmFilterQuestType<SurfaceAndNote>() {
 
     override fun createForm() = AddRoadSurfaceForm()
 
-    override fun applyAnswerTo(answer: SurfaceAndNote, tags: Tags, geometry: ElementGeometry, timestampEdited: Long) {
+    override fun applyAnswerTo(answer: Surface, tags: Tags, geometry: ElementGeometry, timestampEdited: Long) {
         answer.applyTo(tags)
     }
 }

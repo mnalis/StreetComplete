@@ -1,5 +1,28 @@
 # Changelog
 
+## v59.3
+
+- Things overlay: Mailboxes and street cabinets are now selectable (#4916, #5970)
+- Bike parking type: Add "safe loops" as selectable option (#5774), by @mcliquid
+- Bike paths: Add "cycling on sidewalk is allowed in both directions" as selectable option (#5888, #5931), by @wielandb
+- Bike paths overlay: Don't show the inner side of roundabouts etc. as missing, even if there's no data (#5959)
+- Bike paths: Improve some wordings (#5963, #5964)
+- Surfaces: Simplified interface for edge cases (#5984, #5330, #5980, #5951)
+- Pitch surface: Add "synthetic resin" as selectable option and improve some pictures (#5965)
+- Prohibited for pedestrians: Clear any sidewalk info when user objected that the sidewalk info is wrong (#5952)
+- Improved handling of deleting POIs that are part of relations (#5851)
+- Other small quest improvements, thanks @matkoniecz
+
+## v59.2
+
+- Second try: Crash issue on subsequent app starts is maybe fixed in MapLibre (#5850)
+- Fix notes that contained a "&" weren't showing correctly (#5938)
+- added Argentinian Spanish by Ignacio L'Episcopo
+- Show remarks from other mappers in all quest and overlay forms (#5794, #5889), by @kmpoppe
+- Clarify some wordings (#5927, #5936), thanks @schra
+- Places overlay: Various small improvements (#5926, #5940, #5944), by @mnalis
+- Power supply: Also ask for alpine huts (#5943)
+
 ## v59.1
 
 - Crash issue on subsequent app starts was maybe fixed in MapLibre (#5850)
