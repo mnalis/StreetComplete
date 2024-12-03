@@ -17,7 +17,6 @@ import de.westnordost.streetcomplete.quests.address.AddAddressStreet
 import de.westnordost.streetcomplete.quests.address.AddHousenumber
 import de.westnordost.streetcomplete.quests.air_conditioning.AddAirConditioning
 import de.westnordost.streetcomplete.quests.air_pump.AddAirCompressor
-import de.westnordost.streetcomplete.quests.bike_shop.AddBicyclePump
 import de.westnordost.streetcomplete.quests.amenity_cover.AddAmenityCover
 import de.westnordost.streetcomplete.quests.amenity_indoor.AddIsAmenityIndoor
 import de.westnordost.streetcomplete.quests.atm_cashin.AddAtmCashIn
@@ -39,10 +38,12 @@ import de.westnordost.streetcomplete.quests.bike_parking_cover.AddBikeParkingCov
 import de.westnordost.streetcomplete.quests.bike_parking_type.AddBikeParkingType
 import de.westnordost.streetcomplete.quests.bike_rental_capacity.AddBikeRentalCapacity
 import de.westnordost.streetcomplete.quests.bike_rental_type.AddBikeRentalType
+import de.westnordost.streetcomplete.quests.bike_shop.AddBicyclePump
 import de.westnordost.streetcomplete.quests.bike_shop.AddBikeRepairAvailability
 import de.westnordost.streetcomplete.quests.bike_shop.AddSecondHandBicycleAvailability
 import de.westnordost.streetcomplete.quests.board_name.AddBoardName
 import de.westnordost.streetcomplete.quests.board_type.AddBoardType
+import de.westnordost.streetcomplete.quests.boat_rental.AddBoatRental
 import de.westnordost.streetcomplete.quests.bollard_type.AddBollardType
 import de.westnordost.streetcomplete.quests.bridge_structure.AddBridgeStructure
 import de.westnordost.streetcomplete.quests.building_entrance.AddEntrance
@@ -456,6 +457,8 @@ fun questTypeRegistry(
     110 to AddAirConditioning(), // often visible from the outside across the street, if not, visible/feelable inside
 
     /* ↓ 4.quests that may need to go inside ------------------------------------------------ */
+
+    174 to AddBoatRental(),
 
     112 to AddWheelchairAccessPublicTransport(), // need to look out for lifts etc, maybe even enter the station
 

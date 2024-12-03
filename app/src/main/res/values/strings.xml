@@ -581,8 +581,8 @@ Before uploading your changes, the app checks with a &lt;a href=\"https://www.we
     <string name="theme_system_default">System default</string>
 
     <string name="pref_title_show_notes_not_phrased_as_questions">"Show all notes"</string>
-    <string name="pref_summaryOn_show_notes_not_phrased_as_questions">"Showing ALL unhidden notes"</string>
-    <string name="pref_summaryOff_show_notes_not_phrased_as_questions">"Ignoring own notes and notes not phrased as questions"</string>
+    <string name="pref_summaryOn_show_notes_not_phrased_as_questions">"Also showing notes not phrased as questions"</string>
+    <string name="pref_summaryOff_show_notes_not_phrased_as_questions">"Ignoring notes not phrased as questions"</string>
 
     <string name="pref_title_quests_restore_hidden">Restore hidden quests</string>
     <string name="pref_title_quests_restore_hidden_summary">Number of hidden quests: %d</string>
@@ -744,14 +744,6 @@ Before uploading your changes, the app checks with a &lt;a href=\"https://www.we
     <string name="quest_bench_backrest_title">Does this bench have a backrest?</string>
     <string name="quest_bench_answer_picnic_table">It’s a picnic table</string>
 
-    <string name="quest_benchMaterial_title">What’s this made of?</string>
-    <string name="quest_benchMaterial_wood">Wood</string>
-    <string name="quest_benchMaterial_metal">Metal</string>
-    <string name="quest_benchMaterial_plastic">Plastic</string>
-    <string name="quest_benchMaterial_concrete">Concrete</string>
-    <string name="quest_benchMaterial_stone">Stone</string>
-    <string name="quest_benchMaterial_brick">Bricks</string>
-
     <string name="quest_bicycle_barrier_type_title">What type of bicycle barrier is this?</string>
     <string name="quest_barrier_bicycle_type_diagonal">Diagonal to the path</string>
     <string name="quest_barrier_bicycle_type_tilted">Narrow passage, smaller toward top</string>
@@ -793,7 +785,7 @@ Before uploading your changes, the app checks with a &lt;a href=\"https://www.we
     <string name="quest_bicycle_rental_type_human">Staffed bicycle rental</string>
     <string name="quest_bicycle_rental_type_shop_with_rental">Bicycle store that also rents bicycles</string>
 
-    <string name="quest_bicycle_repair_station_services_title">What equipment is available here?</string>
+    <string name="quest_bicycle_repair_station_services_title">What bicycle equipment is available here?</string>
     <string name="quest_bicycle_repair_station_pump">Pump</string>
     <string name="quest_bicycle_repair_station_tools">Various tools</string>
     <string name="quest_bicycle_repair_station_stand">Work stand</string>
@@ -827,6 +819,21 @@ Before uploading your changes, the app checks with a &lt;a href=\"https://www.we
     <string name="quest_board_type_map">It is a map</string>
     <string name="quest_board_type_map_title">Is it just a map and only a map?</string>
     <string name="quest_board_type_map_description">If the board is about a particular topic, please specify it, regardless of whether it also includes a map. For example a public transport board may have a bus route map. If the topic is not listed among the available answers, please consider leaving a note instead.</string>
+
+    <string name="quest_boat_rental_title">Which type of boats are for rent here?</string>
+    <string name="quest_boat_rental_motorboat">Motorboat</string>
+    <string name="quest_boat_rental_jetski">Jetski</string>
+    <string name="quest_boat_rental_sailboat">Sailboat</string>
+    <string name="quest_boat_rental_pedalboat">Pedalboat</string>
+    <string name="quest_boat_rental_kayak">Kayak</string>
+    <string name="quest_boat_rental_canoe">Canoe</string>
+    <string name="quest_boat_rental_houseboat">Houseboat</string>
+    <string name="quest_boat_rental_rowboat">Rowboat</string>
+    <string name="quest_boat_rental_raft">Raft</string>
+    <string name="quest_boat_rental_surfboard">Surfboard</string>
+    <string name="quest_boat_rental_sailboard">Sailboard</string>
+    <string name="quest_boat_rental_yacht">Yacht</string>
+    <string name="quest_boat_rental_standup_paddleboard">Standup Paddleboard (SUP)</string>
 
     <string name="quest_bollard_type_title">What type of bollard is this?</string>
     <string name="quest_bollard_type_rising">Rising</string>
@@ -1353,8 +1360,6 @@ If there are no signs along the whole street which apply for the highlighted sec
 
     <string name="quest_amenityCover_title">Is this covered (protected from rain)?</string>
 
-    <string name="quest_is_pharmacy_dispensing_title">Is this pharmacy dispensing all prescription drugs?</string>
-
     <string name="quest_placeName_title">"What’s the name of this place?"</string>
     <string name="quest_placeName_no_name_answer">"There is no name sign…"</string>
 
@@ -1372,7 +1377,7 @@ If there are no signs along the whole street which apply for the highlighted sec
     <string name="quest_postboxRoyalCypher_title">What’s the royal cypher on this postbox?</string>
     <string name="quest_postboxRoyalCypher_type_none">No royal cypher is visible</string>
     <string name="quest_postboxRoyalCypher_type_scottish_crown">The Crown of Scotland</string>
-	
+
     <string name="quest_powerAttachment_title">How is this power line attached?</string>
     <string name="quest_powerAttachment_suspension">Supported from above</string>
     <string name="quest_powerAttachment_anchor">Fixed horizontally</string>
@@ -1714,6 +1719,9 @@ Partially means that a wheelchair can enter and use the restroom, but no handrai
     <string name="bicycle_boulevard_is_a">It’s a %1$s</string>
     <string name="bicycle_boulevard_is_not_a">It’s not a %1$s</string>
     <string name="bicycle_boulevard">Bicycle boulevard</string>
+    <string name="pedestrian_zone_designated">Designated for cycling here</string>
+    <string name="pedestrian_zone_allowed_sign">A sign allows cycling here</string>
+    <string name="pedestrian_zone_no_sign">No explicit sign about cycling here</string>
     <!-- Focus on cycling being the thing that is explicitly disallowed -->
     <string name="separate_cycleway_no_signed">A sign explicitly prohibits cycling</string>
     <string name="separate_cycleway_footway_allowed_sign">Footway, but a sign allows cycling</string>
