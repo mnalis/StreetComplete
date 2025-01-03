@@ -45,11 +45,11 @@ internal class SidewalkSurfaceCreatorKtTest {
                 "sidewalk:both:surface" to "asphalt",
                 "check_date:sidewalk:surface" to "2000-10-10"
             ))
-        println ("start")
-        println ("src=$src")
-        println ("dst=$dst")
-        assertTrue (true, "assert true src=$src")
-        assertTrue (true, "assert true dst=$dst")
+        println ("dbg: start")
+        println ("dbg: src=$src")
+        println ("dbg: dst=$dst")
+        assertTrue (true, "dbg: assert true src=$src")
+        assertTrue (true, "dbg: assert true dst=$dst")
         assertEquals(
             src,
             dst,
