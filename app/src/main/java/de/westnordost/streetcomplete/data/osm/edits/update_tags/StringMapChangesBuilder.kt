@@ -17,7 +17,8 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
     /** Remove the given key (and related keys with metadata) from the map */
     fun remove(key: String) {
         removeOne(key)
-        removeCheckDatesForKey(key) // FIXME: it seems to break test that modify existing tag xxx and thus create check_date:xxx
+        // removeCheckDatesForKey(key)     // FIXME: this one would be better as it remove other check_date keys too, but triggers infinite recursion, so should be done in other way
+        removeOne("check_date:" + key) // FIXME: it seems to break test that modify existing tag xxx and thus create check_date:xxx
         removeOne("source:" + key)
     }
 
