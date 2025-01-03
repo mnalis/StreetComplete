@@ -134,7 +134,7 @@ tasks.register("updateStreetCompleteData") {
 
 tasks.withType<Test> {
     testLogging {
-        events("passed", "skipped", "failed")
+        /*events("passed", "skipped", "failed")*/
         showStandardStreams = true
     }
 }
