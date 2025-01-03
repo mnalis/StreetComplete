@@ -24,7 +24,7 @@ class StringMapChangesBuilderTest {
         builder["check_date:a"] = "2"
 
         builder.remove("a")
-        
+
         assertTrue(builder.changes.isEmpty())
     }
 
