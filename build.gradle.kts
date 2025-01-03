@@ -135,5 +135,11 @@ tasks.register("updateStreetCompleteData") {
 tasks.withType<Test> {
     testLogging {
         events("passed", "skipped", "failed")
+        //showStandardStreams = true // Show output from println statements
+        exceptionFormat = TestExceptionFormat.FULL // Show full stack trace for exceptions
+        // Optionally, you can also set:
+        showExceptions = true // Show exceptions for failed tests
+        showCauses = true // Show causes for failed tests
+        showStackTraces = true // Show stack traces for failed tests
     }
 }
