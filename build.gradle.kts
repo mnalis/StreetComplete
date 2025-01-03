@@ -131,3 +131,10 @@ tasks.register("updateStreetCompleteData") {
         "app:downloadAndConvertPresetIcons"
     )
 }
+
+tasks.test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true // This will show the output of println statements
+    }
+}
