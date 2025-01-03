@@ -9,6 +9,7 @@ import de.westnordost.streetcomplete.osm.nowAsCheckDateString
 import de.westnordost.streetcomplete.osm.surface.Surface.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 internal class SidewalkSurfaceCreatorKtTest {
 
@@ -47,6 +48,8 @@ internal class SidewalkSurfaceCreatorKtTest {
         println ("start")
         println ("src=$src")
         println ("dst=$dst")
+        assertTrue (true, "assert true src=$src")
+        assertTrue (true, "assert true dst=$dst")
         assertEquals(
             src,
             dst,
