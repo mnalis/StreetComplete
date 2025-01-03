@@ -1,5 +1,7 @@
 package de.westnordost.streetcomplete.data.osm.edits.update_tags
 
+import de.westnordost.streetcomplete.osm.removeCheckDatesForKey
+
 class StringMapChangesBuilder(private val source: Map<String, String>) : Map<String, String> {
     private val changes: MutableMap<String, StringMapEntryChange> = mutableMapOf()
 
@@ -15,8 +17,8 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
     /** Remove the given key (and related keys with metadata) from the map */
     fun remove(key: String) {
         removeOne(key)
+        removeCheckDatesForKey(key)
         removeOne("source:" + key)
-        removeOne("check_date:" + key)
     }
 
     /** put the given value for the given key */
