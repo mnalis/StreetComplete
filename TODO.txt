@@ -1,0 +1,28 @@
+files:
+app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/StringMapEntryChange.kt
++52 app/src/test/java/de/westnordost/streetcomplete/osm/sidewalk_surface/SidewalkSurfaceCreatorKtTest.kt
++24 app/src/test/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/StringMapChangesBuilderTest.kt
++88 app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/StringMapChangesBuilder.kt
+
+
+.remove removes too much
+
+
+SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
+    start
+    src=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-03"]
+    dst=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
+SidewalkSurfaceCreatorKtTest > updates check_date FAILED
+    java.lang.AssertionError: failing because src != dst / FIXME expected:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-03"]> but was:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]>
+        at org.junit.Assert.fail(Assert.java:89)
+        at org.junit.Assert.failNotEquals(Assert.java:835)
+        at org.junit.Assert.assertEquals(Assert.java:120)
+        at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+        at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:63)
+        at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+        at de.westnordost.streetcomplete.osm.sidewalk_surface.SidewalkSurfaceCreatorKtTest.updates check_date(SidewalkSurfaceCreatorKtTest.kt:50)
+Gradle Test Executor 1 finished executing tests.
+2183 tests completed, 1 failed, 1 skipped
+> Task :app:testReleaseGooglePlayUnitTest FAILED
+
+

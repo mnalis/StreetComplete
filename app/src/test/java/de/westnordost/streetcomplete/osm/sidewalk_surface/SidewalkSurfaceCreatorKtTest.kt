@@ -52,8 +52,7 @@ internal class SidewalkSurfaceCreatorKtTest {
         assertTrue (true, "dbg: assert true dst=$dst")
         assertEquals(
             src,
-            dst,
-            "failing because src != dst / FIXME"
+            dst
         )
     }
 
