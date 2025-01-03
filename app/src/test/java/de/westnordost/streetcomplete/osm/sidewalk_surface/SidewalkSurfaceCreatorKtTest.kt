@@ -47,8 +47,6 @@ internal class SidewalkSurfaceCreatorKtTest {
         println ("start")
         println ("src=$src")
         println ("dst=$dst")
-        assertTrue (true, "assert true src=$src")
-        assertTrue (true, "assert true dst=$dst")
         assertEquals(
             src,
             dst,
