@@ -44,10 +44,13 @@ internal class SidewalkSurfaceCreatorKtTest {
                 "sidewalk:both:surface" to "asphalt",
                 "check_date:sidewalk:surface" to "2000-10-10"
             ))
+        println ("start")
+        println ("src=$src")
+        println ("dst=$dst")
         assertEquals(
             src,
             dst,
-            "src is: ${src} but dst is: ${dst}"
+            "failing because src != dst / FIXME"
         )
     }
 
