@@ -36,15 +36,18 @@ internal class SidewalkSurfaceCreatorKtTest {
     }
 
     @Test fun `updates check_date`() {
-        assertEquals(
-            setOf(
+        val src = setOf(
                 StringMapEntryModify("sidewalk:both:surface", "asphalt", "asphalt"),
                 StringMapEntryModify("check_date:sidewalk:surface", "2000-10-10", nowAsCheckDateString()),
             ),
-            LeftAndRightSidewalkSurface(ASPHALT, ASPHALT).appliedTo(mapOf(
+        val dst = LeftAndRightSidewalkSurface(ASPHALT, ASPHALT).appliedTo(mapOf(
                 "sidewalk:both:surface" to "asphalt",
                 "check_date:sidewalk:surface" to "2000-10-10"
             ))
+        assertEquals(
+            src,
+            dst,
+            "src is: ${src} but dst is: ${dst}"
         )
     }
 
