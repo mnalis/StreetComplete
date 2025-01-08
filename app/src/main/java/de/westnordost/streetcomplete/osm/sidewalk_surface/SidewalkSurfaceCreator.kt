@@ -9,6 +9,7 @@ import de.westnordost.streetcomplete.osm.updateCheckDateForKey
 
 fun LeftAndRightSidewalkSurface.applyTo(tags: Tags) {
     val hadCheckDateForKey = tags.hasCheckDateForKey("sidewalk:surface")
+    
     tags.expandSides("sidewalk", "surface")
     tags.expandSides("sidewalk", "surface:note")
     tags.expandSides("sidewalk", "smoothness")
@@ -20,9 +21,6 @@ fun LeftAndRightSidewalkSurface.applyTo(tags: Tags) {
     tags.mergeSides("sidewalk", "surface:note")
     tags.mergeSides("sidewalk", "smoothness")
 
-    val newCheckDateForKey = tags.hasCheckDateForKey("sidewalk:surface")
-
-    println ("dbg:  LeftAndRightSidewalkSurface.applyTo($tags) with hadCheckDateForKey=$hadCheckDateForKey and now newCheckDateForKey=$newCheckDateForKey")
     if (!tags.hasChanges || hadCheckDateForKey) {
         tags.updateCheckDateForKey("sidewalk:surface")
     }
