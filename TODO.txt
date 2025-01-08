@@ -10,6 +10,12 @@ app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/Strin
 SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
     dbg: start src
     dbg: start dst
+
+val dst = LeftAndRightSidewalkSurface(ASPHALT, ASPHALT).appliedTo(mapOf(
+    "sidewalk:both:surface" to "asphalt",
+    "check_date:sidewalk:surface" to "2000-10-10"
+))
+
     dbg: calling set("sidewalk:left:surface", "asphalt")
     dbg:   calling addChange(ADD "sidewalk:left:surface"="asphalt")
     dbg:     changes before = {}) =>
@@ -61,6 +67,7 @@ SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
 
     dbg:   Created StringMapChanges (pri) with changes: [MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
     dbg:   Created StringMapChanges (sec) from Collection with changes: [MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
+
     dbg: start assert
     dbg: src=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-08"]
     dbg: dst=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
