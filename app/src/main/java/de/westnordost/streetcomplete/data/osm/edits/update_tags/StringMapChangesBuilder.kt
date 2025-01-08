@@ -91,11 +91,11 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
     }
 
     private fun addChange(change: StringMapEntryChange) {
-        println ("dbg:   calling addChange($change)")
-        println ("dbg:     changes before addChange = $changes) =>")
+        println ("dbg:     calling addChange($change)")
+        println ("dbg:       changes before addChange = $changes) =>")
         if (changes[change.key] == change) return
         changes[change.key] = change
-        println ("dbg:     changes after  addChange = $changes)")
+        println ("dbg:       changes after  addChange = $changes)")
     }
 
     fun create() = StringMapChanges(changes.values)
