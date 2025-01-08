@@ -7,8 +7,18 @@ import kotlinx.serialization.Serializable
 @Serializable
 class StringMapChanges(val changes: Set<StringMapEntryChange>) {
 
-    constructor(changes: Collection<StringMapEntryChange>) : this(changes.toSet())
+    // Primary constructor
+    init {
+        // Debug output in the primary constructor
+        println("dbg:   Created StringMapChanges (pri) with changes: $changes")
+    }
 
+    // Secondary constructor
+    constructor(changes: Collection<StringMapEntryChange>) : this(changes.toSet()) {
+        // Debug output in the secondary constructor
+        println("dbg:   Created StringMapChanges (sec) from Collection with changes: $changes")
+    }
+    
     fun isEmpty() = changes.isEmpty()
 
     fun isValid(): Boolean = changes.all { it.isValid() }
