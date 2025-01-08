@@ -8,6 +8,8 @@ app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/Strin
 .remove removes too much
 
 SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
+    dbg: start src
+    dbg: start dst
     dbg: calling set(sidewalk:left:surface, asphalt)
     dbg: calling addChange(ADD "sidewalk:left:surface"="asphalt")
     dbg: calling set(sidewalk:right:surface, asphalt)
@@ -30,10 +32,9 @@ SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
     dbg: calling addChange(MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt")
     dbg: calling remove(sidewalk:left:surface)
     dbg: calling remove(sidewalk:right:surface)
-    dbg: start
+    dbg: start assert
     dbg: src=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-08"]
     dbg: dst=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
-
 
 SidewalkSurfaceCreatorKtTest > updates check_date FAILED
     java.lang.AssertionError: expected:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-08"]> but was:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]>
@@ -45,4 +46,4 @@ SidewalkSurfaceCreatorKtTest > updates check_date FAILED
         at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
         at kotlin.test.AssertionsKt__AssertionsKt.assertEquals$default(Assertions.kt:62)
         at kotlin.test.AssertionsKt.assertEquals$default(Unknown Source)
-        at de.westnordost.streetcomplete.osm.sidewalk_surface.SidewalkSurfaceCreatorKtTest.updates check_date(SidewalkSurfaceCreatorKtTest.kt:53)
+        at de.westnordost.streetcomplete.osm.sidewalk_surface.SidewalkSurfaceCreatorKtTest.updates check_date(SidewalkSurfaceCreatorKtTest.kt:55)
