@@ -37,15 +37,17 @@ internal class SidewalkSurfaceCreatorKtTest {
     }
 
     @Test fun `updates check_date`() {
+        println ("dbg: start src")
         val src = setOf(
                 StringMapEntryModify("sidewalk:both:surface", "asphalt", "asphalt"),
                 StringMapEntryModify("check_date:sidewalk:surface", "2000-10-10", nowAsCheckDateString()),
             )
+        println ("dbg: start dst")
         val dst = LeftAndRightSidewalkSurface(ASPHALT, ASPHALT).appliedTo(mapOf(
                 "sidewalk:both:surface" to "asphalt",
                 "check_date:sidewalk:surface" to "2000-10-10"
             ))
-        println ("dbg: start")
+        println ("dbg: start assert")
         println ("dbg: src=$src")
         println ("dbg: dst=$dst")
         assertTrue (true, "dbg: assert true src=$src")
