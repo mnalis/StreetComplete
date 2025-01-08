@@ -7,15 +7,15 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
 
     /** Remove only the given key from the map */
     fun removeOne(key: String) {
-        println ("dbg:   calling removeOne(\"$key\")")
-        println ("dbg:     changes before removeOne = $changes) =>")
+        //println ("dbg:   calling removeOne(\"$key\")")
+        //println ("dbg:     changes before removeOne = $changes) =>")
         changes.remove(key)
-        println ("dbg:     changes mid    removeOne = $changes) =>")
+        //println ("dbg:     changes mid    removeOne = $changes) =>")
         val valueBefore = source[key]
         if (valueBefore != null) {
             addChange(StringMapEntryDelete(key, valueBefore))
         }
-        println ("dbg:     changes after  removeOne = $changes)")
+        //println ("dbg:     changes after  removeOne = $changes)")
     }
 
     /** Remove the given key (and related keys with metadata) from the map */
@@ -91,11 +91,11 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
     }
 
     private fun addChange(change: StringMapEntryChange) {
-        println ("dbg:     calling addChange($change)")
-        println ("dbg:       changes before addChange = $changes) =>")
+        //println ("dbg:     calling addChange($change)")
+        //println ("dbg:       changes before addChange = $changes) =>")
         if (changes[change.key] == change) return
         changes[change.key] = change
-        println ("dbg:       changes after  addChange = $changes)")
+        //println ("dbg:       changes after  addChange = $changes)")
     }
 
     fun create() = StringMapChanges(changes.values)
