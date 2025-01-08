@@ -10,6 +10,7 @@ app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/Strin
 SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
     dbg: start src
     dbg: start dst
+
     dbg: calling set(sidewalk:left:surface, asphalt)
     dbg: calling addChange(ADD "sidewalk:left:surface"="asphalt")
     dbg:   changes before={})

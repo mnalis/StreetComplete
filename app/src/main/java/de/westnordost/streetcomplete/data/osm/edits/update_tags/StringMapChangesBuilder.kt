@@ -88,7 +88,7 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
 
     private fun addChange(change: StringMapEntryChange) {
         println ("dbg:   calling addChange($change)")
-        println ("dbg:     changes before = $changes)")
+        println ("dbg:     changes before = $changes) =>")
         if (changes[change.key] == change) return
         changes[change.key] = change
         println ("dbg:     changes after  = $changes)")
