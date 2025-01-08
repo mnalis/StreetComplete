@@ -7,22 +7,42 @@ app/src/main/java/de/westnordost/streetcomplete/data/osm/edits/update_tags/Strin
 
 .remove removes too much
 
-
 SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
-    start
-    src=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-03"]
-    dst=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
+    dbg: calling set(sidewalk:left:surface, asphalt)
+    dbg: calling addChange(ADD "sidewalk:left:surface"="asphalt")
+    dbg: calling set(sidewalk:right:surface, asphalt)
+    dbg: calling addChange(ADD "sidewalk:right:surface"="asphalt")
+    dbg: calling remove(sidewalk:both:surface)
+    dbg: calling addChange(DELETE "sidewalk:both:surface"="asphalt")
+    dbg: calling remove(sidewalk:surface)
+    dbg: calling addChange(DELETE "check_date:sidewalk:surface"="2000-10-10")
+    dbg: calling remove(sidewalk:both:surface:note)
+    dbg: calling remove(sidewalk:surface:note)
+    dbg: calling remove(sidewalk:both:smoothness)
+    dbg: calling remove(sidewalk:smoothness)
+    dbg: calling set(sidewalk:left:surface, asphalt)
+    dbg: calling addChange(ADD "sidewalk:left:surface"="asphalt")
+    dbg: calling remove(source:surface)
+    dbg: calling set(sidewalk:right:surface, asphalt)
+    dbg: calling addChange(ADD "sidewalk:right:surface"="asphalt")
+    dbg: calling remove(source:surface)
+    dbg: calling set(sidewalk:both:surface, asphalt)
+    dbg: calling addChange(MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt")
+    dbg: calling remove(sidewalk:left:surface)
+    dbg: calling remove(sidewalk:right:surface)
+    dbg: start
+    dbg: src=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-08"]
+    dbg: dst=[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]
+
+
 SidewalkSurfaceCreatorKtTest > updates check_date FAILED
-    java.lang.AssertionError: failing because src != dst / FIXME expected:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-03"]> but was:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]>
+    java.lang.AssertionError: expected:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", MODIFY "check_date:sidewalk:surface"="2000-10-10" -> "check_date:sidewalk:surface"="2025-01-08"]> but was:<[MODIFY "sidewalk:both:surface"="asphalt" -> "sidewalk:both:surface"="asphalt", DELETE "check_date:sidewalk:surface"="2000-10-10"]>
         at org.junit.Assert.fail(Assert.java:89)
         at org.junit.Assert.failNotEquals(Assert.java:835)
         at org.junit.Assert.assertEquals(Assert.java:120)
         at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
         at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:63)
         at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
-        at de.westnordost.streetcomplete.osm.sidewalk_surface.SidewalkSurfaceCreatorKtTest.updates check_date(SidewalkSurfaceCreatorKtTest.kt:50)
-Gradle Test Executor 1 finished executing tests.
-2183 tests completed, 1 failed, 1 skipped
-> Task :app:testReleaseGooglePlayUnitTest FAILED
-
-
+        at kotlin.test.AssertionsKt__AssertionsKt.assertEquals$default(Assertions.kt:62)
+        at kotlin.test.AssertionsKt.assertEquals$default(Unknown Source)
+        at de.westnordost.streetcomplete.osm.sidewalk_surface.SidewalkSurfaceCreatorKtTest.updates check_date(SidewalkSurfaceCreatorKtTest.kt:53)
