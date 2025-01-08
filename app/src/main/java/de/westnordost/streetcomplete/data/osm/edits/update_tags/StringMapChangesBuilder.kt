@@ -21,6 +21,7 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
         // removeCheckDatesForKey(key)     // FIXME: this one would be better as it remove other check_date keys too, but triggers infinite recursion, so should be done in other way
         removeOne("check_date:" + key) // FIXME: it seems to break test that modify existing tag xxx and thus create check_date:xxx
         removeOne("source:" + key)
+        println()
     }
 
     /** put the given value for the given key */
@@ -32,6 +33,7 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
         } else {
             StringMapEntryModify(key, valueBefore, value)
         })
+        println()
     }
 
     /* ----------------------- */
@@ -85,11 +87,11 @@ class StringMapChangesBuilder(private val source: Map<String, String>) : Map<Str
     }
 
     private fun addChange(change: StringMapEntryChange) {
-        println ("dbg: calling addChange($change)")
-        println ("dbg:   changes before = $changes)")
+        println ("dbg:   calling addChange($change)")
+        println ("dbg:     changes before = $changes)")
         if (changes[change.key] == change) return
         changes[change.key] = change
-        println ("dbg:   changes after  = $changes)")
+        println ("dbg:     changes after  = $changes)")
     }
 
     fun create() = StringMapChanges(changes.values)

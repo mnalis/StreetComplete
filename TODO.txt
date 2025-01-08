@@ -18,22 +18,31 @@ SidewalkSurfaceCreatorKtTest > updates check_date STANDARD_OUT
     dbg: calling addChange(ADD "sidewalk:right:surface"="asphalt")
     dbg:   changes before={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt"})
     dbg:   changes  after={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt"})
+
     dbg: calling remove(sidewalk:both:surface)
     dbg: calling addChange(DELETE "sidewalk:both:surface"="asphalt")
     dbg:   changes before={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt"})
     dbg:   changes  after={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt", sidewalk:both:surface=DELETE "sidewalk:both:surface"="asphalt"})
+
     dbg: calling remove(sidewalk:surface)
     dbg: calling addChange(DELETE "check_date:sidewalk:surface"="2000-10-10")
     dbg:   changes before={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt", sidewalk:both:surface=DELETE "sidewalk:both:surface"="asphalt"})
     dbg:   changes  after={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt", sidewalk:both:surface=DELETE "sidewalk:both:surface"="asphalt", check_date:sidewalk:surface=DELETE "check_date:sidewalk:surface"="2000-10-10"})
+
     dbg: calling remove(sidewalk:both:surface:note)
+
     dbg: calling remove(sidewalk:surface:note)
+
     dbg: calling remove(sidewalk:both:smoothness)
+
     dbg: calling remove(sidewalk:smoothness)
+
     dbg: calling set(sidewalk:left:surface, asphalt)
     dbg: calling addChange(ADD "sidewalk:left:surface"="asphalt")
     dbg:   changes before={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt", sidewalk:both:surface=DELETE "sidewalk:both:surface"="asphalt", check_date:sidewalk:surface=DELETE "check_date:sidewalk:surface"="2000-10-10"})
+
     dbg: calling remove(source:surface)
+
     dbg: calling set(sidewalk:right:surface, asphalt)
     dbg: calling addChange(ADD "sidewalk:right:surface"="asphalt")
     dbg:   changes before={sidewalk:left:surface=ADD "sidewalk:left:surface"="asphalt", sidewalk:right:surface=ADD "sidewalk:right:surface"="asphalt", sidewalk:both:surface=DELETE "sidewalk:both:surface"="asphalt", check_date:sidewalk:surface=DELETE "check_date:sidewalk:surface"="2000-10-10"})
