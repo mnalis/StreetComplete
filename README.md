@@ -1,4 +1,4 @@
-![StreetComplete](http://www.westnordost.de/streetcomplete/featureGraphic.png)
+![StreetComplete](.github/images/feature_graphic.png)
 
 ## mnalis changes
 * See [CHANGES-mnalis.md](https://github.com/mnalis/StreetComplete/blob/mnalis-v38/CHANGES-mnalis.md).
