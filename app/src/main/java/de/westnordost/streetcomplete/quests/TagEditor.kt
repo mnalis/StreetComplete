@@ -142,7 +142,8 @@ open class TagEditor : Fragment(), IsCloseableBottomSheet {
         editTypeName = args.getString(ARG_EDIT_TYPE_NAME)
         newTags.putAll(originalElement.tags)
         tagList.addAll(newTags.toList().sortedBy { it.first })
-        element = originalElement.copy(tags = newTags, timestampEdited = nowAsEpochMilliseconds()) // we don't want resurvey quests, user can just edit tag or delete and get quest again
+        element = originalElement.copy(tags = newTags, timestampEdited = 0L) // FIXME: try out the idea to force everything to be resurveyed
+//        element = originalElement.copy(tags = newTags, timestampEdited = nowAsEpochMilliseconds()) // we don't want resurvey quests, user can just edit tag or delete and get quest again
         showingTagEditor = true
     }
 
