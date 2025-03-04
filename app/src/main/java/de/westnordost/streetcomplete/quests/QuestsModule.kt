@@ -137,7 +137,6 @@ import de.westnordost.streetcomplete.quests.recycling_material.AddRecyclingConta
 import de.westnordost.streetcomplete.quests.religion.AddReligionToPlaceOfWorship
 import de.westnordost.streetcomplete.quests.religion.AddReligionToWaysideShrine
 import de.westnordost.streetcomplete.quests.road_name.AddRoadName
-import de.westnordost.streetcomplete.quests.road_name.RoadNameSuggestionsSource
 import de.westnordost.streetcomplete.quests.roof_shape.AddRoofShape
 import de.westnordost.streetcomplete.quests.sanitary_dump_station.AddSanitaryDumpStation
 import de.westnordost.streetcomplete.quests.seating.AddSeating
@@ -188,7 +187,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val questsModule = module {
-    factory { RoadNameSuggestionsSource(get()) }
+    factory { NameSuggestionsSource(get()) }
 
     single {
         questTypeRegistry(
