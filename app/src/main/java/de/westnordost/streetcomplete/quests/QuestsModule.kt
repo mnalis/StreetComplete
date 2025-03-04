@@ -75,6 +75,7 @@ import de.westnordost.streetcomplete.quests.crossing_markings.AddCrossingMarking
 import de.westnordost.streetcomplete.quests.crossing_signals.AddCrossingSignals
 import de.westnordost.streetcomplete.quests.cycleway.AddCycleway
 import de.westnordost.streetcomplete.quests.defibrillator.AddDefibrillatorLocation
+import de.westnordost.streetcomplete.quests.diet_type.AddGlutenFree
 import de.westnordost.streetcomplete.quests.diet_type.AddHalal
 import de.westnordost.streetcomplete.quests.diet_type.AddKosher
 import de.westnordost.streetcomplete.quests.diet_type.AddVegan
@@ -479,6 +480,7 @@ fun questTypeRegistry(
     126 to AddVegan(),
     127 to AddHalal(), // there are ~ 100 times more Muslims than Jews
     128 to AddKosher(),
+    175 to AddGlutenFree(),
     129 to AddWheelchairAccessBusiness(), // used by wheelmap, OsmAnd, Organic Maps
     130 to AddInternetAccess(), // used by OsmAnd
     132 to AddAcceptsCash(),
