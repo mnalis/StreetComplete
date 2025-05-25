@@ -31,7 +31,6 @@ import de.westnordost.streetcomplete.quests.barrier_type.AddBarrierType
 import de.westnordost.streetcomplete.quests.barrier_type.AddStileType
 import de.westnordost.streetcomplete.quests.bbq_fuel.AddBbqFuel
 import de.westnordost.streetcomplete.quests.bench_backrest.AddBenchBackrest
-import de.westnordost.streetcomplete.quests.bench_material.AddBenchMaterial
 import de.westnordost.streetcomplete.quests.bicycle_repair_station.AddBicycleRepairStationServices
 import de.westnordost.streetcomplete.quests.bike_parking_capacity.AddBikeParkingCapacity
 import de.westnordost.streetcomplete.quests.bike_parking_cover.AddBikeParkingCover
@@ -121,7 +120,6 @@ import de.westnordost.streetcomplete.quests.parking_access.AddParkingAccess
 import de.westnordost.streetcomplete.quests.parking_fee.AddBikeParkingFee
 import de.westnordost.streetcomplete.quests.parking_fee.AddParkingFee
 import de.westnordost.streetcomplete.quests.parking_type.AddParkingType
-import de.westnordost.streetcomplete.quests.pharmacy.AddIsPharmacyDispensing
 import de.westnordost.streetcomplete.quests.pitch_lit.AddPitchLit
 import de.westnordost.streetcomplete.quests.place_name.AddPlaceName
 import de.westnordost.streetcomplete.quests.playground_access.AddPlaygroundAccess
@@ -253,10 +251,10 @@ fun questTypeRegistry(
     1 to AddBusStopShelter(), // used by at least OsmAnd
     2 to AddBenchStatusOnBusStop(), // can be seen from across the street
     3 to AddBinStatusOnBusStop(), // can be seen from across the street
+    4 to AddTactilePavingBusStop(), // requires you to be very close to it
     5 to AddBusStopName(), // requires text input
     6 to AddBusStopRef(), // requires text input
     7 to AddBusStopLit(), // at least during day requires to stand in it to see if there is a light in the shelter
-    4 to AddTactilePavingBusStop(), // requires you to be very close to it
 
     8 to AddRailwayCrossingBarrier(), // useful for routing
 
@@ -294,8 +292,6 @@ fun questTypeRegistry(
     26 to AddReligionToPlaceOfWorship(), // icons on maps are different - OSM Carto, mapy.cz, OsmAnd, Sputnik etc
     27 to AddReligionToWaysideShrine(),
 
-    2222 to AddBenchMaterial(),            // EE_QUEST_OFFSET + 0
-	
     172 to AddPowerAttachment(),
     28 to AddPowerPolesMaterial(),
 
@@ -405,7 +401,6 @@ fun questTypeRegistry(
     77 to CheckOpeningHoursSigned(getFeature),
     81 to AddOpeningHours(getFeature),
     83 to AddBicyclePump(), // visible from the outside, but only during opening hours
-    999 to AddIsPharmacyDispensing(), // usually signed on the doors, but only exists is some countries
 
     84 to AddAtmOperator(),
     85 to AddAtmCashIn(),
@@ -426,6 +421,8 @@ fun questTypeRegistry(
     // road but information is visible usually at the beginning of the marked stretch of way
     93 to AddMaxWeight(), // used by OSRM and other routing engines
     94 to AddMaxHeight(), // OSRM and other routing engines
+    95 to AddMaxPhysicalHeight(arSupportChecker), // same as above, best if it appears right after (if enabled)
+    96 to AddRoadName(),
     97 to AddOneway(),
 
     99 to AddEntrance(),
@@ -453,8 +450,9 @@ fun questTypeRegistry(
 
     109 to AddLevel(), // requires to search for the place on several levels (or at least find a mall map)
 
-    111 to AddSmoking(), // often marked on the entrance, if not, visible/smellable inside
     110 to AddAirConditioning(), // often visible from the outside across the street, if not, visible/feelable inside
+
+    111 to AddSmoking(), // often marked on the entrance, if not, visible/smellable inside
 
     /* ↓ 4.quests that may need to go inside ------------------------------------------------ */
 
@@ -478,7 +476,6 @@ fun questTypeRegistry(
     122 to AddWheelchairAccessToilets(), // used by wheelmap, OsmAnd, Organic Maps
 
     // shop
-    131 to AddAcceptsCards(), // this will often involve going inside and near the till
     123 to AddBikeRepairAvailability(),
     124 to AddSecondHandBicycleAvailability(),
     125 to AddVegetarian(), // menus are often posted externally
@@ -488,6 +485,7 @@ fun questTypeRegistry(
     175 to AddGlutenFree(),
     129 to AddWheelchairAccessBusiness(), // used by wheelmap, OsmAnd, Organic Maps
     130 to AddInternetAccess(), // used by OsmAnd
+    131 to AddAcceptsCards(), // this will often involve going inside and near the till
     132 to AddAcceptsCash(),
 
     // shop and others, but have to go inside
@@ -500,15 +498,16 @@ fun questTypeRegistry(
     /* ↓ 5.quests that are very numerous ---------------------------------------------------- */
 
     // roads
+    134 to AddSidewalk(), // for any pedestrian routers, needs minimal thinking
     135 to AddRoadSurface(), // used by BRouter, OsmAnd, OSRM, graphhopper, HOT map style... - sometimes requires way to be split
     136 to AddTracktype(), // widely used in map rendering - OSM Carto, OsmAnd...
     137 to AddCycleway(getCountryInfoByLocation), // for any cyclist routers (and cyclist maps)
+    138 to AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
 
+    140 to AddRoadWidth(arSupportChecker),
     141 to AddRoadSmoothness(),
     142 to AddPathSmoothness(),
-    134 to AddSidewalk(), // for any pedestrian routers, needs minimal thinking
-
-    96 to AddRoadName(),
+    170 to AddBarrierOpening(arSupportChecker),
 
     // footways
     143 to AddPathSurface(), // used by OSM Carto, BRouter, OsmAnd, OSRM, graphhopper...
@@ -516,8 +515,11 @@ fun questTypeRegistry(
     145 to AddFootwayPartSurface(),
     146 to AddCyclewayPartSurface(),
     147 to AddSidewalkSurface(),
+    148 to AddCyclewayWidth(arSupportChecker), // should be after cycleway segregation
 
-    154 to AddWayLit(),
+    /* should best be after road surface because it excludes unpaved roads, also, need to search
+     * for the sign which is one reason why it is disabled by default */
+    149 to AddMaxSpeed(),
 
     // buildings
     150 to AddBuildingType(),
@@ -526,19 +528,6 @@ fun questTypeRegistry(
 
     153 to AddStepCount(), // can only be gathered when walking along this way, also needs the most effort and least useful
 
-    /* should best be after road surface because it excludes unpaved roads, also, need to search
-    *  for the sign which is one reason why it is disabled by default */
-    149 to AddMaxSpeed(),
-
-    // disabled completely because definition is too fuzzy/broad to be useful and easy to answer,
-    // see https://community.openstreetmap.org/t/shoulder-tag-is-confusing/5185
-    //139 to AddShoulder(), // needs minimal thinking
-    138 to AddLanes(), // abstreet, certainly most routing engines - often requires way to be split
-
-    /* ↓ 6.quests that are not very important to /mn/  -------------------------------------- */
-
-    95 to AddMaxPhysicalHeight(arSupportChecker), // same as above, best if it appears right after (if enabled)
-    148 to AddCyclewayWidth(arSupportChecker), // should be after cycleway segregation
-    140 to AddRoadWidth(arSupportChecker),
-    170 to AddBarrierOpening(arSupportChecker),
+    /* at the very last because it can be difficult to ascertain during day. used by OsmAnd if "Street lighting" is enabled. (Configure map, Map rendering, Details) */
+    154 to AddWayLit(),
 ))
