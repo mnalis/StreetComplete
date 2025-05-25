@@ -27,9 +27,13 @@ abstract class MainViewModel : ViewModel() {
     abstract val urlConfig: StateFlow<ShownUrlConfig?>
     abstract fun applyUrlConfig(config: UrlConfig)
     abstract val geoUri: StateFlow<CameraPosition?>
+    abstract fun consumeGeoUri() // probably only necessary while not fully converted to Compose yet
 
     /* intro */
     abstract var hasShownTutorial: Boolean
+
+    /* HUD */
+    abstract var showZoomButtons: StateFlow<Boolean>
 
     /* messages */
     abstract val messagesCount: StateFlow<Int>
@@ -38,7 +42,7 @@ abstract class MainViewModel : ViewModel() {
 
     /* overlays */
     abstract val selectedOverlay: StateFlow<Overlay?>
-    abstract val overlays: List<Overlay>
+    abstract val overlays: StateFlow<List<Overlay>>
 
     abstract var hasShownOverlaysTutorial: Boolean
 
@@ -73,17 +77,19 @@ abstract class MainViewModel : ViewModel() {
     abstract val isShowingStarsCurrentWeek: StateFlow<Boolean>
     abstract fun toggleShowingCurrentWeek()
 
-    /* map */
     // NOTE: currently filled from MainActivity (communication to compose view), i.e. the source of
     //       truth is actually the MapFragment
     abstract val locationState: MutableStateFlow<LocationState>
     abstract val mapCamera: MutableStateFlow<CameraPosition?>
+    abstract val metersPerDp: MutableStateFlow<Double>
     abstract val displayedPosition: MutableStateFlow<Offset?>
 
     abstract val isFollowingPosition: MutableStateFlow<Boolean>
     abstract val isNavigationMode: MutableStateFlow<Boolean>
 
     abstract val isRecordingTracks: MutableStateFlow<Boolean>
+
+    abstract val userHasMovedCamera: MutableStateFlow<Boolean>
 }
 
 data class ShownUrlConfig(val urlConfig: UrlConfig, val alreadyExists: Boolean)

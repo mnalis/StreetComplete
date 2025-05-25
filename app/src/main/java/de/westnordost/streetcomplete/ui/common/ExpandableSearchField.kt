@@ -2,6 +2,7 @@ package de.westnordost.streetcomplete.ui.common
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.IconButton
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldColors
@@ -12,17 +13,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.text.input.TextFieldValue
 
 /** Expandable text field that can be dismissed and requests focus when it is expanded */
 @Composable
 fun ExpandableSearchField(
     expanded: Boolean,
     onDismiss: () -> Unit,
-    search: TextFieldValue,
-    onSearchChange: (TextFieldValue) -> Unit,
+    search: String,
+    onSearchChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     colors: TextFieldColors = TextFieldDefaults.textFieldColors(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
 ) {
     val focusRequester = remember { FocusRequester() }
 
@@ -36,11 +37,12 @@ fun ExpandableSearchField(
             modifier = modifier.focusRequester(focusRequester),
             leadingIcon = { SearchIcon() },
             trailingIcon = { IconButton(onClick = {
-                if (search.text.isBlank()) onDismiss()
-                else onSearchChange(TextFieldValue())
+                if (search.isBlank()) onDismiss()
+                else onSearchChange("")
             }) { ClearIcon() } },
             singleLine = true,
-            colors = colors
+            colors = colors,
+            keyboardOptions = keyboardOptions,
         )
     }
 }
