@@ -639,8 +639,8 @@ private fun partBeforeLayers(name: String, accessToken: String, rasterSource: St
   "sources": {
     "jawg-streets": {
       "type": "vector",
-      "tiles": ["https://tile.jawg.io/streets-v2+hillshade-v1/{z}/{x}/{y}.pbf?access-token=$accessToken"],
-      "attribution": "<a href='https://www.openstreetmap.org/copyright' title='OpenStreetMap is open data licensed under ODbL' target='_blank' class='osm-attrib'>&copy; OSM contributors</a> | <a href='https://jawg.io?utm_medium=map&utm_source=attribution' title='Tiles Courtesy of Jawg Maps' target='_blank' class='jawg-attrib'>&copy; <b>Jawg</b>Maps</a>",
+      "tiles": ["https://vector.osm.org/shortbread_v1/{z}/{x}/{y}.mvt?access-token=$accessToken"],
+      "attribution": "<a href='https://www.openstreetmap.org/copyright' title='OpenStreetMap is open data licensed under ODbL' target='_blank' class='osm-attrib'>&copy; OSM contributors</a> | <a href='https://vector.osm.org/' title='Tiles Courtesy of OSM Vector shortbread' target='_blank' class='jawg-attrib'>&copy; OSM vector demo</a>",
       "maxzoom": 16
     ${if (rasterSource == null) "}" else """    },
     "raster-source": {
