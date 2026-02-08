@@ -5,17 +5,12 @@ import de.westnordost.streetcomplete.data.quest.AndroidQuest
 import de.westnordost.streetcomplete.data.quest.QuestType
 import de.westnordost.streetcomplete.data.user.achievements.EditTypeAchievement
 
-import de.westnordost.streetcomplete.resources.default_disabled_msg_go_inside_regional_warning
-
 object OsmNoteQuestType : QuestType, AndroidQuest {
     override val icon = R.drawable.quest_notes
     override val title = R.string.quest_noteDiscussion_title
     override val wikiLink = "Notes"
     override val achievements = emptyList<EditTypeAchievement>()
     override val visibilityEditable = true
-
-// /mn/ test try to disable by default
-    override val defaultDisabledMessage = Res.string.default_disabled_msg_go_inside_regional_warning
 
     override fun createForm() = NoteDiscussionForm()
 }
