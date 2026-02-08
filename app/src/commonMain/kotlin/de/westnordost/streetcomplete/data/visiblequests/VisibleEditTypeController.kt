@@ -8,6 +8,8 @@ import de.westnordost.streetcomplete.util.Listeners
 import kotlinx.atomicfu.locks.ReentrantLock
 import kotlinx.atomicfu.locks.withLock
 
+import de.westnordost.streetcomplete.util.logs.Log
+
 /** Controller to set/get edit types as enabled or disabled. This controls only the visibility
  *  of edit types per user preference and does not take anything else into account that may
  *  make an edit type invisible (overlays, ...) */
@@ -53,6 +55,7 @@ class VisibleEditTypeController(
     }
 
     fun setVisibility(editType: EditType, visible: Boolean, presetId: Long? = null) {
+        Log.w("/mn/ setVisibility start", "called with visible=${visible} presetiD=${presetId} editType.visibilityEditable=${editType.visibilityEditable}")
         if (!editType.visibilityEditable) return
         val id = presetId ?: selectedPresetId
         visibleEditsTypesLock.withLock {

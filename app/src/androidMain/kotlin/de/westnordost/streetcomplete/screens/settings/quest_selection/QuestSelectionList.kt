@@ -41,6 +41,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 
+import de.westnordost.streetcomplete.util.logs.Log
+
 /** List of quest types to individually enable or disable or reorder them */
 @Composable
 fun QuestSelectionList(
@@ -121,8 +123,10 @@ fun QuestSelectionList(
                                 onToggleSelection = { isSelected ->
                                     // when enabling quest that is disabled by default, require confirmation
                                     if (isSelected && item.questType.defaultDisabledMessage != null) {
+                                        Log.w("/mn/", "Column enabling; isSelected is ${isSelected}")
                                         showEnableQuestDialog = item.questType
                                     } else {
+                                        Log.w("/mn/", "Column disabling; isSelected is ${isSelected}")
                                         onSelect(item.questType, isSelected)
                                     }
                                 },
