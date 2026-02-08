@@ -10,7 +10,7 @@ object OsmNoteQuestType : QuestType, AndroidQuest {
     override val title = R.string.quest_noteDiscussion_title
     override val wikiLink = "Notes"
     override val achievements = emptyList<EditTypeAchievement>()
-    override val visibilityEditable = false
+    override val visibilityEditable = true
 
     override fun createForm() = NoteDiscussionForm()
 }
