@@ -283,7 +283,7 @@ private const val BACKUP_PRESETS_QUEST_SETTINGS = "quest_settings"
 
 private const val TAG = "DataManagementSettings"
 
-const val LAST_KNOWN_DB_VERSION = 19L
+const val LAST_KNOWN_DB_VERSION = 20L
 
 val renamedQuests = mapOf(
     "ExternalQuest" to CustomQuest::class.simpleName!!,
@@ -299,7 +299,10 @@ private fun showRasterUrlDialog(context: Context, prefs: SharedPreferences) {
         setText(currentUrl)
         doAfterTextChanged {
             val t = it.toString()
-            d?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = t.contains("{x}") && t.contains("{y}") && t.contains("{z}")
+            d?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled =
+                (t.contains("{x}") && t.contains("{y}") && (t.contains("{z}") || t.contains("{zoom}")))
+                    || t.contains("{bbox-epsg-3857}")
+                    || (t.contains("{bbox}") && t.contains("{proj}"))
         }
     }
     val hideLabelsSwitch = SwitchCompat(context).apply {

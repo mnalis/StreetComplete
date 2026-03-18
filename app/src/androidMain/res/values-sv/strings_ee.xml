@@ -84,7 +84,6 @@
     <string name="time_limited_to">Till</string>
     <string name="restriction_overlay_exceptions">Undantag: %s</string>
     <string name="quest_monitor_found">%d uppdrag i närheten, närmast:</string>
-    <string name="quest_artwork_title">Vilken typ av konstverk är detta?</string>
     <string name="quest_mapType_topo_description">En karta med topografisk bakgrund för t.ex. en historisk karta eller vandringskarta. Kartan innehåller konturlinjer.</string>
     <string name="quest_parking_capacity_disabled_title">Hur många parkeringsplatser för handikappade finns här?</string>
     <string name="quest_parking_capacity_disabled_answer_yes">Det finns, men oklart antal</string>

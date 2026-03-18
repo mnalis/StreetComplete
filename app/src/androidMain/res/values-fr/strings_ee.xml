@@ -609,7 +609,7 @@
     <string name="quest_postOffice_bureau">Bureau de poste officiel</string>
     <string name="quest_postOffice_postAnnex">Bureau de poste privé à services limités</string>
     <string name="quest_postOffice_postPartner">Point relais</string>
-    <string name="quest_postOffice_title">Quel est le type de bureau de poste ?</string>
+    <string name="quest_postOffice_title">Quel est le type de bureau de poste ?</string>
     <string name="pref_custom_geometry_title">Affiche les éléments à partir d\'un fichier GeoJson</string>
     <string name="pref_custom_geometry_info">Si vous souhaitez afficher du texte, celui-ci doit être contenu dans la propriété « name »</string>
     <string name="file_provide">Sélectionner un fichier</string>
