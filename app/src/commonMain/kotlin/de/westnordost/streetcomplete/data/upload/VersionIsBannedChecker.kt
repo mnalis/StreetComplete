@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.expectSuccess
 import io.ktor.client.request.get
+import de.westnordost.streetcomplete.util.logs.Log
 
 /** Asks remote server if this version of the app is banned */
 class VersionIsBannedChecker(
@@ -25,6 +26,7 @@ class VersionIsBannedChecker(
         } catch (e: Exception) {
             // if there is an io exception, never mind then...! (The unreachability of the above
             // internet address should not lead to this app being unusable!)
+            Log.w("VersionIsBannedChecker", "Failed to fetch banned versions from '{}'. userAgent='{}'. Falling back to UnknownIfBanned.", url, userAgent, e)
             return BannedInfo.UnknownIfBanned
         }
         return BannedInfo.IsNotBanned
